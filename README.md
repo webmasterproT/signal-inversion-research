@@ -8,6 +8,16 @@ Every result here is reproducible. You don't need a science degree. You don't ne
 
 ---
 
+## Links
+
+| | URL |
+|---|---|
+| **GitHub Pages** | https://webmasterprot.github.io/signal-inversion-research/ |
+| **GitHub repo** | https://github.com/webmasterproT/signal-inversion-research |
+| **GitLab mirror** | https://gitlab.com/tiationist/signal-inversion-research |
+
+---
+
 ## Quick Start
 
 ### Step 1: Get the files
@@ -17,7 +27,7 @@ Click the green "Code" button on this page → "Download ZIP" → unzip it somew
 
 **Option B — Git clone (if you know what that means)**
 ```
-git clone https://github.com/omxus/signal-inversion-research.git
+git clone https://github.com/webmasterproT/signal-inversion-research.git
 cd signal-inversion-research
 ```
 

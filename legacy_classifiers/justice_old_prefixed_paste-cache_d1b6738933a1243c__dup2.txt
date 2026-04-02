@@ -1,0 +1,89 @@
+Bash(CLOUDFLARE_API_TOKEN=F5MxGL8oWUiZ48M6DEeG4sa01baCilfgzyVZXEV6
+      CLOUDFLARE_ACCOUNT_ID=cec46487be2effdd91ebc2122d9cc6a1 npx wrangler deploy 2>&1)
+  ⎿   ⛅️ wrangler 4.72.0                       
+     ───────────────────
+     Total Upload: 635.64 KiB / gzip: 131.96 KiB
+     … +10 lines (ctrl+o to expand)
+
+⏺ Deployed. Now let me also look at the home.tsx to ensure it properly uses inline icons:
+
+⏺ Read(src/views/home.tsx)
+  ⎿  Read 50 lines
+
+⏺ Read(src/views/icons.tsx)
+  ⎿  Read 115 lines
+
+⏺ Let me check if there are any TypeScript issues:
+
+⏺ Bash(npx tsc --noEmit 2>&1)
+  ⎿  Error: Exit code 2
+     src/index.tsx(31,34): error TS2345: Argument of type '{ root: string; }' is not assignable to parameter of type 
+     'Omit<ServeStaticOptions<Env>, "namespace">'.
+       Property 'manifest' is missing in type '{ root: string; }' but required in type 'Omit<ServeStaticOptions<Env>, 
+     "namespace">'.
+
+⏺ Read(src/index.tsx)
+  ⎿  Read 278 lines
+
+⏺ We're not using static files anyway (Tailwind is from CDN), so let me remove that unused middleware:
+
+⏺ Update(src/index.tsx)
+  ⎿  Removed 1 line                                                                                               
+       8   */
+       9  
+      10  import { Hono } from 'hono'
+      11 -import { serveStatic } from 'hono/cloudflare-workers'                                                   
+      11  
+      12  import { getSession, createSession, destroySession } from './lib/session'
+      13  import { deriveIdentity, validatePassphrase } from './lib/identity'
+
+⏺ Update(src/index.tsx)
+  ⎿  Removed 3 lines                                                                                              
+      26  
+      27  const app = new Hono<{ Bindings: Env }>()
+      28  
+      29 -// Static files                                                                                         
+      30 -app.use('/static/*', serveStatic({ root: './' }))                                                       
+      31 -                                                                                                        
+      29  // ─────────────────────────────────────────────────────────────────────────────
+      30  // HOME
+      31  // ─────────────────────────────────────────────────────────────────────────────
+
+⏺ Bash(npx tsc --noEmit 2>&1)
+  ⎿  (No content)
+
+⏺ Bash(CLOUDFLARE_API_TOKEN=F5MxGL8oWUiZ48M6DEeG4sa01baCilfgzyVZXEV6
+      CLOUDFLARE_ACCOUNT_ID=cec46487be2effdd91ebc2122d9cc6a1 npx wrangler deploy 2>&1)
+  ⎿   ⛅️ wrangler 4.72.0                       
+     ───────────────────
+     Total Upload: 626.10 KiB / gzip: 129.29 KiB
+     … +10 lines (ctrl+o to expand)
+
+⏺ The bselr site is now deployed at https://bselr.vexastor.workers.dev with the minimal Gumtree-style design matching the original.
+
+  Changes made:
+
+  1. layout.tsx - Compact header with:
+    - bg-[#fafafa] soft background (matching original)
+    - h-14 height (compact)
+    - Colorful teal post.svg plus icon
+    - Account silhouette icon (matching original)
+    - Minimal footer with links
+  2. home.tsx - Already had:
+    - Search bar with #f5f5f5 background
+    - 7-column category grid with stroke icons
+    - "Post, Chat, Done" workflow section
+    - Featured listings grid
+  3. auth.tsx - Simplified:
+    - Clean white card with rounded corners
+    - Simple passphrase input with live preview
+    - Minimal status messages
+    - "Same passphrase works on all OMXUS apps" tagline
+  4. post.tsx - Simplified:
+    - Clean form layout
+    - Consistent styling with auth page
+    - Gray-800 submit button
+
+  Bundle size: 129KB gzipped (vs 15.6MB Next.js)
+
+  Design: Light, white, minimal - matching the Gumtree aesthetic you wanted.

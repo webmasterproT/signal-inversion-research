@@ -1,0 +1,9 @@
+method,accuracy,source
+Human lie detection,47,Bond & DePaulo 2006
+Human overall,54,Bond & DePaulo 2006
+Police officers,55,Bond & DePaulo 2006
+Customs officials,55,Bond & DePaulo 2006
+Judges,54,Bond & DePaulo 2006
+Algorithm disfluency only,60.3,Current Study 1
+Algorithm multi-variable,63.5,Current Study 1
+Algorithm 3-predictor,78.5,Rizzelli et al 2021

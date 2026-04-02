@@ -1,0 +1,4 @@
+ancestry,eng_college_pct,non_eng_college_pct,difference_pp,n_english,n_other,t_statistic,p_value
+Hispanic_Latino,33.4%,17.4%,+16.0,6976,12952,26.09,< .001
+Asian,70.8%,55.6%,+15.2,3304,4853,14.02,< .001
+European,52.6%,40.7%,+11.9,12681,2278,10.49,< .001

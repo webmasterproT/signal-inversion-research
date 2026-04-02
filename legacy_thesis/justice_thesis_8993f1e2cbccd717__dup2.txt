@@ -1,0 +1,106 @@
+ Yes, and it's actually better than what bselr currently has. Here's why:
+
+  Current bselr auth: passphrase → PBKDF2 (server-side) → address
+  core.js approach: seed phrase → BIP-39/32 (client-side) → real ETH private key + address
+
+  The upgrade:
+  - Key derivation happens in the browser — the seed phrase never hits the server
+  - Users get a real ETH wallet — same address works on-chain with HER/OMXUS contracts
+  - One identity everywhere — bselr, vex, voteaussie, wallet, all the same address
+  - The server only ever sees the address, never the secret
+
+  The flow would be:
+
+  1. User enters seed phrase (or name + dob + words)
+  2. core.js derives address client-side
+  3. Client sends only the address to server
+  4. Server creates/looks up session for that address
+  5. For transactions (posting ads, etc), signing happens client-side too
+
+  Want me to wire it in? I'd:
+  1. Copy core.js + secp256k1.js into bselr-hono's public/
+  2. Update the login page to load core.js and derive client-side
+  3. Simplify the server auth to just receive the address (no more PBKDF2)
+  4. Keep the session cookie logic as-is
+
+❯ it has to be easy. safe. offline if users prefer.... is that possible                                                   
+  ⎿  Async hook Stop completed
+  ⎿  Async hook Stop completed
+
+⏺ Yes. core.js was built exactly for this. Look at what it already has:
+
+  - Zero dependencies — just core.js + secp256k1.js (both pure JS)
+  - Zero network needed for identity — derivation is pure math, works offline
+  - Zero server trust — seed never leaves the device
+
+  The flow for a user:
+
+  Enter your name:        tia
+  Enter your birthday:    1990-03-14
+  Enter your secret words: purple elephant dancing moonlight
+
+  → Your address: 0x7a3B...  (instant, no network needed)
+
+  That's it. Same words = same address = same identity. Forever. Offline. On any device.
+
+  Safety model:
+  - Seed phrase IS the key — if you know it, you're in. If you lose it, you're out. No recovery, no reset, no company
+  holding your data
+  - Private key exists only in browser memory — never stored, never sent
+  - Server only stores the public address + display name
+  - Session cookie for convenience, but you can re-derive anytime
+
+  Offline mode:
+  - Identity creation — works offline
+  - Browsing cached listings — could work offline
+  - Posting/transacting — needs network (has to hit the server/chain)
+  - BLE mesh vouching — works peer-to-peer, no internet needed
+
+  The only question is: do you want the 3-field OMXUS identity (name + dob + words) or just a single passphrase/seed
+  input? The 3-field version is more memorable for regular people. The single mnemonic is more standard crypto.
+
+❯ what about with webrtc. we js added                                                                                     
+  ⎿  Async hook Stop completed
+  ⎿  Async hook Stop completed
+
+⏺ WebRTC + core.js = fully peer-to-peer auth without any server.
+
+  Think about it:
+
+  User A (verified) opens bselr on their phone
+  User B (new) opens bselr on their phone nearby
+
+  1. B creates identity offline (name + dob + words → address)
+  2. A and B connect via WebRTC (no server needed)
+  3. A vouches for B over the direct connection
+  4. B now has a signed attestation from A
+  5. When either goes online later, the vouch hits the chain
+
+  The pieces already exist in core.js:
+  - meshBuildVouchAttestation() — creates a signed vouch
+  - meshVerifyVouchAttestation() — verifies it
+  - meshEncodePacket() / meshDecodePacket() — framing
+  - signTransaction() — for when you eventually hit the chain
+
+  Right now it's all wired for BLE. But the packet format doesn't care about transport — BLE, WebRTC data channel, even QR
+   codes. Same bytes.
+
+  So the stack would be:
+
+  ┌───────────┬──────────────────────────────────────────────────────┐
+  │   Layer   │                         What                         │
+  ├───────────┼──────────────────────────────────────────────────────┤
+  │ Identity  │ core.js — offline, pure math                         │
+  ├───────────┼──────────────────────────────────────────────────────┤
+  │ Transport │ WebRTC data channel (or BLE, or both)                │
+  ├───────────┼──────────────────────────────────────────────────────┤
+  │ Auth      │ Signed challenge — "prove you hold this key"         │
+  ├───────────┼──────────────────────────────────────────────────────┤
+  │ Vouching  │ Peer-to-peer attestations, batched to chain later    │
+  ├───────────┼──────────────────────────────────────────────────────┤
+  │ Server    │ Optional — just stores listings and relays signaling │
+  └───────────┴──────────────────────────────────────────────────────┘
+
+  The server becomes a convenience layer, not a trust layer. Users could literally trade on bselr at a market with no
+  internet — WebRTC works on local wifi, and identities are offline.
+

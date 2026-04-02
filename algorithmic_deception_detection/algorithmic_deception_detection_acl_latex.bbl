@@ -1,0 +1,229 @@
+\begin{thebibliography}{45}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Allcott and Gentzkow(2017)}]{allcott2017social}
+Hunt Allcott and Matthew Gentzkow. 2017.
+\newblock Social media and fake news in the 2016 election.
+\newblock \emph{Journal of economic perspectives}, 31(2):211--236.
+
+\bibitem[{Banerjee et~al.(2023)Banerjee, Ghosh, and Hazra}]{banerjee2023experience}
+Priyodorshi Banerjee, Sanmitra Ghosh, and Sanchaita Hazra. 2023.
+\newblock Experience, learning and the detection of deception.
+\newblock \emph{Journal of Economic Criminology}, page 100010.
+
+\bibitem[{Belot et~al.(2012)Belot, Bhaskar, and Van De~Ven}]{belot2012can}
+Mich{\`e}le Belot, V~Bhaskar, and Jeroen Van De~Ven. 2012.
+\newblock Can observers predict trustworthiness?
+\newblock \emph{Review of Economics and Statistics}, 94(1):246--259.
+
+\bibitem[{Bond and DePaulo(2006)}]{Bond2006AccuracyOD}
+Charles F.~Jr. Bond and Bella DePaulo. 2006.
+\newblock Accuracy of deception judgments.
+\newblock \emph{Personality and Social Psychology Review}, 10:214 -- 234.
+
+\bibitem[{Brown et~al.(2020)Brown, Mann, Ryder, Subbiah, Kaplan, Dhariwal, Neelakantan, Shyam, Sastry, Askell, Agarwal, Herbert-Voss, Krueger, Henighan, Child, Ramesh, Ziegler, Wu, Winter, Hesse, Chen, Sigler, Litwin, Gray, Chess, Clark, Berner, McCandlish, Radford, Sutskever, and Amodei}]{Brown2020LanguageMA}
+Tom~B. Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared Kaplan, Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, Sandhini Agarwal, Ariel Herbert-Voss, Gretchen Krueger, T.~J. Henighan, Rewon Child, Aditya Ramesh, Daniel~M. Ziegler, Jeff Wu, Clemens Winter, Christopher Hesse, Mark Chen, Eric Sigler, Mateusz Litwin, Scott Gray, Benjamin Chess, Jack Clark, Christopher Berner, Sam McCandlish, Alec Radford, Ilya Sutskever, and Dario Amodei. 2020.
+\newblock \href {https://api.semanticscholar.org/CorpusID:218971783} {Language models are few-shot learners}.
+\newblock \emph{ArXiv}, abs/2005.14165.
+
+\bibitem[{Carson(2010)}]{carson2010lying}
+Thomas~L Carson. 2010.
+\newblock \emph{Lying and deception: Theory and practice}.
+\newblock OUP Oxford.
+
+\bibitem[{Darai and Gr{\"a}tz(2013)}]{darai2013attraction}
+Donja Darai and Silvia Gr{\"a}tz. 2013.
+\newblock Attraction and cooperative behavior.
+\newblock \emph{University of Zurich Department of Economics Working Paper}, (82).
+
+\bibitem[{DePaulo et~al.(2003)DePaulo, Lindsay, Malone, Muhlenbruck, Charlton, and Cooper}]{depaulo2003cues}
+Bella~M DePaulo, James~J Lindsay, Brian~E Malone, Laura Muhlenbruck, Kelly Charlton, and Harris Cooper. 2003.
+\newblock Cues to deception.
+\newblock \emph{Psychological bulletin}, 129(1):74.
+
+\bibitem[{Devlin et~al.(2019)Devlin, Chang, Lee, and Toutanova}]{DBLP:conf/naacl/DevlinCLT19}
+Jacob Devlin, Ming{-}Wei Chang, Kenton Lee, and Kristina Toutanova. 2019.
+\newblock \href {https://doi.org/10.18653/V1/N19-1423} {{BERT:} pre-training of deep bidirectional transformers for language understanding}.
+\newblock In \emph{{NAACL-HLT}}.
+
+\bibitem[{Ekman(1997)}]{ekman1997deception}
+Paul Ekman. 1997.
+\newblock Deception, lying, and demeanor.
+\newblock \emph{States of mind: American and post-Soviet perspectives on contemporary issues in psychology}, pages 93--105.
+
+\bibitem[{Fleiss and Cohen(1973)}]{fleiss1973equivalence}
+Joseph~L Fleiss and Jacob Cohen. 1973.
+\newblock The equivalence of weighted kappa and the intraclass correlation coefficient as measures of reliability.
+\newblock \emph{Educational and psychological measurement}, 33(3):613--619.
+
+\bibitem[{Fornaciari and Poesio(2013)}]{fornaciari2013automatic}
+Tommaso Fornaciari and Massimo Poesio. 2013.
+\newblock Automatic deception detection in italian court cases.
+\newblock \emph{Artificial intelligence and law}, 21:303--340.
+
+\bibitem[{G{\^i}rlea et~al.(2016)G{\^i}rlea, Girju, and Amir}]{Grlea2016PsycholinguisticFF}
+Codruta G{\^i}rlea, Roxana Girju, and Eyal Amir. 2016.
+\newblock \href {https://api.semanticscholar.org/CorpusID:12091113} {Psycholinguistic features for deceptive role detection in werewolf}.
+\newblock In \emph{North American Chapter of the Association for Computational Linguistics}.
+
+\bibitem[{Gneezy(2005)}]{gneezy2005deception}
+Uri Gneezy. 2005.
+\newblock Deception: The role of consequences.
+\newblock \emph{American Economic Review}, 95(1):384--394.
+
+\bibitem[{Gonzalez-Billandon et~al.(2019)Gonzalez-Billandon, Aroyo, Tonelli, Pasquali, Sciutti, Gori, Sandini, and Rea}]{gonzalez2019can}
+Jonas Gonzalez-Billandon, Alexander~M Aroyo, Alessia Tonelli, Dario Pasquali, Alessandra Sciutti, Monica Gori, Giulio Sandini, and Francesco Rea. 2019.
+\newblock Can a robot catch you lying? a machine learning system to detect lies during interactions.
+\newblock \emph{Frontiers in Robotics and AI}, 6:64.
+
+\bibitem[{Groh et~al.(2022)Groh, Sankaranarayanan, Lippman, and Picard}]{groh2022human}
+Matthew Groh, Aruna Sankaranarayanan, Andrew Lippman, and Rosalind Picard. 2022.
+\newblock Human detection of political deepfakes across transcripts, audio, and video.
+\newblock \emph{arXiv preprint arXiv:2202.12883}.
+
+\bibitem[{Ho et~al.(2016)Ho, Hancock, Booth, and Liu}]{ho2016computer}
+Shuyuan~Mary Ho, Jeffrey~T Hancock, Cheryl Booth, and Xiuwen Liu. 2016.
+\newblock Computer-mediated deception: Strategies revealed by language-action cues in spontaneous communication.
+\newblock \emph{Journal of Management Information Systems}, 33(2):393--420.
+
+\bibitem[{Koh et~al.(2020)Koh, Nguyen, Tang, Mussmann, Pierson, Kim, and Liang}]{DBLP:conf/icml/KohNTMPKL20}
+Pang~Wei Koh, Thao Nguyen, Yew~Siang Tang, Stephen Mussmann, Emma Pierson, Been Kim, and Percy Liang. 2020.
+\newblock \href {http://proceedings.mlr.press/v119/koh20a.html} {Concept bottleneck models}.
+\newblock In \emph{ICML}.
+
+\bibitem[{Kojima et~al.(2022)Kojima, Gu, Reid, Matsuo, and Iwasawa}]{Kojima2022LargeLM}
+Takeshi Kojima, Shixiang~Shane Gu, Machel Reid, Yutaka Matsuo, and Yusuke Iwasawa. 2022.
+\newblock \href {https://api.semanticscholar.org/CorpusID:249017743} {Large language models are zero-shot reasoners}.
+\newblock \emph{ArXiv}, abs/2205.11916.
+
+\bibitem[{Kumar et~al.(2017)Kumar, Cheng, Leskovec, and Subrahmanian}]{kumar2017army}
+Srijan Kumar, Justin Cheng, Jure Leskovec, and VS~Subrahmanian. 2017.
+\newblock An army of me: Sockpuppets in online discussion communities.
+\newblock In \emph{Proceedings of the 26th international conference on world wide web}, pages 857--866.
+
+\bibitem[{Lazarus et~al.(2022)Lazarus, Button, and Kapend}]{lazarus2022exploring}
+Suleman Lazarus, Mark Button, and Richard Kapend. 2022.
+\newblock Exploring the value of feminist theory in understanding digital crimes: Gender and cybercrime types.
+\newblock \emph{The Howard Journal of Crime and Justice}, 61(3):381--398.
+
+\bibitem[{Madaan et~al.(2022)Madaan, Tandon, Clark, and Yang}]{Madaan2022MemoryassistedPE}
+Aman Madaan, Niket Tandon, Peter Clark, and Yiming Yang. 2022.
+\newblock \href {https://api.semanticscholar.org/CorpusID:246016194} {Memory-assisted prompt editing to improve gpt-3 after deployment}.
+\newblock \emph{ArXiv}, abs/2201.06009.
+
+\bibitem[{Majumder et~al.(2021)Majumder, Camburu, Lukasiewicz, and McAuley}]{Majumder2021KnowledgeGroundedSV}
+Bodhisattwa~Prasad Majumder, Oana-Maria Camburu, Thomas Lukasiewicz, and Julian McAuley. 2021.
+\newblock \href {https://api.semanticscholar.org/CorpusID:248963782} {Knowledge-grounded self-rationalization via extractive and natural language explanations}.
+\newblock In \emph{International Conference on Machine Learning}.
+
+\bibitem[{Meservy et~al.(2005)Meservy, Jensen, Kruse, Burgoon, Nunamaker, Twitchell, Tsechpenakis, and Metaxas}]{meservy2005deception}
+Thomas~O Meservy, Matthew~L Jensen, John Kruse, Judee~K Burgoon, Jay~F Nunamaker, Douglas~P Twitchell, Gabriel Tsechpenakis, and Dimitris~N Metaxas. 2005.
+\newblock Deception detection through automatic, unobtrusive analysis of nonverbal behavior.
+\newblock \emph{IEEE Intelligent Systems}, 20(5):36--43.
+
+\bibitem[{Moore and Healy(2008)}]{moore2008trouble}
+Don~A Moore and Paul~J Healy. 2008.
+\newblock The trouble with overconfidence.
+\newblock \emph{Psychological review}, 115(2):502.
+
+\bibitem[{Ockenfels and Selten(2000)}]{ockenfels2000experiment}
+Axel Ockenfels and Reinhard Selten. 2000.
+\newblock An experiment on the hypothesis of involuntary truth-signalling in bargaining.
+\newblock \emph{Games and Economic Behavior}, 33(1):90--116.
+
+\bibitem[{OpenAI(2023)}]{OpenAI2023GPT4TR}
+OpenAI. 2023.
+\newblock \href {https://api.semanticscholar.org/CorpusID:257532815} {Gpt-4 technical report}.
+\newblock \emph{ArXiv}, abs/2303.08774.
+
+\bibitem[{Ott et~al.(2013)Ott, Cardie, and Hancock}]{ott2013negative}
+Myle Ott, Claire Cardie, and Jeffrey~T Hancock. 2013.
+\newblock Negative deceptive opinion spam.
+\newblock In \emph{Proceedings of the 2013 conference of the north american chapter of the association for computational linguistics: human language technologies}, pages 497--501.
+
+\bibitem[{Park et~al.(2023)Park, O'Brien, Cai, Morris, Liang, and Bernstein}]{Park2023GenerativeAI}
+Joon~Sung Park, Joseph~C. O'Brien, Carrie~J. Cai, Meredith~Ringel Morris, Percy Liang, and Michael~S. Bernstein. 2023.
+\newblock \href {https://api.semanticscholar.org/CorpusID:258040990} {Generative agents: Interactive simulacra of human behavior}.
+\newblock \emph{ArXiv}, abs/2304.03442.
+
+\bibitem[{Peskov and Cheng(2020)}]{peskov2020takes}
+Denis Peskov and Benny Cheng. 2020.
+\newblock It takes two to lie: One to lie, and one to listen.
+\newblock In \emph{Proceedings of ACL}.
+
+\bibitem[{Potthast et~al.(2017)Potthast, Kiesel, Reinartz, Bevendorff, and Stein}]{potthast2017stylometric}
+Martin Potthast, Johannes Kiesel, Kevin Reinartz, Janek Bevendorff, and Benno Stein. 2017.
+\newblock A stylometric inquiry into hyperpartisan and fake news.
+\newblock \emph{arXiv preprint arXiv:1702.05638}.
+
+\bibitem[{Radford et~al.(2023)Radford, Kim, Xu, Brockman, McLeavey, and Sutskever}]{radford2023robust}
+Alec Radford, Jong~Wook Kim, Tao Xu, Greg Brockman, Christine McLeavey, and Ilya Sutskever. 2023.
+\newblock Robust speech recognition via large-scale weak supervision.
+\newblock In \emph{International Conference on Machine Learning}, pages 28492--28518. PMLR.
+
+\bibitem[{Rapoza(2021)}]{Rapoza_2021}
+Kenneth Rapoza. 2021.
+\newblock \href {https://www.forbes.com/sites/kenrapoza/2017/02/26/can-fake-news-impact-the-stock-market/?sh=13be87f82fac} {Can “fake news” impact the stock market?}
+
+\bibitem[{Serra-Garcia and Gneezy(2021)}]{serra2021mistakes}
+Marta Serra-Garcia and Uri Gneezy. 2021.
+\newblock Mistakes, overconfidence, and the effect of sharing on detecting lies.
+\newblock \emph{American Economic Review}, 111(10):3160--3183.
+
+\bibitem[{Shu et~al.(2017)Shu, Sliva, Wang, Tang, and Liu}]{shu2017fake}
+Kai Shu, Amy Sliva, Suhang Wang, Jiliang Tang, and Huan Liu. 2017.
+\newblock Fake news detection on social media: A data mining perspective.
+\newblock \emph{ACM SIGKDD explorations newsletter}, 19(1):22--36.
+
+\bibitem[{Siegler(1966)}]{siegler1966lying}
+Frederick~A Siegler. 1966.
+\newblock Lying.
+\newblock \emph{American Philosophical Quarterly}, 3(2):128--136.
+
+\bibitem[{Soldner et~al.(2019)Soldner, P{\'e}rez-Rosas, and Mihalcea}]{soldner2019box}
+Felix Soldner, Ver{\'o}nica P{\'e}rez-Rosas, and Rada Mihalcea. 2019.
+\newblock Box of lies: Multimodal deception detection in dialogues.
+\newblock In \emph{Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)}, pages 1768--1777.
+
+\bibitem[{Tafjord et~al.(2022)Tafjord, Dalvi, and Clark}]{Tafjord2022EntailerAQ}
+Oyvind Tafjord, Bhavana Dalvi, and Peter Clark. 2022.
+\newblock \href {https://api.semanticscholar.org/CorpusID:253097865} {Entailer: Answering questions with faithful and truthful chains of reasoning}.
+\newblock In \emph{Conference on Empirical Methods in Natural Language Processing}.
+
+\bibitem[{Tetterton and Warren(2005)}]{tetterton2005using}
+Veronica~S Tetterton and Amye~R Warren. 2005.
+\newblock Using witness confidence can impair the ability to detect deception.
+\newblock \emph{Criminal Justice and Behavior}, 32(4):433--451.
+
+\bibitem[{Touvron et~al.(2023)Touvron, Martin, Stone, Albert, Almahairi, Babaei, Bashlykov, Batra, Bhargava, Bhosale, Bikel, Blecher, Ferrer, Chen, Cucurull, Esiobu, Fernandes, Fu, Fu, Fuller, Gao, Goswami, Goyal, Hartshorn, Hosseini, Hou, Inan, Kardas, Kerkez, Khabsa, Kloumann, Korenev, Koura, Lachaux, Lavril, Lee, Liskovich, Lu, Mao, Martinet, Mihaylov, Mishra, Molybog, Nie, Poulton, Reizenstein, Rungta, Saladi, Schelten, Silva, Smith, Subramanian, Tan, Tang, Taylor, Williams, Kuan, Xu, Yan, Zarov, Zhang, Fan, Kambadur, Narang, Rodriguez, Stojnic, Edunov, and Scialom}]{Touvron2023Llama2O}
+Hugo Touvron, Louis Martin, Kevin~R. Stone, Peter Albert, Amjad Almahairi, Yasmine Babaei, Nikolay Bashlykov, Soumya Batra, Prajjwal Bhargava, Shruti Bhosale, Daniel~M. Bikel, Lukas Blecher, Cristian~Cant{\'o}n Ferrer, Moya Chen, Guillem Cucurull, David Esiobu, Jude Fernandes, Jeremy Fu, Wenyin Fu, Brian Fuller, Cynthia Gao, Vedanuj Goswami, Naman Goyal, Anthony~S. Hartshorn, Saghar Hosseini, Rui Hou, Hakan Inan, Marcin Kardas, Viktor Kerkez, Madian Khabsa, Isabel~M. Kloumann, A.~V. Korenev, Punit~Singh Koura, Marie-Anne Lachaux, Thibaut Lavril, Jenya Lee, Diana Liskovich, Yinghai Lu, Yuning Mao, Xavier Martinet, Todor Mihaylov, Pushkar Mishra, Igor Molybog, Yixin Nie, Andrew Poulton, Jeremy Reizenstein, Rashi Rungta, Kalyan Saladi, Alan Schelten, Ruan Silva, Eric~Michael Smith, R.~Subramanian, Xia Tan, Binh Tang, Ross Taylor, Adina Williams, Jian~Xiang Kuan, Puxin Xu, Zhengxu Yan, Iliyan Zarov, Yuchen Zhang, Angela Fan, Melanie Kambadur, Sharan Narang, Aurelien Rodriguez, Robert Stojnic, Sergey Edunov, and
+  Thomas Scialom. 2023.
+\newblock \href {https://api.semanticscholar.org/CorpusID:259950998} {Llama 2: Open foundation and fine-tuned chat models}.
+\newblock \emph{ArXiv}, abs/2307.09288.
+
+\bibitem[{Van Der~Zee et~al.(2022)Van Der~Zee, Poppe, Havrileck, and Baillon}]{van2022personal}
+Sophie Van Der~Zee, Ronald Poppe, Alice Havrileck, and Aur{\'e}lien Baillon. 2022.
+\newblock A personal model of trumpery: linguistic deception detection in a real-world high-stakes setting.
+\newblock \emph{Psychological science}, 33(1):3--17.
+
+\bibitem[{Wang et~al.(2010)Wang, Spezio, and Camerer}]{wang2010pinocchio}
+Joseph Tao-yi Wang, Michael Spezio, and Colin~F Camerer. 2010.
+\newblock Pinocchio's pupil: using eyetracking and pupil dilation to understand truth telling and deception in sender-receiver games.
+\newblock \emph{American economic review}, 100(3):984--1007.
+
+\bibitem[{Wang et~al.(2023)Wang, Wei, Schuurmans, Le, Chi, Narang, Chowdhery, and Zhou}]{DBLP:conf/iclr/0002WSLCNCZ23}
+Xuezhi Wang, Jason Wei, Dale Schuurmans, Quoc~V. Le, Ed~H. Chi, Sharan Narang, Aakanksha Chowdhery, and Denny Zhou. 2023.
+\newblock \href {https://openreview.net/pdf?id=1PL1NIMMrw} {Self-consistency improves chain of thought reasoning in language models}.
+\newblock In \emph{ICLR}. OpenReview.net.
+
+\bibitem[{Wittenberg et~al.(2021)Wittenberg, Tappin, Berinsky, and Rand}]{wittenberg2021minimal}
+Chloe Wittenberg, Ben~M Tappin, Adam~J Berinsky, and David~G Rand. 2021.
+\newblock The (minimal) persuasive advantage of political video over text.
+\newblock \emph{Proceedings of the National Academy of Sciences}, 118(47):e2114388118.
+
+\bibitem[{Zuckerman et~al.(1981)Zuckerman, DePaulo, and Rosenthal}]{zuckerman1981verbal}
+Miron Zuckerman, Bella~M DePaulo, and Robert Rosenthal. 1981.
+\newblock Verbal and nonverbal communication of deception.
+\newblock In \emph{Advances in experimental social psychology}, volume~14, pages 1--59. Elsevier.
+
+\end{thebibliography}

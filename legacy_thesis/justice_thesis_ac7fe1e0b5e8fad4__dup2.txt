@@ -1,0 +1,136 @@
+▗ ▗   ▖ ▖  Claude Code v2.1.73
+           Opus 4.6 · Claude Max
+  ▘▘ ▝▝    ~/.openclaw/workspace/BUILDING_THE_SYSTEM/contracts
+
+╭────────────────────────────────────────────────────────────────────╮
+│ Plan to implement                                                  │
+│                                                                    │
+│ Values, Reason & Goals Audit — Plan                                │
+│                                                                    │
+│ Context                                                            │
+│                                                                    │
+│ We've built a wiki homepage (12 propositions), a bullshit jobs     │
+│ comic (16 panels), and have 33 research papers backing the 12      │
+│ OMXUS goals. The conversation surfaced the Islamic "sweat test" —  │
+│ honest work has dignity, fake work destroys it — and the question: │
+│  does everything we've built actually hold together under          │
+│ scrutiny?                                                          │
+│                                                                    │
+│ Three exploration agents audited the full landscape. They found    │
+│ real problems.                                                     │
+│                                                                    │
+│ ---                                                                │
+│ Issues Found                                                       │
+│                                                                    │
+│ 1. WRONG PAPER LINKED (wiki homepage)                              │
+│                                                                    │
+│ Proposition 6: "Every school is play, mastery, curiosity" → links  │
+│ to 05-two-monkey-theory                                            │
+│                                                                    │
+│ Paper 05 is about environmental determination and enrichment — the │
+│  "two monkey" experiment showing environment shapes behavior. It's │
+│  NOT about Montessori or education pedagogy. The context line says │
+│  "Montessori graduates outperform on every metric" but the linked  │
+│ paper doesn't discuss Montessori.                                  │
+│                                                                    │
+│ Fix: Change the context line to match what paper 05 actually       │
+│ argues — environmental enrichment determines outcomes, not         │
+│ genetics. Or find a better paper link if one exists.               │
+│                                                                    │
+│ Proposed new context: "The environment shapes the animal. Two      │
+│ identical monkeys. Different cages. Different outcomes."           │
+│                                                                    │
+│ 2. COMIC SOLUTION SECTION — Honest but incomplete                  │
+│                                                                    │
+│ The comic's solution panels (11-16) are explicitly labeled "no     │
+│ research, just reason" which is honest. But Agent 2 correctly      │
+│ identified that they present behavioral assumptions as logical     │
+│ certainties:                                                       │
+│                                                                    │
+│ - "If you can eat without a bullshit job, you quit" — assumes      │
+│ perfect agency, ignores sunk identity, dependents, exit costs      │
+│ - "The company doesn't collapse" — true for genuinely pointless    │
+│ roles, but some "bullshit" roles exist for legal/compliance        │
+│ reasons                                                            │
+│ - "Market finally works" — assumes labor market clearing           │
+│                                                                    │
+│ These aren't wrong. They're incomplete. The reasoning is sound as  │
+│ a direction. It just needs the grandmother test, not the economist │
+│  test.                                                             │
+│                                                                    │
+│ Fix: Rewrite solution panels with the sweat/grandmother voice      │
+│ instead of policy-mechanic voice. Replace:                         │
+│ - UBI floor language → "If nobody starves, nobody pretends"        │
+│ - Market mechanics → "Your grandmother could tell you which jobs   │
+│ were real"                                                         │
+│ - Policy jargon → "The ones where you come home tired. The ones    │
+│ where if you stopped showing up, someone would notice by Tuesday." │
+│                                                                    │
+│ 3. WIKI CONTEXT LINES — Two are vague                              │
+│                                                                    │
+│ - Proposition 2: "1% mesh coverage = free infrastructure" — the 1% │
+│  figure needs grounding. Paper 24 (The Invisible Network) has the  │
+│ actual Poisson model data. Context should name the mechanism.      │
+│ - Proposition 5: "Play deprivation costs more than infrastructure" │
+│  — true claim but sounds like a policy brief. Should sound human.  │
+│                                                                    │
+│ Fix: Adjust context lines to be more concrete and less think-tank. │
+│                                                                    │
+│ 4. ORPHANED RESEARCH TOPICS                                        │
+│                                                                    │
+│ These directories exist but aren't in _purposes.yml:               │
+│ - barefoot_shoes, death_terror_management,                         │
+│ education_prussian_model, indoor_living_nature_deficit,            │
+│ screens_attention_economy, sleep_science, social_group_scaling,    │
+│ loneliness_physiology, movement_endurance, play_deprivation        │
+│                                                                    │
+│ Fix: Add these to _purposes.yml with goal mappings. Not urgent but │
+│  keeps the index honest.                                           │
+│                                                                    │
+│ 5. GOAL 10 IS THIN                                                 │
+│                                                                    │
+│ "Legalise drugs. Stock pharmacies. Cheap." is backed by only one   │
+│ paper (01-drug-policy-reform). Every other goal has 3-6+ papers    │
+│ supporting it. The paper itself is strong (Portugal data, GHB case │
+│  study) but there's no redundancy.                                 │
+│                                                                    │
+│ Not a fix needed now — just noting the gap. The paper is solid     │
+│ enough to stand alone.                                             │
+│                                                                    │
+│ ---                                                                │
+│ Files to Modify                                                    │
+│                                                                    │
+│ File: apps/wiki.omxus.com/src/views/home.tsx                       │
+│ Change: Fix proposition 6 context line. Tighten propositions 2 and │
+│  5.                                                                │
+│ ────────────────────────────────────────                           │
+│ File: content/bullshit_jobs_comic.html                             │
+│ Change: Rewrite solution panels 11-16 with sweat-test/grandmother  │
+│   voice instead of policy-mechanic voice. Keep the structure,      │
+│ change                                                             │
+│   the language.                                                    │
+│ ────────────────────────────────────────                           │
+│ File: content/research/index/_purposes.yml                         │
+│ Change: Add ~10 orphaned research directories with goal mappings.  │
+│                                                                    │
+│ ---                                                                │
+│ What Does NOT Change                                               │
+│                                                                    │
+│ - The 12 goals themselves (all have research backing, all are      │
+│ consistent across sources)                                         │
+│ - The comic's problem diagnosis (panels 1-10) — evidence-backed,   │
+│ accurate                                                           │
+│ - The wiki's paper links (all 10 slugs verified to exist) — except │
+│  proposition 6                                                     │
+│ - The homepage structure (7 sections, all working)                 │
+│ - Any papers or their content                                      │
+│                                                                    │
+│ ---                                                                │
+│ The Voice Change (solution panels)                                 │
+│                                                                    │
+│ Before (policy mechanic):                                          │
+│ "Step 1: Give every person enough to survive without a job."       │
+│ "UBI. One moving part."                                            │
+│ "The market finally works. For the first time."                    │
+│                                                                    │
+│ After (grandmother/s

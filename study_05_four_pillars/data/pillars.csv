@@ -1,0 +1,5 @@
+pillar,key_statistic,null_hypothesis,effect_size,rejected
+Deception Detection,54% accuracy,accuracy=chance,0.08,yes
+Memory Distortion,d=0.72,language doesn't affect memory,0.72,yes
+False Confessions,12-30%,no systemic bias,0.21,yes
+Suggestibility,+80-120%,detention doesn't affect vol,1.0,yes

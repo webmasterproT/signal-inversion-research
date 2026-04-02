@@ -1,0 +1,4 @@
+model,predictors,r_squared,adj_r_squared
+Model 1,Ancestry only,0.0969,0.0968
+Model 2,Language only,0.0363,0.0363
+Model 3,Both,0.1145,0.1144

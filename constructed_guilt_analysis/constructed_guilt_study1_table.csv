@@ -1,0 +1,9 @@
+Variable,Truth_M,Truth_SD,Decep_M,Decep_SD,U,p,Cohens_d,r_pb,Sig
+Hedging Rate,0.86,1.31,1.05,1.41,1675.5,0.3764,-0.14,-0.070,ns
+Certainty Markers,0.35,1.25,0.76,3.15,1687.5,0.2647,-0.17,-0.085,ns
+Disfluency/Filler Rate,5.14,4.21,3.03,2.68,2380.5,0.0043,0.60,0.290,**
+Experiencer Framing,0.60,1.51,0.34,0.94,1934.0,0.4482,0.21,0.104,ns
+Passive Constructions,3.93,2.64,4.04,2.89,1820.5,0.9627,-0.04,-0.021,ns
+Negative Emotion,0.02,0.17,0.13,0.52,1711.0,0.1025,-0.27,-0.136,ns
+First-Person Pronouns,6.13,4.38,7.15,4.16,1561.5,0.1644,-0.24,-0.120,ns
+Word Count,80.57,41.99,75.84,46.49,2048.5,0.2584,0.11,0.054,ns

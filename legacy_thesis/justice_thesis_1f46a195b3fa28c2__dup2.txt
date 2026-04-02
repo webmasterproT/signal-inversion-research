@@ -1,0 +1,78 @@
+ OK. Here's where each of the four problems actually stands:
+
+  ---
+  Problem 1: Interference (Tesla jammed all radio frequencies)
+
+  This one's actually solved. Tesla used spark-gap transmission — basically controlled lightning — which sprays energy across every frequency. Modern systems
+  don't do this. They use narrow-band resonant coupling at specific frequencies (like 13.56 MHz). Frequency Selective Surfaces and metamaterials can further
+  contain the signal to a tight band. This is how wireless phone chargers work next to your WiFi without killing it. The interference problem is a 1899
+  problem, not a 2026 problem.
+
+  Verdict: Solved. Modern resonant systems don't create broadband interference.
+
+  ---
+  Problem 2: Efficiency drops off with distance
+
+  This is the hard one. Current state of the art:
+  - 50cm: 88% efficiency (250W)
+  - 2 metres: 46% efficiency (50W)
+  - 8.6km: 20% efficiency (800W, DARPA microwave beam)
+
+  The dropoff is steep. BUT — there's a promising approach: relay resonator chains. You put intermediate coils between transmitter and receiver, each one
+  resonating at the same frequency. Like a bucket brigade for electricity. A 2024 study showed up to 20 relay coils transferring power over 4 metres with high
+   efficiency. The principle scales — you'd just need relay stations, like cell towers but for power.
+
+  That's not "wireless" in the Tesla sense of beaming power through the Earth. It's more like invisible power lines made of resonant coils. But it eliminates
+  the physical wires.
+
+  Verdict: Unsolved at long range. Relay chains are the most promising path. Nobody's testing them at kilometre scale yet.
+
+  ---
+  Problem 3: Is Earth resonance global or local?
+
+  This is where it gets really interesting. The Schumann resonance (7.83 Hz) IS global — confirmed, measured, real. Lightning strikes excite it naturally all
+  the time. The Earth-ionosphere cavity is a real resonant structure.
+
+  BUT — the Q factor (how well it holds energy) is only about 5-10. For power transmission you'd need a Q of about 1,000,000. That's a gap of 100,000×. The
+  cavity leaks energy too fast for power transfer.
+
+  HOWEVER — HAARP has artificially excited Schumann resonances. They heated a patch of ionosphere with 3.6 MW of radio waves and successfully created
+  large-amplitude waves at 7.8-8.0 Hz. In 8 out of 46 attempts. By locally changing the ionosphere's conductivity.
+
+  So: the Earth cavity IS global, you CAN artificially excite it, but its Q factor is far too low to accumulate enough energy for power delivery. Tesla's
+  intuition was right about the resonance. His assumption that it could carry power was wrong — the cavity is too leaky.
+
+  Verdict: Earth resonance is real and global. But the cavity leaks energy ~100,000× too fast for power transmission. Unless someone figures out how to raise
+  the Q factor.
+
+  ---
+  Problem 4: Containing the discharge (no 135-foot lightning)
+
+  Modern Tesla coils use toroidal top-loads that direct arcs outward and away from equipment. Faraday cages contain the electromagnetic field. Arc filters
+  (inductors) dampen current peaks and reduce uncontrolled discharge. Solid-state Tesla coils (no spark gap) produce controlled, predictable output without
+  the violent discharge.
+
+  For a real power system you wouldn't use Tesla coil architecture at all. Modern resonant coupling systems produce no visible arcing — your phone charger
+  doesn't shoot lightning. The dangerous discharge was a consequence of spark-gap technology, not of wireless power transfer itself.
+
+  Verdict: Solved. Modern resonant systems don't produce uncontrolled discharge. The lightning was a feature of 1899 technology, not of the underlying
+  principle.
+
+  ---
+  So where does that leave it?
+
+  Two problems solved (interference, discharge safety). One partially solved (distance — relay chains work but untested at scale). One genuinely hard (Earth
+  cavity Q factor too low by 5 orders of magnitude).
+
+  The most realistic path isn't Tesla's grand vision of one transmitter powering the planet. It's a mesh network of resonant relay stations — local power
+  generation (solar/wind) transmitted wirelessly over short-to-medium distances via resonant coupling chains. No wires, no central grid, no metering monopoly.
+   Each node generates and relays. Basically your BLE mesh networking concept, but for electricity instead of data.
+
+  Sources:
+  - https://en.wikipedia.org/wiki/Schumann_resonances
+  - https://www.sciencedirect.com/science/article/abs/pii/S1364682614001692
+  - https://link.springer.com/article/10.1007/s00202-023-02157-y
+  - https://onlinelibrary.wiley.com/doi/full/10.1002/eng2.12951
+  - https://www.nature.com/articles/s41598-021-98153-y
+  - https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.202407827
+

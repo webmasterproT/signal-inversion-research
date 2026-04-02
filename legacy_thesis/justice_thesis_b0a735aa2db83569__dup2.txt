@@ -1,0 +1,15 @@
+ SWER = Single Wire Earth Return. It's actually used right now in rural Australia (and NZ, parts of Africa, Brazil). Instead of running two wires to a remote
+   farm (active + neutral), they run ONE wire out and use the ground itself as the return path for the current. It literally does what the copper coil paper
+  proposes — uses the Earth as a conductor.
+
+  The catch: it works because in those situations running a second wire to a property 50km away costs more than the electricity you lose through the ground.
+  It's a deliberate tradeoff — accept worse efficiency because the alternative (two wires across the outback) is too expensive for a handful of farms drawing
+  small amounts of power.
+
+  So it actually proves Earth conduction is real and works. But it also proves the losses are significant enough that you'd only do it when the infrastructure
+   cost of proper wiring is even worse. That's the opposite of what the paper argues — the paper says Earth conduction is better than wire. SWER shows it's a
+  compromise you tolerate when you have no better option.
+
+  The paper should actually reference SWER data directly. It would be honest evidence — "this works at small scale, here are the measured losses, here's our
+  argument for why coil-boosted voltage could reduce those losses." That would be a much stronger paper than the current version which skips over the
+  real-world numbers.

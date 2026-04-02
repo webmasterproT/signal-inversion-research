@@ -1,0 +1,114 @@
+\section{To Tell The Truth}
+To examine conversational dynamics in deception detection, conversations among individuals laced with the intent to deceive given the prior unembellished truth is the key to our analysis. To Tell the Truth, season 1\footnote{This work was done under IRB\_00167477. ``To Tell The Truth'' videos used here were produced by CBS from 1956-59 and retrieved from YouTube. We consider using YouTube videos for research purposes to fall under the "fair use" clause, as stated: \url{https://www.youtube.com/intl/en-GB/yt/about/copyright/fair-use/}.}, is a game of deliberate misrepresentation and was aired on American TV weekly from 1956 to 1959. Every episode comprises multiple independent sessions, each lasting for about 8 minutes. A regular session comprises a host, four judges, and three contestants. One of the three contestants is the central contestant (CC), while the other two were imposters. 
+% The contestants come from all walks of life, including the US Mint director, an Olympic swimmer, a bachelor who served in World War II and lives in Long Island, and others. The judges are well-known figures in the Hollywood entertainment industry.
+
+\subsection{A game walk-through}
+A session begins with the host asking every contestant's name (e.g., Jane Doe). The host publicly reads some factually true facts about the CC from a signed affidavit. The judges cross-question (for a fixed time) each contestant individually, by their respective numbers (Number one, two, or three).
+% Each judge is given a certain amount of time for this public cross-questioning, and the host rings a bell when the time is over.
+
+The CC must answer truthfully to a question. The imposters, on the contrary, lie to impersonate the CC and deceive the judges. Following the definition of deception: ``Typically, when [someone] lies [they] say what [they] know to be false in an attempt to deceive the listener'' \cite{siegler1966lying}, our setup is a perfect case of deception. At the end of cross-questioning, judges disentangle the facts from the fiction and independently (and simultaneously) submit their votes for the real CC.
+
+For each incorrect identification of the CC, the entire group of contestants was paid \$250 with a plausible individual maximum of \$333. Given the fundamental tenet of preferences, all contestants ideally desire increased collective financial gain. This translates to the intention of all, including the real CC, to deceive the judges successfully.
+
+% A session begins with the host asking every contestant, "What is your name, please?". Each contestant chimes back, "My name is Jane Doe [CC]." The host publicly reads some factually true information about the CC from a signed affidavit. The judges cross-question each contestant individually, calling by their respective numbers (Number one, two, or three). Each judge is given a certain amount of time for this public cross-questioning, and the host rings a bell when the time is over.
+
+% As per game rules, the CC must answer truthfully to a question. The imposters, on the other hand, lie to impersonate the CC and deceive the judges. As per the definition of deception: "Typically, when [someone] lies [they] say what [they] know to be false in an attempt to deceive the listener" \cite{siegler1966lying}, our setup is a perfect case of deception. At the end of cross-questioning, judges disentangle the facts from the fiction and independently (and simultaneously) submit their votes for the real CC.
+
+% For each incorrect identification of the CC, the entire group of contestants was paid \$250 with a plausible individual maximum of \$333. Given the fundamental tenet of preferences, all contestants ideally desire increased collective financial gain. This translates to the intention of all, including the real CC, to deceive the judges successfully.
+
+\subsection{Data Collection}
+For this paper, we derive a slightly different game, To Tell The Truth \textbf{from Text} (\textsc{T4Text}). We transcribe 150 such games using the Whisper, a state-of-the-art transcription model with a word error rate of 8.81\% compared to human transcription's 7.61\% \cite{radford2023robust}.
+
+During the early evaluation, we observed that all Whisper models (irrespective of size) often transcribed the proper names incorrectly. To address this, we manually review the automation-generated transcripts with the original video and corrected them for likely inconsistencies. Transcripts are cleaned for unnecessary noise or filler words in questions asked by judges (e.g., umm, uhh-hh) and any multi-lingual conversations beyond English. (``How do you pronounce your name in Russian?'', ``Please answer in French. I want to hear your accent.''). We do not include irrelevant mockery and conversations in-between judges or with the host. Owing to noise and inconsistency in the rationale for judges' votes, we have refrained from including them in our dataset.
+
+\begin{figure*}[t!]
+\centering
+\includegraphics[trim= 165 330 100 260,clip,width=0.95\linewidth]{figures/model_aaai.pdf}
+\caption{Pipeline of the bottleneck model deriving bottleneck controls and the discriminator collates them for final prediction. We use few-shot LLMs to extract such controls that outperform an end-to-end approach.}
+\label{fig:model}
+\vspace{-0.5em}
+\end{figure*}
+
+\paragraph{Comment on data leak in LLMs.} Our dataset \emph{does not} exist in its textual form on the internet. Hence we do not necessarily run the risk of direct data contamination when applying LLM on them. 
+% Even though YouTube videos for the original gameshow are available, the correct answer for each game session is embedded in the video (three sessions comprise one video). To our knowledge, they are not available in textual form on the internet. 
+However, for extra caution, we randomly swapped the contestant identities (e.g., changed number one to number three and vice-versa), which means it is not possible to ``copy'' the answer from the internet, if available, as the labels are now swapped too. Additionally, we replaced the participant names with placeholders (`Participant\_X'), where X is a random integer. 
+
+\paragraph{Comment on selecting older sessions.} To Tell The Truth is a long-running TV show. We primarily consider the first season since not only has the show been intermittently revived from 2016-2022 on ABC, but the new episodes are also not as structured as the older ones. Few snippets of the full show that exist include more features of entertaining acts, unstructured questioning, and no compensation for the contestants (imposters), leading to uncertainties regarding the participants’ true intent to deceive.
+
+\subsection{The {\textsc{T4Text}} Dataset}
+\label{sec:dataset}
+Each data point in \textsc{T4Text} entails three main components from an independent game session: the name of the real CC, the affidavit containing the objective truth about the CC, and the conversations (Q/As) between the judges and the contestants. Every data point, on average, has 12-15 Q/A pairs. 
+
+Our dataset is novel since it is based on conversations around the 1950s before social media and the internet existed. Unique interpersonal interactions exist in \textsc{T4Text}, for instance, Edmund Hillary, the first person to summit Mount Everest in 1953, was one of the CCs in a session, but his appearance was unknown within the US entertainment industry, analogous to contemporary online crimes with unknown scammers.
+
+% in contemporary culture like financial fraud, romance scams, CEO frauds, etc., where the victim cannot always put a face to the culprit. Hence, recognizing language cues in interactions is key to detecting deception, some of which we explore here effectively. 
+
+\paragraph{Ambiguity/Randomness.}
+According to \citet{ekman1997deception}, liars cannot keep their claims consistent, leading to ambiguity that exposes their lies. \Cref{fig:dataset} shows an example where the contestant mentions Pennsylvania while Tennessee is being discussed; this may have been an oversight on the contestant's part, or it may be a random interjection to stall a conversation; either way, it highlights the possibility that the contestant could be a liar. 
+% One could also argue that this is a true contestant who was not in Pennsylvania and is just adhering to the game rule that CC cannot lie while also trying not to reveal all information.
+% \begin{figure}[!h]
+% \small
+% \begin{framed}
+% Q: Number one, it says here in your affidavit that you're from Tennessee, Memphis, and I was born in Knoxville. So I wonder if you all could possibly tell me what exactly is the name of the main highway that goes from Knoxville up to Gatlinburg.\\
+% A: The name or the number?\\
+% Q: The name of the main highway that goes up to Gatlinburg from Knoxville.\\
+% A: I haven't spent much time in eastern \textcolor{blue}{Pennsylvania}, uhh, Tennessee.\\
+% Q: Pennsylvania?
+% \end{framed}
+% \vspace{-1em}
+% \end{figure}
+
+\paragraph{Overconfidence.} 
+% \begin{figure}[!h]
+% \small
+% \begin{framed}
+% Q: Number two, what is the outstanding hotel in Panama?\\
+% A: In Panama, well, we don't. I have never flown to Panama, so I don't know.\\
+% Q: It says that she travels to Panama in the affidavit.
+% \end{framed}
+% \vspace{-1em}
+% \end{figure}
+Overconfidence in the context of deception has been characterized in three ways: overestimating one's actual performance, overplacing one's performance in comparison to others, and excessive precision in one's beliefs \cite{moore2008trouble}. This behavior is similar to the contestants' intent to mislead the judges in \Cref{fig:dataset} where the contestant lied too confidently  \cite{serra2021mistakes} and hence made a small but important factual error for judges to understand that the individual is an imposter.
+
+\paragraph{Half-truths.} In deceitful conversations, half-truths are less sinful than outright lies and explicit distortions \cite{carson2010lying}. Given the constraint of the real CC to answer truthfully, uttering half-truths becomes a prominent strategy to suppress facts vital for identification \cite{depaulo2003cues}. \Cref{fig:dataset} illustrates a contestant who does not mention what paint they use even after repeated questioning.
+% \begin{figure}[!h]
+% \small
+% \begin{framed}
+% Q: You spend time painting?\\
+% A: Yes, I do.\\
+% Q: What type of painting?\\
+% A: Painting\\
+% Q: What do you work in oils or watercolors?\\
+% A: Paint 
+% \end{framed}
+% \vspace{-1em}
+% \end{figure}
+
+
+
+
+\paragraph{Dataset statistics.} \textsc{T4Text} is comprised of 150 data points with a volume of 86,746 words. There are 1546 utterances, including both judges and contestants as speakers. 450 unique contestants appeared in 150 sessions (datapoints), but judges reappeared from a unique set of size 56.
+
+% \paragraph{Use of Vocab:}
+% LIW example
+
+
+% Cues: ambiguity, randomness, half-truths, use of vocabulary, overconfidence
+% One paragraph for each, start with a citation from deception lit, and explain how it applied to T4Text with an example.
+
+% \begin{table}[h!]
+% \small
+% \centering
+% \begin{tabular}{@{}lcc@{}}
+% \toprule
+% \bf T4Text Dataset & \bf Judges & \bf Contestants \\ \midrule
+% No. of utterances & 1500 & 1500 \\
+% No. of words & 30000 & 56,746 \\
+% No. of participants & 56 & 450 \\
+% \bottomrule
+% \end{tabular}
+% \caption{Comparative media dialog dataset statistics.
+% %, including two-party (2P) and full~\interview~dataset.
+% *RadioTalk does not contain full conversations}
+% \label{tab:stats}
+% \end{table}

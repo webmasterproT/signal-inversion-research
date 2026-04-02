@@ -1,0 +1,131 @@
+❯                                                                                              
+VexWallet Core — Test Suite                                                                    
+793 lines of logic. Zero DOM. Let's see if it works.                                           
+Keccak-256                                                                                     
+  ✓ empty input                                                                                
+  ✓ "abc"                                                                                      
+  ✓ hex string "ff"                                                                            
+Byte Utilities                                                                                 
+  ✓ hexToBytes length                                                                          
+  ✓ hexToBytes values                                                                          
+  ✓ bytesToHex round-trip                                                                      
+  ✓ hexToBytes 0x prefix                                                                       
+  ✓ concatBytes                                                                                
+  ✓ bigintToBytes 0                                                                            
+  ✓ bigintToBytes 255                                                                          
+  ✓ bigintToBytes 256                                                                          
+RLP Encoding                                                                                   
+  ✓ single byte                                                                                
+  ✓ empty bytes                                                                                
+  ✓ "dog"                                                                                      
+  ✓ empty list                                                                                 
+  ✓ integer 0                                                                                  
+  ✓ integer 1                                                                                  
+BIP-39 (Mnemonic → Seed)                                                                       
+  ✓ seed length                                                                                
+  ✓ seed is deterministic                                                                      
+  ✓ different mnemonic ≠ same seed                                                             
+  ✓ normalization (case + spaces)                                                              
+BIP-32 (Key Derivation — m/44'/60'/0'/0/0)                                                     
+  ✓ Alpha address                                                                              
+  ✓ Beta address                                                                               
+  ✓ key length                                                                                 
+OMXUS Identity (name + dob + words → address)                                                  
+  ✓ deriveIdentity returns address                                                             
+  ✓ deriveIdentity address matches BIP-32                                                      
+  ✓ displayName normalized                                                                     
+  ✓ keyBytes present                                                                           
+  ✓ deterministic                                                                              
+  ✓ importMnemonic works                                                                       
+Transaction Signing (EIP-155)                                                                  
+  ✓ signed tx starts with 0x                                                                   
+  ✓ signed tx is hex                                                                           
+  ✓ signed tx length > 100                                                                     
+  ✓ deterministic signing                                                                      
+VoteAussie EIP-712 (Off-Chain Vote Signing)                                                    
+  ✓ signed vote has proposalId                                                                 
+  ✓ signed vote has choice YES                                                                 
+  ✓ signed vote has voter                                                                      
+  ✓ signed vote has v (27 or 28)                                                               
+  ✓ signed vote has r                                                                          
+  ✓ signed vote has s                                                                          
+  ✓ different choice ≠ same sig                                                                
+  ✓ different nonce ≠ same sig                                                                 
+BLE Mesh Packets                                                                               
+  ✓ packet header                                                                              
+  ✓ packet TTL                                                                                 
+  ✓ packet flags                                                                               
+  ✓ packet length                                                                              
+  ✓ decode version                                                                             
+  ✓ decode TTL                                                                                 
+  ✓ decode payload                                                                             
+  ✓ idHex is 16 hex chars                                                                      
+  ✓ presence tokenId                                                                           
+  ✓ presence verified                                                                          
+  ✓ presence vouching                                                                          
+  ✓ presence emergency                                                                         
+  ✓ handleIncoming returns packet                                                              
+  ✓ handleIncoming deduped on second call                                                      
+Vouch Attestation                                                                              
+  ✓ attestation has signature                                                                  
+  ✓ attestation has timestamp                                                                  
+  ✓ attestation has RSSI                                                                       
+  ✓ attestation has nonce                                                                      
+  ✓ HER hash starts with 0x                                                                    
+  ✓ HER hash length                                                                            
+  ✓ HER hash deterministic                                                                     
+Word Validation & Strength                                                                     
+  ✓ empty fails                                                                                
+  ✓ 1 word fails                                                                               
+  ✓ 3 words fails                                                                              
+  ✓ 4 words passes                                                                             
+  ✓ short 4 words fails                                                                        
+  ✓ strength 0 for empty                                                                       
+  ✓ strength > 0 for words                                                                     
+  ✓ strength increases with length                                                             
+  ✓ strength max 100                                                                           
+  ✓ formatTokens                                                                               
+  ✓ formatEth                                                                                  
+  ✓ formatEth small                                                                            
+75 passed / 0 failed / 0 skipped / 75 total                                                    
+                                                                                               
+═══ CHAIN TESTS ═══                                                                            
+  ✓ connected to Anvil                                                                         
+1 passed / 0 failed / 0 skipped / 1 total                                                      
+ .... what about the payload concept                                                           
+  ⎿  Async hook Stop completed
+
+⏺ Right — the payload transfer protocol. The mesh can send small packets (vouch attestations,
+  presence, emergencies) but there's nothing for transferring the app itself. That's a file
+  transfer layer on top of BLE.                                                                
+   
+  Here's what it needs:                                                                        
+                                                                                             
+  Protocol:
+  A advertises: SERVICE_UUID + PAYLOAD_UUID characteristic
+  B scans, sees "VexWallet available"
+  B taps "I want this" → connects, reads PAYLOAD_UUID
+    → gets metadata: {size, chunks, hash}
+  B reads chunks sequentially: PAYLOAD_DATA_UUID[0..N]
+  B reassembles, verifies SHA-256 hash
+  B opens the HTML. Creates identity. Is now infrastructure.
+
+  The math:
+  - core.js (37KB) + secp256k1.js (14KB) + minimal UI ≈ 55KB raw
+  - Minified ≈ 25-30KB
+  - BLE MTU typically 512 bytes → ~60 packets
+  - At BLE 4.2 speeds → ~2 min transfer
+  - With BLE 5.0 (2Mbps) → ~30 sec
+
+  What to add to core.js:
+
+  meshPayloadAdvertise(htmlBlob)    — start offering the app
+  meshPayloadDiscover()             — scan for nearby givers
+  meshPayloadRequest(device)        — "I want this" (consent)
+  meshPayloadReceive(onProgress)    — chunked download + verify
+  meshPayloadAssemble(chunks, hash) — reassemble + integrity check
+
+  The beautiful constraint: the payload IS the app that contains this code. So the transfer
+  protocol transfers itself. The first person bootstraps from a URL or file share. After that,
+  it's turtles all the way down.
+

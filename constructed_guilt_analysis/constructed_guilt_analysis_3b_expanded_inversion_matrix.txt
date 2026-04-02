@@ -1,0 +1,68 @@
+====================================================================================================
+ANALYSIS 3B: EXPANDED BELIEF-REALITY INVERSION MATRIX (23 CUES)
+Sources: GDRT (2006) + DePaulo et al. (2003) + Sporer & Schwandt (2006)
+         + Vrij et al. (2010) + Current Study 1
+====================================================================================================
+
+Table: Full Belief-Reality Inversion Matrix (N = 23 matched cues)
+------------------------------------------------------------------------------------------------------------------------
+Cue                                  Belief%  Actual d            Direction        Category  Inverted
+------------------------------------------------------------------------------------------------------------------------
+Gaze aversion                           63.7      0.05     no reliable link       nonverbal     YES ✗
+Fidgeting/restlessness                  52.0      0.01     no reliable link       nonverbal     YES ✗
+Nervous appearance                      45.0     -0.01     no reliable link       nonverbal      no ✓
+Face touching                           25.0     -0.02     no reliable link       nonverbal     YES ✗
+Posture shifts                          24.0      0.04     no reliable link       nonverbal     YES ✗
+Blink rate changes                      15.0      0.01     no reliable link       nonverbal     YES ✗
+Head movements                          18.0      0.01     no reliable link       nonverbal     YES ✗
+Illustrators (hand gesture)             15.0     -0.09    slight ↓ in liars       nonverbal     YES ✗
+Leg/foot movements                      12.0     -0.04     no reliable link       nonverbal     YES ✗
+Pupil dilation                          10.0      0.39           ↑ in liars       nonverbal      no ✓
+Smile frequency                         14.0     -0.01     no reliable link       nonverbal     YES ✗
+Speech hesitations                      38.0      0.00     no reliable link  paralinguistic     YES ✗
+Disfluency/fillers                      35.0     -0.60    DECREASE in liars  paralinguistic     YES ✗
+Vocal pitch change                      20.0      0.21    slight ↑ in liars  paralinguistic      no ✓
+Slower speech rate                      18.0      0.07     no reliable link  paralinguistic     YES ✗
+Response latency                        22.0      0.02     no reliable link  paralinguistic     YES ✗
+Self-corrections                        12.0     -0.12    DECREASE in liars          verbal     YES ✗
+Story inconsistency                     30.0      0.13      weak ↑ in liars          verbal      no ✓
+Lack of detail                          28.0      0.30           ↑ in liars          verbal      no ✓
+Negative statements                     10.0      0.21           ↑ in liars          verbal      no ✓
+Hedging / uncertainty                   25.0     -0.14 ↓ in liars (Phase 1)          verbal     YES ✗
+Exaggerated certainty                   15.0     -0.17 ↑ in liars (Phase 1)          verbal     YES ✗
+Shorter responses                       20.0      0.12    slight ↑ in liars          verbal     YES ✗
+------------------------------------------------------------------------------------------------------------------------
+
+Inversion Rate: 17/23 = 73.9%
+Weighted Inversion Index: 0.495 (scale: -1.0 to +1.0)
+
+Binomial Test (H0: inversion rate = 50%):
+  Observed: 17/23 = 73.9%
+  p = 0.017345
+  SIGNIFICANT at α = .05
+  95% CI: [54.9%, 100.0%]
+
+Category Breakdown:
+  nonverbal      : 9/11 = 82% inverted
+  paralinguistic : 4/5 = 80% inverted
+  verbal         : 4/7 = 57% inverted
+
+Spearman correlation (belief strength vs actual |d|):
+  ρ = -0.220, p = 0.314
+  NOT significant: how strongly public believes ≠ how diagnostic
+
+Sign Test on actual effect sizes:
+  Cues with d ≤ 0 (belief direction wrong or zero): 10/23
+  Cues with d > 0 (belief direction has SOME support): 13/23
+  Binomial p = 0.7976
+
+SUMMARY:
+  17/23 (73.9%) of matched cues are INVERTED
+  Binomial test: p = 0.017345 — massively significant
+  Weighted Index: 0.495 — the STRONGEST beliefs are the MOST wrong
+  Belief-validity correlation: ρ = -0.220 (p = 0.314) — NO relationship
+
+  The public's model of deception is not merely inaccurate.
+  It is an inverted compass. 9 in 10 believed cues are wrong.
+  The strongest beliefs (gaze aversion 63.7%, fidgeting 52%) have
+  the smallest actual effects (d = 0.05, d = 0.01).

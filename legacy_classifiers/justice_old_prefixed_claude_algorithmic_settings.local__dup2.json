@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python deception_analysis.py:*)",
+      "Bash(python:*)",
+      "Bash(python3:*)"
+    ]
+  }
+}

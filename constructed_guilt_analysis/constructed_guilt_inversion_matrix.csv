@@ -1,0 +1,24 @@
+cue,belief_pct,belief_direction,actual_d,actual_direction,category,inverted
+Gaze aversion,63.7,deception indicator,0.05,no reliable link,nonverbal,True
+Fidgeting/restlessness,52.0,deception indicator,0.01,no reliable link,nonverbal,True
+Nervous appearance,45.0,deception indicator,-0.01,no reliable link,nonverbal,False
+Face touching,25.0,deception indicator,-0.02,no reliable link,nonverbal,True
+Posture shifts,24.0,deception indicator,0.04,no reliable link,nonverbal,True
+Blink rate changes,15.0,deception indicator,0.01,no reliable link,nonverbal,True
+Head movements,18.0,deception indicator,0.01,no reliable link,nonverbal,True
+Illustrators (gestures),15.0,deception indicator,-0.09,slight decrease in liars,nonverbal,True
+Leg/foot movements,12.0,deception indicator,-0.04,no reliable link,nonverbal,True
+Pupil dilation,10.0,deception indicator,0.39,increase in liars,nonverbal,False
+Smile frequency,14.0,deception indicator,-0.01,no reliable link,nonverbal,True
+Speech hesitations,38.0,deception indicator,0.00,no reliable link,paralinguistic,True
+Disfluency/fillers,35.0,deception indicator,-0.60,DECREASE in liars,paralinguistic,True
+Vocal pitch change,20.0,deception indicator,0.21,slight increase in liars,paralinguistic,False
+Slower speech rate,18.0,deception indicator,0.07,no reliable link,paralinguistic,True
+Response latency,22.0,deception indicator,0.02,no reliable link,paralinguistic,True
+Self-corrections,12.0,deception indicator,-0.12,DECREASE in liars,verbal,True
+Story inconsistency,30.0,deception indicator,0.13,weak increase in liars,verbal,False
+Lack of detail,28.0,deception indicator,0.30,increase in liars,verbal,False
+Negative statements,10.0,deception indicator,0.21,increase in liars,verbal,False
+Hedging/uncertainty,25.0,deception indicator,-0.14,decrease in liars,verbal,True
+Exaggerated certainty,15.0,deception indicator,-0.17,increase in liars,verbal,True
+Shorter responses,20.0,deception indicator,0.12,slight increase in liars,verbal,True

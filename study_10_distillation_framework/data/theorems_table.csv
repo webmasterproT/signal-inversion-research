@@ -1,0 +1,16 @@
+type,number,name,statement,rigor,source
+Definition,2.1,Cryptographic Hash Function,"H: {0,1}* → {0,1}^256 satisfying preimage resistance, collision resistance, pseudo-randomness",Rigorous,Standard cryptography
+Theorem,3.1,Mining Time Distribution,"Time T between successive blocks follows Exp(p/τ₀)",Rigorous,Proven in paper
+Theorem,3.2,Double-Spend Probability,"P(z) = I_4pq(z, 1/2) where I_x is regularized incomplete beta function",Rigorous,Grunspan & Pérez-Marco 2017
+Corollary,3.3,Exponential Decay,"P(z) ~ s^z / sqrt(π(1-s)z) as z→∞ where s=4pq",Rigorous,Follows from Thm 3.2
+Theorem,4.1,Honest Mining Optimal,"Revenue-maximizing strategy is to publish immediately (no difficulty adjustment)",Rigorous,Grunspan & Pérez-Marco 2018
+Remark,4.2,Selfish Mining,"Profitable when q > (1-γ)/(3-2γ); for γ=0.5 threshold is q>0.25",Acknowledged limitation,Eyal & Sirer 2018
+Definition,6.1,Knowledge Distillation,"Student minimizes L_KD = (1-λ)L_CE + λT²·KL(σ(z_T/T) || σ(z_S/T))",Rigorous,Hinton et al. 2015
+Proposition,6.2,Dark Knowledge Transfer,"High-T limit: KL reduces to matching logit differences",Rigorous,Proven in paper
+Definition,6.3,Neighborhood Aggregation,"GNN computes h_v^(l+1) via aggregation over N(v)",Rigorous,Standard GNN theory
+Definition,10.1,Sybil Attack,"Creation of multiple fake identities by single entity",Rigorous,Douceur 2002
+Definition,11.1,Verification Graph,"Directed graph G=(V,E) with in-degree ≥k for all vertices",Rigorous,OMXUS protocol
+Definition,11.2,Vouch Cost,"c_vouch = c_physical + P[detection]·c_penalty",Framework,OMXUS protocol
+Proposition,11.3,Linear Sybil Cost,"Creating n Sybils costs ≥ n·k·c_vouch",Conditional,Depends on c_vouch estimation
+Definition,11.5,Collusion Indicator,"I(S) = |E(S)| / (|S| choose 2)",Heuristic,OMXUS protocol
+Theorem,11.6,Equal Per-Capita Distribution,"r_i(t) = R(t)/|V(t)| achieves equal allocation given no Sybils",Conditional,Trivial given assumption

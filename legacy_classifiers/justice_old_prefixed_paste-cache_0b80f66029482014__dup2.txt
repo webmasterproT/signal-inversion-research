@@ -1,0 +1,64 @@
+ Renamed (old → new):
+  signal_inversion_effect        → the_91_percent
+
+
+  disfluency_truthful_speech     → study_1_truthtellers_stumble ?
+
+what is this?
+
+  linguistic_distancing_confessions → study_2_false_confessors_say_you
+
+what is this?
+
+  algorithmic_deception_detection → study_4_machines_beat_humans
+
+
+what is this?
+
+
+  cross_cultural_deception       → study_5_culture_changes_truth
+
+
+old name is better
+
+
+  constructed_guilt_thesis       → the_thesis
+
+old name better
+
+  constructed_guilt_hypothesis   → the_original_hypothesis
+
+old name better
+
+  constructed_guilt_supplements  → the_three_supplements
+
+old name better
+
+  neuroimaging_evidence          → brain_science
+
+old name better maybe neuroimaging_evidence_supplement
+
+  institutional_negligence       → negligence_argument
+
+old name better
+
+  justice_paradigm_shift         → replace_not_reform
+
+whats this?
+
+  justice_equation               → cost_analysis_32B
+
+ justice_equation_cost_analysis_32Bau
+
+  body_of_evidence_tribunal      → action_pack
+
+what is this?
+
+  constructed_guilt_statistical_appendic → statistics_audit
+
+what is this
+
+  sanctuary_design_thesis        → the_19T_solution
+
+
+good

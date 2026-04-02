@@ -1,0 +1,28 @@
+1. Private key stored in localStorage as hex (app.js:18-19). Anyone with devtools or an XSS
+  can steal the entire identity. This is the biggest issue. The session persistence saves
+  keyHex in plaintext.
+  2. No confirmation on login — there's no way to know if you typed the right name/dob/words.
+  You just get a deterministic address. Wrong inputs = wrong identity with no error. At
+  minimum, show the derived address before proceeding so the user can recognize it.
+  3. Vouch ceremony is entirely simulated (app.js:302-347). The test generates random fake keys
+   and calls buildVouchAttestation but never sends anything on-chain. The HER hash at the end
+  uses those random addresses, not the actual fake vouchers' addresses. It looks good but
+  proves nothing.
+  4. confirmVouch() is a no-op (app.js:295-300). It just shows a toast. No actual on-chain
+  vouch() call via txVouch().
+  5. Trust score display math — chainGetTrustScore returns 0-1000, but refreshChainState
+  divides by 10 to get 0-100. Then updateTrustRing caps at 100. Fine, but the test vouch
+  hardcodes updateTrustRing(87) — disconnected from reality.
+  6. hexToBytes exists in three places — signer.js:150, mesh.js:491 (hexToBytesMesh), and
+  nowhere imported. bytesToHex also duplicated between identity.js:154 and signer.js:161.
+  7. Fallback address derivation (identity.js:74-78) — if secp256k1 hasn't loaded yet, it falls
+   back to SHA-256 truncation. This would generate a completely different address for the same
+  inputs. The user would get a "wrong" identity that can never sign transactions.
+  8. No nonce management for multiple transactions — each buildContractTx fetches nonce fresh,
+  but if you fire two txs quickly they'll get the same nonce and one will fail.
+  9. sig.r and sig.s in the signed transaction (signer.js:239-240) — these are BigInts from
+  noble-secp256k1. The RLP encoder handles BigInts, so this works, but it's fragile and
+  undocumented.
+  10. Emergency GPS wipe (mesh.js:377-380) only wipes the local JS object reference. If the
+  emergency was already broadcast over mesh, the GPS is out there. The wipe is security
+  theater.

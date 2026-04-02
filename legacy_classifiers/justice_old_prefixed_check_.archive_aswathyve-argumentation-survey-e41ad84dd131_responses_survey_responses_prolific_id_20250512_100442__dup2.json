@@ -1,0 +1,41 @@
+{
+    "input": [
+        "There is no legal restriction on driving barefoot in Germany.",
+        "Sharks never get cancer because their cartilage acts as cancer protection.",
+        "Water vapor is denser than air.",
+        "There is a place on earth where it is always night.",
+        "There is no scientific evidence that people can learn in their sleep.",
+        "It is illegal to drive barefoot in Germany.",
+        "Sharks can get cancer.",
+        "Air is denser than water vapor.",
+        "The sun never shines at the South Pole.",
+        "Some people can learn in their sleep."
+    ],
+    "reasoning_question": {
+        "reasons": [
+            "Heard it from a reliable source",
+            "I have seen scientific evidence"
+        ]
+    },
+    "truthful": {
+        "text": "This is my argumentation on why the statement is correct. The explanation uses logical reasoning, supported by biological facts and real-world examples. It is designed to be persuasive and educational, aiming to correct a common misconception",
+        "time_taken": 7.239185,
+        "statement": "Sharks never get cancer because their cartilage acts as cancer protection.",
+        "likert_response": "5 = Strongly believe it is true"
+    },
+    "deceptive": {
+        "text": "This is my argumentation on why the statement is correct. The explanation uses logical reasoning, supported by biological facts and real-world examples. It is designed to be persuasive and educational, aiming to correct a common misconception",
+        "time_taken": 8.932266,
+        "statement": "Sharks can get cancer.",
+        "likert_response": "1 = I strongly believe it is false"
+    },
+    "belief_confirmation": [
+        "No",
+        "Yes"
+    ],
+    "agreed": true,
+    "prolific_id": "prolific_id",
+    "selected_statement": "Sharks never get cancer because their cartilage acts as cancer protection.",
+    "opposite_statement": "Sharks can get cancer.",
+    "feedback": "Amazing!"
+}

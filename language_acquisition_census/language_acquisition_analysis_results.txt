@@ -1,0 +1,48 @@
+================================================================================
+LANGUAGE VS. ANCESTRY AS PREDICTORS OF OUTCOMES
+US Census ACS PUMS 2022 - California
+================================================================================
+
+Sample size: N = 209,607
+Age range: 25-65
+
+KEY RESULTS:
+  R² (Ancestry only):  0.1280
+  R² (Language only):  0.0124
+  R² (Both):           0.1306
+  Incremental R² from language: 0.0026
+  Incremental R² from ancestry: 0.1181
+
+Full regression output:
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:            has_college   R-squared:                       0.131
+Model:                            OLS   Adj. R-squared:                  0.131
+Method:                 Least Squares   F-statistic:                     3934.
+Date:                Sun, 01 Feb 2026   Prob (F-statistic):               0.00
+Time:                        08:03:43   Log-Likelihood:            -1.3338e+05
+No. Observations:              209607   AIC:                         2.668e+05
+Df Residuals:                  209598   BIC:                         2.669e+05
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+===================================================================================================
+                                      coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------------------
+const                               0.6508      0.008     86.294      0.000       0.636       0.666
+ancestry_group_Asian               -0.1491      0.020     -7.614      0.000      -0.187      -0.111
+ancestry_group_European            -0.0917      0.008    -11.828      0.000      -0.107      -0.076
+ancestry_group_Hispanic_Latino     -0.4223      0.008    -55.854      0.000      -0.437      -0.407
+ancestry_group_Middle_Eastern      -0.1413      0.015     -9.277      0.000      -0.171      -0.111
+ancestry_group_North_American       0.1950      0.010     20.328      0.000       0.176       0.214
+ancestry_group_Other               -0.3034      0.008    -39.820      0.000      -0.318      -0.288
+ancestry_group_Pacific_Islander    -0.0013      0.008     -0.173      0.862      -0.017       0.014
+speaks_english_home                -0.0611      0.002    -25.016      0.000      -0.066      -0.056
+==============================================================================
+Omnibus:                 14846089.998   Durbin-Watson:                   1.645
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            18978.427
+Skew:                           0.312   Prob(JB):                         0.00
+Kurtosis:                       1.665   Cond. No.                         28.5
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

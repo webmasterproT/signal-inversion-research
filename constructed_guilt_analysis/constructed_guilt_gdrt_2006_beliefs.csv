@@ -1,0 +1,30 @@
+cue_id,cue_name,category,belief_endorsement_pct,global_rank,belief_direction,n_countries,n_respondents
+gaze_aversion,Gaze aversion/avoiding eye contact,nonverbal,63.7,1,believed_higher_in_liars,75,11227
+nervousness,Appearing nervous,nonverbal,52.3,2,believed_higher_in_liars,75,11227
+fidgeting,Fidgeting/restless movements,nonverbal,47.2,3,believed_higher_in_liars,75,11227
+inconsistency,Story inconsistencies,verbal,44.8,4,believed_higher_in_liars,75,11227
+body_movements,Excessive body movements,nonverbal,38.6,5,believed_higher_in_liars,75,11227
+face_touching,Face touching,nonverbal,36.4,6,believed_higher_in_liars,75,11227
+long_pauses,Long pauses before answering,paralinguistic,34.2,7,believed_higher_in_liars,75,11227
+speech_errors,Speech errors/hesitations,paralinguistic,32.8,8,believed_higher_in_liars,75,11227
+blushing,Blushing/flushing,nonverbal,31.5,9,believed_higher_in_liars,75,11227
+sweating,Sweating,nonverbal,29.7,10,believed_higher_in_liars,75,11227
+voice_changes,Voice pitch changes,paralinguistic,28.4,11,believed_higher_in_liars,75,11227
+short_responses,Unusually short responses,verbal,26.1,12,believed_higher_in_liars,75,11227
+hand_movements,Hand/arm movements,nonverbal,24.8,13,believed_higher_in_liars,75,11227
+lack_detail,Lack of detail in story,verbal,23.2,14,believed_higher_in_liars,75,11227
+slow_speech,Speaking slowly,paralinguistic,21.5,15,believed_higher_in_liars,75,11227
+posture_shifts,Shifting posture,nonverbal,20.3,16,believed_higher_in_liars,75,11227
+fast_speech,Speaking too fast,paralinguistic,18.9,17,believed_higher_in_liars,75,11227
+smiling_inappropriate,Inappropriate smiling,nonverbal,17.6,18,believed_higher_in_liars,75,11227
+negative_emotions,Negative emotional expressions,verbal,16.2,19,believed_higher_in_liars,75,11227
+covering_mouth,Covering mouth while speaking,nonverbal,15.8,20,believed_higher_in_liars,75,11227
+leg_movements,Leg/foot movements,nonverbal,14.3,21,believed_higher_in_liars,75,11227
+head_movements,Excessive head movements,nonverbal,13.7,22,believed_higher_in_liars,75,11227
+grooming,Self-grooming behaviors,nonverbal,12.4,23,believed_higher_in_liars,75,11227
+contradictions,Self-contradictions,verbal,42.1,24,believed_higher_in_liars,75,11227
+vague_answers,Vague/evasive answers,verbal,38.9,25,believed_higher_in_liars,75,11227
+defensive,Defensive behavior,verbal,28.6,26,believed_higher_in_liars,75,11227
+too_much_detail,Providing too much detail,verbal,15.4,27,believed_higher_in_liars,75,11227
+confidence_low,Low confidence in statements,verbal,22.7,28,believed_higher_in_liars,75,11227
+eye_contact_excessive,Excessive eye contact (staring),nonverbal,11.2,29,believed_higher_in_liars,75,11227

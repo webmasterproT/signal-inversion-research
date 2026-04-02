@@ -1,0 +1,71 @@
+================================================================================
+DISFLUENCY IN TRUTHFUL SPEECH: STATISTICAL ANALYSIS
+================================================================================
+
+Dataset: Pérez-Rosas et al. (2015) Real-Life Trial Corpus
+N = 121 (60 truthful, 61 deceptive)
+Source analysis: justice_thesis/src/deception_analysis.py
+Results cross-referenced with: the_91_percent/results/full_statistical_output.txt
+
+================================================================================
+PRIMARY FINDING: DISFLUENCY IS SIGNIFICANTLY HIGHER IN TRUTHFUL SPEECH
+================================================================================
+
+Table 1: Group Comparisons (Mann-Whitney U Test)
+------------------------------------------------------------------------------------------------------------------------
+Variable                              Truth M  Truth SD   Decep M  Decep SD          U        p       d    r_pb   Sig
+------------------------------------------------------------------------------------------------------------------------
+Hedging Rate                             0.86      1.31      1.05      1.41     1675.5   0.3764   -0.14  -0.070    ns
+Certainty Markers                        0.35      1.25      0.76      3.15     1687.5   0.2647   -0.17  -0.085    ns
+Disfluency/Filler Rate                   5.14      4.21      3.03      2.68     2380.5   0.0043    0.60   0.290    **
+Experiencer Framing                      0.60      1.51      0.34      0.94     1934.0   0.4482    0.21   0.104    ns
+Passive Constructions                    3.93      2.64      4.04      2.89     1820.5   0.9627   -0.04  -0.021    ns
+Negative Emotion                         0.02      0.17      0.13      0.52     1711.0   0.1025   -0.27  -0.136    ns
+First-Person Pronouns                    6.13      4.38      7.15      4.16     1561.5   0.1644   -0.24  -0.120    ns
+Word Count                              80.57     41.99     75.84     46.49     2048.5   0.2584    0.11   0.054    ns
+------------------------------------------------------------------------------------------------------------------------
+* p < .05, ** p < .01, † p < .10
+
+================================================================================
+KEY RESULT
+================================================================================
+
+Disfluency/Filler Rate:
+  Truthful:  M = 5.14, SD = 4.21
+  Deceptive: M = 3.03, SD = 2.68
+  U = 2380.5, p = 0.004, d = 0.60 (medium-large effect)
+  r_pb = 0.290
+
+Effect Size Context:
+  DePaulo et al. (2003) median cue effect size: d = 0.10
+  Current disfluency finding: d = 0.60
+  Ratio: 6.0x larger than typical deception cue
+
+================================================================================
+INTERPRETATION
+================================================================================
+
+Truth-tellers show significantly MORE disfluency than liars. This is the opposite
+of what 35% of the global population believes (GDRT, 2006). The mechanism is
+cognitive: accessing real episodic memories in real-time generates retrieval
+interference, self-monitoring, and temporal reconstruction effort — all of which
+produce hesitations, false starts, and filler words. Liars who have rehearsed a
+narrative do not experience this cognitive load and speak more fluently.
+
+The public belief that disfluency indicates deception is not merely wrong — it is
+inverted. The system penalises truthful speakers for the very cognitive effort
+that makes their testimony authentic.
+
+Binary Classification:
+  Disfluency-only model accuracy: 60.3%
+  (vs. human judgment: 54%, chance: 50%)
+  A single linguistic variable outperforms trained human judges.
+
+================================================================================
+SOURCE AND REPRODUCIBILITY
+================================================================================
+
+Data: data/raw/trial_transcripts_2016/ (60 Truthful/, 61 Deceptive/)
+Script: src/deception_analysis.py (requires path adjustment to data/raw/trial_transcripts_2016/)
+Also computed in: justice_thesis/src/deception_analysis.py
+Full 4-study output: the_91_percent/results/full_statistical_output.txt (Study 1)

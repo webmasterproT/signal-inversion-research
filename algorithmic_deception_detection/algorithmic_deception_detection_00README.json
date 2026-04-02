@@ -1,0 +1,25 @@
+{
+   "stamp" : true,
+   "sources" : [
+      {
+         "usage" : "toplevel",
+         "filename" : "paper.tex"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "COLI_template.bib"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "compling.bst"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "my_papers.bib"
+      }
+   ],
+   "process" : {
+      "fontmaps" : [],
+      "compiler" : "pdflatex"
+   }
+}

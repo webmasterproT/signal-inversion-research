@@ -1,0 +1,68 @@
+ One node = solar panel + battery + resonant coil + inverter + mesh controller
+
+  Solar panel. A 400W rooftop panel costs about $150-200 AUD retail right now. At scale (millions of units), call it $100. That's one panel per household
+  generating ~1.6 kWh/day in average Australian conditions (4 peak sun hours).
+
+  Battery. A 5kWh LFP (lithium iron phosphate) battery stores enough for overnight use. Tesla Powerwall is $12,000 but that's the Apple pricing version.
+  Chinese LFP cells at wholesale are about $80-100/kWh. So 5kWh of raw cells = $400-500. Add a BMS (battery management system) at $50. Call it $550 for the
+  battery pack.
+
+  Resonant coupling coil. This is copper wire wound into a coil with a capacitor to set the resonant frequency. Copper wire for a coil capable of handling a
+  few kilowatts — maybe 10-20kg of copper at ~$15/kg = $150-300 for the copper. Capacitors, maybe $20. The coil itself is the cheapest part. Two coils per
+  node (transmit and receive), call it $400.
+
+  Inverter. Converts DC from battery/solar to AC at the resonant frequency, and back again on the receiving end. A 3kW inverter runs about $200-400 retail. At
+   mass production, $150. You need power electronics on both the transmit and receive side. Call it $300 total.
+
+  Mesh controller. A microcontroller that talks to neighbours, negotiates load balancing, tracks surplus/deficit. This is basically a WiFi router with power
+  management firmware. ESP32-class chip, $5. PCB, antenna, housing, $30. Call it $50 with firmware.
+
+  Housing and installation. Weatherproof enclosure, mounting hardware, connectors. $100. Installation — if it's designed for DIY (plug and play), $0. If it
+  needs an electrician, $200-500 one-time.
+
+  Total per node:
+
+  ┌──────────────────────────────┬─────────────────────────────┐
+  │          Component           │ Cost (AUD, mass production) │
+  ├──────────────────────────────┼─────────────────────────────┤
+  │ Solar panel (400W)           │ $100                        │
+  ├──────────────────────────────┼─────────────────────────────┤
+  │ Battery (5kWh LFP)           │ $550                        │
+  ├──────────────────────────────┼─────────────────────────────┤
+  │ Resonant coils (×2)          │ $400                        │
+  ├──────────────────────────────┼─────────────────────────────┤
+  │ Power electronics / inverter │ $300                        │
+  ├──────────────────────────────┼─────────────────────────────┤
+  │ Mesh controller              │ $50                         │
+  ├──────────────────────────────┼─────────────────────────────┤
+  │ Housing + mounting           │ $100                        │
+  ├──────────────────────────────┼─────────────────────────────┤
+  │ Total (DIY install)          │ $1,500                      │
+  ├──────────────────────────────┼─────────────────────────────┤
+  │ Total (electrician install)  │ $2,000                      │
+  └──────────────────────────────┴─────────────────────────────┘
+
+  For context. The average Australian electricity bill is about $1,500-2,000 per year. So the node pays for itself in one year. After that, electricity is
+  free. Forever. Plus you're sharing surplus with neighbours and earning tokens.
+
+  A Tesla Powerwall alone costs $12,000 and still needs grid connection. This replaces the Powerwall AND the grid for a sixth of the price.
+
+  At suburb scale. 200 houses × $1,500 = $300,000 to make an entire suburb energy-independent with no wires, no grid connection, no power bills. That's less
+  than the cost of running power lines to a new subdivision, which typically runs $5,000-15,000 per lot just for the grid connection. 200 lots × $10,000 =
+  $2,000,000 for wires. The mesh is 85% cheaper than the wires it replaces.
+
+  At country scale. Australia has about 11 million households. 11 million × $1,500 = $16.5 billion to power the entire country wirelessly. Australia spent $12
+   billion on the NBN (national broadband network) to deliver internet. This is comparable in cost and delivers something more fundamental — electricity.
+
+  Where the pricing is shaky:
+
+  - The resonant coil at $400 is my weakest estimate. Could be $200 at real mass production. Could be $800 if the power electronics for multi-kW resonant
+  transfer are harder than I think.
+  - The 10-metre range assumes current tech improves slightly. If you can only reliably do 5 metres, you need denser node placement in spread-out rural areas.
+  - Battery prices are still falling. In 2-3 years the LFP pack might be $300 instead of $550.
+  - I haven't priced the token/mesh software. But that's software — write it once, deploy to millions of nodes for $0 marginal cost. That's your department.
+  That's OMXUS.
+
+  The $9 figure from the OMXUS spec was for identity (ring + safety button). The power node is $1,500. But unlike the identity ring, the power node pays for
+  itself. Nobody needs to subsidise it. You buy it because it's cheaper than paying power bills. The network effect is a bonus.
+

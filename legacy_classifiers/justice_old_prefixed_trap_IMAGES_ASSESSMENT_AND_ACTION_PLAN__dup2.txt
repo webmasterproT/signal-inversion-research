@@ -1,0 +1,356 @@
+================================================================================
+IMAGE ASSESSMENT & ACTION PLAN
+March 9, 2026
+================================================================================
+
+REVIEWED YOUR CURRENT IMAGES IN: /Users/tiaastor/Koofr/BUILDING_THE_SYSTEM/images_justice/
+
+Total: 9 images generated
+
+================================================================================
+VERDICT ON EACH IMAGE
+================================================================================
+
+✓ KEEP:
+─────
+
+1. checklist_deception.png (KEEP - GOOD QUALITY)
+   What's good: Clean two-column layout, checkmarks/X marks work well
+   Color coding: Red/green is academic-appropriate
+   Typography: Professional and clear
+   Issue: Minor - "Gaze aversion → sign of lying" vs "Gaze aversion → associated with TRUTHFULNESS"
+   is perfectly clear
+   VERDICT: Ready for thesis. No regeneration needed.
+   Status: APPROVE
+
+2. mammalian_justice.png (KEEP - FUNCTIONAL)
+   What's good: Five-column comparison is clear and logical
+   Icons: Simple and recognizable
+   Layout: Professional organization
+   Issue: Could be slightly more formal (colors are a bit bright)
+   VERDICT: Acceptable for thesis. Can use as-is or slightly refine.
+   Status: APPROVE (or optional regenerate for more formal style)
+
+❌ NEEDS REGENERATION:
+──────────────────────
+
+3. CJS_pipeline.png (REGENERATE - TOO CARTOONISH)
+   Problem: Illustrations are too cartoon-style; not formal enough
+   What it needs: More minimalist, academic journal style
+   Regenerate with: IMPROVED_ACADEMIC_PROMPTS.txt - FIGURE 1
+   Estimated: ~10 minutes
+
+4. stress_response_justice.png (REGENERATE - UNCLEAR STYLE)
+   Problem: Not clear if this is timeline, graph, or diagram
+   What it needs: Clear timeline showing cortisol/PFC/suggestibility over hours
+   Regenerate with: IMPROVED_ACADEMIC_PROMPTS.txt - FIGURE 4
+   Estimated: ~10 minutes
+
+5. questions_rewrite_memory.png (REGENERATE - COULD BE MORE FORMAL)
+   Problem: Might be using illustrations instead of formal before/after format
+   What it needs: Professional before/after comparison table style
+   Regenerate with: IMPROVED_ACADEMIC_PROMPTS.txt - FIGURE 5
+   Estimated: ~10 minutes
+
+6. jury_confidence_changes_without_new_evidence.png (REGENERATE - NEEDS DATA STYLE)
+   Problem: Needs to look like statistical visualization (histogram)
+   What it needs: Two histograms showing confidence distribution before/after
+   Regenerate with: IMPROVED_ACADEMIC_PROMPTS.txt - FIGURE 6
+   Estimated: ~10 minutes
+
+7. behaviour_loop.png (KEEP or OPTIONAL REGENERATE)
+   What's good: Circular layout works, 4 stages are clear
+   What's questionable: The red warning symbol in center might be too informal
+   VERDICT: MARGINALLY ACCEPTABLE
+   Option A: Keep as-is (saves time)
+   Option B: Regenerate with IMPROVED_ACADEMIC_PROMPTS.txt - FIGURE 3 (better formal style)
+   Recommendation: KEEP for now, regenerate only if you want more formal
+
+8. justice_defined_as_prevention_is_just.png (REGENERATE - UNKNOWN QUALITY)
+   Problem: Policy diagram might need more formal academic style
+   What it needs: Professional policy/framework diagram
+   Recommendation: REGENERATE (new prompt needed - I'll provide below)
+   Estimated: ~10 minutes
+
+9. au_vs_ch.png (REGENERATE - NEEDS CLEANER STYLE)
+   Problem: Country comparison might be too colorful/informal
+   What it needs: Professional academic journal comparison format
+   Recommendation: REGENERATE (new prompt needed - I'll provide below)
+   Estimated: ~10 minutes
+
+================================================================================
+SUMMARY TABLE
+================================================================================
+
+Image File                              | Status           | Action
+─────────────────────────────────────   ├──────────────────┼────────────────
+checklist_deception.png                 | ✓ KEEP           | Use as-is
+mammalian_justice.png                   | ✓ KEEP           | Use as-is
+behaviour_loop.png                      | MARGINAL         | Keep or regenerate
+CJS_pipeline.png                        | ❌ REGENERATE    | Use FIGURE 1 prompt
+stress_response_justice.png             | ❌ REGENERATE    | Use FIGURE 4 prompt
+questions_rewrite_memory.png            | ❌ REGENERATE    | Use FIGURE 5 prompt
+jury_confidence_changes_...png          | ❌ REGENERATE    | Use FIGURE 6 prompt
+justice_defined_as_prevention_...png    | ❌ REGENERATE    | Use NEW PROMPT below
+au_vs_ch.png                            | ❌ REGENERATE    | Use NEW PROMPT below
+
+TOTAL STATUS:
+✓ Keepers: 2 images (22%)
+△ Marginal: 1 image (11%)
+❌ Need regeneration: 6 images (67%)
+
+Time to regenerate all: ~60 minutes
+
+================================================================================
+NEW PROMPTS NEEDED (For images 8 & 9)
+================================================================================
+
+FIGURE 8: JUSTICE DEFINED AS PREVENTION (NEW PROMPT)
+──────────────────────────────────────────────────────
+
+Prompt:
+"Create a professional academic policy framework diagram for a criminology thesis.
+
+CRITICAL STYLE: Minimalist scientific diagram. NO illustrations. Professional only.
+Black/grey color scheme with dark blue or dark green accent.
+Suitable for publication in policy or criminology journal.
+
+Title: "Redefining Justice: From Punishment to Prevention"
+
+Layout: Central concept with four supporting pillars
+
+CENTER: Large box or circle with text
+"JUSTICE AS PREVENTION"
+Subtitle: "Identify conditions → Modify conditions → Maintain integration → Prevent harm"
+
+FOUR PILLARS radiating outward:
+
+PILLAR 1 - TOP LEFT: CURRENT SYSTEM
+Title: "Punishment-Based Justice"
+Framework: Backwards-looking
+Question: "What happened? Who did it?"
+Method: Trial, conviction, incarceration
+Duration: 10+ years
+Recidivism: 60-70%
+Cost: AUD $300+/person/day
+Outcome: Person released unprepared
+
+PILLAR 2 - TOP RIGHT: PREVENTION SYSTEM
+Title: "Prevention-Based Justice"
+Framework: Forward-looking
+Question: "What conditions led to this? How do we prevent it?"
+Method: Assessment, intervention, monitoring
+Duration: 6-24 months
+Recidivism: 20-30%
+Cost: AUD $5-20/person/day
+Outcome: Risk factors modified, reintegrated
+
+PILLAR 3 - BOTTOM LEFT: COMPONENTS
+List format:
+• Risk factor identification
+• Continuous needs assessment
+• Mental health treatment
+• Housing support
+• Employment services
+• Community monitoring
+
+PILLAR 4 - BOTTOM RIGHT: OUTCOMES
+List format:
+• Harm prevented before occurring
+• Victim protected
+• Perpetrator integrated
+• Cost savings: AUD $20-24B (Australia)
+• Demonstrated success: Switzerland, Nordic countries
+
+Style:
+- Sans-serif fonts (Arial, 11pt body, 13pt titles)
+- Black text throughout
+- Dark borders on boxes
+- Clean spacing and alignment
+- No illustrations, icons, or decorative elements
+- Grey background boxes (light grey, not white)
+- Professional typography
+- Suitable for criminology or policy journal
+
+Aspect ratio: 16:9 or square
+Resolution: 300+ DPI equivalent"
+
+---
+
+FIGURE 11: SWITZERLAND VS AUSTRALIA (NEW PROMPT)
+─────────────────────────────────────────────────
+
+Prompt:
+"Create a professional academic comparison table for a criminology journal.
+
+CRITICAL STYLE: Formal academic table/infographic. Publication quality.
+Minimalist design. Black, grey, and dark blue only.
+Suitable for peer-reviewed journal like Criminology & Public Policy.
+
+Title: "Global Evidence: Prevention-Based vs Punishment-Based Justice Systems"
+
+Layout: Two-column formal comparison
+
+LEFT COLUMN: SWITZERLAND
+─────────────────────────
+Country name: "SWITZERLAND"
+Subheading: "Prevention-Based Justice (Direct Democracy Since 1848)"
+
+Data rows (each row: metric | value):
+System type:             | Direct democracy
+Citizens vote on policy: | YES - all major decisions
+Justice focus:           | Prevention & reintegration
+Crime rate:              | 3.2 per 100,000 ↓ (LOW)
+Incarceration rate:      | 76 per 100,000 ↓ (LOW)
+Recidivism rate:         | 20-30% ↓ (LOW)
+Key priorities:          | Mental health, housing, employment, education
+Prison population:       | Stable
+Result:                  | 178 years of low crime, low incarceration
+
+RIGHT COLUMN: AUSTRALIA
+───────────────────────
+Country name: "AUSTRALIA"
+Subheading: "Punishment-Based Justice (Adversarial System)"
+
+Data rows:
+System type:             | Adversarial criminal justice
+Citizens vote on policy: | Limited (elections only)
+Justice focus:           | Punishment & incarceration
+Crime rate:              | 10+ per 100,000 ↑ (HIGH)
+Incarceration rate:      | 200+ per 100,000 ↑ (HIGH)
+Recidivism rate:         | 60-70% ↑ (HIGH)
+Key priorities:          | Police enforcement, prosecution, incarceration
+Prison population:       | Growing
+Result:                  | High crime, high incarceration
+
+COMPARISON METRICS (center or bottom):
+─────────────────────────────────────
+Crime rate difference:      3x higher in Australia
+Incarceration difference:   3x higher in Australia
+Recidivism difference:      2x higher in Australia
+Cost per person per year:   AUD $110,000 (incarceration) vs AUD $2,000-7,000 (prevention)
+Annual cost difference:     AUD $20-24 billion
+
+CONCLUSION BOX (bottom):
+"178 years of data from Switzerland demonstrates that
+prevention-based justice systems produce measurably
+lower crime, lower incarceration, and lower recidivism."
+
+Style:
+- Professional table format with clear borders
+- Grey header rows with black text
+- Alternating white/light grey content rows
+- Sans-serif fonts (Arial/Helvetica, 10pt body, 11pt headers)
+- Black text throughout
+- Use arrows (↑↓) to show direction
+- Professional spacing and alignment
+- No illustrations or photographs
+- Clean, academic presentation
+- Suitable for Criminology & Public Policy or similar journal
+
+Aspect ratio: 16:9
+Resolution: 300+ DPI equivalent
+Citation: Include note at bottom about data sources (AIC 2019, etc.)"
+
+================================================================================
+ACTION PLAN - STEP BY STEP
+================================================================================
+
+STEP 1: Keep the good ones
+────────────────────────────
+Move to thesis folder:
+- checklist_deception.png ✓
+- mammalian_justice.png ✓
+- behaviour_loop.png ✓ (if you want to keep)
+
+STEP 2: Regenerate 6 images
+───────────────────────────
+For each of these, use the IMPROVED_ACADEMIC_PROMPTS.txt file:
+
+a) CJS_pipeline.png → Use FIGURE 1 prompt
+   Time: ~10 minutes
+
+b) stress_response_justice.png → Use FIGURE 4 prompt
+   Time: ~10 minutes
+
+c) questions_rewrite_memory.png → Use FIGURE 5 prompt
+   Time: ~10 minutes
+
+d) jury_confidence_changes.png → Use FIGURE 6 prompt
+   Time: ~10 minutes
+
+e) justice_defined_as_prevention.png → Use NEW PROMPT above
+   Time: ~10 minutes
+
+f) au_vs_ch.png → Use NEW PROMPT above
+   Time: ~10 minutes
+
+STEP 3: Compile into thesis
+─────────────────────────────
+Copy all 9 images to:
+/Users/tiaastor/Koofr/BUILDING_THE_SYSTEM/content/templates/novathesis-main/5-Figures/
+
+STEP 4: Reference in LaTeX
+─────────────────────────────
+Add to chapters with \includegraphics{} commands
+
+================================================================================
+GEMINI TIPS FOR BETTER RESULTS
+================================================================================
+
+1. Start with the IMPROVED_ACADEMIC_PROMPTS.txt prompts (they're stronger)
+
+2. If result is still cartoonish, ask Gemini to refine:
+   "This is too cartoonish/illustrative. Regenerate in PROFESSIONAL ACADEMIC
+   JOURNAL STYLE like you'd see in Nature, PNAS, or Criminology.
+   Remove all clip art. Use professional sans-serif fonts.
+   Make it minimalist and scientific."
+
+3. If still not right, try specifying:
+   "Generate as black/grey/blue only. No colors except as accents.
+   Make it look like Figure 2, 3, or 4 from a Nature paper."
+
+4. Common Gemini issues:
+   ❌ Too many colors → Specify "grey/black/blue only"
+   ❌ Cartoon illustrations → Say "NO clip art, no stylized illustrations"
+   ❌ Too decorative → Say "minimalist, professional only"
+   ❌ Wrong style → Say "like a peer-reviewed journal, not an infographic"
+
+================================================================================
+REALISTIC TIMELINE
+================================================================================
+
+Regenerate all 6 problematic images: ~60 minutes
+   (10 minutes each × 6 images)
+
+You'll end up with:
+✓ 9 publication-ready figures
+✓ All in academic journal style
+✓ All high quality
+✓ Total time: ~1 hour
+✓ Total cost: FREE (Gemini is free)
+
+Result: Your thesis will have 11 professional figures that look like they
+belong in a peer-reviewed journal, NOT like internet infographics.
+
+================================================================================
+FINAL RECOMMENDATION
+================================================================================
+
+Keep the 2-3 good ones you have.
+Regenerate the others with the STRONGER PROMPTS in IMPROVED_ACADEMIC_PROMPTS.txt
+
+The new prompts are much more specific about:
+- Academic journal style (not infographic)
+- Professional fonts and spacing
+- What NOT to do (no clip art, no cartoons)
+- Color restrictions (grey/black/blue only)
+- Publication quality expectations
+
+Result: Better images in same amount of time (actually faster after you
+learn what works).
+
+The key difference: These prompts tell Gemini WHAT YOU DON'T WANT as much as
+what you DO want. That helps generate better results.
+
+================================================================================

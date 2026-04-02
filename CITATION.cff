@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+title: "About As Good As A Coin Toss: Reproducible Analyses"
+message: "If you use this research, please cite it as below."
+type: dataset
+authors:
+  - family-names: Ross
+    given-names: G. M.
+    affiliation: Omxus Research
+    city: Perth
+    region: WA
+    country: AU
+keywords:
+  - credibility assessment
+  - deception detection
+  - signal inversion
+  - behavioural evidence
+  - cross-cultural
+  - environmental determination
+  - criminology
+license: CC-BY-4.0
+date-released: "2026-03-24"

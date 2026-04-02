@@ -1,0 +1,48 @@
+================================================================================
+DECEPTION CORPUS LINGUISTIC ANALYSIS — RESULTS
+Pérez-Rosas et al. (2016) Real-Life Trial Dataset
+N = 121 clips  (60 truthful, 61 deceptive)
+================================================================================
+
+TABLE 1: Group Comparison (Mann-Whitney U)
+--------------------------------------------------------------------------------
+                                 Feature Truthful Mean Truthful SD Deceptive Mean Deceptive SD      U     p Cohens d Effect Size   Direction
+            Hedging Rate (per 100 words)          0.86        1.31           1.05         1.41 1675.5 0.376    -0.14  negligible ↑ Deceptive
+       Certainty Markers (per 100 words)          0.35        1.25           0.76         3.15 1687.5 0.265    -0.17  negligible ↑ Deceptive
+Disfluency / Filler Rate (per 100 words)          5.14        4.21           3.03         2.68 2380.5 0.004     0.60      medium  ↑ Truthful
+     Experiencer Framing (per 100 words)          0.60        1.51           0.34         0.94 1934.0 0.448     0.21       small  ↑ Truthful
+   Passive Constructions (per 100 words)          3.93        2.64           4.04         2.89 1820.5 0.963    -0.04  negligible ↑ Deceptive
+   Negative Emotion Rate (per 100 words)          0.02        0.17           0.13         0.52 1711.0 0.102    -0.27       small ↑ Deceptive
+                   Hedge:Certainty Ratio        675.76     1169.48         867.28      1364.14 1663.0 0.339    -0.15  negligible ↑ Deceptive
+                        Total Word Count         80.57       41.99          75.84        46.49 2048.5 0.258     0.11  negligible  ↑ Truthful
+               First-Person Pronoun Rate          6.13        4.38           7.15         4.16 1561.5 0.164    -0.24       small ↑ Deceptive
+
+TABLE 2: Point-Biserial Correlations with Truthfulness
+--------------------------------------------------------------------------------
+                                 Feature r (truthful)     p                   Interpretation
+            Hedging Rate (per 100 words)       -0.070 0.445          No reliable association
+       Certainty Markers (per 100 words)       -0.085 0.355          No reliable association
+Disfluency / Filler Rate (per 100 words)        0.290 0.001  Associated with truthful speech
+     Experiencer Framing (per 100 words)        0.104 0.258  Associated with truthful speech
+   Passive Constructions (per 100 words)       -0.021 0.820          No reliable association
+   Negative Emotion Rate (per 100 words)       -0.136 0.137 Associated with deceptive speech
+                   Hedge:Certainty Ratio       -0.076 0.409          No reliable association
+                        Total Word Count        0.054 0.558          No reliable association
+               First-Person Pronoun Rate       -0.120 0.191 Associated with deceptive speech
+
+THESIS ARGUMENT KEY:
+--------------------------------------------------------------------------------
+If hedging_rate is HIGHER in truthful speech:
+  => Innocent speakers qualify their statements (because memory IS uncertain).
+  => Investigators/juries who read hedging as deception are constructing guilt
+     from the linguistic behaviour of innocence itself.
+
+If certainty_rate is HIGHER in deceptive speech:
+  => Liars perform confidence. Rehearsed stories are clean and unqualified.
+  => The Reid Technique's emphasis on linguistic confidence as a truth signal
+     is systematically inverted.
+
+If filler_rate is HIGHER in truthful speech:
+  => Genuine recall is effortful and produces disfluency.
+  => Disfluency is used as a deception cue by trained investigators.
+  => Innocent cognitive effort is read as guilty concealment.

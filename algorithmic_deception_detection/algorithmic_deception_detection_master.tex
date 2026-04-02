@@ -1,0 +1,137 @@
+% CONSTRUCTED GUILT — Master thesis (PUBLISHABLE core + cross-cultural + appendix)
+% Build: cd master_thesis && python3 build_master.py && pdflatex master && pdflatex master
+% Images: ../PUBLISHABLE/neuroimaging_figures, ../final, ../constructed_guilt_*, ../../../novathesis-main/images_justice, ../../../novathesis-main
+
+\documentclass[11pt,a4paper,openright]{book}
+\usepackage[margin=1in]{geometry}
+\usepackage{url}
+\usepackage[utf8]{inputenc}
+\DeclareUnicodeCharacter{FFFD}{?}
+\DeclareUnicodeCharacter{2260}{\ensuremath{\neq}}
+\DeclareUnicodeCharacter{2713}{\checkmark}
+\DeclareUnicodeCharacter{2500}{--}
+\DeclareUnicodeCharacter{2502}{|}
+\DeclareUnicodeCharacter{250C}{+}
+\DeclareUnicodeCharacter{2510}{+}
+\DeclareUnicodeCharacter{2514}{+}
+\DeclareUnicodeCharacter{2518}{+}
+\DeclareUnicodeCharacter{2588}{\rule{1ex}{1ex}}
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+% All image locations: PUBLISHABLE/ so that "neuroimaging_figures/foo" and "final/foo" resolve
+\graphicspath{%
+  {../PUBLISHABLE/}%
+  {../PUBLISHABLE/neuroimaging_figures/}%
+  {../final/}%
+  {../constructed_guilt_cross_cultural_data_analysis/}%
+  {../../../novathesis-main/images_justice/}%
+  {../../../novathesis-main/}%
+}
+\newcounter{none}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\newcommand{\pandocbounded}[1]{#1}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{calc}
+\usepackage{longtable}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{makeidx}
+\makeindex
+
+\title{Constructed Guilt\\\large Language, Power, and the Architecture of Criminal Justice}
+\date{March 2026}
+\author{Tia Astor}
+\newcommand{\publisher}{OMXUS Research}
+
+\newcommand{\monthyear}{%
+  \ifcase\month\or January\or February\or March\or April\or May\or June\or
+  July\or August\or September\or October\or November\or
+  December\fi\space\number\year
+}
+
+\makeatletter
+\renewcommand{\maketitle}{%
+  \begingroup
+  \setlength{\parindent}{0pt}
+  \fontsize{24}{24}\selectfont\textit{\@author}\par
+  \vspace{1.75in}
+  \fontsize{36}{54}\selectfont\@title\par
+  \vspace{0.5in}
+  \fontsize{14}{14}\selectfont\textsc{\@date}\par
+  \vfill
+  \fontsize{14}{14}\selectfont\textit{\publisher}\par
+  \thispagestyle{empty}
+  \newpage
+  \endgroup
+}
+\makeatother
+
+\begin{document}
+\frontmatter
+
+\maketitle
+
+\newpage
+\thispagestyle{empty}
+\setlength{\parindent}{0pt}
+\vfill
+Copyright \copyright\ \the\year\ OMXUS.
+
+\par\textsc{Published by OMXUS Research}
+
+\par\textsc{omxus.com}
+
+\par\textit{First printing, \monthyear}
+\vfill
+
+\tableofcontents
+
+\cleardoublepage
+\thispagestyle{empty}
+\vfill
+\noindent\fontsize{18}{22}\selectfont\itshape
+Who decides who feels? The feeler or the feelee?
+\vfill
+\vfill
+
+\cleardoublepage
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+This thesis argues that guilt, as produced by the criminal justice system, is not an objective finding of fact but a performative linguistic construction. The system's methods for assessing credibility are not merely imperfect; they are inverted. The people who sound most guilty are most likely to be telling the truth. Drawing on semiotics, philosophy of language, critical legal theory, and empirical criminology, the analysis proceeds across pre-interrogation detention, police interrogation, courtroom proceedings, and media and jury processes. The full thesis, executive summary, institutional negligence and paradigm-shift supplements, neuroimaging evidence, perfect-case synthesis, and cross-cultural variation analysis are combined in this volume.
+
+\mainmatter
+\input{body}
+
+\backmatter
+\chapter*{Appendix: Supplementary Papers and Sources}
+\addcontentsline{toc}{chapter}{Appendix: Supplementary Papers and Sources}
+
+The following materials are referenced as additional papers and sources. Paths are relative to \texttt{content/research/unjustjustice/}.
+
+\begin{description}
+\item[Original thesis (single-file LaTeX)] \texttt{final/constructed\_guilt\_original\_thesis\_latex/} \texttt{Oroginal\_thesis\_ConstructedGuilt\_SingleFile.tex}
+\item[Language acquisition study] \texttt{final/evidence\_paradigm\_shift/} \texttt{language\_acquisition\_study\_final.tex}
+\item[Consensus distillation and trust] \texttt{consensus-distilation-trust.tex}
+\item[OMXUS whitepaper] \texttt{omxuswhitepaper copy.txt}
+\item[Sanctuary (Kael/Tia)] \texttt{sanctuary\_kael\_tia.txt}
+\item[Signal inversion effect] \texttt{signal\_inversion\_effect.txt}
+\item[Belief--reality matrix] \texttt{PUBLISHABLE/belief-reality-matrix/}
+\item[Signal inversion preprint] \texttt{PUBLISHABLE/signal\_inversion\_technique\_preprint/}
+\item[Thesis proof justice is unjust] \texttt{PUBLISHABLE/thesis\_proof\_justice\_is\_unjust/}
+\item[Language acquisition] \texttt{from\_ORIGINAL\_RESEARCH/01\_language\_acquisition/}
+\item[Consensus distillation trust] \texttt{from\_ORIGINAL\_RESEARCH/02\_consensus\_distillation\_trust/}
+\item[Environmental determination] \texttt{from\_ORIGINAL\_RESEARCH/03\_environmental\_determination/}
+\item[Emergency response] \texttt{from\_ORIGINAL\_RESEARCH/06\_emergency\_response/}
+\item[Human enclosure] \texttt{from\_ORIGINAL\_RESEARCH/08\_human\_enclosure/}
+\item[Economic servitude] \texttt{from\_ORIGINAL\_RESEARCH/09\_economic\_servitude/}
+\item[OMXUS whitepaper] \texttt{from\_ORIGINAL\_RESEARCH/10\_omxus\_whitepaper/}
+\item[Bystander effect] \texttt{from\_ORIGINAL\_RESEARCH/11\_bystander\_effect/}
+\item[Direct personal alerts] \texttt{from\_ORIGINAL\_RESEARCH/12\_direct\_personal\_alerts/}
+\item[Sanctuary design thesis] \texttt{from\_ORIGINAL\_RESEARCH/15\_thesis\_sanctuary\_design/}
+\end{description}
+
+\cleardoublepage
+\printindex
+
+\end{document}

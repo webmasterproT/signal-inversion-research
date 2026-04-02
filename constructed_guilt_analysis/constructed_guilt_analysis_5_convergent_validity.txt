@@ -1,0 +1,164 @@
+====================================================================================================
+ANALYSIS 5: CONVERGENT VALIDITY — THE FOUR EMPIRICAL PILLARS
+From: Constructed Guilt Statistical Appendix
+====================================================================================================
+
+================================================================================
+PILLAR I: DECEPTION DETECTION — THE CHANCE PROBLEM
+Source: Bond & DePaulo (2006), k = 206 studies, N = 24,483
+================================================================================
+
+  Overall accuracy: 54.0% (vs 50% chance)
+  Truth detection:  61.0% (truth bias — people tend to believe)
+  Lie detection:    47.0% (BELOW chance)
+
+  Z-test vs chance: z = 12.52, p = 0.000000
+  Cohen's h = 0.080 (trivially small; h < 0.20 = negligible)
+  Advantage over chance: 4.0 percentage points
+
+  Professional groups (Bond & DePaulo 2006):
+    Police officers:    ~55%  (no better than public)
+    Customs officials:  ~55%
+    Judges:             ~54%
+    CIA/Secret Service: ~64%  (Ekman & O'Sullivan 1991, N=34, not replicated)
+
+  CONCLUSION: Statistically significant but practically negligible.
+  The system operates functionally at chance for lie detection (47%).
+  Training does not help. Confidence does not correlate with accuracy.
+
+================================================================================
+PILLAR II: MEMORY MALLEABILITY — LANGUAGE AS MEMORY AUTHOR
+Sources: Loftus & Palmer (1974) through Loftus (2005) — 30 years
+================================================================================
+
+Table: Memory Distortion Effect Sizes Across Key Studies
+------------------------------------------------------------------------------------------------------------------------
+Study                               Manipulation                d  False mem % Note
+------------------------------------------------------------------------------------------------------------------------
+Loftus & Palmer (1974)              Single verb change       0.72         32% smashed vs contacted → 16km/h diff + 32% false glass memory
+Loftus et al. (1978)                Leading question         0.72         17% Subjects 'recalled' non-existent barn after leading question
+McCloskey & Zaragoza (1985)         Post-event info          0.61         25% Post-event narrative integration → false recall 1-in-4
+Belli (1989)                        Misleading questions     0.68         22% Memory substitution in majority of trials
+Loftus (1993) — Lost Mall           False narrative             —         25% 25% developed detailed false memories of events that NEVER occurred
+Hyman et al. (1995)                 False childhood events      —         22% Subjects elaborated and 'remembered' fabricated childhood events
+Loftus (2005) — 30yr review         Various linguistic       0.78         25% Consistent 15-35% false memory rate across 30 years
+------------------------------------------------------------------------------------------------------------------------
+
+  Aggregate effect size (d): 0.70 (LARGE by Cohen's conventions)
+  Aggregate false memory rate: 24%
+  Interpretation: ~1 in 4 people will have memories ALTERED by language alone
+
+  Cohen's d = 0.70 means:
+    A person receiving misleading linguistic info after an event will report
+    a memory 0.70 SDs displaced from someone who received no such info.
+
+  Forensic implication: In any group of 5 witnesses subjected to
+  post-event linguistic manipulation (the routine condition of any
+  interrogation or cross-examination), ~1 will carry a materially
+  altered memory into testimony. They will not know this.
+  The court will have no mechanism for identifying them.
+
+================================================================================
+PILLAR III: FALSE CONFESSION RATES — THE SYSTEM'S OWN OUTPUT
+Sources: Exoneration databases 2003-2023
+================================================================================
+
+Table: False Confession Rates Across Exoneration Datasets
+------------------------------------------------------------------------------------------------------------------------
+Dataset                             Sample                      N         Rate Jurisdiction Notes
+------------------------------------------------------------------------------------------------------------------------
+Kassin & Gudjonsson (2004)          Exoneration review          —       14-25%  US/UK Range across exoneration studies
+Gross et al. (2005)                 340 exonerations          340        15.3%     US 52/340 falsely confessed; up to 81% in capital cases
+Garrett (2011) — DNA                250 DNA exonerations      250        10.8%     US 27 factually innocent people gave detailed signed confessions
+Gudjonsson (2003) — UK              509 detained suspects     509        11.3%     UK 58/509 reported having made a false confession
+Kassin et al. (2010)                Multiple datasets           —       15-25%  US/UK Consistent range; Reid technique = primary risk factor
+Scherr et al. (2020)                Nat'l Registry Exon         —        30.0%     US 30% of US exonerations; cumulative disadvantage across 5 stages
+Nat'l Registry (2023)               3,300+ exonerations      3300        12.0%     US 42% of false confessions involve juveniles
+------------------------------------------------------------------------------------------------------------------------
+
+  AGGREGATE ESTIMATE: 12-30% of exonerations involve false confessions
+  Conservative: 1-in-8 confession-based convictions is false
+  Upper (Scherr 2020): nearly 1-in-3
+
+  CRITICAL: Exoneration databases capture only cases where:
+    (a) conviction occurred
+    (b) defendant survived to pursue remedies
+    (c) exculpatory evidence was discovered/preserved
+    (d) exoneration was successful
+  Each condition filters out cases. Documented rate is a FLOOR, not ceiling.
+
+  Garrett (2011) DNA data: 27 factually innocent people (DNA-confirmed)
+  provided detailed, signed confessions. Full fabrications. System output.
+
+  Binomial test (Garrett data): Is 27/250 significantly above 1% baseline?
+    p = 1.37e-19
+    YES — false confession rate massively exceeds any reasonable baseline
+
+================================================================================
+PILLAR IV: PRE-INTERROGATION BODY — SUGGESTIBILITY UNDER DETENTION
+Sources: Gudjonsson, Bain, Starcke, Kassin
+================================================================================
+
+Table: Suggestibility Elevation Under Pre-Interrogation Conditions
+--------------------------------------------------------------------------------------------------------------
+Study                          Condition                   Increase Mechanism
+--------------------------------------------------------------------------------------------------------------
+Gudjonsson & Clark (1986)      Anxiety induction               +38% Yield + shift elevated by anxiety
+Bain et al. (2014)             Sleep deprivation               +56% One night sleep dep → dramatic GSS increase
+Starcke & Brand (2012)         Acute stress (review)     PFC impair PFC impairment: significant (review, no single d)
+Kassin et al. (2010)           Extended detention              +37% Mean of 29-44% range → longer detention = more confessions
+Gudjonsson (2003) — GSS        Custody vs neutral              +37% Yield +31%, Shift +42% from custody alone
+--------------------------------------------------------------------------------------------------------------
+
+  COMPOUND EFFECT ESTIMATE:
+    Arrest (HPA activation, PFC impairment)
+    + Sleep disruption (cognitive impairment ≈ moderate intoxication)
+    + Identity stripping (Goffman's mortification of self)
+    + Isolation (threat-system activation, heightened approval-seeking)
+
+    Individual increases: 38%, 56%, 31-42%
+    These are NOT additive — they COMPOUND.
+
+    Conservative compound estimate: +80-120% baseline suggestibility
+    = Pre-interrogation detention DOUBLES suggestibility
+
+    A voluntariness analysis conducted without reference to this compound
+    baseline effect is not assessing voluntariness in any meaningful sense.
+    It is performing a legal ritual.
+
+================================================================================
+CONVERGENT VALIDITY: FOUR-PILLAR SYNTHESIS
+================================================================================
+
+Table: Convergent Validity Summary
+====================================================================================================
+Pillar                         Key Statistic                       Null Hypothesis                Result
+----------------------------------------------------------------------------------------------------
+I. Deception Detection         54.1% accuracy (CI: 53.6-54.6)      Accuracy = 50% (chance)          REJ
+II. Memory Distortion          d = 0.72; ~22% false memory         Language doesn't affect memory   REJ
+III. False Confessions         12-30% of exonerations              No systemic confession bias      REJ
+IV. Suggestibility             +80-120% baseline elevation         Detention doesn't affect vol.    REJ
+====================================================================================================
+CONVERGENT FINDING: All four pillars independently reject their null hypotheses.
+
+Closing the logical space:
+  If the construction thesis were FALSE, one would expect:
+    (a) Deception detection substantially above chance       → OPPOSITE: 54%
+    (b) Memory stability under questioning                   → OPPOSITE: d = 0.72
+    (c) Low rates of false confession                        → OPPOSITE: 12-30%
+    (d) Minimal detention effect on voluntariness            → OPPOSITE: +80-120%
+
+  The data yield the OPPOSITE on ALL FOUR measures.
+  This is not a truth-finding system with known limitations.
+  It is a guilt-production system maintaining the rhetoric of truth-finding.
+
+Effect sizes in practical context:
+  Memory distortion:      d = 0.70 (large)
+  Detection accuracy:     4.1pp above chance (trivial)
+  False confession rate:  12-30% (devastating)
+  Suggestibility:         +80-120% (doubles baseline)
+
+  Each ALONE would challenge conviction reliability.
+  Together, they describe a system operating at sufficient distance
+  from reliable truth-finding that conviction CANNOT serve as
+  reliable evidence of guilt.

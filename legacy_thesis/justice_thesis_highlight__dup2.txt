@@ -1,0 +1,158 @@
+Liam
+Welcome to this episode. Today, we're diving into a really challenging and important topic — how the criminal justice system actually produces guilt. Not just finds it, but constructs it through language, power, and institutional design.
+Chloe
+Yeah, it’s a heavy one. We often think of guilt as something straightforward — you did the crime, you’re guilty. But what if the system itself, through its procedures and language, is shaping who gets labeled guilty, regardless of what really happened?
+Liam
+Exactly. And to be clear, this isn’t about saying everyone convicted is innocent. It’s about understanding that the system structurally creates narratives of guilt that may not reliably reflect actual culpability.
+Chloe
+Right. So, over the next fifteen minutes, we’re going to unpack how language, psychology, and institutional practices come together — from the moment of arrest all the way to the verdict — to produce what we might call “constructed guilt.”
+Liam
+Let’s start at the very beginning — the body before the interview. The pre-interrogation detention phase. It’s a sequence that’s often overlooked but is crucial.
+Chloe
+Yeah, so imagine someone being arrested. They’re stopped suddenly, maybe roughly restrained, their personal belongings taken away — phone, wallet, keys — and then they’re stripped of their clothes, sometimes searched, and placed in a small, bare cell. Often, the walls are painted in dull, muted colors designed to minimize stimulation.
+Liam
+That’s right. Sociologist Erving Goffman called this process the “mortification of self.” It’s a systematic stripping away of identity and agency. The person goes from being a citizen to an object of institutional control.
+Chloe
+And it’s not just symbolic. There are real neurobiological effects. The sudden arrest triggers an acute stress response — cortisol and adrenaline flood the system, heart rate spikes, and the prefrontal cortex, which governs rational thinking and impulse control, gets impaired.
+Liam
+So the person’s ability to think clearly, resist suggestion, or make reasoned decisions is compromised before they even enter the interrogation room.
+Chloe
+Add to that sleep deprivation, sensory monotony from the bare cell, and social isolation. All these factors compound cognitive impairment and increase suggestibility.
+Liam
+That’s where Gudjonsson’s model of interrogative suggestibility comes in. It breaks suggestibility into two parts: yield — the tendency to give in to leading questions — and shift — changing answers after negative feedback. Both are elevated by these detention conditions.
+Chloe
+And here’s the kicker: the legal doctrine of voluntariness assumes the person giving a confession is a rational, autonomous agent. But the detained person is neurobiologically and psychologically compromised. So the idea of a “voluntary” confession becomes, well, empirically incoherent.
+Liam
+Yet courts often ignore all this. They focus only on what happens in the interview room, not on the hours of detention that precede it.
+Chloe
+It’s like the person who walks into the interrogation room isn’t the same person who was arrested hours earlier. Their cognitive and emotional state has been fundamentally altered.
+Liam
+That sets the stage for what happens next — the interrogation itself. The dominant method in many common law countries is the Reid Technique.
+Chloe
+Yeah, the Reid Technique is a two-stage process. First, there’s the Behavioural Analysis Interview, or BAI, which is supposed to detect deception through behavioral cues. Then comes the nine-step interrogation designed to extract a confession.
+Liam
+But here’s the problem: trained investigators’ ability to detect deception is barely better than chance — about 54% accuracy. And yet, their confidence in their judgments is high. This phenomenon is called “confidence without accuracy.”
+Chloe
+And the behaviors they interpret as signs of deception — like avoiding eye contact, hesitating, fidgeting — are actually typical responses of innocent people under stress.
+Liam
+So an innocent person, scared and confused, might avoid eye contact or hesitate, and the investigator reads that as lying.
+Chloe
+Let’s walk through some of the nine steps. Step one is positive confrontation — the investigator tells the suspect they’re guilty, presenting it as a fact, regardless of evidence.
+Liam
+That’s a performative speech act. It’s not just stating a fact; it’s trying to create a reality where the suspect’s guilt is already established.
+Chloe
+Then step two is theme development — offering a morally minimizing narrative to make confession psychologically easier. Like, “It was a momentary lapse,” or “Anyone might have done the same.”
+Liam
+This reduces the psychological cost of confessing, even for innocent people. They’re faced with a choice: accept this bearable story or endure continued interrogation in a punishing environment.
+Chloe
+Steps three to six involve managing denial — interrupting and blocking the suspect’s attempts to tell their own story. So the suspect can’t present a coherent alternative narrative.
+Liam
+Which is devastating for innocent people, because their denials get truncated and challenged, making them seem less credible.
+Chloe
+Step seven is the alternative question — a linguistic trap that presupposes guilt by offering a choice between two guilty scenarios. For example, “Did you plan this or was it a crime of passion?”
+Liam
+Answering either way admits the act. It’s a presuppositional trap that’s hard to escape.
+Chloe
+Finally, steps eight and nine involve expanding the oral confession into a detailed narrative and then reducing it to a written statement. But here, the investigator’s language contaminates the confession, sometimes adding details the suspect couldn’t have known.
+Liam
+So the confession is partly the investigator’s narrative, presented as the suspect’s own.
+Chloe
+The Reid Technique is designed to produce confessions, not necessarily to find the truth.
+Liam
+And the false confession literature backs this up. Studies show that between 12 and 30 percent of exonerations involve false confessions. Vulnerable groups like juveniles and people with intellectual disabilities are disproportionately affected.
+Chloe
+There’s also the phenomenon of internalized false confessions, where suspects come to believe they committed the crime because of the interrogation pressure and memory distortion.
+Liam
+That ties into the next big topic — the science of deception detection and what’s called the Signal Inversion Effect.
+Chloe
+Right. Meta-analyses show that human deception detection accuracy is about 54 percent — barely better than flipping a coin. And when it comes to detecting lies specifically, accuracy drops to 47 percent, which is actually worse than chance.
+Liam
+What’s more, the cues people believe indicate lying — like gaze aversion, nervousness, disfluency, and hedging — are mostly wrong or even inverted.
+Chloe
+The Signal Inversion Effect means that authentic cognitive effort and truthful speech produce behaviors like disfluency, hesitation, and gaze aversion, which observers misinterpret as signs of deception.
+Liam
+In one study analyzing real trial testimony, truthful speakers produced significantly more disfluencies — those “ums” and “uhs” — than deceptive speakers, with a medium effect size six times larger than typical deception cues.
+Chloe
+And in linguistic analyses of true versus false confessions, false confessions had much higher rates of impersonal pronouns like “it” and “that,” and second-person pronouns like “you.” This reflects linguistic distancing and orientation toward the interrogator.
+Liam
+So innocent people coerced into confessing tend to frame the narrative impersonally and refer to the interrogator, because the story isn’t theirs.
+Chloe
+Meanwhile, confident, fluent delivery is more typical of deception, while hesitant, fragmented speech is more typical of truth.
+Liam
+The implications are huge. Judges, jurors, and investigators rely on heuristics that systematically misread truthful behavior as deceptive.
+Chloe
+And professional training doesn’t help. Police officers, customs officials, and judges perform no better than untrained members of the public.
+Liam
+There’s also a behavioral adaptation feedback loop. People who are repeatedly disbelieved despite telling the truth may learn to suppress their authentic speech patterns and adopt performed behaviors — steady eye contact, fluent delivery — that match expectations of honesty.
+Chloe
+Which ironically makes truthful people sound more like liars, complicating detection even further.
+Liam
+It’s like the folk psychology of deception is a broken compass pointing the wrong way.
+Chloe
+That brings us to memory, language, and the courtroom — how reality itself gets constructed.
+Liam
+Elizabeth Loftus’s research on memory malleability shows that the language used in questioning can alter not just testimony but actual memory.
+Chloe
+For example, changing a verb from “contacted” to “smashed” in a question about a car accident changes speed estimates and even leads to false memories of broken glass.
+Liam
+About one in five witnesses subjected to post-event linguistic manipulation develop materially altered memories.
+Chloe
+Cross-examination uses leading questions that embed presuppositions, effectively rewriting witness memories.
+Liam
+So the cross-examiner isn’t just testing memories; they’re editing them.
+Chloe
+Expert witnesses and prior conviction evidence also contribute to constructing a narrative of guilt that jurors can’t easily disentangle.
+Liam
+And judicial instructions are often misunderstood, so jurors apply commonsense moral intuitions rather than legal standards.
+Chloe
+The courtroom is less a truth-finding arena and more a narrative contest.
+Liam
+Which leads us to media and the pre-trial verdict — the trial before the trial.
+Chloe
+Media coverage constructs guilt narratives before trial, often using linguistic framing that presupposes guilt.
+Liam
+Framing theory tells us that how information is presented shapes what questions audiences ask, what causes they infer, and what moral judgments they make.
+Chloe
+Social media and viral content have collapsed the temporal sequencing that once separated pre-trial publicity from the trial itself.
+Liam
+So potential jurors are exposed to guilt presumptions long before the trial even begins.
+Chloe
+And this media framing is racialized and class-based, reinforcing stereotypes and differential presumptions of guilt.
+Liam
+Judicial instructions to disregard media exposure are largely ineffective.
+Chloe
+So for high-profile defendants, the presumption of innocence is practically inoperative before trial.
+Liam
+Finally, the jury — the last construction site.
+Chloe
+Walter Fisher’s narrative paradigm shows that humans evaluate stories, not just facts.
+Liam
+Pennington and Hastie’s story model says jurors construct a coherent narrative and then match verdicts to that story.
+Chloe
+Cognitive schemas shape how jurors interpret evidence, often unconsciously.
+Liam
+Group deliberation amplifies majority views and pressures minority jurors to conform.
+Chloe
+Jurors misunderstand legal standards and rely on commonsense justice, which tends to favor conviction.
+Liam
+So the verdict is a social and narrative construction, not a pure logical deduction.
+Chloe
+Putting it all together, from arrest to verdict, the criminal justice system constructs guilt through language, power, and institutional design.
+Liam
+Innocence offers no reliable protection because the system processes people through a sequence that structurally produces guilt narratives.
+Chloe
+The presumption of innocence is a performative speech act — a legal fiction overridden in practice.
+Liam
+The system isn’t broken. It’s functioning as designed, prioritizing conviction rates over truth.
+Chloe
+Reform implications include recognizing the neurobiological effects of detention, replacing the Reid Technique with PEACE-style interviewing, reforming legal language and jury instructions, protecting jury pools from media contamination, and educating jurors about cognitive biases.
+Liam
+It’s a tough road ahead, but naming the problem is the first step toward justice.
+Chloe
+Absolutely. It’s a lot to take in, but understanding how language shapes reality in the justice system is crucial.
+Liam
+And it challenges us to rethink how we assess credibility and what justice really means.
+Chloe
+Thanks for joining us for this deep dive. We hope it gives you a new perspective on the criminal justice system.
+Liam
+Take care, and until next time.

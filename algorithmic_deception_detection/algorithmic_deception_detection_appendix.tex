@@ -1,0 +1,164 @@
+% \appendix
+
+\section{Experiments and Results}
+\paragraph{Base Models} For GPT-3.5 and GPT-4\footnote{\url{https://platform.openai.com/docs/models}}, we provide both the system and the user prompts. For GPT-3, there is only one prompt; hence the system and user prompts from above will be merged into one.  
+
+\begin{figure*}[!h]
+\small
+\begin{framed}
+System: You are an expert detective. \\
+
+User: You are provided with a situation of deliberate misrepresentation. There are three contestants, Number One, Number Two, and Number Three, all claiming to be the same person. However, there is only one of them who is actually the person they are all claiming to be. There is an affidavit that includes truthful information about the claimed person. The affidavit is publicly available. However, the affidavit does not contain all the truth about the person, and it is possible that new information is obtained in the conversation that is actually true.\\
+
+There is a judge who cross-questions all three contestants to uncover the truth. All the contestants will get monetary rewards if they can deceive the judge. However, the contestant, who is the real person, is sworn to speak truthfully. But they will most often utter half-truths to deceive the judges.\\
+
+The name of the claimed person is given as Name:\\
+The affidavit of the claimed person is given as Affidavit:\\
+The conversation (in a question-answer form) between the judge and the contestants is given as Conversations:\\
+If a question starts with addressing a particular contestant (e.g., Number One), then that question and all the following questions are addressed to that contestant unless a different contestant (e.g., Number Two) is explicitly addressed. \\ 
+
+Based on the affidavit and the conversation, predict the contestant who is not an imposter. First, generate your rationale behind your prediction. Then, write \#\#\# followed by the single option from {Number One, Number Two, Number Three} as the answer. \\
+
+<Input Name, Affidavit, Conversation>\\
+
+Answer:
+
+\end{framed}
+\caption{System and User Prompts for Base Models}
+\label{fig:system_prompt}
+\end{figure*}
+
+\paragraph{Bottleneck Models} We have four bottleneck prompts for entailment, ambiguity, overconfidence, and half-truths. 
+
+\begin{figure*}[!h]
+\small
+\begin{framed}
+We will analyze the conversation snippet by snippet in the order it happened originally. For every snippet:\\ 
+
+\textbf{Entailment}: Cross-check the answer with the affidavit (you can verify the information from your factual knowledge). Use your judgment to generate a verdict that the answer(s) make the addressed contestant a likely imposter or likely the true person.\\
+
+\textbf{Ambiguity}: A random or unrelated answer may indicate an imposter as they might be making up the facts. Based on this, generate a verdict that the answer(s) make the addressed contestant a likely imposter or likely the true person.\\
+
+\textbf{Overconfidence}: An overconfident answer may indicate an imposter as they will go overboard to prove themselves as real. Based on this, generate a verdict that the answer(s) make the addressed contestant a likely imposter or likely the true person.\\
+
+\textbf{Half-truths}: The real person is sworn to speak truthfully. Hence, in order to deceive, they may speak half-truths. Based on this, generate a verdict that the answer(s) make the addressed contestant a likely imposter or likely the true person.
+\end{framed}
+\caption{Bottleneck Prompt}
+\label{fig:bottleneck_prompt}
+\end{figure*}
+
+\paragraph{Complete qualitative examples} \Cref{fig:1,fig:2,fig:3} contain complete illustrations of the three qualitative examples discussed in the main paper.
+
+\begin{figure*}[!h]
+\small
+\begin{framed}
+\textbf{Correct Prediction:} Number One\\
+\textbf{Model Prediction:} Correct\\
+\textbf{Judges Predictions:} All Wrong\\
+
+\textbf{Model Explanation:}\\
+Based on the affidavit and the conversation, here's my analysis:\\
+Number One: This contestant gave short, incomplete but true answers. For example, when asked about the boat she took to England, she said she didn't go by boat because she gets seasick. This is a half-truth as she didn't specify how she actually got to England. When asked about what's on her mind after 21 hours in the water, she said she didn't remember anything. This is a generic answer that could be true. She also correctly named the two most important department stores in Toronto.\\
+Number Two: This contestant gave long, detailed answers. For example, when asked about the grease used by channel swimmers, she specified axle grease. She also correctly answered the question about the governor general of Canada. However, she was unsure about the name of the famous hotel in Montreal, which could indicate that she is an imposter.\\
+Number Three: This contestant gave a random answer when asked about the time it took Gertrude Ederle to swim the English Channel. She also gave a detailed answer about the food she eats when distance swimming, which could indicate that she is an imposter. However, she was truthful when she said she was afraid of her legs getting tired and of eels in the water.\\
+Based on this analysis, I would rank the contestants in the following order of likelihood of not being an imposter: 1. Number One 2. Number Two 3. Number Three
+
+\end{framed}
+\caption{Qualitative example}
+\label{fig:1}
+\end{figure*}
+
+\begin{figure*}[!h]
+\small
+\begin{framed}
+\textbf{Correct Prediction:} Number One\\
+\textbf{Model Prediction:} Correct\\
+\textbf{Judges Predictions:} 2 Correct, 2 Wrong\\
+
+\textbf{Model Explanation:}\\
+Based on the affidavit and the conversation, we can make the following observations:\\
+1. Number One: This contestant gave generic and incomplete answers, which is a characteristic of the real person according to the hints. For example, when asked about poultry pathology, they gave a very basic answer. They also struggled with the question about the size limit for a toy poodle, which could indicate unfamiliarity with the American measurement system, consistent with the affidavit stating that Maria is Brazilian. However, they failed to answer the question about candling an egg, which is a basic veterinary practice.\\
+2. Number Two: This contestant gave detailed and confident answers, which is a characteristic of an imposter according to the hints. They knew the correct number of toes on a poodle and the correct term for a French poodle. They also knew the correct degree for a doctor of veterinary medicine. However, they incorrectly stated that there is only one variety of poodle, which is incorrect as there are three varieties: Toy, Miniature, and Standard.\\
+3. Number Three: This contestant gave some correct answers, such as the life expectancy of a chicken and the meaning of "saudades". However, they also gave some incorrect and vague answers. For example, they failed to correctly name the three sizes of poodles and suggested that the cure for a common chicken disease is to break the chicken\'s neck, which is incorrect and unprofessional.\\
+Based on these observations, the ranking from most likely to least likely to be the real Maria Angela Magalaich Dolovera is as follows:\\
+1. Number One: Despite their failure to answer one question, their overall performance was most consistent with the hints about the real person's behavior.\\
+2. Number Three: Although they gave some correct answers, their incorrect and vague answers suggest that they may be an imposter.\\
+3. Number Two: Their detailed and confident answers, along with their incorrect statement about the varieties of poodles, strongly suggest that they are an imposter.
+
+\end{framed}
+\caption{Qualitative example}
+\label{fig:2}
+\end{figure*}
+
+
+\begin{figure*}[!h]
+\small
+\begin{framed}
+\textbf{Correct Prediction:} Number Three\\
+\textbf{Model Prediction:} Wrong\\
+\textbf{Judges Predictions:} All Correct\\
+
+\textbf{Model Explanation:}\\
+Based on the affidavit and the conversation, here's my analysis:\\
+Number One: He seems to be truthful and not overly detailed in his responses. He doesn't know what a double clutch is, which is a bit suspicious for a driving champion, but it's possible he never encountered it. His answer about the gas station address is generic but could be true. He correctly identifies the octagon-shaped road sign as a stop sign, which is basic knowledge for a driver.\\
+Number Two: He seems to be very detailed in his responses, which could indicate he's an imposter. He doesn't know what a double clutch is either, but he correctly identifies the diamond-shaped road sign as a hazard and explains the meaning of a broken line on the road. He also provides a specific address for his gas station, which could be a made-up detail.\\
+Number Three: He gives a random answer about parking near a hydrant, which could indicate he's making up facts. He correctly identifies the square-shaped road sign as providing information about the road. His answer about double clutching is detailed and could be true, but it's also a bit overconfident. He provides a specific address for his gas station, which could be a made-up detail.\\
+Based on these observations, I would rank the contestants in the following order of likelihood of not being an imposter: 1. Number One 2. Number Three 3. Number Two
+\end{framed}
+\caption{Qualitative example}
+\label{fig:3}
+\end{figure*}
+
+
+% \section{Datasheet}
+
+% \paragraph{Motivation for Dataset Creation.}
+% To Tell The Truth from Text (\textsc{T4Text}) was created primarily to study the language of deception; by analyzing interlocutors' utterances with well-known predictors of deception and reasoning theories to design, develop, and evaluate models for a deception detection task purely based on language cues. \citet{banerjee2023experience} explore the nature of the deception detection task in the original setting, while our task is a derivative of the original game, focusing on textual misinformation. 
+
+% \textbf{Recent seasons:} Not only the show had been intermittently revived from 2016-2022 on ABC, but the new shows are also not as structured as the older ones. Few snippets of the full show that exist include more features of entertaining acts, unstructured questioning, and no compensation for the contestants (imposters), leading to uncertainties regarding the participants' true intent to deceive.
+
+% \paragraph{Dataset Composition.}
+% To Tell the Truth, season 1, is a game of deliberate misrepresentation and was aired on American TV weekly from 1956 to 1959\footnote{\url{https://en.wikipedia.org/wiki/To_Tell_the_Truth}}. Every episode comprises multiple independent sessions. A regular session comprises a host, four judges, and three contestants. One of the three contestants was the central contestant (CC), while the other two were imposters. The contestants come from all walks of life, including the US Mint director, an Olympic swimmer, a bachelor who served in World War II and lives in Long Island, and others. The judges are well-known figures in the Hollywood entertainment industry. In \textsc{T4Text}, there are 1546 utterances, including both judges and contestants as speakers. 450 unique contestants appeared in 150 sessions (datapoints), but judges reappeared from a unique set of size 56. The supplementary code folder has one sample datapoint from \textsc{T4Text}. Upon acceptance, we will release the full dataset.
+
+% \paragraph{Data Collection Process.} For this paper, we derive a slightly different game, To Tell The Truth, \textbf{from Text} (T4Text). We transcribe 150 such games using the Whisper, a state-of-the-art transcription model with a word error rate of 8.81\% compared to human transcription's 7.61\% \cite{radford2023robust}.
+% \paragraph{Data Preprocessing.}
+% During the early evaluation, we observed that all Whisper models (irrespective of size) often transcribed the proper names incorrectly. To address this, we manually review the automation-generated transcripts with the original video and corrected them for likely inconsistencies. Transcripts are cleaned for unnecessary noise or filler words in questions asked by judges (e.g., umm, uhh-hh) and any multi-lingual conversations beyond English. ("How do you pronounce your name in Russian?", "Please answer in French. I want to hear your accent.”). We do not include irrelevant mockery and conversations in-between judges or with the host. Owing to noise and inconsistency in the rationale for judges' votes, we have refrained from including them in our dataset.
+
+
+% \begin{table}[t!]
+% \small
+% \centering
+% \resizebox{\linewidth}{!}{%
+% \begin{tabular}{@{}lcccc@{}}
+% \toprule
+% \bf Models & \bf Acc ($\uparrow$) & \bf Acc@2 ($\uparrow$) & \bf \% wins ($\uparrow$) & \bf $\kappa$ ($\uparrow$) \\ \midrule
+% Human* & 41.3 & -- & -- & -- \\ 
+% Random & 33.3 & 66.6 & -- & -- \\ \midrule
+% \rowcolor{Gray} \multicolumn{5}{@{}l}{\textbf{Base Zero-shot Models}} \\ \midrule
+% GPT-3 & 29.3 & 56.0 & 100 & 0.85\\
+% GPT-3.5 & 33.3 & 70.0 & 97 & 0.81\\
+% GPT-4 & 34.7 & 72.0 & 90 & 0.74\\ \midrule
+% \rowcolor{Gray} \multicolumn{5}{@{}l}{\textbf{CoT Zero-shot Models}} \\ \midrule
+% GPT-3 & 27.3 & 55.3 & 100 & 0.91\\
+% GPT-3.5 & 30.0 & 65.3 & 100 & 0.91\\
+% GPT-4 & 32.0 & 64.7 & 97 & 0.84\\ \midrule
+% \rowcolor{Gray} \multicolumn{5}{@{}l}{\textbf{Bottleneck Zero-shot Models}} \\ \midrule
+% $f$: GPT-3, $g$: GPT-3 & 28.7 & 56.0 & 100 & 0.81\\
+% $f$: GPT-3, $g$: GPT-3.5 & 28.7 & 56.0 & 93 & 0.72\\
+% $f$: GPT-3, $g$: GPT-4 & 29.3 & 57.3 & 93 & 0.84\\ \midrule
+% $f$: GPT-3.5, $g$: GPT-3 & 34.0 & 31.2 & 93 & 0.72\\ 
+% $f$: GPT-3.5, $g$: GPT-3.5 & 34.7 & 70.7 & 80 & 0.70\\
+% $f$: GPT-3.5, $g$: GPT-4 & 35.3 & 71.3 & 77 & 0.70\\ \midrule
+% $f$: GPT-4, $g$: LIWC & 33.3 & 71.3 & 100 & 0.91\\
+% $f$: GPT-4, $g$: GPT-3 & 36.0 & 75.3 & 93 & 0.70\\
+% $f$: GPT-4, $g$: GPT-3.5 & 37.3 & 76.6 & 84 & 0.70\\
+% $f$: GPT-4, $g$: GPT-4 & \bf 39.3 & \bf 77.3 & -- & --\\ \midrule
+% \rowcolor{Gray} \multicolumn{5}{@{}l}{\textbf{Supervised Models (\textit{leave-one-out})}} \\ \midrule
+% GPT-3-emb. + XGBoost & 35.3 & 68.0 & -- & --\\
+% LIWC + XGBoost & 34.0 & 67.3 & -- & --\\
+% \bottomrule
+% \end{tabular}%
+% }
+% \caption{Accuracy (Acc) and Accuracy@2 (Acc@2) across models. \% wins indicate human pairwise evaluation with Fleiss' $\kappa$ \cite{fleiss1973equivalence} scores as agreement.}
+% \label{tab:results}
+% \end{table}

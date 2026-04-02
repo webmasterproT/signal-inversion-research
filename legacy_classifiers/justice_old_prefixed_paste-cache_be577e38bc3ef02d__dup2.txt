@@ -1,0 +1,38 @@
+  First visit (anonymous)
+  - Land on feed → see public posts → prompted to log in
+  - See groups, profiles — but can't interact
+
+  Sign up / Log in
+  - Name + birthday + secret words → identity derived → session created
+  - First time? → lands on empty feed → what now?
+
+  The "now what" problem
+  - Empty feed is death. Facebook solves this with "find friends" and suggested content
+  - We need: suggested people, popular groups, or a discovery feed
+
+  Posting
+  - Text only? Text + image? Multiple images? Video?
+  - Where does it go — personal feed, a group, or both?
+  - Who sees it — followers only? Public? Group members?
+
+  Images specifically
+  - Profile avatar
+  - Cover photo
+  - Post images (single, multiple)
+  - Group avatar/cover
+  - Message attachments?
+
+  Groups
+  - Create → invite people how? Share link?
+  - Public vs private — who can see posts?
+  - Moderation — who can remove posts/members?
+
+  Messages
+  - How do you start a conversation? From someone's profile?
+  - Group chats or 1:1 only?
+
+  Facebook transition (VexPort)
+  - User uploads their Facebook data export
+  - We import: posts, photos, groups, friends list
+  - Map Facebook friends to OMXUS addresses how? This is the hard part
+

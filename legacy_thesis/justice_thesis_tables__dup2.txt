@@ -1,0 +1,125 @@
+================================================================================
+BELIEF–REALITY INVERSION MATRIX — RESULTS
+Signal Inversion Effect — Phase 2B
+================================================================================
+
+DATA SOURCES
+--------------------------------------------------------------------------------
+Reality data: DePaulo et al. (2003). Cues to Deception.
+              Psychological Bulletin, 129(1), 74-118.
+              Meta-analysis: 158 cues, 120 samples, N > 10,000
+
+Belief data:  Global Deception Research Team (2006). A World of Lies.
+              Journal of Cross-Cultural Psychology, 37(1), 60-74.
+              Survey: 75 countries, 43 languages, N = 11,227
+
+Matched cues: 23
+
+================================================================================
+TEST 1: BINOMIAL TEST — INVERSION RATE
+--------------------------------------------------------------------------------
+H0: Inversion rate = 50% (beliefs are randomly correct/incorrect)
+H1: Inversion rate > 50% (systematic inversion)
+
+N matched cues:     23
+N inverted:         21
+N aligned:          2
+Inversion rate:     91.3%
+95% CI:             [75.1%, 100.0%]
+p-value:            0.0000
+Significant:        YES
+
+INTERPRETATION: Human beliefs about deception cues are
+SYSTEMATICALLY INVERTED relative to empirical evidence.
+This is not random error — it is a predictable cognitive bias.
+
+================================================================================
+TEST 2: WEIGHTED INVERSION INDEX
+--------------------------------------------------------------------------------
+Weights inversions by belief endorsement rate.
+A cue believed by 64% that is inverted is more damaging
+than a cue believed by 10%.
+
+Normalised Index:   0.806
+Scale:              -1.0 (all aligned) to +1.0 (all inverted)
+Interpretation:     Strong systematic inversion
+
+================================================================================
+TEST 3: BELIEF–VALIDITY CORRELATION
+--------------------------------------------------------------------------------
+Tests whether stronger beliefs correspond to more valid cues.
+If well-calibrated: r > 0 (stronger beliefs = more valid)
+If systematically wrong: r ≤ 0
+
+Spearman r:         0.237
+p-value:            0.2764
+Interpretation:     Weak relationship
+
+================================================================================
+INVERSION RATES BY CATEGORY
+--------------------------------------------------------------------------------
+      category  n_cues  n_inverted  inversion_rate  mean_belief
+     nonverbal      11          10        0.909091    31.027273
+paralinguistic       5           5        1.000000    29.940000
+        verbal       7           6        0.857143    30.571429
+
+================================================================================
+FULL INVERSION MATRIX
+--------------------------------------------------------------------------------
+                        cue_name  belief_endorsement_pct  d_value  inversion_status
+                   Gaze aversion                    63.7     0.05     inverted_null
+               Appearing nervous                    52.3     0.27           aligned
+                       Fidgeting                    47.2    -0.01     inverted_null
+  Body movements/postural shifts                    38.6    -0.06     inverted_null
+              Face/self touching                    36.4     0.04     inverted_null
+                     Long pauses                    34.2     0.02     inverted_null
+ Speech hesitations/disfluencies                    32.8     0.05     inverted_null
+             Voice pitch/tension                    28.4     0.02     inverted_null
+                 Response length                    26.1    -0.13 inverted_opposite
+               Hand/arm gestures                    24.8    -0.09     inverted_null
+                Amount of detail                    23.2    -0.30 inverted_opposite
+                     Speech rate                    21.5    -0.07     inverted_null
+                 Postural shifts                    20.3    -0.06     inverted_null
+                         Smiling                    17.6    -0.01     inverted_null
+             Negative statements                    16.2     0.21           aligned
+              Leg/foot movements                    14.3     0.09     inverted_null
+                  Head movements                    13.7     0.00     inverted_null
+          Self-grooming/touching                    12.4     0.04     inverted_null
+  Vague answers (lack of detail)                    38.9    -0.30 inverted_opposite
+   Story inconsistency/coherence                    44.8    -0.25 inverted_opposite
+             Self-contradictions                    42.1    -0.25 inverted_opposite
+            Confidence/certainty                    22.7     0.03     inverted_null
+Disfluency (Phase 1 replication)                    32.8    -0.60 inverted_opposite
+
+================================================================================
+THESIS IMPLICATIONS
+--------------------------------------------------------------------------------
+
+The Belief–Reality Inversion Matrix provides direct evidence for the
+Signal Inversion Effect thesis:
+
+1. GAZE AVERSION is the #1 believed cue (63.7% endorsement) but has
+   essentially zero relationship to actual deception (d = 0.05).
+
+2. FIDGETING is the #3 believed cue (47.2%) but also shows no
+   relationship to deception (d ≈ 0.00).
+
+3. SPEECH HESITATIONS (disfluency) is widely believed to indicate
+   deception (32.8%) but our Phase 1 analysis shows it actually
+   indicates TRUTHFULNESS (d = 0.60, medium effect).
+
+4. The cues that DO distinguish truth from lies (detail, coherence,
+   contextual embedding) are LESS strongly believed than the cues
+   that don't work (gaze, fidgeting, nervousness).
+
+This is not a failure of detection skill. It is a systematic inversion
+of the signal. The interpretive framework used by investigators, jurors,
+and the general public is not merely inaccurate — it is backwards.
+
+When applied in criminal justice contexts, this means:
+- Innocent people who show cognitive effort (disfluency, hedging)
+  are read as deceptive
+- Guilty people who have rehearsed their story (fluent, confident)
+  are read as truthful
+- The system punishes the linguistic behaviour of truth-telling
+  and rewards the linguistic behaviour of deception

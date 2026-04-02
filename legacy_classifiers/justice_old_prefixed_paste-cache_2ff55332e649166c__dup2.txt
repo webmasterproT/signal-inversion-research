@@ -1,0 +1,27 @@
+9 separate study projects created in content/research/:                                                                                     
+                                                                                                                                              
+  ┌────────────────────────────────────┬───────┬──────────────────────────────────────────────────────────────────────┐
+  │              Project               │ Files │                              What It Is                              │                       
+  ├────────────────────────────────────┼───────┼──────────────────────────────────────────────────────────────────────┤                     
+  │ signal_inversion_effect/           │ 16    │ The 91.3% belief-reality inversion (data, script, preprint, figures) │
+  ├────────────────────────────────────┼───────┼──────────────────────────────────────────────────────────────────────┤
+  │ disfluency_truthful_speech/        │ 123   │ Study 1: Truth-tellers are more disfluent (d=0.60)                   │
+  ├────────────────────────────────────┼───────┼──────────────────────────────────────────────────────────────────────┤
+  │ linguistic_distancing_confessions/ │ 123   │ Study 2: False confessors use "you" 7.6× more                        │
+  ├────────────────────────────────────┼───────┼──────────────────────────────────────────────────────────────────────┤
+  │ algorithmic_deception_detection/   │ 128   │ Study 4: Machines 63.5% vs humans 54%                                │
+  ├────────────────────────────────────┼───────┼──────────────────────────────────────────────────────────────────────┤
+  │ cross_cultural_deception/          │ 31    │ Study 5: H=383.64 cultural variation                                 │
+  ├────────────────────────────────────┼───────┼──────────────────────────────────────────────────────────────────────┤
+  │ constructed_guilt_hypothesis/      │ 11    │ Original 9-chapter hypothesis + stats.js                             │
+  ├────────────────────────────────────┼───────┼──────────────────────────────────────────────────────────────────────┤
+  │ constructed_guilt_thesis/          │ 31    │ 3 thesis versions (450/500/2200 lines) + compiled PDF + figures      │
+  ├────────────────────────────────────┼───────┼──────────────────────────────────────────────────────────────────────┤
+  │ constructed_guilt_supplements/     │ 7     │ Neuroimaging + institutional negligence + paradigm shift             │
+  ├────────────────────────────────────┼───────┼──────────────────────────────────────────────────────────────────────┤
+  │ proof_in_solution_design/          │ 9     │ OT/VP safety signals + incentive design (from earlier)               │
+  └────────────────────────────────────┴───────┴──────────────────────────────────────────────────────────────────────┘
+
+  Each has its own README with methodology, key findings, contents, and breadcrumbs linking to related studies. The main
+  content/research/README.md is updated with the new structure. The old justice_thesis/ directory still exists with the archive intact —
+  nothing was deleted.

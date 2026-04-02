@@ -1,0 +1,33 @@
+  All 10 missing bibliography.md files now exist with full APA citations.
+
+  CSVs Created (6)
+
+  | File                    | Records | Content                  |
+  |-------------------------|---------|--------------------------|
+  | extraction_timeline.csv | 15      | 5000 years of mechanisms |
+  | population_data.csv     | 9       | Zero-incidence + RCT     |
+  | welfare_criteria.csv    | 18      | Five Domains scoring     |
+  | proof_status.csv        | 13      | Proven/Conjectured/Open  |
+  | component_status.csv    | 15      | TRL levels               |
+  | welfare_scores.csv      | 22      | Zoo/human/ancestral      |
+
+  Paper.tex Updated
+
+  Added to ideological_rorschach/manuscript/paper.tex:
+  - Mutual misperception section (Gilens/Page, Harvard Ash Center)
+  - Neurobiological basis (mirror neurons)
+  - The empathy equation (already formalized in the paper)
+  - New bibliography entries
+
+  New Study Created: ble_mesh_networking/
+
+  - README explaining why BLE can't be banned (10B+ devices)
+  - Scaling evidence (32K nodes/network, 100K+ commercial deployments)
+  - bibliography.md with Bluetooth SIG specs + academic research
+  - deployment_scale.csv with global device counts
+
+  ---
+  The empathy equation is already in paper.tex:
+  \forall i,j,t: \mathrm{Trig}(i,j,t) \Rightarrow \exists t' \in [t, t+\delta]: \mathrm{EI}(i \leftrightarrow j, t', 168\text{h})
+
+  Want me to spin it out into its own study (empathy_equation/), or is the formalization in the rorschach paper sufficient?

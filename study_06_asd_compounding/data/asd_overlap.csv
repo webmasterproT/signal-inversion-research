@@ -1,0 +1,11 @@
+behaviour,is_asd,belief_pct,actual_d,inverted,note
+Gaze aversion / reduced eye contact,True,63.7,0.05,True,Core ASD criterion (DSM-5 A1); #1 believed deception cue worldwide
+Fidgeting / repetitive movements,True,52.0,0.01,True,ASD diagnostic criterion (DSM-5 B1-B4: stimming repetitive motor)
+Atypical speech patterns / disfluency,True,35.0,-0.60,True,Common in ASD; prosody differences processing delays
+Flat/reduced affect,True,45.0,-0.01,True,ASD: alexithymia reduced facial expression; read as cold/deceptive
+Reduced social reciprocity,True,30.0,0.00,True,Core ASD criterion (DSM-5 A2-A3); read as evasive/uncooperative
+Inconsistent narrative structure,True,30.0,0.13,False,ASD: executive function differences; non-linear storytelling
+Response latency / slow answers,True,22.0,0.02,True,ASD: processing time; read as thinking of a lie
+Difficulty understanding questions,True,,,,"ASD pragmatic language differences; read as evasion"
+Fewer spontaneous details,True,28.0,0.30,False,ASD: different narrative style; Bagnall 2023 confirmed
+Visible anxiety under questioning,True,45.0,-0.01,True,ASD: heightened sensory/social stress; read as guilt

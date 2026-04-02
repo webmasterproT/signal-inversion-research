@@ -1,0 +1,8 @@
+CROSS-NATIONAL LANGUAGE ACQUISITION STUDY
+Statistical Results
+============================================================
+
+Total N: 1,811,487,320
+Countries: 8
+Mean Cohen's h: 0.93
+All p-values: < .001

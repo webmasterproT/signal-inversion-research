@@ -1,0 +1,26 @@
+⏺ The review is decent on debunking Dunbar (CI 2-520, the demolition is solid). But you're right — it's spending most
+   of its energy on what's wrong and not enough on what works. It mentions Hutterites, hunter-gatherers, Gore, and
+  kibbutzim in passing but doesn't dig into:                                                                         
+                                                                                                                     
+  1. Ancestral models — How did indigenous governance actually function? Haudenosaunee Confederacy scaled to 20,000+ 
+  with nested councils. Aboriginal kinship systems. Polynesian decision-making.                                      
+  2. Modern communities doing it right — Mondragon (80,000 workers, cooperative), Rojava (democratic confederalism at
+   scale), Marinaleda, ZAPATISTA juntas de buen gobierno                                                             
+  3. The actual mechanics — How do you go from 50-person consensus to 10,000-person governance without losing        
+  participation?                                                                                                   
+  4. Statistical patterns — Is there data on community satisfaction vs. size? Governance efficiency vs. size?
+  Decision quality vs. group size?
+
+  This connects directly to Goal 3 (direct democracy) and the viewswap dispute resolution model.
+
+  Want me to rework this into something more ambitious? I'm thinking:
+
+  - Part 1: The evidence (what the review already has, tightened)
+  - Part 2: Who's doing it right (ancestral + modern case studies with actual outcomes data)
+  - Part 3: Design principles (what the evidence says community structure should look like)
+
+  Could also do a separate statistical analysis if there's data to work with — community size vs.
+  satisfaction/governance quality across multiple datasets. That would be original research territory though, not
+  just a lit review.
+
+  What's the scope you want?

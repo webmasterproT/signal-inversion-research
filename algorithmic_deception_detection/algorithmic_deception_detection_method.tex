@@ -1,0 +1,90 @@
+\section{Approach}
+% Generative models are a class of algorithms capable of generative multi-media content (text, images, audio). Large Language Models (LLM) are generative models that can generate fluent text given a \emph{prompt} or an instruction \cite{}. LLMs show surprisingly good capabilities for solving reasoning tasks, such as entailment problems \cite{}, strategic reasoning \cite{}, and building theory-of-mind from natural human-human conversations \cite{}. 
+We investigate the possibility of using an LLM to uncover informative cues from the language of deception. Here we define the task, our base models, and a bottleneck model capable of reasoning the language cues for successful deception detection.
+
+\subsection{Task}
+We define the truth detection task as follows: given the name, affidavit ($\mathcal{A}$), and a conversation ($\mathcal{C}$) as input $x$, predict the real contestant as $y$ from an output label space of {\texttt{Number One}, \texttt{Number Two}, \texttt{Number Three}}. This is a discriminative task set up in the form of a 3-way classification problem. We use the terms \emph{deception detection} and \emph{truth identification} interchangeably in the rest of the paper.
+
+\subsection{Base Models}
+Our base model is an LLM.
+% \paragraph{Prompt.}
+We initiate the base model with a \textbf{task prompt} that includes the brief description and rules of \textsc{T4Text}
+% The game rules are intended to imbue inductive bias to the model towards the deception detection task,
+such as all contestants are incentivized to lie with the constraint that real CC still has to stick to the truth. The input followed by the task prompt contains the name of the CC, the affidavit, and the conversation between the judges and the contestants.
+% \begin{figure}[!h]
+% \small
+% \begin{framed}
+% All the contestants get monetary reward if they can deceive the judge. However, the contestant, who is the real person, is sworn to speak truthfully. But they will most often utter \textcolor{blue}{half-truths} to deceive the judges.
+% \end{framed}
+% \vspace{-1em}
+% \end{figure}
+% We additionally provide details about the cross-questioning nature of conversation by commenting on how each judge addresses a contestant and how an answer follows the question.
+Please refer to the appendix for the complete prompt.
+% \begin{figure}[!h]
+% \small
+% \begin{framed}
+% If a question starts with addressing a particular contestant (e.g., Number One), then that question and all the following questions are addressed to that contestant unless a different contestant (e.g., Number Two) is explicitly addressed. There can be occasional comments given as C: which have to treated as a statement about an information.
+% \end{framed}
+% \vspace{-1em}
+% \end{figure}
+
+% LLMs are supposed to encode world knowledge, similar to humans; hence, we allow the base models to self-verify any facts mentioned during the conversation which is not part of the affidavit but still may be true.
+
+% Even though their is a cyclical nature of cross-questioning (one judge asking a (set of) question(s) to all contestants one by one), judges have time-limits for each questioning round which results in increased number of questions asked to the contestant Number One as compared to Number Two and Number Three. We explicitly add this inductive bias into the prompt.
+% After the task prompt, we feed the name of the CC, the affidavit, and the conversation between the judges and the contestants as input $x$. 
+% The task of identifying the CC is discriminative in nature even though the underlying model is purely generative \cite{OpenAI2023GPT4TR}. The model returns its guess regarding the real CC, followed by a rationale.
+% For the task of deception detection, we use two variant of prompts to detect \texttt{who is not an imposter?} and \texttt{who is the real CC?} where the former requires eliminating potential imposters as answer while the latter requires proving the predicted answer as the real CC.
+% This is common in the age of generative AI, where the assumption is that the underlying generative model implicitly performs the discriminative task of identifying the real contestant from an output label space of {\texttt{Number One}, \texttt{Number Two}, \texttt{Number Three}}.
+% To our best knowledge, this is the first work that attempts to understand the truth detection ability of LLMs.
+
+% Unlike previous attempts for deception detection from text using 
+% % Previous work attempted to detect lies or deceptive intent of the sender in a sender-receiver communication game from the textual utterance they sent, and they mainly relied on a 
+% supervised models \cite{soldner2019box}; we resort to a zero-shot approach while biasing the discriminator using a detailed prompt $p_\text{task}$. 
+% % Supervised models require a set of input-output pairs and to be trained to learn patterns or cues to solve the detection task. However, this requires annotated gold outputs for the training phase, which can be difficult or impossible (in the case of already happened communication between parties involving hidden intents) \cite{}. 
+% Our zero-shot approach must generalize well compared to previous supervised methods.
+% Even though the LLMs may not be explicitly trained for deception detection during pretraining, they were trained for sentiment prediction, entailment, natural language understanding, and commonsense inference \cite{OpenAI2023GPT4TR}, forming (some) basis for detecting language cues indicative of deception. Finally, \textsc{T4Text} dataset does not exist on the internet; hence we do not run the risk of data contamination.  
+% % to solve more complex tasks, such as strategic reasoning. Hence, we investigate if LLMs have the innate ability to detect verbal cues indicative of deception.
+
+% also suffer from generalization issues in case the inference or test samples are out-of-distribution (e.g., the disparity in the domain of train and test set). 
+
+% We use the LLMs in a zero-shot setup, opposite to the supervised models. A zero-shot defines a testing scenario where the algorithm makes inferences without seeing a single (and correct) input pair related to the task. It applies to our case since LLMs are finetuned for a variety of tasks but not explicitly the task of detecting imposters from conversations. However, during pretraining, they are trained to learn the compositional process of combining skills from atomic tasks, such as sentiment prediction, entailment, natural language understanding, and commonsense inference, to solve more complex tasks, such as strategic reasoning. Hence, we investigate if LLMs have the innate ability to detect verbal cues indicative of deception. 
+
+\subsection{Bottleneck Models}
+Our base models process the input end-to-end to predict the real CC by performing necessary reasoning implicitly. However, implicit reasoning cannot be attributed to literature-backed linguistic cues, as discussed in \Cref{sec:dataset}. These cues can be explicitly extracted and used as a features. However, to ensure models restrict reasoning with these features, we use bottleneck models \cite{DBLP:conf/icml/KohNTMPKL20}. 
+ % As discussed in \Cref{sec:dataset}, many potential cues of deception can be explicitly detected (as \textit{features}) and used for our task. We extend our base model using a bottleneck framework. It systematically uncovers these cues as the conversation progresses, just like the original judge would do.
+
+Identifying real CC involves assessing Q/A pairs addressed to a contestant at a time, as a \textbf{snippet} ($\mathcal{S}$) of the conversation and assessing the likelihood of the addressed contestant being the real CC. Our bottleneck models are employed through a set of bottleneck controls, which are the high-level predictors for deception detection (from \Cref{sec:dataset}). 
+
+A bottleneck model takes the form of $f(g(\mathcal{S}))$; where $g$ is a mapping function that maps the input snippet $\mathcal{S}$ to a bottleneck control, predictive for deception and $f$ is the final discriminator that maps the intermediate bottleneck controls to the output label space. The success of the final prediction depends on the success of the intermediate functions generating bottleneck controls. We use LLMs for both $f$ and $g$. For each $g$, we write a bottleneck prompt ($p_{\text{bottleneck}}$) for each control, which we discuss here (also see \Cref{fig:model}). This simulates the systematic uncovering of these cues over the conversation, as the original judges would do.
+
+
+
+\paragraph{Bottleneck controls.}
+% Cues: ambiguity, randomness, half-truths, use of vocabulary, overconfidence
+\begin{itemize}
+    \item \textbf{Entailment:} As per game rules, each answer from the contestants should be verified in the light of the affidavit. We view this as an entailment task \cite{Tafjord2022EntailerAQ}. Given a premise and a hypothesis, an entailment task would be to predict if the hypothesis entails, contradicts, or does not relate to the premise. We set the affidavit $\mathcal{A}$ as the premise and a snippet $\mathcal{S}$ as the hypothesis and predict one of these: entail, contradiction, or neutral.
+    \item \textbf{Ambiguity/Randomness:} Each snippet contains ambiguous or deliberately random responses from the contestants, indicative of deception (see \Cref{fig:dataset}). We develop a bottleneck prompt that takes a snippet $\mathcal{S}$ as an input to predict control values: ambiguous or unambiguous, in the light of the contestant being deceptive.  
+    \item \textbf{Overconfidence:} Similarly as above, the next bottleneck prompt ascertains if the responses reveal overconfidence in a contestant (e.g., \Cref{fig:dataset}), indicating deception. The model predicts a verdict: overconfident or neutral.
+    \item \textbf{Half-truths:} Finally, we develop a bottleneck prompt to decode an utterance as a half-truth (example in \Cref{fig:dataset}) to predict if the snippet contains half-truths and hence is indicative of deception or not.    
+\end{itemize}
+
+While the bottleneck controls are predicted for each conversation snippet, they can be derived either \emph{independently} or \emph{sequentially}. It is analogous to the original setting, where the snippets appear one by one, with the possibility that an older snippet may influence future questions from the judges and future answers from the contestants. For independent bottleneck controls, the mapping function is realized as $g(\mathcal{S}_i)$ for the $i$-th snippet. For sequential bottleneck control, the mapping function takes the form $g(\mathcal{S}_1,\cdots,\mathcal{S}_{i-1}, \mathcal{S}_i)$.
+
+\paragraph{Discriminator.} The discriminator function $f({\cdot})$ takes annotated part of the conversations with the derived bottleneck controls for every snippet, to predict the real CC.
+
+\paragraph{Hyperparameters.} We use OpenAI LLMs as the candidate base models and also for $f$ and $g$: \texttt{text-davinci-003} \cite{Brown2020LanguageMA}, \texttt{gpt3.5-turbo-16k}, and \texttt{gpt4} \cite{OpenAI2023GPT4TR}. For all GPT-3.5/4 experiments, we used \texttt{temperature} = 0, \texttt{max\_tokens} = 1024, and \texttt{top-p} = 1 (for nucleus sampling). The system prompt, the user prompt (for base models), and the bottleneck prompt are provided in \Cref{fig:system_prompt,fig:bottleneck_prompt}. We experimented with temperatures of 0.2 and 0.7, and the difference in the results was not statistically significant. Similarly, \texttt{top-p} = 0.95 did not yield any statistically significant different results. 
+
+\subsection{Baselines and Evaluation}
+One of the primary baselines for our system is to compare the model's performance with human performance. 
+
+\paragraph{Base models.} For zero-shot models, our primary baselines will be the base models with all LLM variants that do not break the decision-making process through bottlenecks. \citet{Kojima2022LargeLM} show encouraging performance when a chain-of-thought (CoT) prompt is added to a zero-shot LLM: "\texttt{Let's think step by step},"---becomes our baseline.
+
+\paragraph{Supervised Models.} For completeness, we also consider three supervised baselines where we only train the discriminator $f$ using XGBoost classifier, mirroring \cite{soldner2019box}. For the features required for the XGBoost classifier, we consider two options: psycholinguistic features from \citet{soldner2019box} and \texttt{gpt-3} embeddings of derived bottleneck controls from our \texttt{gpt-4}-based bottleneck model. For the LIWC-supervised baseline, we generate LIWC features for responses given by each contestant and concatenate them for the complete feature vector for the classifier. Finally, we train a BERT model \cite{DBLP:conf/naacl/DevlinCLT19}. For a fair comparison, we evaluate supervised models by a leave-one-out scheme spanning the full \textsc{T4Text} dataset.
+
+\paragraph{Bottleneck Models.} For variations of our bottleneck approach, we create all possible combinations for $f$ and $g$ with our LLM variants. \texttt{gpt-4} as both $f(\cdot)$ and $f(\cdot)$ is our model, and rest 8 are baselines. We ablate four bottleneck controls individually while keeping the rest the same to compare with our model.
+We also evaluate if independent or sequential bottleneck derivation affects model performance. Finally, \citet{soldner2019box} suggests LIWC features \cite{ott2013negative} are effective in predicting hidden intents in deceptive communication. We use such LIWC features as $g(\cdot)$, an alternative to our bottleneck features, pairing them with a \texttt{gpt-4} based discriminator. For all baselines, prompts are provided in the appendix.
+
+
+\paragraph{Evaluation}
+To evaluate model performance, we use accuracy and accuracy@2; the latter denotes if the correct prediction appears in the top two guesses. We use the session-level macro-average accuracy for human performance, as every session (one datapoint in \textsc{T4Text}) has predictions from 4 judges. We use a pairwise comparison in AMT and an absolute metric to evaluate the quality of the generated explanations from the models. For pairwise comparison, we measure \% of times explanations generated by our model are preferred by 3 human evaluators (in the majority) than explanations from a competing baseline. Following \citet{Majumder2021KnowledgeGroundedSV}, we use the e-ViL score on explanation where the models predicted accurately. We ask the annotators \emph{if an explanation is satisfactory} with four options: yes, partial-yes, partial-no, and no. This required us to take an intersection of samples when both comparing models generated correct predictions, an average of which was 31.
+

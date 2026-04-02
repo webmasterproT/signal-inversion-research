@@ -1,0 +1,29 @@
+───────────────────────────────────────────────────────────────────────────────────────────────
+  Shell details   
+                                                                                               
+  Status: running                                                                            
+  Runtime: 3h 30m 32s                                                                        
+  Command: cat > /tmp/vextest.js << 'TESTEOF'                                                
+  global.window = { secp256k1: require('/Users/tiaastor/node_modules/@noble/secp256k1') };
+  const webcrypto = require('crypto').webcrypto;          
+  if (webcrypto) global.crypto = webcrypto;                                                    
+                                                                                               
+  const fs = require('fs');                                                                    
+  eval(fs.readFileSync('/Users/tiaastor/.opencl…                                               
+                                                                                               
+  Output:                                                                                      
+  ╭───────────────────────────────────────────────────────────────────────────────────────╮    
+  │ === Identity ===                                                                      │    
+  │   + deriveIdentity                                                                    │    
+  │   + deterministic                                                                     │    
+  │   + importMnemonic                                                                    │    
+  │ === Tx Signing ===                                                                    │    
+  │ TypeError: Cannot convert undefined to a BigInt                                       │    
+  │     at BigInt (<anonymous>)                                                           │    
+  │     at signTransaction (eval at <anonymous> (/private/tmp/vextest.js:6:1), <anonymou… │    
+  │     at async run (/private/tmp/vextest.js:37:18)                                      │    
+  │                                                                                       │    
+  ╰───────────────────────────────────────────────────────────────────────────────────────╯    
+  Showing 9 lines                                                                              
+                                                                                               
+  ← to go back · Esc/Enter/Space to close · x to stop

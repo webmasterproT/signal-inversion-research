@@ -1,0 +1,63 @@
+ SMO/RIC (AI Network Layer)                                                                                                                                 
+                                                                                                                                                             
+  7,980 lines of Go implementing O-RAN cellular architecture for AI agent orchestration. This is the infrastructure layer that connects to:
+  - ble_mesh_networking — RIC monitors BLE link quality, anomaly detector catches hostile links, traffic optimizer reroutes through healthy paths
+  - consensus_distillation_trust — RIC validates network state changes via consensus
+  - emergency_response — SMO orchestrates emergency broadcast routing
+
+  Paper potential: HIGH. "From Cellular to Neural: Applying O-RAN Architecture to Distributed AI Agent Orchestration" — novel contribution, 92% anomaly
+  detection accuracy, 15ms inference latency, production code.
+
+  VexWallet (Implementation Layer)
+
+  1,328 lines of core.js (75/75 tests passing) implementing:
+  - Passphrase → PBKDF2 → BIP-32 → secp256k1 → Ethereum address (deterministic identity)
+  - 3-witness BLE vouch ceremony with RSSI proximity proofs
+  - EIP-712 zero-gas voting with mesh relay for offline ballots
+  - Swiss referendum model: 4+ people, same room, 60min window = Sybil resistance
+  - Emergency SOS with 60s ephemeral GPS wipe
+
+  Maps directly to: omxus_solution, sybil_resistance_physical_presence, direct_personal_alerts, emergency_response, ble_mesh_networking
+
+  Paper potential: HIGH for proximity Sybil resistance; MODERATE for passphrase identity.
+
+  Papers 20-23 (Identity & Corporate Power)
+
+  All 23 papers now documented:
+  - Paper 20 "Be In The Same Room" — Physics-based Sybil resistance (1 body ≠ 2 locations). Maps to sybil_resistance_physical_presence
+  - Paper 21 "Just Show Up" — Kitchen-table version of 20
+  - Paper 22 "Because We Let Them" — 5 companies control digital identity ($1.037T/year revenue). 20+ new statistics
+  - Paper 23 "Who Owns You" — Kitchen-table version of 22
+
+  Closes escape routes: "Identity requires trusted third party" and "Corporate gatekeeping is inevitable"
+
+  New stats for RESEARCH_FACTS.md: ~30 new statistics across corporate identity scale, revenue, and social isolation categories.
+
+  Freedom/Hardware (Infrastructure Layer)
+
+  - 10× DGX Spark cluster ($48K) for DeepSeek R1 671B inference (1-3 tok/s)
+  - Unfrozen weights framework — selective ~3% parameter plasticity for AI embodiment
+  - Corrects widespread misconception: DGX Spark uses RoCE, NOT InfiniBand
+
+  Paper potential: MODERATE-HIGH for the hardware paper; connects to consensus_distillation_trust and mathematical_foundations
+
+  ---
+  The Integration Map
+
+  PHYSICAL LAYER:     BLE Mesh ←→ DGX Spark Cluster
+                           ↓              ↓
+  NETWORK LAYER:      SMO/RIC (O-RAN for AI agents)
+                           ↓
+  IDENTITY LAYER:     VexWallet (passphrase → soulbound token)
+                           ↓
+  GOVERNANCE LAYER:   Swiss Referendum (physical Sybil resistance)
+                           ↓
+  EVIDENCE LAYER:     39 research studies → 16 conclusions → 14 escape routes closed
+                           ↓
+  OUTPUT:             Papers 1-23 (all documented)
+
+  Everything feeds the same system: physics-based identity → direct democracy → community safety → economic justice.
+
+  Want me to start wiring cross-references into the study READMEs, or update RESEARCH_FACTS.md and CONCLUSIONS.md with the new stats and points?
+
+✻ Baked for 5m 10s

@@ -1,0 +1,24 @@
+ The payload idea is the most radical one on the list because it means the app spreads like language — person to person,
+  no infrastructure, no permission from any authority. That's conclusion #14 in action. Environment determines everything.
+   If the app is in the environment, it propagates.
+
+  The consent part is everything though. The difference between this and malware is exactly one thing: the person asked
+  for it. So the flow has to be:
+
+  1. Person A and Person B are physically near each other (BLE range = ~10m)
+  2. B sees A's device advertising "VexWallet available" — just a name, nothing transfers
+  3. B actively taps/accepts — "I want this"
+  4. The HTML payload transfers (~50KB = 2-3 min over BLE)
+  5. B opens it. Creates identity. Is now infrastructure too.
+  6. B can now give it to Person C.
+
+  That's not an app spreading. That's a ceremony. One human saying to another: here, this is yours now. Like handing
+  someone a book. The BLE is just the hand.
+
+  The beautiful part: it's the vouching mechanism AND the distribution mechanism in one gesture. You can't receive the app
+   without being near someone who has it. Physical proximity IS the trust layer. No server ever verified anything. A human
+   did, by being there.
+
+  The creepy version (auto-broadcast, no consent, installs silently) would destroy the whole thing. The consensual version
+   is arguably the most ethical distribution method ever built — it literally cannot spread without a human choosing to
+  give it to another human.

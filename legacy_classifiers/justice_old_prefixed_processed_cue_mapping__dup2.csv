@@ -1,0 +1,25 @@
+gdrt_cue_id,depaulo_cue_id,cue_name_standardized,category,matchable
+gaze_aversion,gaze_aversion,Gaze aversion,nonverbal,yes
+nervousness,nervous_appearance,Appearing nervous,nonverbal,yes
+fidgeting,fidgeting,Fidgeting,nonverbal,yes
+body_movements,postural_shifts,Body movements/postural shifts,nonverbal,yes
+face_touching,self_touch,Face/self touching,nonverbal,yes
+long_pauses,pauses,Long pauses,paralinguistic,yes
+speech_errors,speech_hesitations,Speech hesitations/disfluencies,paralinguistic,yes
+blushing,,Blushing,nonverbal,no
+sweating,,Sweating,nonverbal,no
+voice_changes,vocal_tension,Voice pitch/tension,paralinguistic,yes
+short_responses,response_length,Response length,verbal,yes
+hand_movements,gestures,Hand/arm gestures,nonverbal,yes
+lack_detail,details,Amount of detail,verbal,yes
+slow_speech,speech_rate,Speech rate,paralinguistic,yes
+posture_shifts,postural_shifts,Postural shifts,nonverbal,yes
+smiling_inappropriate,smiling,Smiling,nonverbal,yes
+negative_emotions,negative_statements,Negative statements,verbal,yes
+leg_movements,foot_leg_movements,Leg/foot movements,nonverbal,yes
+head_movements,head_movements,Head movements,nonverbal,yes
+grooming,self_touch,Self-grooming/touching,nonverbal,yes
+vague_answers,details,Vague answers (lack of detail),verbal,yes
+inconsistency,logical_structure,Story inconsistency/coherence,verbal,yes
+contradictions,logical_structure,Self-contradictions,verbal,yes
+confidence_low,certainty_expressions,Confidence/certainty,verbal,yes

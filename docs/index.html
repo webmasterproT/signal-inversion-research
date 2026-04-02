@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signal Inversion Research — OMXUS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: #fafafa; color: #1f2937; line-height: 1.6; }
+a { color: inherit; text-decoration: none; }
+
+/* Layout */
+.container { max-width: 72rem; margin: 0 auto; padding: 0 1rem; }
+
+/* Header */
+header { background: #fafafa; border-bottom: 1px solid #f3f4f6; position: sticky; top: 0; z-index: 50; }
+header .inner { display: flex; align-items: center; justify-content: space-between; height: 3.5rem; }
+.logo { display: flex; align-items: center; gap: 0.5rem; }
+.logo svg { width: 28px; height: 28px; }
+.logo span { font-size: 1.125rem; font-weight: 600; color: #1f2937; }
+nav { display: flex; gap: 1.5rem; }
+nav a { font-size: 0.875rem; color: #6b7280; transition: color 0.15s; }
+nav a:hover { color: #111827; }
+
+/* Hero */
+.hero { padding: 4rem 0 3rem; text-align: center; }
+.hero h1 { font-size: 2.25rem; font-weight: 700; color: #111827; margin-bottom: 1rem; letter-spacing: -0.025em; }
+.hero p { font-size: 1.125rem; color: #6b7280; max-width: 38rem; margin: 0 auto 2rem; }
+.hero .badge { display: inline-block; background: #f3f4f6; color: #374151; font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.75rem; border-radius: 9999px; margin-bottom: 1.5rem; }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.625rem 1.5rem; border-radius: 0.5rem; font-size: 0.875rem; font-weight: 500; transition: all 0.15s; border: none; cursor: pointer; }
+.btn-primary { background: #111827; color: #fff; }
+.btn-primary:hover { background: #1f2937; }
+.btn-outline { background: transparent; color: #374151; border: 1px solid #d1d5db; }
+.btn-outline:hover { background: #f9fafb; border-color: #9ca3af; }
+.btn-group { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+
+/* Cards grid */
+.grid { display: grid; gap: 1.5rem; padding: 2rem 0; }
+.grid-2 { grid-template-columns: repeat(1, 1fr); }
+.grid-3 { grid-template-columns: repeat(1, 1fr); }
+@media (min-width: 768px) { .grid-2 { grid-template-columns: repeat(2, 1fr); } .grid-3 { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+
+/* Cards */
+.card { background: #fff; border: 1px solid #f3f4f6; border-radius: 0.75rem; padding: 1.5rem; transition: all 0.15s; }
+.card:hover { border-color: #d1d5db; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+.card .num { display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; background: #f3f4f6; border-radius: 0.5rem; font-size: 0.75rem; font-weight: 600; color: #374151; margin-bottom: 0.75rem; }
+.card h3 { font-size: 1rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem; }
+.card p { font-size: 0.875rem; color: #6b7280; line-height: 1.5; }
+.card .meta { display: flex; gap: 0.75rem; margin-top: 0.75rem; }
+.card .tag { font-size: 0.75rem; color: #9ca3af; display: flex; align-items: center; gap: 0.25rem; }
+
+/* SVG icons inline */
+.icon { width: 1rem; height: 1rem; flex-shrink: 0; }
+
+/* Section headings */
+.section-title { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #9ca3af; margin-bottom: 1rem; padding-top: 2rem; }
+
+/* Quick start */
+.quickstart { background: #fff; border: 1px solid #f3f4f6; border-radius: 0.75rem; padding: 2rem; margin: 2rem 0; }
+.quickstart h2 { font-size: 1.25rem; font-weight: 600; margin-bottom: 1.5rem; }
+.step { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+.step-num { display: flex; align-items: center; justify-content: center; width: 1.5rem; height: 1.5rem; background: #111827; color: #fff; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; flex-shrink: 0; margin-top: 0.1rem; }
+.step-content h3 { font-size: 0.875rem; font-weight: 600; margin-bottom: 0.25rem; }
+.step-content p { font-size: 0.875rem; color: #6b7280; }
+code { background: #f3f4f6; padding: 0.15rem 0.4rem; border-radius: 0.25rem; font-family: 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.8125rem; }
+pre { background: #111827; color: #e5e7eb; padding: 1rem 1.25rem; border-radius: 0.5rem; overflow-x: auto; font-family: 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.8125rem; line-height: 1.7; margin: 0.75rem 0; }
+
+/* Stat boxes */
+.stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 2rem 0; }
+@media (min-width: 768px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+.stat { background: #fff; border: 1px solid #f3f4f6; border-radius: 0.75rem; padding: 1.25rem; text-align: center; }
+.stat .val { font-size: 1.5rem; font-weight: 700; color: #111827; }
+.stat .label { font-size: 0.75rem; color: #9ca3af; margin-top: 0.25rem; }
+
+/* Key finding callout */
+.callout { background: #fff; border-left: 3px solid #111827; padding: 1.25rem 1.5rem; margin: 2rem 0; border-radius: 0 0.5rem 0.5rem 0; }
+.callout p { font-size: 0.9375rem; color: #374151; }
+.callout strong { color: #111827; }
+
+/* Footer */
+footer { border-top: 1px solid #f3f4f6; padding: 2rem 0; margin-top: 4rem; }
+footer .inner { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+@media (min-width: 768px) { footer .inner { flex-direction: row; justify-content: space-between; } }
+footer .links { display: flex; gap: 1.5rem; }
+footer .links a { font-size: 0.875rem; color: #9ca3af; }
+footer .links a:hover { color: #374151; }
+footer .copy { font-size: 0.875rem; color: #9ca3af; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container inner">
+    <a href="/" class="logo">
+      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="14" cy="14" r="13" stroke="#111827" stroke-width="2"/>
+        <circle cx="14" cy="14" r="5" fill="#111827"/>
+        <path d="M14 1v6M14 21v6M1 14h6M21 14h6" stroke="#111827" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <span>OMXUS Research</span>
+    </a>
+    <nav>
+      <a href="#studies">Studies</a>
+      <a href="#quickstart">Run it yourself</a>
+      <a href="https://github.com/webmasterproT/signal-inversion-research">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <div class="badge">10 reproducible studies &middot; open data &middot; open code</div>
+    <h1>Can Courts Actually Detect Lies?</h1>
+    <p>The "deception cues" used in courts, police interrogations, and jury rooms are scientifically inverted. They flag truthful people as liars. Here's the proof — run it yourself.</p>
+    <div class="btn-group">
+      <a href="https://github.com/webmasterproT/signal-inversion-research" class="btn btn-primary">
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        View on GitHub
+      </a>
+      <a href="#quickstart" class="btn btn-outline">How to run it</a>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="stat"><div class="val">10</div><div class="label">Studies</div></div>
+    <div class="stat"><div class="val">73.9%</div><div class="label">Cues inverted</div></div>
+    <div class="stat"><div class="val">1.8B</div><div class="label">Person-years</div></div>
+    <div class="stat"><div class="val">75</div><div class="label">Countries</div></div>
+  </div>
+
+  <div class="callout">
+    <p>If you're <strong>autistic</strong>, you look guilty by default. If you're <strong>not white</strong>, you look guilty by default. If <strong>English isn't your first language</strong>, you look guilty by default. This isn't opinion. Run the numbers yourself.</p>
+  </div>
+
+  <p class="section-title" id="studies">The 10 Studies</p>
+
+  <div class="grid grid-3">
+
+    <a href="https://github.com/webmasterproT/signal-inversion-research/tree/main/study_01_trial_testimony" class="card">
+      <div class="num">01</div>
+      <h3>Trial Testimony</h3>
+      <p>Trained a computer on the same "deception cues" courts use. It couldn't tell truth from lies. Humans: 54%.</p>
+      <div class="meta">
+        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17H7A5 5 0 017 7h2m6 0h2a5 5 0 010 10h-2m-6-5h6"/></svg> SVM / ML</span>
+        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> N=121</span>
+      </div>
+    </a>
+
+    <a href="https://github.com/webmasterproT/signal-inversion-research/tree/main/study_02_confession_linguistics" class="card">
+      <div class="num">02</div>
+      <h3>Confession Linguistics</h3>
+      <p>False confessors say "you" 7.59x more and "that's" 11.67x more. They're echoing interrogators, not confessing.</p>
+      <div class="meta">
+        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17H7A5 5 0 017 7h2m6 0h2a5 5 0 010 10h-2m-6-5h6"/></svg> Mann-Whitney U</span>
+        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> N=135</span>
+      </div>
+    </a>
+
+    <a href="https://github.com/webmasterproT/signal-inversion-research/tree/main/study_03_belief_reality_inversion" class="card">
+      <div class="num">03</div>
+      <h3>Belief vs Reality</h3>
+      <p>74% of things people think indicate lying actually indicate truth-telling. Surveyed across 75 countries.</p>
+      <div class="meta">
+        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17H7A5 5 0 017 7h2m6 0h2a5 5 0 010 10h-2m-6-5h6"/></svg> Binomial test</span>
+        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> N=11,227</span>
+      </div>
+    </a>
+
+    <a href="https://github.com/webmasterproT/signal-inversion-research/tree/main/study_04_convergence" class="card">
+      <div class="num">04</div>
+      <h3>Convergence</h3>
+      <p>Meta-analysis across all studies. Same direction, same conclusion. Not a fluke.</p>
+      <div class="meta"><span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17H7A5 5 0 017 7h2m6 0h2a5 5 0 010 10h-2m-6-5h6"/></svg> Meta-analysis</span></div>
+    </a>
+
+    <a href="https://github.com/webmasterproT/signal-inversion-research/tree/main/study_05_four_pillars" class="card">
+      <div class="num">05</div>
+      <h3>Four Pillars</h3>
+      <p>Four completely independent lines of evidence. Detection at chance, memory distortion, false confessions, detention effects.</p>
+      <div class="meta"><span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17H7A5 5 0 017 7h2m6 0h2a5 5 0 010 10h-2m-6-5h6"/></svg> Multi-method</span></div>
+    </a>
+
+    <a href="https://github.com/webmasterproT/signal-inversion-research/tree/main/study_06_asd_compounding" class="card">
+      <div class="num">06</div>
+      <h3>Autism Compounding</h3>
+      <p>Autistic people's natural behaviour maps perfectly onto what courts call "deceptive." 3.5x more false alarms.</p>
+      <div class="meta">
+        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17H7A5 5 0 017 7h2m6 0h2a5 5 0 010 10h-2m-6-5h6"/></svg> Kruskal-Wallis</span>
+        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> d=3.18</span>
+      </div>
+    </a>
+
+    <a href="https://github.com/webmasterproT/signal-inversion-research/tree/main/study_07_cross_cultural" class="card">
+      <div class="num">07</div>
+      <h3>Cross-Cultural</h3>
+      <p>A Mexican person telling the truth looks "deceptive" to a white American jury. Same for Romanian, Indian speakers.</p>
+      <div class="meta">
+        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17H7A5 5 0 017 7h2m6 0h2a5 5 0 010 10h-2m-6-5h6"/></svg> Cross-classifier</span>
+        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 4 cultures</span>
+      </div>
+    </a>
+
+    <a href="https://github.com/webmasterproT/signal-inversion-research/tree/main/study_08_language_birthplace" class="card">
+      <div class="num">08</div>
+      <h3>Language & Birthplace</h3>
+      <p>Where you're born determines what you speak. Not genes. Census data, N=1.8 billion person-years.</p>
+      <div class="meta">
+        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17H7A5 5 0 017 7h2m6 0h2a5 5 0 010 10h-2m-6-5h6"/></svg> Census regression</span>
+        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> N=1.8B</span>
+      </div>
+    </a>
+
+    <a href="https://github.com/webmasterproT/signal-inversion-research/tree/main/study_09_environmental_outcomes" class="card">
+      <div class="num">09</div>
+      <h3>Environmental Determination</h3>
+      <p>Your postcode predicts your outcomes better than anything about you personally. Language predicts college better than ancestry.</p>
+      <div class="meta">
+        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17H7A5 5 0 017 7h2m6 0h2a5 5 0 010 10h-2m-6-5h6"/></svg> Logistic regression</span>
+        <span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> ~390K</span>
+      </div>
+    </a>
+
+    <a href="https://github.com/webmasterproT/signal-inversion-research/tree/main/study_10_distillation_framework" class="card">
+      <div class="num">10</div>
+      <h3>The Framework</h3>
+      <p>Mathematical proof of what real consensus looks like. Borrows from Bitcoin. Courts produce verdicts, not truth.</p>
+      <div class="meta"><span class="tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17H7A5 5 0 017 7h2m6 0h2a5 5 0 010 10h-2m-6-5h6"/></svg> Mathematical proof</span></div>
+    </a>
+
+  </div>
+
+  <section class="quickstart" id="quickstart">
+    <h2>Run It Yourself</h2>
+    <p style="color:#6b7280;margin-bottom:1.5rem;font-size:0.875rem;">You don't need a science degree. You need Python and 5 minutes.</p>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h3>Get the code</h3>
+        <p>Download the ZIP from GitHub, or:</p>
+        <pre>git clone https://github.com/webmasterproT/signal-inversion-research.git
+cd signal-inversion-research</pre>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h3>Set up (one time)</h3>
+        <pre>bash setup.sh          # Mac / Linux
+python3 setup_windows.py   # Windows</pre>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h3>Run all studies</h3>
+        <pre>bash run_all.sh        # Mac / Linux
+python3 run_windows.py     # Windows</pre>
+        <p style="margin-top:0.5rem;">Or run just one: <code>bash run_one.sh 7</code> (cross-cultural)</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h3>See the results</h3>
+        <p>Each study's <code>results/</code> folder has the output. <code>results/figures/</code> has the charts. <code>WHAT_THIS_PROVES.md</code> explains it in plain language.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container inner">
+    <div class="copy">
+      <a href="/" class="logo" style="margin-bottom:0;">
+        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px;">
+          <circle cx="14" cy="14" r="13" stroke="#9ca3af" stroke-width="2"/>
+          <circle cx="14" cy="14" r="5" fill="#9ca3af"/>
+        </svg>
+        <span style="font-size:0.875rem;color:#9ca3af;">OMXUS Research</span>
+      </a>
+    </div>
+    <div class="links">
+      <a href="https://omxus.com">omxus.com</a>
+      <a href="https://github.com/webmasterproT/signal-inversion-research">Source code</a>
+      <a href="mailto:research@omxus.com">research@omxus.com</a>
+    </div>
+    <div class="copy">CC BY 4.0 — use it, share it, build on it.</div>
+  </div>
+</footer>
+
+</body>
+</html>

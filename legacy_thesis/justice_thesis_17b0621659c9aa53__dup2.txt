@@ -1,0 +1,29 @@
+ You're right, let me slow down and think with you instead of just building.
+
+  On the UI: Let me look at the OMXUS logos so I understand the visual direction you want.
+
+  On "half doesn't work": What specifically is broken when you use it?
+
+  On P2P HTML: This is a really interesting idea. A few approaches:
+
+  1. Single-file app — inline everything (JS, CSS, SVG) into one HTML file. It becomes a
+  portable document. Share it via BLE, AirDrop, QR code pointing to a data URI, or literally
+  paste it to someone. No server ever.
+  2. WebRTC P2P — the mesh layer already has BLE. WebRTC data channels let two browsers connect
+   directly. One person's VexWallet could serve the app to another person's browser. First
+  contact via BLE, then WebRTC for heavier data.
+  3. IPFS/IPNS — host the app on IPFS. Content-addressed, can't be taken down. Anyone with the
+  CID can load it. Pairs well with ENS (vexwallet.eth → IPFS hash).
+  4. The mesh IS the distribution — the BLE protocol already has packet relay. The app itself
+  could be a payload. Person A has VexWallet, person B doesn't. A's phone broadcasts the app
+  via mesh. B receives it, opens it, creates identity. No internet needed at any point.
+
+  Option 1 + 4 together is the most radical: a single HTML file that contains the entire
+  wallet, distributed through the mesh network itself. The app spreads like a living thing.
+
+  Want me to look at the OMXUS logos first, then figure out what's broken, before we decide on
+  direction?
+
+❯ idk.. that is so cool. can uu take a peek at all 4 and think about it... is there 1 more way 
+ ontop of that                                                                                 
+  ⎿  Async hook Stop completed

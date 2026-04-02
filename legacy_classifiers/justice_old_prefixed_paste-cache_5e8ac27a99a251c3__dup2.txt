@@ -1,0 +1,26 @@
+                                                                                          
+⏺ Bash(cd /Users/tiaastor/.openclaw/workspace/BUILDING_THE_SYSTEM/apps/vexwallet && python3 -m http.server 8420
+      &>/dev/null &                                                                                                       
+      echo "Server started at http://localhost:…)
+  ⎿  Server started at http://localhost:8420                                                                              
+                                                                                                                        
+⏺ It's live at http://localhost:8420. Four files, zero dependencies:                                                      
+                                                                                                                        
+  apps/vexwallet/
+  ├── index.html      ← 7 screens (welcome, create, login, home, nearby, vouch, vote, send)                               
+  ├── style.css       ← dark/light mode, phone-frame on desktop, clean aesthetic
+  ├── identity.js     ← PBKDF2(words, name|dob) → address + HER hash with vouchers                                        
+  └── app.js          ← navigation, BLE scanning stub, toast notifications                                              
+                                                                                                                        
+  The identity chain:
+
+  1. name + dob + words → your provisional address (deterministic, reproducible)
+  2. address + voucher1 + voucher2 + voucher3 → HER hash (goes on-chain, permanent)
+  3. The HER hash is the proof that these specific humans stood next to you and said "this is a real person"
+
+  Nobody can use your address without knowing all three inputs. And your on-chain identity is permanently bound to who
+  vouched for you.
+
+  Take a look and tell me what feels wrong.
+
+✻ Worked for 3m 9s

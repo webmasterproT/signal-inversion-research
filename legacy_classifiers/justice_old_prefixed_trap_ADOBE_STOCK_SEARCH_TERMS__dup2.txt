@@ -1,0 +1,411 @@
+================================================================================
+ADOBE STOCK SEARCH TERMS - ALTERNATIVE TO GEMINI GENERATION
+================================================================================
+
+If Gemini images aren't quite right, search Adobe Stock (https://stock.adobe.com/)
+These search terms will find professional, publication-ready images.
+
+Filter options:
+- Collection: "All"
+- Asset type: "Photos" or "Illustrations"
+- Resolution: "High" (for thesis quality)
+- Orientation: "Landscape" or "Square" as needed
+
+================================================================================
+HIGH PRIORITY - THESIS CREDIBILITY FIGURES
+================================================================================
+
+---
+FIGURE 1: CRIMINAL JUSTICE PIPELINE (7 STAGES)
+---
+
+PRIMARY SEARCHES (in order of preference):
+
+1. "criminal justice system flowchart stages"
+   - Look for: diagrams showing arrest to conviction
+   - Filter: Illustrations, avoid cartoonish style
+
+2. "justice system pipeline diagram"
+   - Look for: professional flowchart style
+   - Filter: Illustrations, minimalist design
+
+3. "legal process flowchart"
+   - Look for: professional diagrams with boxes and arrows
+   - Filter: High resolution, academic style
+
+4. "courtroom prosecution timeline"
+   - Look for: showing sequential stages
+   - Filter: Professional, clean design
+
+FALLBACK OPTION:
+If no perfect match found, use:
+- "flowchart diagram template" (generic, then customize text overlay)
+- Look for: 7-box horizontal layout with arrows
+- Edit: Add labels for each justice stage
+
+---
+FIGURE 2: SIGNAL INVERSION EFFECT (BELIEF VS REALITY)
+---
+
+PRIMARY SEARCHES:
+
+1. "comparison chart before after deception"
+   - Look for: two-column comparison layout
+   - Filter: Clean, professional design
+
+2. "belief vs reality infographic"
+   - Look for: two-column design with contrast
+   - Filter: Modern, academic style
+
+3. "deception indicators chart"
+   - Look for: showing behavioral cues
+   - Filter: Professional illustrations
+
+4. "comparison table two columns"
+   - Look for: clean layout with good contrast
+   - Filter: Professional, minimalist
+
+FALLBACK:
+- "divided comparison template"
+- "left right comparison design"
+- Then add your own text for deception vs truthfulness
+
+---
+FIGURE 3: BEHAVIORAL ADAPTATION FEEDBACK LOOP
+---
+
+PRIMARY SEARCHES:
+
+1. "circular feedback loop cycle diagram"
+   - Look for: 4-stage circular process
+   - Filter: Professional, minimalist
+
+2. "feedback loop infographic"
+   - Look for: circular design showing cycle
+   - Filter: Clean, modern style
+
+3. "cyclical process diagram"
+   - Look for: shows repeating cycle/trap
+   - Filter: Professional illustrations
+
+4. "cause and effect cycle chart"
+   - Look for: circular cause-effect relationship
+   - Filter: Academic style
+
+FALLBACK:
+- "circular arrow diagram template"
+- "cycle diagram 4 stages"
+- Edit with your own text for each stage
+
+---
+FIGURE 4: PRE-INTERROGATION EFFECTS TIMELINE
+---
+
+PRIMARY SEARCHES:
+
+1. "timeline diagram stress cortisol"
+   - Look for: escalating stress visualization
+   - Filter: Scientific, professional
+
+2. "time series physiological response graph"
+   - Look for: showing increasing levels over time
+   - Filter: Scientific illustrations
+
+3. "escalation timeline diagram"
+   - Look for: showing progression over hours/days
+   - Filter: Professional, clear labeling
+
+4. "cortisol level graph over time"
+   - Look for: biological chart showing increase
+   - Filter: Scientific, accurate representation
+
+FALLBACK:
+- "timeline template horizontal"
+- "stress escalation chart"
+- "line graph template multiple lines"
+
+---
+FIGURE 5: NARRATIVE RATIONALITY IN CROSS-EXAMINATION
+---
+
+PRIMARY SEARCHES:
+
+1. "memory reconstruction psychology illustration"
+   - Look for: showing memory being altered/changed
+   - Filter: Academic, professional
+
+2. "interrogation memory loss illustration"
+   - Look for: before/after memory change
+   - Filter: Psychological research style
+
+3. "eyewitness testimony memory distortion"
+   - Look for: showing authentic vs distorted memory
+   - Filter: Educational, academic
+
+4. "question suggestion memory change"
+   - Look for: showing influence of questions on memory
+   - Filter: Psychological illustration
+
+FALLBACK:
+- "before and after transformation diagram"
+- "memory brain illustration"
+- "puzzle pieces reconstruction image"
+
+---
+FIGURE 6: JURY POLARIZATION DYNAMICS
+---
+
+PRIMARY SEARCHES:
+
+1. "jury deliberation polarization chart"
+   - Look for: showing jury members clustering/agreement
+   - Filter: Professional, academic
+
+2. "group decision confidence increase"
+   - Look for: showing consensus building, confidence rising
+   - Filter: Business/academic illustrations
+
+3. "opinion polarization diagram"
+   - Look for: showing clustering of opinions
+   - Filter: Professional, clean design
+
+4. "consensus building process illustration"
+   - Look for: showing group moving toward agreement
+   - Filter: Modern, professional
+
+FALLBACK:
+- "histogram clustering diagram"
+- "distribution chart showing shift"
+- "confidence level progression chart"
+
+================================================================================
+MEDIUM PRIORITY - POLICY SUPPLEMENT FIGURES
+================================================================================
+
+---
+FIGURE 7: MAMMALIAN JUSTICE SYSTEMS COMPARISON
+---
+
+PRIMARY SEARCHES:
+
+1. "wolf pack lion pride comparison"
+   - Look for: showing different animals/species
+   - Filter: Professional, nature illustrations
+
+2. "animal social hierarchies infographic"
+   - Look for: multiple animals shown comparatively
+   - Filter: Academic, educational style
+
+3. "human vs animal social systems comparison"
+   - Look for: comparing humans to other mammals
+   - Filter: Educational, professional
+
+4. "mammalian behavior social structure"
+   - Look for: showing how different species organize
+   - Filter: Nature/science illustrations
+
+FALLBACK:
+- "animal pack hierarchy illustration"
+- "wolves lions comparison image"
+- "natural social systems infographic"
+
+---
+FIGURE 8: CURRENT VS PREVENTION SYSTEM TIMELINE
+---
+
+PRIMARY SEARCHES:
+
+1. "before and after timeline comparison"
+   - Look for: two parallel timelines
+   - Filter: Professional, clear layout
+
+2. "current vs future system diagram"
+   - Look for: comparing two different approaches
+   - Filter: Clean, minimalist design
+
+3. "parallel timeline comparison"
+   - Look for: showing two processes side by side
+   - Filter: Academic, professional
+
+4. "justice system reform timeline"
+   - Look for: showing old vs new system
+   - Filter: Professional illustrations
+
+FALLBACK:
+- "timeline template horizontal"
+- "comparison timeline graphic"
+- "dual process flowchart"
+
+---
+FIGURE 9: COST COMPARISON - AUD PER DAY
+---
+
+PRIMARY SEARCHES:
+
+1. "cost comparison bar chart"
+   - Look for: simple, clear bar chart
+   - Filter: Professional, high contrast colors
+
+2. "price comparison graph infographic"
+   - Look for: showing cost differential
+   - Filter: Clean, readable design
+
+3. "expense comparison visualization"
+   - Look for: two bars showing different amounts
+   - Filter: Professional, high quality
+
+4. "budget comparison chart"
+   - Look for: clear visual of cost difference
+   - Filter: Minimalist, professional
+
+FALLBACK:
+- "bar chart template"
+- "cost comparison infographic"
+- "price differential visualization"
+
+---
+FIGURE 10: CRIME PREVENTION MECHANISMS
+---
+
+PRIMARY SEARCHES:
+
+1. "crime prevention intervention flowchart"
+   - Look for: showing prevention steps
+   - Filter: Professional, clear process
+
+2. "risk factor intervention diagram"
+   - Look for: identifying and addressing risk
+   - Filter: Educational, professional
+
+3. "public health intervention model"
+   - Look for: prevention approach flowchart
+   - Filter: Academic, systematic
+
+4. "mental health intervention pathway"
+   - Look for: showing assessment to treatment
+   - Filter: Professional healthcare illustration
+
+FALLBACK:
+- "intervention process diagram"
+- "flowchart template multiple stages"
+- "public health prevention illustration"
+
+---
+FIGURE 11: SWITZERLAND VS AUSTRALIA CRIME RATES COMPARISON
+---
+
+PRIMARY SEARCHES:
+
+1. "Switzerland Australia comparison infographic"
+   - Look for: comparing two countries
+   - Filter: Professional, clear metrics
+
+2. "crime statistics comparison chart"
+   - Look for: showing crime rate data
+   - Filter: Professional, accurate representation
+
+3. "incarceration rate comparison by country"
+   - Look for: showing different countries' rates
+   - Filter: Statistical, professional
+
+4. "global crime rates comparison"
+   - Look for: showing multiple countries' metrics
+   - Filter: Data visualization, professional
+
+FALLBACK:
+- "country comparison infographic template"
+- "bar chart comparison multiple countries"
+- "statistics infographic Switzerland Australia"
+
+================================================================================
+QUICK DECISION MATRIX
+================================================================================
+
+USE GEMINI IF YOU WANT:
+✓ Exact customization (specific colors, text, layout)
+✓ Specific data/numbers built in (like "91% inversion")
+✓ Educational diagrams (arrows, flows, custom shapes)
+✓ Control over content and presentation
+✓ Original, unique designs
+
+USE ADOBE STOCK IF YOU WANT:
+✓ Fast, ready-to-use professional images
+✓ Realistic photographs vs diagrams
+✓ Guaranteed high quality/resolution
+✓ Time-saving (no generation/editing)
+✓ Professional publication-ready images
+✓ Legal commercial use license included
+
+RECOMMENDATION:
+- Figures 1-3: GEMINI (flowcharts need custom layout)
+- Figures 4-6: EITHER (timelines and charts work in both)
+- Figures 7-11: ADOBE STOCK (easier to find good matches)
+
+================================================================================
+ADOBE STOCK TIPS FOR THESIS
+================================================================================
+
+1. Download with "License": Must include "Standard License" or "Extended License"
+   (Standard is fine for thesis; Extended for publication/commercial use)
+
+2. Resolution: Select "High Resolution" (300 DPI minimum for printing)
+
+3. File format: Download as PNG or TIFF (preserves quality)
+
+4. Attribution: Adobe Stock images in academic thesis should include:
+   "Image from Adobe Stock" or photographer name if available
+
+5. Custom licensing:
+   - If image is close but not perfect, check if it can be licensed for editing
+   - Some images allow minor text/label modifications
+
+6. Collections:
+   - Search "creative collections" for themed image sets
+   - Often have matching visual styles across multiple images
+
+7. Budget estimate:
+   - Single images: AUD $10-30 each
+   - Subscription (monthly): AUD $40-80 per month for unlimited downloads
+   - For 11 images: ~AUD $25-50 per month subscription is often cheaper
+
+================================================================================
+WORKFLOW RECOMMENDATION
+================================================================================
+
+Step 1: Start with Gemini for Figures 1-3 (diagrams that need exact customization)
+
+Step 2: If happy with results, continue with Gemini for Figures 4-6
+
+Step 3: For Figures 7-11, try Adobe Stock first (faster)
+
+Step 4: If Adobe Stock doesn't find good matches, generate with Gemini
+
+Step 5: Download all final images to:
+        /content/templates/novathesis-main/5-Figures/
+
+Step 6: Name consistently:
+        Figure-01-name.png through Figure-11-name.png
+
+Step 7: Reference in LaTeX chapters with captions and citations
+
+================================================================================
+TOTAL TIME ESTIMATE
+================================================================================
+
+Gemini route:
+- ~5-10 minutes per image = 55-110 minutes for all 11
+- Often requires regeneration/tweaking
+- Total: ~2-3 hours
+
+Adobe Stock route:
+- ~2-3 minutes per image = 22-33 minutes for all 11
+- Straight download, minimal editing
+- Total: ~30-45 minutes
+
+HYBRID APPROACH (RECOMMENDED):
+- Gemini for Figures 1-3: ~30 minutes
+- Adobe Stock for Figures 4-11: ~20 minutes
+- Total: ~50 minutes
+- Best quality + fastest time
+
+================================================================================

@@ -1,0 +1,126 @@
+================================================================================
+STUDY 9: LANGUAGE VS. ANCESTRY AS PREDICTORS OF OUTCOMES
+================================================================================
+Census file not found at /Users/tiaastor/.openclaw/workspace/BUILDING_THE_SYSTEM/content/publish/analysis/study_09_environmental_outcomes/src/../data/psam_p06.csv
+
+*** DEMO MODE: Generating synthetic data (N=50,000) ***
+*** For real results, download census data per data/README_DATA.md ***
+
+
+⚠ RUNNING IN DEMO MODE WITH SYNTHETIC DATA
+  Results demonstrate the analysis pipeline.
+  For real results, see data/README_DATA.md for download instructions.
+
+
+================================================================================
+DESCRIPTIVE STATISTICS
+================================================================================
+N = 50,000
+% with college degree: 40.0%
+% speaks English at home: 56.0%
+
+Ancestry Distribution:
+  Hispanic_Latino        19,928 ( 39.9%)
+  European               14,959 ( 29.9%)
+  Asian                   8,157 ( 16.3%)
+  African                 2,950 (  5.9%)
+  North_American          1,525 (  3.0%)
+  Middle_Eastern          1,001 (  2.0%)
+  Other                     992 (  2.0%)
+  Pacific_Islander          488 (  1.0%)
+
+================================================================================
+CRITICAL TEST: Same Ancestry, Different Language
+================================================================================
+
+LOGIC: If genetics (ancestry) determines outcomes, people of the same ancestry
+should have similar outcomes regardless of language spoken at home.
+If environment (language) determines outcomes, people of the same ancestry
+should differ based on language environment.
+
+Hispanic_Latino:
+  English at home:     33.4% college (n=6,976)
+  Other lang at home:  17.4% college (n=12,952)
+  DIFFERENCE:          +16.0 percentage points
+  t-test: t=26.09, p=< .001
+
+Asian:
+  English at home:     70.8% college (n=3,304)
+  Other lang at home:  55.6% college (n=4,853)
+  DIFFERENCE:          +15.2 percentage points
+  t-test: t=14.02, p=< .001
+
+European:
+  English at home:     52.6% college (n=12,681)
+  Other lang at home:  40.7% college (n=2,278)
+  DIFFERENCE:          +11.9 percentage points
+  t-test: t=10.49, p=< .001
+
+
+================================================================================
+REGRESSION ANALYSIS
+================================================================================
+
+Three models compared:
+  Model 1: Ancestry only
+  Model 2: Language only
+  Model 3: Ancestry + Language
+
+MODEL 1 (Ancestry only):   R² = 0.0969  Adj R² = 0.0968
+MODEL 2 (Language only):   R² = 0.0363  Adj R² = 0.0363
+MODEL 3 (Both):            R² = 0.1145  Adj R² = 0.1144
+
+KEY RESULT — Incremental R²:
+  Variance from ancestry alone:    9.69%
+  Variance from language alone:    3.63%
+  Variance from both:              11.45%
+  Incremental from language (beyond ancestry): 1.76%
+  Incremental from ancestry (beyond language): 7.82%
+
+  Language coefficient in full model: 0.1481
+  p-value: < .001
+
+================================================================================
+GENERATIONAL ANALYSIS (Native vs Foreign Born)
+================================================================================
+
+Hispanic_Latino:
+  US-born:       23.2% college (n=9,922)
+  Foreign-born:  22.8% college (n=10,006)
+  DIFFERENCE:    +0.5 percentage points
+
+Asian:
+  US-born:       63.2% college (n=2,874)
+  Foreign-born:  60.9% college (n=5,283)
+  DIFFERENCE:    +2.3 percentage points
+
+US-Born Individuals Across Ancestries:
+  African              37.4% college (n=1,879)
+  Asian                63.2% college (n=2,874)
+  European             50.9% college (n=11,227)
+  Hispanic_Latino      23.2% college (n=9,922)
+  Middle_Eastern       53.5% college (n=424)
+  North_American       43.0% college (n=1,458)
+  Other                33.3% college (n=460)
+  Pacific_Islander     29.6% college (n=297)
+
+================================================================================
+CONCLUSION
+================================================================================
+
+Ancestry alone (R²=0.0969) explains more variance
+than language alone (R²=0.0363).
+
+→ But language still adds significant independent predictive power.
+
+Language adds 1.76% incremental variance beyond ancestry.
+Within the same ancestry group, English speakers have systematically higher
+college attainment than non-English speakers.
+
+This supports the environmental hypothesis: where you are raised and what
+language environment you are exposed to matters for life outcomes,
+independently of genetic ancestry.
+
+⚠ NOTE: These results are from SYNTHETIC data.
+  Download real census data for publication-quality results.
+  See data/README_DATA.md for instructions.

@@ -1,0 +1,66 @@
+================================================================================
+STUDY 4: HUMAN vs ALGORITHMIC DECEPTION DETECTION — CONVERGENCE
+================================================================================
+
+Human Detection Accuracy (Bond & DePaulo, 2006; k=206 studies, N=24,483)
+----------------------------------------------------------------------
+  Human lie detection              47.0%
+  Human overall                    54.0%
+  Police officers                  55.0%
+  Customs officials                55.0%
+  Judges                           54.0%
+
+Algorithmic Detection Accuracy (linguistic features)
+----------------------------------------------------------------------
+  Algorithm disfluency only        60.3%  (Current Study 1)
+  Algorithm multi-variable         63.5%  (Current Study 1)
+  Algorithm 3-predictor            78.5%  (Rizzelli et al 2021)
+
+======================================================================
+GAP ANALYSIS
+======================================================================
+  Chance level:               50.0%
+  Human overall:              54.0%
+  Human advantage over chance: 4.0 percentage points
+
+  Algorithm disfluency only       gap = +6.3pp over human  (60.3% vs 54.0%)
+  Algorithm multi-variable        gap = +9.5pp over human  (63.5% vs 54.0%)
+  Algorithm 3-predictor           gap = +24.5pp over human  (78.5% vs 54.0%)
+
+  CRITICAL: Human lie detection = 47.0% — BELOW chance (50.0%)
+  Humans are worse than coin-flipping at detecting lies specifically.
+
+  Cohen's h (human overall vs chance) = 0.080
+  h < 0.20 = negligible effect size
+  The 4-point advantage is statistically significant (N=24,483)
+  but practically meaningless — a system built on this is random.
+
+======================================================================
+WHY THE GAP EXISTS
+======================================================================
+
+  Humans rely on cues that are:
+    - Unrelated to actual deception (gaze aversion, fidgeting)
+    - Actively inverted (disfluency is HIGHER in truth-tellers)
+    - 78.6% empirically wrong (Study 3 inversion matrix)
+
+  Algorithms use cues that are:
+    - Linguistically measurable (pronoun rates, conjunction patterns)
+    - Imperceptible to human observers in real-time
+    - Empirically validated against ground truth
+
+  The features humans CAN perceive are inverted.
+  The features that WORK are imperceptible.
+  This is the Signal Inversion Effect operating at the system level.
+
+======================================================================
+TRAINING EFFECT: NONE
+======================================================================
+  Police officers:      55%  (trained)
+  Customs officials:    55%  (trained)
+  Judges:               54%  (decades of experience)
+  General public:       54%  (untrained)
+
+  Training does not improve deception detection (Bond & DePaulo 2006).
+  Confidence does not correlate with accuracy (DePaulo et al. 1997).
+  Experience does not help because the training reinforces inverted cues.

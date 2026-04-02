@@ -1,0 +1,2000 @@
+The more detailed, the
+more reliable?
+Evaluating the diagnosticity of linguistic cues
+for credibility assessment on a mock crime
+scenario in Swedish
+Clara Gustafsson
+Uppsala University
+Department of Linguistics and Philology
+Master Programme in Language Technology
+Master’s Thesis in Language Technology, 30 ects credits
+October 2, 2024
+Supervisors:
+Fredrik Wahlberg, Uppsala University
+Moa Lidén, Uppsala University, University College London, EB-CRIME
+Abstract
+Credibility assessment is a common practice in any judicial institution and be-
+comes crucial when there is a shortage of technical evidence, as verbal statements
+become the main source of evidence. Judges and jurors are tasked with estimating
+the credibility of the witnesses, the alleged victim, and the alleged perpetrator,
+solely based on their accounts. In multiple rounds, the Swedish Supreme Court
+has proposed credibility criteria (Sw. tillförlitlighetskriterier), which describe
+characteristics in a statement that are allegedly indicative of truth. In the latest
+edition, a statement is said to be more likely to be true if it is “clear”, “long”,
+and “detailed”. These criteria are intended to aid practitioners in assessing the
+veracity of a statement given in a legal process. Other frameworks that employ
+language-based criteria are also discussed.
+The motivation for this study is to evaluate the credibility criteria given by
+the Swedish Supreme Court, with the long-term goal of extending the scientific
+basis on which these criteria are used in practice. To do this, we employ tools
+and methods from computational linguistics and natural language processing to
+quantitatively estimate and evaluate the prevalence of a selection of linguistic
+cues on a new Swedish dataset of true and false statements (n=251), fetched
+through an experiment using a mock crime scenario. The dataset features both
+confessions and denials and in addition, the statements are annotated as believed
+or non-believed by a researcher of law.
+Results from statistical analysis (significance tests, correlation analysis, and
+logistic regression) suggest that some cues are informative on our data set. Past
+tense verbs were indicative of truth, while positive sentiment, lexical variation,
+and present tense verbs were false-indicative. However, overall, larger differences
+were found between confessions and denials, and different cues were significant
+within confessions and denials, respectively. This marks the importance of con-
+sidering the type of statement when using criteria for credibility assessment.
+Furthermore, we saw indications that a human practitioner might overestimate
+length and negative sentiment as indicators of truth. Implications for research in
+verbal lie detection and for the practice of credibility assessment are discussed.
+Contents
+Preface 5
+Acknowledgements 6
+1. Introduction 7
+1.1. Verbal Lie Detection and Credibility Criteria . . . . . . . . . . . . . . 7
+1.2. Purpose and Research Questions . . . . . . . . . . . . . . . . . . . . . 8
+2. Background and Theory 10
+2.1. Credibility Assessment and Lying . . . . . . . . . . . . . . . . . . . . 2.2. Verbal Lie Detection . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2.2.1. The Swedish Supreme Court’s Credibility Criteria . . . . . . . 11
+2.2.2. Criteria-Based Content Analysis (CBCA) . . . . . . . . . . . . 2.2.3. Reality Monitoring (RM) . . . . . . . . . . . . . . . . . . . . . 2.2.4. General Approaches . . . . . . . . . . . . . . . . . . . . . . . 2.2.5. Challenges . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2.3. Empirical Studies . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2.3.1. Manual Assessment . . . . . . . . . . . . . . . . . . . . . . . 2.3.2. Computational Methods . . . . . . . . . . . . . . . . . . . . . 10
+10
+12
+13
+13
+14
+15
+15
+16
+3. Method 19
+3.1. Data Collection . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3.1.1. Overview . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3.1.2. Stimuli and Instructions . . . . . . . . . . . . . . . . . . . . . 3.1.3. Data Preparation . . . . . . . . . . . . . . . . . . . . . . . . . 3.1.4. Limitations . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3.2. Linguistic Cues . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3.2.1. Selection . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3.2.2. Coding . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3.3. Statistical Evaluation . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+19
+20
+22
+22
+23
+23
+23
+26
+4. Results 28
+4.1. True vs. False . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4.2. Confession vs. Denial . . . . . . . . . . . . . . . . . . . . . . . . . . . 4.3. True vs. False x Confession vs. Denial . . . . . . . . . . . . . . . . . . 28
+29
+33
+4.4. True vs. False x Believed vs. Not Believed . . . . . . . . . . . . . . . . 36
+5. Discussion 38
+5.1. Summary of Key Findings . . . . . . . . . . . . . . . . . . . . . . . . . 5.2. Limitations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 38
+40
+6. Conclusion 41
+6.1. Main Conclusions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6.1.1. Research Questions Revisited . . . . . . . . . . . . . . . . . . 6.1.2. Preliminary Implications for Theory and Practice . . . . . . . 41
+6.2. Contributions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 41
+41
+42
+3
+6.3. Future Work . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 42
+A. Criteria Overview 48
+4
+Preface
+This thesis has been done in collaboration with The International Centre for Evidence-
+Based Criminal Law (EB-CRIME), which is a network of researchers from different
+scientific disciplines that collaborate in research projects about evidence in criminal
+cases. The research aims to facilitate evidence-based evaluations and decision-making
+by, for example, police officers, prosecutors, forensic medical doctors and judges
+EB-CRIME is funded by the Swedish Research Council.
+More specifically, this thesis connects to one of the subprojects of EB-CRIME, which
+is source evaluation. One of the key objectives of this subproject is to empirically
+evaluate statement analysis methods that are used for credibility assessment. This
+thesis aims to explore this topic in a Swedish context, on behalf of EB-CRIME.
+5
+Acknowledgements
+First and foremost, I want to thank my supervisors. Moa Lidén, for her inspiring
+outlook, helpful comments, and belief in me. Fredrik Wahlberg, for his positive attitude,
+and for repeating the words that feeling uncertain and wanting to redo everything is
+sometimes a sign of creativity. Thank you both for giving me the opportunity to work
+on this topic and to be a part of EB-CRIME.
+Also, a special thank you to Johan, Peter, Tea, and Magdalena, for your support, and
+kind comments.
+I also would not be here if it were not for my family and (outside-the-program)
+friends. Dad, I am sorry for forcing you to go to your workplace during your vacation,
+and thank you for letting me borrow your office. Mom, thank you for reminding me
+that I have humour. And to my partner and my friends, I will be back soon.
+6
+1. Introduction
+1.1. Verbal Lie Detection and Credibility Criteria
+It is not a rare phenomenon in criminal cases that technical evidence is scarce or non-
+existent (Granhag et al., 2021). When this happens, the assessment of verbal statements
+given by witnesses, victims, suspects, and defendants is of utmost importance, as the
+verbal statements constitute the main part of the evidence. But how do we determine
+whether someone is lying or telling the truth?
+This question has baffled philosophers, researchers, and regular people for thousands
+of years, giving rise to endless theories about lying and lie detection (Sporer and Masip,
+2023). Even today, spotting a lie is a complex, perhaps impossible task for us humans.
+Research has shown that humans, including trained judges and policemen, perform
+just slightly above chance level (54%), when trying to determine whether someone is
+lying or not (Bond and DePaulo, 2006).
+Verbal lie detection (VLD) is the area of lie detection research where characteristics
+in the language are used as a basis for assessing the veracity of a statement. One
+key assumption (or working hypothesis) in VLD research is that there exist patterns
+in the language of a person that is lying vs. telling the truth, that potentially could
+discriminate deceptive statements from true ones in a systematic way.
+Over the last decades, researchers of law and psychology have developed frameworks
+that make use of linguistic content analysis as an aid for practitioners when assessing
+the credibility of a statement. Some of the most renowned frameworks are Criteria-
+Based Content Analysis (CBCA Steller and Koehnken, 1989), and Reality Monitoring
+(RM Johnson and Raye, 1981). These frameworks propose a set of criteria that are
+thought of as indicators of either truth or deception in a statement. In the Swedish
+context, the Swedish Supreme Court has stated a set of credibility criteria,
+1 formulated
+to guide judges, jurymen, prosecutors, and other actors in the Swedish legal system in
+assessing the credibility of a statement given in a criminal case. In 2017,2 it was stated
+that a statement is more likely to be true if it is “clear”, “long” and “detailed”. Previous
+descriptions of the criteria, which featured more cues such as “vivid” and “logical”,3
+were criticized by forensic psychologists (R. M. Willén and Strömwall, 2012a), leading
+to the exclusion of criteria between precedents. Given that the Swedish Supreme Court
+has a large impact on the rest of the legal system through forming precedents (Schelin,
+2006), the credibility criteria play a significant role in determining outcomes from
+criminal cases on a national basis. Hence it is of utmost importance that they are
+scrutinized scientifically.
+Within the field of verbal lie detection, the accuracy and practical utility of criteria-
+based frameworks are a popular subject of study, where meta-analyses have suggested
+that implementing CBCA or RM yields an accuracy of around 70%, which is signifi-
+cantly higher than basing the assessment purely on human intuition (Bogaard et al.,
+2016; Vrij, 2005). There are, however, reasons to interpret results like these with caution
+(Brennen and Magnussen, 2023). Although some studies use manual assessment to
+1Sw. tillförlitlighetskriterier
+2NJA 2017 p.316 I
+3NJA 2010 p.671
+7
+score statements based on these frameworks, a growing amount of research use auto-
+matic methods of text analysis, adapted from computational linguistics and natural
+language processing (e.g. Hauch et al., 2015; Kleinberg et al., 2018; Levitan et al., 2018;
+Newman et al., 2003; Papantoniou et al., 2022; Sarzyńska-Wawer et al., 2023; Solà-Sales
+et al., 2023; Wawer and Sarzyńska-Wawer, 2022). Using computational methods for
+verbal lie detection has two motives. For research purposes, it minimizes the need for
+human-powered assessment of criteria or cue prevalence in the data, which can be
+time-consuming, costly, and requires training (Hauch et al., 2016). There is also the
+idea that automatic assessment diminishes the impact of human biases (Hauch et al.,
+2015).
+However, despite a reasonably large research base of verbal lie detection using com-
+putational methods, this has not been done in a Swedish context. Additionally, previous
+evaluations of the Swedish Supreme Court’s criteria and their stance on statement
+analysis have been done purely from the perspective of law and forensic psychology
+(Schelin, 2006; R. M. Willén and Strömwall, 2012a,b). We believe that extending the
+research field of verbal lie detection to the Swedish context is of great importance
+considering that criteria-based content analysis is a current recommendation from the
+Swedish Supreme Court. We also believe that this field benefits from the enforcement
+of computational methods to increase efficiency, reproducibility, and objectivity.
+1.2. Purpose and Research Questions
+Our main purpose for this study is to build on the existing research of verbal lie
+detection using computational methods, extending the scope to include the Swedish
+language. This is part of answering the larger question of how reliable the use of
+criteria-based statement analysis is in reality. While this question is too vast to answer
+in this thesis, we aim to provide a basis for further analysis, especially in the Swedish
+context.
+To achieve this, we collect a new Swedish data set that mimics statements that would
+be given in a criminal case. We also develop a scheme for measuring the prevalence of
+32 linguistic cues in Swedish statements and evaluating their diagnostic potential for
+determining the veracity of a statement. Since our focus is on the Swedish context,
+we derive our linguistic cues mainly from the Swedish Supreme Court’s credibility
+criteria, and other commonly applied linguistic cues in previous research (Hauch et al.,
+2015), adapting them to the Swedish language.
+To bring some depth to our analysis, and given that previous research shows that
+the diagnosticity of individual cues for verbal lie detection varies between studies,
+sometimes even pointing in opposite directions (see meta-analyses by Gancedo et al.,
+2021; Hauch et al., 2015), we want to explore the impact of the type of statement for the
+diagnosticity of specific cues. Additionally, previous research has called for exploration
+of how confessions and denials differ (Wojciechowski et al., 2018). Therefore, we
+designed our data collection to generate a data set of four categories: true confessions,
+false confessions, true denials, and false denials.
+To deepen our analysis, we engaged a researcher of law to independently assess
+the truthfulness of the statements based on her intuition. This allowed us to briefly
+explore whether the prevalence of specific linguistic cues varies similarly based on
+both the actual veracity of the statement and whether a human perceives it as true or
+false, or if some cues are over- or under-estimated as indicators of truth or deception.
+In summary, the following research questions are posed:
+• How informative are the linguistic cues as indicators for truth or deception?
+8
+• Does it matter if the statement is a confession or a denial, regarding what cues
+are discriminative?
+• What characterizes statements that are thought to be true or false according
+to human judgment? Are some linguistic cues over- or under-estimated as
+indicators of truth or deception?
+• How well does our proposed scheme separate true statements from false ones,
+and what does this say about the reliability of the linguistic cues as indicators
+of truth or deceit? What does it say about the Supreme Court’s criteria? What
+does it say about other established approaches?
+9
+2. Background and Theory
+2.1. Credibility Assessment and Lying
+It is not a rare phenomenon in criminal investigations that technical evidence is
+scarce or non-existent (Granhag et al., 2021). In these situations, the assessment of
+verbal statements given by witnesses, victims, suspects, and defendants is of utmost
+importance, as the verbal statements constitute the main part of the material available
+for actors in the legal process to handle the case. The problem with this is that it is
+easier said than done to decide whether someone is telling the truth or lying. Studies
+show that humans, even trained police officers, and judges, only reach an accuracy
+slightly above chance level (54%) on average when trying to conclude whether someone
+is lying or not (Bond and DePaulo, 2006). In addition, studies have shown that human
+judgments are biased in several ways. Stereotypical beliefs about how lying impacts
+someone’s bodily behavior, such as facial expressions (Leach et al., 2016; Masip et al.,
+2003), gaze aversion, and overall nervous behavior (Bogaard et al., 2016), as well as
+other non-verbal cues, are generally over-estimated by practitioners as more telling
+than what research shows (Bogaard et al., 2016; Vrij et al., 2022).
+There are many reasons why lie detection is hard, and much of it goes beyond the
+scope of this study. However, one aspect is that lies are complex in various ways.
+First, there are different types of lies. In the context of criminal cases, which is
+our focus here, a false statement from a suspect could be either a false denial or
+a false confession. Falsely denying to have committed a crime is perhaps the most
+straightforward case of lying since it is done to escape conviction and punishment,
+but it is not the only one. Real examples of false confessions in the history of Swedish
+law include the murders allegedly committed by Thomas Quick (Kwast, 2015), the
+Kevin case (Slätt, 2020), and the case of Samir Sabri (Johansson and Sabri, 2017). All
+these cases have in common that the statements where the alleged criminals confessed
+were crucial for the final outcome. But, as it seems, none of the confessions were
+true.1 Events where someone falsely confesses to a crime exist, and should be equally
+important as false denials to capture, since if they are believed, as in the previously
+mentioned cases, it also means that the real perpetrator is on the loose.
+Second, lies as in false statements may not be entirely false. Liars may make use of
+a real experience and embed the lies as details in an otherwise true account (Granhag
+et al., 2021, p. 343). In a two-parted study on liars’ strategies for deceiving, a large
+majority of participants (67% and 86% in the respective parts of the study) chose to
+report an event that they had experienced themselves when asked to give a lying
+statement (Leins et al., 2013). This had the effect that the majority of details reported
+were in fact experienced, rather than fabricated.
+2.2. Verbal Lie Detection
+In order to facilitate the process of determining the veracity of statements in criminal
+contexts, systematic ways of doing this have been developed within the research field
+1According to general belief, since all of them have later been freed from the accusations, although
+there may be discussions.
+10
+of verbal lie detection (VLD). A core theme of verbal lie detection is to perform lie
+detection by looking at verbal cues as opposed to non-verbal cues. Empirical research
+has repeatedly shown that non-verbal cues are unreliable and unstable to use for
+credibility assessment (Bogaard et al., 2016; Granhag et al., 2021; Vrij et al., 2022).
+Hence, the common belief is that verbal lie detection is the more promising area of lie
+detection (Brennen and Magnussen, 2023; Vrij et al., 2022).
+Verbal cues for lie detection have a long tradition. German and Swedish researchers
+put together the first structured sets of verbal content criteria that were to be used
+for assessing the veracity of statements in the 1950s (Arntzen, 1970; Trankell, 1982).
+Today, some of the more known sets of criteria are the Criteria-Based Content Analysis
+(CBCA Steller and Koehnken, 1989), and Reality Monitoring (RM Johnson and Raye,
+1981). Since the 1980s, when the Swedish Supreme Court first used criteria to argue
+that a statement was trustworthy, a form of statement analysis has been applied in
+Swedish courts (Schelin, 2006).
+The next sections give an overview of criteria that are applied in practice and in
+verbal lie detection research. It goes beyond the scope of this thesis to present an
+exhaustive walk-through of the criteria, mainly since there often is a lack of clear
+interpretations. However, apart from the descriptions in the following sections, a
+table can be found in the appendix (A.2) that displays lists of the criteria for each
+framework, the general approaches presented, and our identified categories for cues to
+be implemented. To bring some clarity to the complex matters, we have color-coded
+criteria that relate to each other in one or two ways.
+2.2.1. The Swedish Supreme Court’s Credibility Criteria
+The legal system in Sweden is built on the principle of free production of evidence,
+which makes it impossible for the system to direct any laws of how evidence should
+be valued, and therefore also of how statement analysis should be practiced (Granhag
+et al., 2021; Schelin, 2006). It is up to each individual judge to decide how the evidence
+should be valued and whether a statement should be considered trustworthy or not
+(Schelin, 2006). However, there is the possibility to consult precedents, which are
+guiding judgments and rulings made by the Supreme Court. Creating precedents is
+one of the key functions of the Supreme Court, meaning that their way of handling
+a certain case constitutes the praxis, which courts in lower instances should mimic
+(Granhag et al., 2021; Schelin, 2006).
+The first enunciation given by the Swedish Supreme Court regarding statement
+analysis was in 1980, connected to a case of rape, where the statement given by the
+plaintiff was characterized as “coherent”, “clear”, and “detailed”, and was therefore
+believed, leading to a conviction of the suspect.2 The potential value of applying
+statement analysis with criteria was discussed by Schelin (2006), where she states that
+it could work as a tool for the judge, in order to help them become more aware of
+their process of making a judgment. It could work as an aid to question ideas and to
+make a more structured deliberation before reaching a conclusion. However, she also
+states that practitioners should not have too high expectations of what the analysis
+can entail.
+One of the latter precedents concerning statement analysis was given in 2010, on a
+case of sexual assault.3 Here, it was stated that a statement is more likely to be true if
+it is “clear”, “long”, “vivid”, “logical”, “rich in detail”, “proven true in important details”,
+as well as “free from incorrect elements, contradictions, exaggerations, elements that
+2NJA 1980 p 725
+3NJA 2010 p 671
+11
+are difficult to explain”, “constancy deficits”, “poor coherence”, and “uncertainty on
+crucial elements”.4
+Researchers were not late to criticize these criteria, however (R. M. Willén and
+Strömwall, 2012a), and some years later in 2017,5 the Swedish Supreme Court made a
+new presentation of their credibility criteria. Now, the list was reduced to only contain
+“clear”, “long”, and “detailed”. The criteria are not further described directly by the
+Supreme Court.
+As stated previously, the credibility assessment is a crucial part of the evidence
+evaluation, especially when there is little or no technical evidence about the crime, as
+in cases of rape or domestic violence. Since precedents from the Supreme Court are
+used as examples throughout the Swedish legal system, this means that these criteria
+may play a significant role in determining the outcome of a legal process regardless of
+the instance. It is therefore of utmost importance that they are thoroughly examined
+in research. Even though these criteria stand alone and are not considered part of any
+larger framework, they share similarities with CBCA (see 2.2.2) and RM (see 2.2.3),
+especially in the criteria related to details.
+2.2.2. Criteria-Based Content Analysis (CBCA)
+One of the most researched frameworks for content-based verbal lie detection is
+criteria-based content analysis (CBCA). It was based on the “Reality Criteria” proposed
+by Undeutsch (1967), and adapted by Steller and Koehnken (1989), to its current form.
+CBCA consists of 19 criteria that are all thought to be more prevalent in truthful
+statements (Vrij et al., 2022, pp. 2–3). The first 13 belong to the cognitive category,
+responding to the idea that some features of a testimony are harder to fabricate, due
+to them being more cognitively demanding. For example, criterion 3: total details -
+the total amount of information conveyed, and criterion 4: contextual embeddings -
+when and where things happened (Vrij et al., 2022, p. 2). The four remaining criteria
+correspond to the idea that liars will be anxious about sounding suspicious, as they
+speak since they think this would reveal that their story is inconsistent. For example,
+criterion 14: spontaneous corrections - making corrections of their own testimony
+without being prompted by the interviewer.
+CBCA is part of a larger system called statement validity assessment (SVA) (Vrij et al.,
+2022), which was initially built to aid the assessment of children’s testimonies in cases
+of alleged sexual abuse. Its evaluation and implementation has extended to include
+statements given by adults, and in other types of cases than sexual abuse, and it is one
+of the most discussed frameworks in the literature. Hauch et al. (2016) argues that it
+is often wrongfully treated as a lie detection or credibility assessment tool, although
+CBCA was never meant to be used on its own, but as a step in the more thorough SVA,
+where the output from the CBCA step is evaluated against a set of questions called a
+“Validity Checklist” (Vrij et al., 2022, p. 2). However, this checklist, which for example
+contains questions of whether the statement could have been produced even if the
+person did not experience the event, lacks sufficient empirical evaluation and is not
+standardized (Oberlader et al., 2020).
+Studies show that the average accuracy of statement analysis using CBCA is around
+70% (Amado et al., 2015; Vrij, 2005), which is significantly better than unaided as-
+sessment based solely on intuition (Bogaard et al., 2016). However, in the context of
+criminal law, where it has to be “beyond reasonable doubt” that someone tells the truth
+4The author’s translation from Sw. klar, lång, levande, logisk, rik på detaljer, påvisat sanningsenlig i viktiga
+enskildheter samt fri från felaktigheter, motsägelser, överdrifter, svårförklarliga moment, konstansbrister,
+dåligt sammanhang eller tvekan i avgörande delar
+5NJA 2017 p.316
+12
+or not, this level of certainty is not robust enough to be applied in practice, according
+to Brennen and Magnussen (2023). Connected to the rather weak accuracy rate of
+CBCA is the problem with decision boundaries. Practically speaking, there are no set
+thresholds for when the criteria are sufficiently fulfilled, and if one were to adhere to
+a decision boundary, the risk of false alarms is very high. As Brennen and Magnussen
+(2022) exemplifies, applying CBCA with the right sensitivity to detect 95% of deceptive
+statements also means allowing 75% of true statements to be wrongly classified as
+false. This is a clear challenge for the practical utility of CBCA.
+Another potential issue with CBCA is that finding many criteria in an account might
+lead to a truth bias since the CBCA criteria are thought to be truth-indicative (Sporer
+and Masip, 2023, p. 7).
+2.2.3. Reality Monitoring (RM)
+Reality Monitoring (RM) is a memory-based framework based on work by Johnson
+and Raye (1981). Its key assumption is that memories of self-experienced events differ
+from fabricated or imagined events in discriminative ways. According to the RM
+rationale, real memories contain contextual information about time and space, sensory
+or perceptual information, and semantic and cognitive operations.
+RM criteria have been evaluated and applied in various studies (Bogaard et al., 2016;
+Hwang et al., 2016; Thompson and Hartwig, 2022), and have reached results comparable
+to the CBCA criteria (Masip et al., 2005). There is some support for the notion that
+RM criteria can successfully discriminate between truthful and deceptive statements.
+The meta-analysis by Hauch et al. (2015) found support for sensory and perceptual
+details, but not for contextual embeddings. A recent meta-analysis exclusively on RM
+criteria found support for the following criteria: clarity, sensory information, spatial
+information, time information, reconstructability of the story, and realism (Gancedo
+et al., 2021), but the only generalizable criterion was the time criterion since all of
+the other criteria had studies where they were more prominent in false statements.
+Gancedo et al. (2021) did not find any support for affective information.
+Nahari (2023, p. 2) presents criticism towards research on RM, pointing out that
+RM criteria is supposed to reflect what is missing in a false memory, but that it does
+not hold anything specific for lies. She argues that it fails to consider the suspect’s
+intentions, and questions the idea of validity as a deception indicator.
+2.2.4. General Approaches
+There are certain approaches for lie detection that are frequently discussed in VLD
+literature. These are often connected to verbal cues that are examined in VLD research
+but have mixed connections to the already discussed criteria.
+Cognitive Load
+Verbal cues related to cognitive load are present in both CBCA and RM. This perspective
+holds that lying is more cognitively demanding than telling the truth and that therefore,
+liars will have less “energy” to provide extensive, thought-through statements. Aspects
+of a story that are considered harder to fabricate are therefore expected to be less
+frequent in deceptive statements (Granhag et al., 2021, p. 344). In the meta-analysis by
+Hauch et al. (2015), the cognitive load hypothesis is examined by evaluating length-
+related cues such as word quantity and average sentence length, elaboration-related
+cues such as content word diversity, and complexity-related cues such as verb quantity
+and causation. They found that the cognitive load hypothesis was mainly supported.
+13
+Loconte et al. (2023) also found indications that cognitive load could be informative
+for deception detection.
+The Emotional Approach
+The key idea behind the emotional approach is that a lying person will express different
+emotions than a person who tells the truth (Granhag et al., 2021, p. 344). This is often
+measured by counting words that express certain emotions or sentiments (using
+e.g. LIWC, see 2.3.2), or implementing sentiment analysis (Papantoniou et al., 2022).
+Different types of emotion or sentiment correlated cues have been found significant
+in various studies (DePaulo et al., 2003; Hauch et al., 2015; Papantoniou et al., 2022;
+Sarzyńska-Wawer et al., 2023).
+Self-Distancing
+The idea behind the self-distancing hypothesis is that a person who is lying will try to
+create distance between themselves and the crime or course of events that they are
+questioned about. One way of doing this might be to use fewer first-person pronouns,
+more passive voice verbs, more past tense verbs, and fewer present tense verbs (Hauch
+et al., 2015). This hypothesis has some support (Hauch et al., 2015; Levitan et al., 2018).
+2.2.5. Challenges
+Even though lie detection arguably might be less complicated for practitioners when
+using the presented content-based frameworks, compared to relying on no theory at
+all, there are challenges for research on VLD and the practical implementation of its
+methods. This highlights some of the most crucial challenges for VLD and the validity
+and practical implementation of VLD methods.
+As exemplified in the sections about certain frameworks (Swedish Supreme Court’s
+criteria 2.2.1, CBCA 2.2.2, RM 2.2.3) one challenge for VLD research is the difficulty
+of acquiring relevant and adequate data sets. It is quite rare that experiments are
+performed on data from real criminal cases, although exceptions exist (Thompson and
+Hartwig, 2022). One reason for this is that it is often hard to know the ground truth
+of statements produced in real-life settings (Vrij et al., 2010). This makes verbal lie
+detection a tough subject to study, where it is often hard to draw clear conclusions
+that are relevant for the practical implementation of its methods, such as using criteria
+to determine veracity in courts.
+Second, a multidimensional challenge is the combined effect of contextual factors
+such as the type of criminal case, the seriousness of the crime, differences in language,
+and cultural differences. These aspects have been addressed more in recent years than
+earlier by researchers in VLD, but there remain still many gaps (Hwang et al., 2016;
+Papantoniou et al., 2022; Sarzyńska-Wawer et al., 2023). The context dependency of
+results is notable in the meta-analyses that are out there. The case is often that effect
+sizes vary widely between different studies. For example, in the meta-analysis by
+Hauch et al. (2015), it is shown that most of the cues vary between different studies,
+even in the direction of effect. This means that one cue might be indicative of truth in
+one study, but indicative of deception in another. For instance, in the meta-analysis
+by Hauch et al. (2015), only two cues were found to have a consistent direction of
+effect across the included studies. These were content word diversity6 and quantifier
+frequency,7 which were consistently indicative of truth, in the 7 resp. 4 studies where
+6See 3.2
+7See 3.2
+14
+they were evaluated. Likewise, as mentioned earlier, the meta-study of RM criteria
+by Gancedo et al. (2021) could only make generalizations for one criterion (temporal
+details) since all the other criteria were ambiguous in their valence over various studies
+included in the meta-analysis.
+2.3. Empirical Studies
+This section reviews a selection of prior studies on verbal lie detection (VLD) that are
+relevant to our research, particularly in terms of experimental approaches involving
+written statements and linguistic cues. Since previous VLD research in the Swedish
+context has used manual methods for estimating criteria prevalence, we present these
+studies in 2.3.1. We then transition to automated approaches utilizing computational
+linguistics and NLP (see 2.3.2). The aim is to provide an overview of the key findings
+from previous research, highlighting the specific linguistic cues, criteria, experimental
+contexts, and methodologies employed. For a non-exhaustive overview of previous
+results regarding specific cues, see Table A.1 in the appendix.
+2.3.1. Manual Assessment
+Previous research on credibility criteria and verbal lie detection in the Swedish context
+has relied heavily on manual assessment when estimating the prevalence of these
+criteria. Two notable studies examined true and false confessions using CBCA and
+RM criteria (R. M. Willén and Strömwall, 2012b), as well as a set of criteria established
+by the Swedish Supreme Court (R. M. Willén and Strömwall, 2012a). Both studies used
+the same dataset, consisting of 60 transcribed interviews with convicted criminals, in
+which participants provided true confessions of their crimes and fabricated confessions
+for crimes they had not committed. In each case, trained student annotators manually
+assessed the prevalence of different criteria.
+In the study using the Swedish Supreme Court’s criteria, which included factors such
+as length, coherence, clarity, details, difficult-to-explain points, credible impression,
+and self-experience, only clarity was found to be statistically discriminative between
+true and false confessions (R. M. Willén and Strömwall, 2012a). Similarly, the manual
+assessment of CBCA and RM criteria revealed only small differences: self-deprecations
+and doubts about one’s testimony were more common in lies, while unexpected
+complications were more frequent in truths (R. M. Willén and Strömwall, 2012b).
+Both studies concluded that the evaluated criteria sets (CBCA, RM, and the Swedish
+Supreme Court) were not generally reliable in distinguishing between true and false
+statements.
+In another study by Wojciechowski et al. (2018), transcribed real-life criminal case
+statements from Sweden and Poland were manually assessed using two frameworks:
+SVA, which includes CBCA, and Multivariable Adults’ Statements Assessment Model
+(MASAM), which is another content analysis framework. For the Swedish experiment,
+law students were employed to determine the veracity of the statements. Some of
+them were trained in statement analysis with MASAM and others read the statements
+and judged according to their intuition. 17 true denials, 173 false denials, 170 true
+confessions, and 8 false confessions were included in the data. Findings indicated that
+the criteria significantly differed between true and false statements and that using
+it raised the overall accuracy from 59.29% (untrained students) to 70.03% (students
+using MASAM). However, the effects of the individual criteria were small, and it was
+concluded that MASAM could not be classified as scientific evidence, as the system
+does not discriminate statements beyond reasonable doubt.
+15
+Considering confessions and denials, this study found no significant differences
+in the criteria scores depending on the type of statement. This may be attributed
+to the unbalanced dataset used in the study, which highlights a research gap that
+Wojciechowski et al. (2018) are also pointing out, that future research should further
+evaluate differences between confessions and denials. Our study aims to address this
+by providing a more balanced and comprehensive evaluation of both confessions and
+denials.
+2.3.2. Computational Methods
+Stylometry and LIWC
+Many, if not all, computational studies on verbal lie detection use some kind of
+stylometry-oriented technique to estimate the prevalence of linguistic cues and criteria
+in text (e.g. Newman et al., 2003; Papantoniou et al., 2022; Sarzyńska-Wawer et al.,
+2023; Solà-Sales et al., 2023). Stylometry is a branch of computational linguistics that
+revolves around extracting low-level verbal cues from text corpora to create linguistic
+profiles that describe style in the language (Solà-Sales et al., 2023).
+Newman et al. (2003) were one of the first studies to use computational methods for
+verbal lie detection. They proposed that the linguistic style of a liar would be different
+from a truth-teller, and used the later highly popular software Linguistic Inquiry
+and Word Count (LIWC Pennebaker et al., 2001) to automatically extract stylometric
+cues and other linguistically relevant features from verbal statements. LIWC is a
+software that performs content analysis by counting occurrences of words from sets of
+psychologically meaningful dictionaries and measuring standard linguistic features like
+statement length, pronouns, articles and more (Pennebaker et al., 2001). Newman et al.
+(2003) selected three categories of linguistic features from the LIWC framework: cues
+pertaining to standard linguistic dimensions, psychological procedures, and relativity.
+Out of five experiments featured in the study, one was conducted on a mock-crime
+data set, similar to our study. The data was acquired by interrogating 60 psychology
+students after half of them had been instructed to steal a dollar bill from a book inside
+a room. All participants were asked to deny having taken the money, resulting in a
+set of true and false denials. Results suggested that false denials had lower scores for
+cognitive complexity, fewer self-references, more motion verbs, and more negative
+emotion words. They also found that true denials had more first-person pronouns,
+third-person pronouns, and exclusive words.
+This study marked a turning point in verbal lie detection research, becoming a
+foundational reference for later studies that have applied LIWC to replicate and extend
+the analysis of linguistic cues and criteria for verbal lie detection. A meta-analysis by
+Hauch et al. (2015) on 44 studies that studied true vs. false statements using computer-
+ized analysis of different kinds, ascertained that over half of the studies used LIWC as
+their main feature extractor.
+Two later examples of studies using LIWC for verbal lie detection were conducted
+by Levitan et al. (2018) and Thompson and Hartwig (2022).
+In the study by Levitan et al. (2018), true and deceptive interview responses (tran-
+scribed speech) to biographical questions (e.g. “Where were you born?” etc.), were
+analyzed using LIWC and another dictionary-based program. Findings suggested that
+deceptive statements were longer in duration, had higher word quantity, more words
+per sentence, more vivid descriptions, more details in the form of adjectives, and more
+hedge words, which was considered to signal a higher degree of self-distancing. Only
+certainty measures and words indicating cognitive processes were truth-indicative.
+Human judgments were also included in the comparison. The human judgments of the
+16
+statements were done by the interviewers (normal participants), who were asked to
+decide whether they believed a statement or not upon hearing it from the interviewee.
+Results showed that there were cues that the perceivers were correct in (word quantity),
+cues that they missed (certainty measures), and cues that they overestimated (specific
+denials, such as “I did not”).
+Thompson and Hartwig (2022) collected transcribed real-life criminal case state-
+ments from cases of sexually motivated homicides and used LIWC (Pennebaker et al.,
+2001) to estimate criteria prevalence. The cues that they explored were derived from
+the RM framework (see 2.2.3). Results showed that spatial and motion details were
+significantly more prominent in true statements. They found no support for visual,
+temporal, auditory, affective, or cognitive details.
+Even though using LIWC is a common method for computational content analysis
+for verbal lie detection, studies using other programs exist. A recent paper by Solà-
+Sales et al. (2023) utilized another program for linguistic profiling, called Profiling-UD
+(Brunato et al., 2020). From this program, they picked out 123 stylometric features
+that were used in previous verbal lie detection research. The data used was witness
+testimonies, and the results indicated that true testimonies were longer and had a
+higher frequency of pronouns. Details as mentions of time and space, superfluous
+details, people, and objects, were also more present overall in true testimonies. False
+testimonies were more frequent in adjectives.
+Another example is Sarzyńska-Wawer et al. (2023), who evaluated linguistic cues
+on a data set of 1498 written and transcribed true or false opinion statements in
+Polish. Instead of using LIWC, they opted for a Polish-specific sentiment analysis
+tool, PoS-tagger, and Linguistic Category Model (LCM). According to their results,
+false statements had less complex vocabulary, were more positive, less negative, and
+more concise and concrete. They also found that the length of the statement was
+truth-indicative.
+The meta-analysis by Hauch et al. (2015) figures as an extensive reference for us in
+what previous research has hitherto shown about computationally-aquired cues for
+verbal lie detection. In total, Hauch et al. (2015) evaluated 77 linguistic cues, controlling
+effect sizes for different moderating variables like type of event, motivation, interaction
+levels, mode of production, and emotional valence. Likewise, they presented results
+depending on these characteristics of the data. For our purposes, the results that corre-
+spond to data similar to ours are highly relevant. This should be the results of data that
+has first-person experience, low to medium motivation, computer-mediated commu-
+nication, or typed statements. First-person experienced events yielded statements in
+which negative emotions, emotions in general, and third-person pronouns were more
+prominent in false accounts (Hauch et al., 2015, p. 325). Considering the section of low
+to medium motivation, type-token ratio, and emotions were false indicative, while
+word quantity, average sentence length, and sensory-perceptual processes were truth
+indicative (Hauch et al., 2015, p. 326). For computer-mediated interaction between
+who writes and who reads the statement, only word quantity was significant, indicat-
+ing a false statement (Hauch et al., 2015, p. 326). Lastly, given that our data is typed,
+results from the meta-analysis suggested that word quantity and references to space
+were truth indicative while expressing emotions was false indicative (Hauch et al.,
+2015, p. 327). As previously mentioned, the meta-analysis by Hauch et al. (2015) also
+displayed large variations in the direction of the effect of included studies, probably
+largely depending on the type of data used in each study.
+Overall, despite their long-standing presence and relative simplicity, stylometric
+approaches continue to hold significant value in verbal lie detection, even though they
+may seem somewhat simplistic or naïve from a modern NLP perspective. In a recent
+study by Loconte et al. (2023), stylometric analysis using LIWC was incorporated to
+17
+enhance the interpretability of their primary approach, which was to fine-tune a large
+language model (LLM) for detecting deception. Through this analysis, they identified
+that features related to cognitive load, such as statement length and complexity, could
+play an important role in the model’s performance, as these seemed more prominent
+among correct classifications.
+Their results also suggest that, despite LLMs achieving a high level of linguistic
+pattern recognition, they still struggle to generalize deception-related features across
+different datasets. In the field of verbal lie detection, explainability and interpretability
+are essential, as relying on models without understanding their decision-making
+processes is unacceptable. This highlights one reason why stylometric analysis remains
+a valuable tool, ensuring transparency and insight into what patterns may differ
+between true and false. The difficulty of the LLM to generalize also potentially hints
+at the complexity of the task, and that different data sets often show different patterns
+as indicative of truth or deception, as they compared their model on three different
+data sets.
+Pre-Trained Models
+In recent years, large language models have been used for a wide range of purposes
+where rule-based or dictionary-based approaches previously dominated the field.
+Researchers in verbal lie detection are no exception to the hype, and there is a growing
+body of research applying pre-trained models to estimate criteria prevalence and to
+build classifiers (e.g. Kleinberg et al., 2018; Loconte et al., 2023; Papantoniou et al.,
+2022; Wawer and Sarzyńska-Wawer, 2022). Since our focus is on the reliability of cues
+and criteria, rather than finding the best existing machine-learning approaches for
+building a lie detector, we will focus on the use of pre-trained models as extractors of
+linguistic cues from text.
+One such type of pre-trained models is named entity recognition (NER) models.
+NER was first proposed for verbal lie detection by Kleinberg et al. (2018) in a study on
+hotel reviews, where NER features were compared to features acquired by the LIWC
+program. Results suggested that NER could be useful for extracting linguistic cues
+for deception detection and even seemed to outperform the discriminative power of
+richness of detail calculated using LIWC.
+As previously mentioned, Loconte et al. (2023) conducted a study on applying large
+language models for verbal lie detection. We previously mentioned the stylometric
+aspect of their study, which among other variables contained measurements of cues
+extracted using LIWC. Inspired by Kleinberg et al. (2018), this list of stylometric
+features also contained named entity recognition (NER) objects, as a way of measuring
+details. Their results showed that NER categories people, temporal details, spatial
+details, and the combined quantity of details (NER categories summed) significantly
+discriminated true and deceptive statements in the memory-based data set that they
+used. All NER features except for references to people were truth-indicative.
+Another linguistic cue that has been applied with pre-trained models is sentiment
+analysis, which has been connected to the emotional approach. In a study on the
+cultural differences in feature relevance for verbal lie detection, Papantoniou et al.
+(2022) implemented various language-specific sentiment analysis tools on the five lan-
+guages they included in their study (English, Russian, Dutch, Spanish, and Romanian)
+and found that the expression of sentiment was to some degree culture-dependent.
+For our purposes, the most interesting result is that positive sentiment was more
+prevalent in deceptive language in individualistic cultures (USA) (since Sweden would
+be considered an individualistic country).
+18
+3. Method
+In this section, the research design of this study is presented. In summary, our study
+involves the collection of a new dataset (see 3.1), the selection of linguistic cues (see
+3.2.1), the implementation of these linguistic cues (see 3.2.2), and a statistical evaluation
+(see 3.3).
+The code for the analysis is available on GitHub.1
+3.1. Data Collection
+3.1.1. Overview
+For the purpose of this study to extend VLD to Swedish, a new Swedish dataset of
+four categories of statements: true confessions, true denials, false confessions, and
+false denials was collected. The data set was collected jointly by the author and one
+of the supervisors, within the research project EB-CRIME (see Preface). This section
+describes how the dataset was collected, what stimuli were used, and how the raw
+data was prepared to be fit for analysis. We also discuss some limitations.
+Table 3.1 displays the number of statements that were collected, including how
+many were confessions and denials, and how many were believed (judged to be true)
+and not believed (judged to be false). The resulting dataset consists of 251 statements,
+of which 52.6% (n=132) were true and 47.4% (n=119) false. Additionally, 51.4% (n=129)
+were confessions, 48.6% (n=122) were denials; 38.2% (n=96) were believed, and 61.8%
+(n=155) were not believed.
+Valence Statement Type Believed Not Believed Total
+True Confession 44 21 65
+Denial 22 45 67
+Total 66 66 132
+False Confession 22 42 64
+Denial 8 47 55
+Total 30 89 119
+Total 96 155 251
+Table 3.1.: Number of statements for each category and subcategory of the data set.
+Distribution
+The data was collected through a questionnaire implemented with Qualtrics2. Partici-
+pants were employed through three main groups: technical and administrative (TeA)
+staff at Uppsala University, who were invited through an email list; contacts on social
+media, who were invited to the study through an open link that was distributed on
+1https://github.com/claraagu/ma_thesis_VLD
+2https://www.qualtrics.com/
+19
+Facebook and LinkedIn by the author and supervisors; and participants from Prolific3
+.
+Prolific is a crowd-sourcing agent that is commonly used for academic purposes. 66.5%
+(n=167) participated via Prolific, and 33.5% (n=84) were reached through the TeA group
+and social media.
+Participants
+All participants were located in Sweden, with Swedish as their native language. The
+age range was 18 to 73, with a median of 33 (mean = 35.77, st.dev. = 12.84). Out of all
+participants, 131 were men, 120 were women and three identified as non-binary. In
+total, 84 participants were reached through social media and among the TeA group.
+The rest, 167 participants, participated through Prolific.
+Compensation
+Compensation differed depending on the sample. Regular participants (from social
+media and the TeA group) were offered a movie ticket (worth 150 SEK) if they managed
+to convince that their story was correct. If their statement was regarded as non-believed,
+they did not receive any compensation. This was to create an incentive to persuade, to
+make up for the absence of motivation to save one’s skin that a suspect would feel in
+a real criminal case. The Prolific sample differed compared to the other participants
+in the way they were paid, as they were paid through Prolific, and received the same
+compensation regardless of whether their response was useful for us or not.
+3.1.2. Stimuli and Instructions
+Here, the stimuli that were presented to the participants in the questionnaire are
+presented.
+Introduction and General Instructions
+First off, the participants were given a short introduction to statement analysis in the
+context of criminal law and that it is used to help practitioners tell whether someone
+is lying or telling the truth. They are informed that the focus of the research is to
+evaluate methods of statement analysis.
+They are then informed about the overall outline of the test, that they will be
+presented with a video where a person is either committing a crime or not, and that
+they should imagine that they are this person. Next, they have the opportunity to save
+the information they have been given so far into a PDF and are then asked to consent
+to participation.
+After giving information about age and gender identity, they are informed that they
+will be assigned one of four scenarios: committing the crime and then telling the truth
+about it (true confession); committing the crime and lying about it (false denial); not
+committing the crime and telling the truth about it (true denial); not committing the
+crime and lying about it (false confession). Thereafter, they are informed that they
+will give a statement to the police.4 Here, they are also reminded that they will be
+rewarded with a movie ticket if they manage to create a convincing statement.5
+3https://www.prolific.com/
+4It is specified that the police here is fictitious and that in reality researchers will evaluate their statement.
+5This information was also included in the invitation letter.
+20
+Video Stimuli
+In the next stage, each participant was randomized to one of the previously stated
+scenarios. They are informed that they will watch a video that depicts a person walking
+up to their apartment building, entering, and finding a package addressed to their
+neighbour Leonard.
+Here, the continuation varies depending on the scenario. For the guilty scenarios
+(true confession and false denial), the participants are presented with a video of a person
+stealing a package from an open post box. For the true denial and false confession
+scenario, they are presented with a video where a person sees a package lying on the
+open post box, and then proceeds to enter their apartment.
+Figure 3.1.: Screenshots from different parts of the guilty vs. innocent video clips.
+Figure 3.1 displays some scenes from the videos. The first row shows the video
+where the crime is committed. As one can see, the main difference between the guilty
+scenarios and the innocent scenarios is that the package is not grabbed in the innocent
+video. Here, the person notices the package but immediately turns to the door. Both
+videos end with the hallway floor of the person’s apartment. In the innocent version,
+the floor is empty, and in the guilty version, the person puts the package on the hallway
+floor. The videos were made as similar as possible to lower the risk of contaminating
+the experience with irrelevant information and to ensure that the experience of the
+scenarios would only differ in whether the person committed the crime or not.
+Continuation of Scenarios
+After watching the video, they were informed through text that the package contained
+a new Macbook laptop worth 25000 SEK. The guilty participants were asked to imagine
+that they exited their apartment during the night and threw the package in a nearby
+garbage station. The innocent participants were informed that their neighbour Mats,
+who they met at the garbage station, told the participant about Leonard’s lost package.
+Prompt
+In the next step, all participants were informed that the next day the police knocked
+on the door and asked for any observations or relevant information about the crime.
+21
+Now, the participant is asked to give their statement in written form, as if they
+were speaking directly to the police. They are encouraged to spend around 10 minutes
+writing their statement, to increase the chance that we were going to get statements
+that are long enough to analyze computationally.
+Before giving their statement, they were asked a control question to make sure
+they understood the assignment. For example, the false denial scenario was asked to
+indicate that they were to lie and say that they did not take the package.
+The final prompt can be seen in Figure 3.2.
+Figure 3.2.: Example of the slot in the questionnaire where the participant is asked to give
+their statement. Eng. Please write below what you tell the police to convince them
+that your statement is true. Note that “the police” here only relates to a fictitious
+police in the presented scenario. It is us researchers, not the police, that will examine
+your statement.
+3.1.3. Data Preparation
+All statements were manually assessed to ensure that the participants had understood
+the assignment and answered accordingly to what they were asked to do. In some
+cases, it was clear that participants misunderstood the question or were confused
+and for example, gave a true confession instead of a true denial. Statements of this
+kind were excluded. Additionally, each statement was annotated as convincing or not
+convincing by a researcher in law. This resembled how a legal actor judges according
+to their intuition. This annotation was used to decide which participants would receive
+compensation (movie ticket), and to conduct further comparisons in the data, looking
+at what cues are more prevalent in statements that are believed vs. not believed.
+Spell correction was also done, using MS Excel’s built-in spell-checker and manually
+accepting or rejecting proposals for spell correction, based on their fitness. This was
+done to enhance the performance of the implemented models for PoS-tagging, NER,
+and sentiment analysis (see the sections covering the cues 3.2).
+3.1.4. Limitations
+There are some limitations in our method of accumulating statements that will be
+addressed here.
+First, as mentioned above, the motivational aspect of synthesizing the statements
+is one aspect where our data differs from real-life statements in the criminal context.
+We offered a bait in the sense of a positive reward for those who managed to appear
+trustworthy. This is however a positive motivation, getting a reward, while in a real
+case, the motivation would be negative, to not receive punishment. This may impact
+the nature of the statements.
+Second, we asked the participants to give their statements as if they were talking
+directly to the police. However, collecting statements as text through a questionnaire
+22
+introduces the opportunity to plan and review the statement in a different way than
+would be possible if the statement was given verbally, immediately to the police. We
+did not control for the time that the participants spent constructing their statements.
+Third, the participants’ experience of the event is somewhat limited to their imagi-
+native abilities. They are shown a video and asked to put themselves into the scenario.
+In summary, the statements in this dataset should not be considered to perfectly
+resemble statements given in real criminal cases. There may be differences between
+this dataset and authentic statements, and therefore the implications of this study are
+not directly transferable to real criminal cases.
+However, given the precautions we have taken, and since it is hard to retrieve data
+from real criminal cases where the ground truth is known, we consider this dataset to
+still hold great value. It is comparable in size to other smaller studies on mock crime
+scenarios in English (Hwang et al., 2016) and Spanish (Solà-Sales et al., 2023), and it
+enables us to effectively implement and evaluate linguistic cues on Swedish written
+data. Our data set is to the best of our knowledge unique in that it is a balanced set of
+true vs. false confessions and denials.
+3.2. Linguistic Cues
+3.2.1. Selection
+The selection of cues was based on three considerations: 1) relevance to the field, 2)
+relevance to the Swedish Supreme Court’s criteria, 3) applicability on Swedish data.
+Relevance to the field was important to put our results into context, and make sure our
+results would be comparable to previous research in the field. For the Swedish Supreme
+Court’s criteria, we focused on finding criteria that would resemble approximations
+of a statement’s length, clarity, and richness of detail. Lastly, we had to consider the
+applicability of the cues to the Swedish data.
+As noted in 2.3.2, many studies in verbal lie detection use a software called Linguistic
+Inquiry and Word Count (LIWC, Pennebaker et al., 2001). Since there is no official
+Swedish version of this program, and the fact that no previous studies have evaluated
+VLD cues with computational methods on Swedish, our implementations are largely
+experimental.
+Seven categories of cues were established, that could be implemented on our data,
+based on referenced criteria (see 2.2 and Table A.2 in the appendix), and the review
+of previous empirical studies (see 2.3). These categories are length, clarity, part-of-
+speech tags, lexical variation, named-entity-recognition (NER), sentiment, and self-
+distancing. An overview of the resulting cues, including their predicted direction of
+effect, according to results of previous studies, and references to papers that have
+implemented them, can be found in the appendix (Table A.1).
+3.2.2. Coding
+Following the appeals of Nahari (2023) to cleave to existing coding schemes, we aim to
+use the same coding as specified in Hauch et al. (2015) and other previous work where
+possible. Since we are working with Swedish, however, we have had to make some
+more experimental coding choices.
+In the following section, the coding of each cue is described under its corresponding
+category.
+23
+Length
+Number of tokens is calculated by counting the number of tokens for each statement,
+including punctuation. Tokenization was done using the Natural Language Toolkit
+(NLTK) (Bird et al., 2009) word_tokenizer for Swedish.
+Average token length is calculated by summing the length of each word in the tok-
+enized statement and dividing the sum by the number of tokens for that statement.
+Punctuation is included.
+Number of sentences is calculated by splitting each statement into sentences using
+NLTK’s sent_tokenize and counting the number of sentences.
+Average sentence length is calculated by summing the number of tokens in the whole
+statement and dividing by the number of sentences in that statement.
+Clarity
+LIX Readability Score is a measure of the readability of a text developed by Björnsson
+(1968). It is based on three values: number of tokens, number of sentences, and number
+of tokens longer than six letters (see equation 3.1). It gives a score of how easy a text
+is to read. We propose this experimentally as a potential measure for the clarity of a
+statement.
+𝑡𝑜𝑘𝑒𝑛𝑠
+𝐿𝐼𝑋=
++𝑙𝑜𝑛𝑔_
+𝑡𝑜𝑘𝑒𝑛𝑠·100
+𝑡𝑜𝑘𝑒𝑛𝑠 (3.1)
+𝑠𝑒𝑛𝑡𝑒𝑛𝑐𝑒𝑠
+Parts-of-Speech (PoS)
+Frequencies of PoS-tags are estimated by counting the number of part-of-speech tags
+indicating adjectives, adverbs, nouns, verbs, pronouns, and numerals, dividing by the
+number of tokens for that statement. Each explored PoS-tag results in one estimated
+density measure for the statement. SpaCy’s Swedish pipeline with ’sw-news-core-lg’6
+is utilized for PoS-tagging.
+Named Entity Recognition (NER)
+Frequencies of NER objects included in the Swedish pipeline from SpaCy:7 time, loca-
+tion, person, event, measurement (MSR), organization, work. The reported accuracy
+evaluation of the SpaCy model’s performance for NER is 86% precision, 76% recall,
+and 81% F1-score. Following the implementation scheme by Kleinberg et al. (2018),
+occurrences of unique named entities are calculated and divided by the length of the
+statement. Using only unique named entities is motivated by Kleinberg et al. (2018)
+with that CBCA and RM do not include any requirement for repeated details. We
+chose to follow this schema for increased comparability. The model is trained on the
+Stockholm-Umeå Corpus v.3.0 (SUX 3.0, Språkbanken Text, 2024), consisting of various
+domains of Swedish text like novels and news media texts. The data is annotated with
+manually acquired name tags inherited from an earlier version of the corpus (SUC 2.0),
+and with automatically acquired named entity tags through Sparv8
+.
+6https://spacy.io/models/sv#sv_core_news_lg
+7See footnote 6.
+8https://spraakbanken.gu.se/resurser/sucx3
+24
+Lexical Variation
+Type-Token Ratio (TTR) is estimated by dividing the number of unique tokens by the
+total number of tokens for that statement. The tokens are uncased before calculating
+occurrences. TTR gives a sense of how diverse the vocabulary of the statement is
+and how much of the vocabulary is recycled. It is a value between 0 and 1, where 1
+indicates that every word is used only once, and a lower value indicates that words
+are used more than once.
+Word Variation Index (OVIX) measures how much variation there is in the vocabulary
+of a text, similar to type-token ratio, but less dependent on the length of the text. The
+higher the value, the more words are used only once. See equation 3.2. OVIX is used
+experimentally as an alternative to TTR.
+𝑙𝑜𝑔(𝑡𝑜𝑘𝑒𝑛𝑠)
+𝑂𝑉𝐼𝑋=
+(3.2)
+𝑙𝑜𝑔(2−
+𝑙𝑜𝑔 (𝑡 𝑦𝑝𝑒𝑠 )
+𝑙𝑜𝑔 (𝑡𝑜𝑘𝑒𝑛𝑠 ))
+Content Word Diversity is calculated by removing stopwords using NLTK (Bird et al.,
+2009), leaving only the content words of each statement to be counted. The number of
+unique content words is then divided by the number of observed content words in the
+statement. The example below shows the input (1) and output (2) of this procedure. The
+tokens are uncased before calculating occurrences. Content word diversity is similar
+to type-token ratio but more specific since it measures how diverse the statement is
+regarding lexical content.
+1. full sentence: [’Ja’, ’jag’, ’var’, ’på’, ’väg’, ’hem’, ’efter’, ’en’, ’lång’, ’dag’, ’på’,
+’jobbet’, ’och’, ’det’, ’var’, ’en’, ’sån’, ’där’, ’dag’, ’som’, ’kändes’, ’som’, ’evigheter’]
+2. content words: [’Ja’, ’väg’, ’hem’, ’lång’, ’dag’, ’jobbet’, ’sån’, ’dag’, ’kändes’,
+’evigheter’]
+Sentiment
+Inspired by Papantoniou et al. (2022), we implement three different ways of estimating
+the sentiment of each statement:
+VaderSentiment for Swedish9 is a lexicon and rule-based tool for sentiment analysis
+that has been adapted for Swedish from the VADER Sentiment Analysis.10 It is special-
+ized in social media text and computes four different scores: negative, positive, neutral,
+and compound, of which we use the first three. The negative, positive, and neutral
+make a multidimensional measure of sentiment for a given sentence.
+KBLab Sentiment Analysis11 is a multi-label sentiment classifier finetuned on Megatron-
+BERT-large-165K.12 It is trained on five datasets: 17.6% Trustpilot reviews, 16.1% Twitter
+posts, 5.4% news headlines, 54.1% machine-translated reviews in Norwegian, and 6.8%
+texts about immigration from news and social media. The datasets differ in domain,
+quality, and to some extent annotation scheme (Hägglöf, 2023).
+It classifies texts as negative, neutral, or positive, and emits a score between 0 and 1,
+indicating the strength of the classification (Hägglöf, 2023). For each label, one function
+was built that recognized the label and saved the score in the appropriate column for
+9https://github.com/AlexGustafsson/vaderSentiment-swedish
+10https://github.com/cjhutto/vaderSentiment
+11https://huggingface.co/KBLab/robust-swedish-sentiment-multiclass
+12https://huggingface.co/KBLab/megatron-bert-large-swedish-cased-165k
+25
+that label.
+BERT Sentiment Analysis13 is a sentiment analysis model based on BERT for Swedish14
+and fine-tuned on around 20k App Store reviews in Swedish. Similar to the KBLab
+pipeline, it predicts a label and a score for each statement. However, in this model, the
+labels are restricted to either positive or negative.
+Self-Distancing
+Personal Pronouns are counted using word lists of first-, second-, and third-person
+pronouns put together by the author. We only include singular and plural animate
+personal pronouns in subject and object form. However, note that ’er’ is homonymous
+with the plural possessive pronoun, and that ’de’ and ’dem’ are the same for inanimate
+plural personal pronouns. Occurrences of each type of pronoun are summed and
+divided by the length of the statement. The tokens are uncased before calculating
+occurrences. The following word lists are used:
+• 1st person: [’jag’, ’mig’, ’vi’, ’oss’]
+• 2nd person: [’du’, ’dig’, ’ni’, ’er’]
+• 3rd person: [’han’, ’hon’, ’hen’, ’honom’, ’henne’, ’de’, ’dem’]
+Verb Tenses are counted using the PoS-tag information from the SpaCy model15
+.
+Occurrences are divided by the number of tokens in the statement.
+3.3. Statistical Evaluation
+The statistical evaluation was done in three steps, inspired by the logistic regression
+analysis done by Papantoniou et al. (2022). We followed their steps, as is first to do
+Mann-Whitney U-tests, followed by correlation analysis to filter the cues, and lastly,
+multiple logistic regression.
+The Mann-Whitney U-test is a non-parametric alternative to the t-test, which
+we found suitable since a large part of our data violated the assumptions of normal
+distribution and homogeneity of variance. The direction of effect was determined using
+one-tailed U-tests, only when significance had already been shown by the two-tailed
+test. Two-tailed Mann-Whitney U-tests were applied to evaluate whether there were
+differences in the distributions of each cue in paired subcategories of the data (true
+vs. false, confessions vs. denials, true confessions vs. false confessions, true denials vs.
+false denials, and believed vs. non-believed statements). If the cue was significantly
+more prevalent in one of the two subcategories, the cue was considered informative
+and indicative of that type of statement. This corresponds to our research question
+of which cues are informative for verbal lie detection. By including a comparison
+between confessions and denials, as well as truth and falsehood within the two types
+of statements, we were able to evaluate differences that might be conditioned to the
+type of statement. This corresponds to the research question of whether it matters if the
+statement is a confession or a denial. Analyzing believed vs. non-believed statements,
+and comparing them to true vs. false allowed us to answer the research question of
+13https://huggingface.co/marma/bert-base-swedish-cased-sentiment
+14https://huggingface.co/KB/bert-base-swedish-cased
+15https://spacy.io/models/sv#sv_core_news_lg
+26
+what characterizes statements that are thought to be true or false according to human
+judgment.
+Next, for each comparison, the significant cues (p<0.05) were filtered based on
+correlation. This was done to diminish the impact of collinearity, which otherwise
+could inflate the coefficients of the multiple logistic regression. Reducing correlation
+means we could be more sure that the regression showed us reliable strength measures
+(coefficients). The correlation filtering was done as follows: Between cues that correlate
+with a Pearson’s correlation coefficient of 0.40 or more, the cue with the highest p-value
+was omitted. The threshold for Pearson’s correlation coefficient was set to 0.40 to allow
+some correlation. The resulting list was then filtered again, based on the variance
+inflation factors (VIF) of the included features. VIF was calculated for every cue in
+the remaining list, and the cue with the highest value was omitted until all included
+cues had a VIF below the set threshold. The threshold for VIF was set to 10, which is a
+common rule of thumb for estimating multicollinearity16
+.
+Having reselected the most discriminative cues using the significance tests, and
+picked out the least correlated set among these, according to the mentioned thresholds,
+we proceeded to fit a logistic regression model. The goal of the regression analysis
+is to see how well the "best" cues separate the true statements from false ones and
+to estimate their relative strength, which corresponds to the research questions of
+the adequacy of our method and which cues are the most informative. The overall
+performance is measured with F1-score and confusion matrices. The cues’ coefficients
+were analyzed to evaluate their relative strength. We apply the regression analysis
+for true vs. false, confessions vs. denials, and true vs. false within confessions and
+denials. Using the most significant and least correlated cues allowed us to evaluate a
+few selected cues that each describe one independent characteristic in the language
+that indicates truth or deception. Comparing their coefficients, and assessing the
+discriminative performance of the model, gave us a hint of how reliable they would be
+to use as criteria. The intuition was that the F1 score of the regression model would
+reflect an approximate best-case scenario of the cues’ combined information content.
+We used Scikit Learn’s LogisticRegressionCV, which is built to fit a logistic regression
+with 5-fold cross-validation (Pedregosa et al., 2011). The data was scaled using Scikit
+Learn’s StandardScaler before fitting the regression models (Pedregosa et al., 2011).
+Apart from the F1 score and the coefficients, we also looked at the models’ confidence
+scores, which are based on the decision function.17 These are proportional to the
+distance between the data points and the hyperplane. The average confidence scores
+for each subcategory were calculated. Comparing the F1 score to the confidence values
+for each model, we should be able to say something about how successful the separation
+is, whether one class was harder to classify and whether the models were over- or
+under-confident. This gives insight into the reliability of our method.
+As a way of visualizing the discriminative power of the cues, we also applied
+dimensionality reduction using UMAP (McInnes et al., 2018), on the full set of cues vs.
+on the set used in the respective multiple logistic regression model. This was done
+to enable plotting the data and comparing the representation of the data based on
+all cues vs. the most informative cues. In the ideal scenario, if the cues were largely
+informative for verbal lie detection, the categories should be clustered according to
+their valence.
+16See for example https://online.stat.psu.edu/stat462/node/180/.
+17See documentation for the LogisticRegressionCV at https://scikit-learn.org/stable/modules/generated/
+sklearn.linear_model.LogisticRegressionCV.html
+27
+4. Results
+In this section, results from statistical analysis of the distributions of the cues are
+presented. First, we explore the whole dataset from the angle of true vs. false (section
+4.1). Second, we compare confessions and denials (section 4.2). Third, we look into
+true vs. false within the confessions and denials respectively (section 4.3). Lastly, we
+compare significance results from true vs. false with the results from believed vs. not
+believed (section 4.4).
+4.1. True vs. False
+Table 4.1 displays the results from the Mann-Whitney significance tests on true vs. false
+statements, with means, standard deviations, and sparsity for each cue. For the true vs.
+false analysis of the data, five cues stood out as statistically significant. Type-token
+ratio (p=0.018), content word diversity (p<0.000), positive sentiment (V) (p=0.017)
+and present tense verbs (p=0.010) were indicative of a false statement to a significant
+degree. The only significant truth-indicative cue was past tense verbs (p=0.004).
+Some other cues yielded low p-values. Token quantity (p=0.071) and sentence
+quantity (p=0.188) hint that true statements were longer than false statements, although
+the difference was not statistically significant. True statements also seem to have been
+less frequent in nouns (p=0.068). On the other hand, adjectives (p=0.150), adverbs
+(p=0.122), and verbs (p=0.118) seem to have been slightly more frequent in false
+statements. References to locations were more frequent in true statements than false
+statements (p=0.100), but had very high sparsity, as was the case for all NER object
+counts. The standard deviations were higher than the mean for all NER counts, again
+showing that only a few statements contained recognizable NER objects. Interestingly,
+neutral sentiment scores also yielded close-to-significant p-values, but in opposite
+directions. Vader’s neutral sentiment was higher in true statements (p=0.058) while
+KBLab’s neutral sentiment score was higher in false statements (p=0.092).
+Considering the self-distancing hypothesis, no significance was found for the type
+of pronouns used. All statements had higher frequencies of first-person pronouns than
+second or third-person pronouns. However, present tense verbs were more frequent in
+false statements (p=0.010), and past tense verbs were more frequent in true statements
+(p=0.004).
+Filtering correlated cues from the five significant ones, three significant features were
+left for the regression model. These were content word diversity, positive sentiment
+(V), and past tense verbs. Table 4.2 displays the results from the multiple logistic
+regression (MLR) model.
+Comparing the coefficients of these three features suggests that content word
+diversity was the most informative one, followed by positive sentiment (V), and past
+tense. Considering the VIF scores, however, positive sentiment might be the most
+informative isolated cue, since it has the lowest VIF. Based on the information contained
+in these three features, the model formed a hyperplane that correctly separated the
+statements with an F1-score of 67.4%. True statements seem to have been easier to
+separate correctly, according to the confusion matrix in Figure 4.1, which shows a
+higher precision for true statements than for false statements. Note that the total
+number of true statements (n=132) is higher than the number of false statements
+28
+Category Feature U-stat Mean T (𝜎) Mean F (𝜎) p DOE Sparsity
+Length Token quantity 8891.5 143.758 (112.131) 121.076 (85.883) 0.071 - 0.000
+Avg. token length 7992.0 3.882 (0.276) 3.883 (0.285) 0.811 - 0.000
+Sent. quantity 8607.0 7.977 (6.637) 6.630 (4.406) 0.188 - 0.000
+Avg. sent. length 8047.0 19.078 (6.508) 18.392 (5.680) 0.737 - 0.000
+Clarity LIX 8439.5 31.313 (7.667) 30.046 (7.395) 0.308 - 0.000
+PoS Adjectives 7026.5 0.032 (0.019) 0.037 (0.022) 0.150 - 0.108
+Adverbs 6964.5 0.110 (0.043) 0.120 (0.041) 0.122 - 0.004
+Nouns 8904.0 0.125 (0.037) 0.114 (0.038) 0.068 - 0.008
+Verbs 7097.0 0.204 (0.029) 0.209 (0.029) 0.188 - 0.000
+Pronouns 7968.0 0.152 (0.033) 0.155 (0.038) 0.843 - 0.000
+Numerals 7693.0 0.001 (0.004) 0.002 (0.005) 0.661 - 0.841
+Lexical
+variation
+TTR* 6496.5 0.616 (0.112) 0.656 (0.126) 0.018 F 0.000
+OVIX 7405.5 50.711 (14.085) 51.217 (19.379) 0.435 - 0.020
+CWD** 5853.0 0.757 (0.083) 0.797 (0.094) 0.000 F 0.000
+NER Time 7742.0 0.137 (0.502) 0.269 (1.071) 0.714 - 0.896
+Location 8032.5 0.010 (0.071) 0.000 (0.000) 0.100 - 0.988
+Person 8319.5 0.841 (1.140) 0.783 (1.270) 0.380 - 0.530
+MSR 7913.5 0.012 (0.142) 0.000 (0.000) 0.346 - 0.996
+Organisation 7770.5 0.013 (0.091) 0.018 (0.106) 0.612 - 0.972
+Sentiment Negative (V) 8018.5 0.069 (0.040) 0.078 (0.076) 0.775 - 0.112
+Neutral (V) 8945.0 0.895 (0.051) 0.870 (0.083) 0.058 - 0.000
+Positive (V)* 6502.0 0.036 (0.035) 0.052 (0.046) 0.017 F 0.275
+Negative (KB) 8063.0 0.213 (0.351) 0.191 (0.332) 0.643 - 0.729
+Positive (KB) 7722.0 0.000 (0.000) 0.012 (0.091) 0.137 - 0.992
+Neutral (KB) 6898.5 0.540 (0.366) 0.584 (0.376) 0.092 - 0.287
+Negative (B) 8334.0 0.949 (0.207) 0.945 (0.218) 0.404 - 0.048
+Positive (B) 7692.0 0.029 (0.165) 0.050 (0.216) 0.407 - 0.960
+Self-
+distancing
+1st person 8541.0 0.093 (0.028) 0.089 (0.027) 0.232 - 0.000
+2nd person 8352.5 0.005 (0.010) 0.003 (0.007) 0.290 - 0.689
+3rd person 7335.5 0.005 (0.010) 0.007 (0.013) 0.307 - 0.606
+Present tense* 6372.0 0.044 (0.032) 0.055 (0.035) 0.010 F 0.104
+Past tense* 9507.5 0.116 (0.040) 0.101 (0.048) 0.004 T 0.020
+Table 4.1.: Results from Mann-Whitney U-tests on the distributions of scores in true vs. false
+statements for each feature (cue). The direction of effect (DOE) is indicated as
+significant cues. Sparsity refers to the proportion of zero values among samples.
+Significance indications: * p <0.05, ** p <0.0015625 (Bonferroni corrected). 𝜎=
+standard deviation.
+(n=119). This might influence the result here. However, considering the confidence
+values (Table 4.2), which are slightly higher for false statements (58.4%) compared to
+true statements (57.2%), it seems to be the other way around, even if the difference is
+small.
+Figure 4.2 displays two-dimensional UMAP projections using all 32 cues (A) vs. only
+the three cues (B) that were included in the MLR model. The different sets of features
+did change the disposition of the cues. It seems as though the projection with the
+significant cues is slightly more clustered.
+4.2. Confession vs. Denial
+Since our experiment featured two different ways of lying (false confession, false
+denial), and two different ways of telling the truth (true confession, true denial), it is
+of interest for our study to examine how the linguistic cues vary between confessions
+and denials. This section presents the results from the analysis of the confession vs.
+denial split of the data set.
+29
+Feature Coefficient DOE VIF
+CWD -0.485 F 8.378
+Positive (V) -0.331 F 2.182
+Past Tense 0.271 T 6.610
+Confidence (T/F) 0.577 (0.572/0.584)
+F1-score 0.674
+Table 4.2.: Results from multiple logistic re-
+gression (MLR) on the true vs.
+false data split. DOE = direction
+of effect. VIF = variance inflation
+factor. See 3.3 for more details.
+Figure 4.1.: Confusion matrix classification
+of true vs. false statements
+based on the MLR model.
+(a) True vs. false with all cues. (b) True vs. false with the remaining cues after fil-
+tering out insignificant and collinear cues.
+Figure 4.2.: UMAP dimensionality reduction projections of the with all 32 cues (a), and the 3
+cues used in MLR model (b).
+30
+In general, we found larger differences between confessions and denials than be-
+tween true and false statements. Ten cues stood out as significantly more prominent
+in confessions, and seven cues were more prominent in denials. Table 4.3 displays the
+results from the Mann-Whitney significance test, with means, standard deviations,
+and sparsity for each cue.
+Category Feature U-stat Mean C (𝜎) Mean D (𝜎) p DOE Sparsity
+Length Token quantity** 11060.0 165.047 (115.413) 99.123 (68.879) 0.000 C 0.000
+Avg. token length 7356.5 3.862 (0.228) 3.904 (0.325) 0.373 - 0.000
+Sent. quantity** 10805.0 9.140 (6.907) 5.434 (3.167) 0.000 C 0.000
+Avg. sent. length 8692.0 19.266 (6.054) 18.210 (6.182) 0.152 - 0.000
+Clarity LIX 8691.0 31.536 (7.048) 29.842 (7.985) 0.153 - 0.000
+PoS Adjectives 8527.5 0.036 (0.019) 0.033 (0.023) 0.252 - 0.108
+Adverbs* 6455.5 0.108 (0.040) 0.122 (0.043) 0.014 D 0.004
+Nouns 7511.0 0.120 (0.035) 0.121 (0.041) 0.534 - 0.008
+Verbs* 9545.5 0.210 (0.024) 0.202 (0.033) 0.004 C 0.000
+Pronouns** 10858.0 0.162 (0.030) 0.144 (0.039) 0.000 C 0.000
+Numerals 8073.0 0.001 (0.004) 0.002 (0.005) 0.579 - 0.841
+Lexical
+variation
+TTR** 4047.0 0.586 (0.104) 0.687 (0.116) 0.000 D 0.000
+OVIX** 5746.0 48.048 (7.181) 54.020 (22.544) 0.000 D 0.020
+CWD** 5345.0 0.751 (0.085) 0.802 (0.088) 0.000 D 0.000
+NER Time 8409.0 0.181 (0.530) 0.219 (1.050) 0.076 - 0.896
+Location 8052.0 0.011 (0.072) 0.000 (0.000) 0.092 - 0.988
+Person 8844.5 0.876 (1.114) 0.747 (1.289) 0.066 - 0.530
+MSR 7804.5 0.000 (0.000) 0.013 (0.148) 0.308 - 0.996
+Organisation 8169.5 0.026 (0.127) 0.005 (0.050) 0.067 - 0.972
+Sentiment Negative (V)** 9690.5 0.077 (0.039) 0.069 (0.076) 0.002 C 0.112
+Neutral (V)** 5632.0 0.871 (0.050) 0.896 (0.083) 0.000 D 0.000
+Positive (V)** 9905.0 0.052 (0.042) 0.035 (0.038) 0.000 C 0.275
+Negative (KB) 8739.0 0.242 (0.361) 0.161 (0.316) 0.053 - 0.729
+Positive (KB) 7991.0 0.011 (0.088) 0.000 (0.000) 0.170 - 0.992
+Neutral (KB)** 5135.0 0.478 (0.370) 0.649 (0.353) 0.000 D 0.287
+Negative (B)** 11704.0 0.950 (0.210) 0.944 (0.215) 0.000 C 0.048
+Positive (B) 7722.0 0.030 (0.167) 0.048 (0.213) 0.452 - 0.960
+Self-
+distancing
+1st person** 9986.5 0.096 (0.025) 0.085 (0.028) 0.000 C 0.000
+2nd person 7060.5 0.003 (0.005) 0.006 (0.011) 0.087 - 0.689
+3rd person* 9121.0 0.007 (0.010) 0.006 (0.013) 0.014 C 0.606
+Present tense* 6589.5 0.045 (0.033) 0.054 (0.035) 0.026 D 0.104
+Past tense** 9789.5 0.117 (0.038) 0.100 (0.049) 0.001 C 0.020
+Table 4.3.: Results from Mann-Whitney U-tests on the distributions of scores in confessions
+vs. denials for each feature. The direction of effect (DOE) is indicated for significant
+cues. Sparsity refers to the proportion of zero values among samples. Significance
+indications: * p <0.05, ** p <0.0015625 (Bonferroni corrected). 𝜎 = standard devia-
+tion.
+Confessions were characterized by being longer regarding token and sentence
+quantity (p<0.000 for both), and being more frequent in verbs (p=0.004) and pronouns
+(p<0.000). They also had higher scores for negative sentiment (p=0.002 for Vader’s,
+p=0.000 for base-BERT, and p=0.053 for KBLab’s), and positive sentiment according to
+Vader’s (p<0.000). Confessions also had more frequent 1st person (p<0.000) and 3rd
+person (p=0.014) pronouns. Past tense verbs were also more frequent in confessions
+(p=0.001).
+Denials, on the other hand, had more adverbs (p=0.014), higher values for lexical
+variation (TTR, OVIX, and CWD, p<0.000 for all), neutral sentiment (p<0.000 for both
+Vader’s and KBLab’s models), and present tense verbs (p=0.026).
+31
+Feature Coeff. DOE VIF
+Adverbs -0.077 D 6.781
+OVIX -0.090 D 7.948
+Positive (V) 0.126 C 2.161
+Neutral (KB) -0.122 D 3.476
+1st person 0.107 C 9.960
+3rd person 0.035 C 1.390
+Past Tense 0.099 C 7.330
+Confidence (C/D) 0.213 (0.214/0.212)
+F1-score 0.715
+Table 4.4.: Results from multiple logistic
+regression (MLR) on the con-
+fession vs. denial data split.
+DOE = direction of effect. VIF
+= variance inflation factor.
+See 3.3 for more details.
+Figure 4.3.: Confusion matrix for classifica-
+tion of confessions and denials
+based on the MLR model.
+The NER counts of different kinds were not statistically significant given our thresh-
+old, but had low p-values, except for measurements (MSR, p=0.308). References to time
+were almost significant (p=0.076) with slightly higher numbers in denials. Locations
+(p=0.092), persons (p=0.066), and organizations (p=0.067) were more prominent in
+confessions. Note that the sparsity values are the same as for the true vs. false analysis,
+as we are still looking at the whole data set.
+For this analysis, correlation analysis with Pearson’s coefficient and estimation
+of variance inflation factors (VIF) left seven significant features for multiple logistic
+regression (MLR); adverbs, OVIX, positive sentiment (V), neutral sentiment (KB), first
+and third person pronouns, and past tense verbs. Table 4.4 displays the results from
+the MLR model.
+According to the coefficients and VIF scores of the features included in the MLR
+model for separating confessions and denials, the most discriminative features were
+positive sentiment (V) (0.126), and neutral sentiment (KB) (-0.122). Not far after are
+first-person pronouns (0.107), past tense verbs (0.099), and OVIX (-0.090). However,
+the relatively high VIF scores for first-person pronouns (9.960), OVIX (7.948) and past
+tense verbs (7.330) indicate uncertainty in the strength of these features.
+The average confidence score for the model is low (21.3%), but slightly higher for
+confessions (21.4%) than for denials (21.2%). Contrary to the true vs. false results,
+the confidence is higher for the larger class (n=129 confessions and n=122 denials).
+Looking at the confusion matrix, confessions also seem to have been easier for the
+model to classify correctly, as the precision for confessions is higher than for denials.
+The overall performance of the model is (71.5%).
+Looking at the UMAP projections in Figure 4.4, displaying confessions and denials
+based on all cues (A) vs. the seven cues used in the MLR model, we can see that the
+reselection of cues changed the disposition of data points. Generally, it seems more
+clustered than the projections of true and false statements, but there is a lot of overlap.
+32
+(a) Confessions vs. denials with all cues. (b) Confessions vs. denials with the remaining cues
+after filtering out insignificant and collinear cues.
+Figure 4.4.: UMAP dimensionality reduction projections of the with all 32 cues (a), and the 7
+cues used in MLR model (b).
+4.3. True vs. False x Confession vs. Denial
+Given that the meaning of a statement usually entails whether it is a confession or
+a denial, we will now explore truth and deception within confessions and denials
+respectively. Note that the sample sizes are around half the size compared to looking
+at the whole data.
+In Table 4.5, the results from applying the same analysis to only confessions and
+denials separately are displayed. As can be seen in the table, only three cues are
+significant in both confessions and denials. Past tense verbs are truth-indicative in
+both confessions and denials, and TTR and CWD are deception-indicative in both
+confessions and denials. The third measure of lexical variation, OVIX, is only signif-
+icant for true vs. false within confessions. Likewise, sentiment scores discriminate
+between true and false confessions but have no significance when comparing true and
+false denials. Negative sentiment indicates true confession, and positive and neutral
+sentiment indicate false confession.
+Considering PoS-tag frequencies, adjectives and pronouns separate true from false
+within confessions, but nouns and verbs separate true from false within denials.
+For denials, the token quantity was significantly higher in true statements, as well
+as LIX, which indicates that true denials were less clear (readable) than false denials.
+References to people were significantly more frequent in true denials, and present
+tense verbs were more frequent in false denials.
+After implementing correlation analysis and reselection of cues for distinguishing
+true vs. false confessions, six cues remained. Table 4.6 displays results from multiple
+logistic regression analysis on true vs. false confessions. The strongest coefficients
+for distinguishing true confessions from false confessions were positive sentiment
+(V) (-0.363), adjective frequency (-0.263), and negative sentiment (V) (0.216). Neutral
+sentiment (KB) (-0.163), past tense verbs (0.142), and OVIX (-0.078) were relatively
+weaker. Negative sentiment and past tense verbs indicated true confession, while
+the rest were indicative of false confession. Regarding VIF scores, OVIX, adjectives,
+and past tense verbs had higher values, indicating that their coefficients might be
+misleadingly large. This model was slightly more confident when classifying false
+confessions (50.5%), compared to true confessions (46.6%). False confessions were
+33
+Confessions Denials
+Category Feature p DOE Sparsity p DOE Sparsity
+Length Token quantity 0.172 - 0.000 0.027 T 0.000
+Avg. token length 0.961 - 0.000 0.688 - 0.000
+Sent. quantity 0.085 - 0.000 0.359 - 0.000
+Avg. sent. length 0.158 - 0.000 0.051 - 0.000
+Clarity LIX 0.326 - 0.000 0.014 T 0.000
+PoS Adjectives 0.022 F 0.062 0.851 - 0.156
+Adverbs 0.247 - 0.008 0.213 - 0.000
+Nouns 0.599 - 0.000 0.034 T 0.016
+Verbs 0.215 - 0.000 0.006 F 0.000
+Pronouns 0.045 T 0.000 0.376 - 0.000
+Numerals 0.721 - 0.822 0.765 - 0.861
+Lexical
+variation
+TTR 0.014 F 0.000 0.018 F 0.000
+OVIX 0.016 F 0.000 0.627 - 0.041
+CWD 0.012 F 0.000 0.001 F 0.000
+NER Time 0.885 - 0.860 0.733 - 0.934
+Location 0.085 - 0.977 1.000 - 1.000
+Person 0.176 - 0.457 0.007 T 0.607
+MSR 1.000 - 1.000 0.374 - 0.992
+Organisation 0.405 - 0.953 0.374 - 0.992
+Sentiment Negative (V) 0.021 T 0.054 0.152 - 0.172
+Neutral (V) 0.259 - 0.000 0.181 - 0.000
+Positive (V) 0.000 F 0.163 0.460 - 0.393
+Negative (KB) 0.379 - 0.674 0.860 - 0.787
+Positive (KB) 0.156 - 0.984 1.000 - 1.000
+Neutral (KB) 0.023 F 0.357 0.521 - 0.213
+Negative (B) 0.002 T 0.047 0.322 - 0.049
+Positive (B) 0.297 - 0.969 0.805 - 0.951
+Self-
+distancing
+1st person 0.065 - 0.000 0.875 - 0.000
+2nd person 0.561 - 0.721 0.387 - 0.656
+3rd person 0.153 - 0.519 0.877 - 0.697
+Present tense 0.182 - 0.085 0.008 F 0.123
+Past tense 0.014 T 0.000 0.015 T 0.041
+Table 4.5.: Results from Mann-Whitney U-tests on the distributions of scores in true vs. false
+confessions vs. denials for each feature. The direction of effect (DOE) is indicated
+for significant cues. Sparsity refers to the proportion of zero values.
+generally further away from the hyperplane. Considering the confusion matrix in
+Figure 4.5, however, the model correctly separated true confessions to a higher degree.
+Overall, the information from these six cues led to a hyperplane which managed to
+correctly separate true confessions from false ones with an F1-score of 66.2%.
+Table 4.7 shows results from MLR on true vs. false denials, for which three cues
+remained after the reselection process of significance and correlation control. All three
+remaining cues were relatively equal in their importance, according to the coefficients.
+Nouns (0.418) and person references (0.427) were slightly stronger than past tense
+(0.345). All three indicated truth. With information from these cues, the MLR model
+formed a hyperplane that classified the denials as true or false with an F1-score of
+70.1%. The confidence was higher for true denials (69%) than for false denials (42%)
+which is reflected in there being more information available as to what characterizes
+a true denial. The overall confidence (57%) is slightly lower than the score. This is
+discussed more thoroughly in the discussion section.
+To visualize the discriminating powers of the reselected cues for true and false
+34
+Feature Coeff. DOE VIF
+Adjectives -0.263 FC 4.232
+OVIX -0.078 FC 6.681
+Negative (V) 0.216 TC 2.315
+Positive (V) -0.363 FC 2.526
+Neutral (V) -0.163 FC 3.250
+Past Tense 0.142 TC 4.426
+Confidence (TC/FC) 0.484 (0.466/0.505)
+F1-score 0.662
+Table 4.6.: Results from multiple logistic re-
+gression (MLR) on true vs. false
+confessions. DOE = direction of
+effect. VIF = variance inflation
+factor. See 3.3 for more details.
+Figure 4.5.: Confusion matrix for classifica-
+tion of true and false confes-
+sions based on the MLR model.
+Feature Coeff. DOE VIF
+Nouns 0.418 TD 4.702
+NER Person 0.427 TD 1.415
+Past Tense 0.345 TD 4.555
+Confidence (TD/FD) 0.590 (0.712/0.427)
+F1-score 0.701
+Table 4.7.: Results from multiple logistic re-
+gression (MLR) on true vs. false
+denials. DOE = direction of ef-
+fect. VIF = variance inflation fac-
+tor. See 3.3 for more details.
+Figure 4.6.: Confusion matrix for classifica-
+tion of true and false denials
+based on the MLR model.
+35
+confessions and denials, respectively, Figure 4.7a displays UMAP projections of the
+data based on all cues (4.4a), of confessions based on the six reselected cues (4.7b), and
+of denials based on the three reselected cues (4.7c). Again, there are no clear clusters.
+Especially the confessions seem to be more spread in general, while the denials form
+something more similar to clusters, although the data points are still overlapping
+overall.
+(a) (b) (c)
+Figure 4.7.: UMAP dimensionality reduction projections. True statements are blue and false
+statements are pink. Confessions are filled dots and denials are x:es. (a) displays
+the whole dataset with UMAP embeddings based on all cues. (b) displays the
+confessions with embeddings based on the six MLR cues for confessions. (c)
+displays the denials with embeddings based on the three MLR cues for denials.
+4.4. True vs. False x Believed vs. Not Believed
+By comparing differences between true vs. false to differences between statements that
+are believed (to be true) vs. not believed (believed to be false), we can get a glimpse
+of what textual features are over- or underestimated as cues for truth or deception
+by a human annotator. Note that this comparison should be viewed as a case study
+since the data split into believed vs. not believed are based on the annotations of one
+person during the manual assessment of the data set (see 3.1 for a description of the
+data collection). Additionally, the sample class sizes are unbalanced (96 believed and
+155 non-believed).
+The results from Mann-Whitney U-tests on the believed vs. not believed data split
+are compared to the true vs. false data split in Table 4.8. Only the cues where one of
+the two data splits had significant differences in their distributions are shown.
+Regarding truth-indicative cues, past tense verbs was the only significant cue in the
+true vs. false comparison. It was also more frequent in believed statements. Similarly,
+non-believed statements (alas believed to be false) were also more frequent in present
+tense verbs, just as false statements were. Lexical variation was false-indicative in two
+out of three measures in the true vs. false comparison. However, in the comparison of
+believed vs. not believed, all three measures of lexical variation (TTR, OVIX, CWD)
+were higher in non-believed statements. At the same time, both token and sentence
+quantity were significantly higher in believed statements.
+Regarding sentiment estimations, the disagreement with what is true and what is
+believed to be true was the largest. Negative sentiment (V and B) was significantly
+more prominent in believed statements (p<0.000 for both) while having high p-values
+(p=0.775 and p=0.404) for the true vs. false comparison. As negative and positive
+sentiment perhaps should be conflicting, one could then imagine that the believed vs.
+not believed tests would follow the true vs. false tests in that positive sentiment was
+36
+false-indicative (p=0.017), but this was not the case as positive sentiment had a very
+high p-value (p=0.905) for believed vs. not believed.
+Less surprising is that neutral sentiment was significant for non-believed state-
+ments (p=0.018 (V), p<0.000 (KB)), as the p-values for these cues in the true vs. false
+comparison were also close to significant (p=0.058 (V), p=0.092 (KB).
+Overall, length and negative sentiment seemed to be over-estimated as truth-
+indicative by the human annotator. On the other hand, considering false-indicative
+cues, positive sentiment was under-estimated; OVIX and neutral sentiment were
+over-estimated.
+True or False Believed or Not
+Category Feature p DOE Sparsity p DOE
+Length Token quantity 0.071 - 0.000 0.000 B
+Sent. quantity 0.188 - 0.000 0.000 B
+Lexical
+variation
+TTR 0.018 F 0.000 0.000 N
+OVIX 0.435 - 0.020 0.014 N
+CWD 0.000 F 0.000 0.000 N
+Sentiment Negative (V) 0.775 - 0.112 0.000 B
+Neutral (V) 0.058 - 0.000 0.018 N
+Positive (V) 0.017 F 0.275 0.905 -
+Neutral (KB) 0.092 - 0.287 0.000 N
+Negative (B) 0.404 - 0.048 0.000 B
+Self-
+distancing
+Present tense 0.010 F 0.104 0.022 N
+Past tense 0.004 T 0.020 0.012 B
+Table 4.8.: Results from Mann-Whitney U-tests on the distributions of scores in true vs. false
+believed vs. non-believed statements for each feature. The direction of effect (DOE)
+is indicated for significant cues. Sparsity refers to the proportion of zero values
+among samples.
+37
+5. Discussion
+5.1. Summary of Key Findings
+A higher frequency of past tense verbs was the only significant cue to indicate that
+a statement was true in all comparisons. This result speaks against the hypothesis
+in Hauch et al. (2015), where past tense verbs were predicted to be false-indicative.
+However, our results might still speak in favour of the self-distancing hypothesis.
+Considering that our participants were asked about an event in the past, if they were
+to tell the truth they would probably use verbs in the past tense, either to confess
+what they had done or to give an alibi of what they did. Using more present tense
+verbs, which was indicative of deception according to our results, might be a sign of
+distancing oneself from the event, as they avoid mentioning it.
+The idea that true statements are longer than false ones receives some support. Token
+quantity and sentence quantity were close to significant in the true vs. false comparison,
+and measures of lexical variation were significantly higher in false confessions and
+denials. Since length and lexical variation were quite strongly negatively correlated,
+they both indicate this tendency, which aligns with the findings of Hauch et al. (2015)
+and Sarzyńska-Wawer et al. (2023), but contradicts the findings of Levitan et al. (2018)
+and R. M. Willén and Strömwall (2012b) on statement length.
+Generally, however, the linguistic cues indicated more differences between confes-
+sions and denials than between true and false. This could be seen in that there were
+more significant cues for confessions vs. denials than for true vs. false. Furthermore,
+we could see that there were differences in what cues were discriminative for truth vs.
+deception within confessions and denials, respectively. Regarding PoS-tags, adjectives
+were more common in false confessions, and pronouns were more common in true con-
+fessions, which aligns with previous results from Solà-Sales et al. (2023). This tendency
+could however not be seen for denials, where instead nouns were truth indicative and
+verbs were false indicative. In the confession vs. denial analysis, we could see that
+both positive and negative sentiment scores were higher in confessions, while denials
+were more neutral. Confessions seem to contain more sentiment overall, both negative
+and positive. This difference was also visible in that positive and negative sentiment
+was discriminative for true and false confessions, but not for denials.
+Overall, sentiment analysis was informative according to our results. Vader’s positive
+sentiment score stood out as the strongest cue in the MLR models for both true vs.
+false, confessions vs. denials, and true vs. false confessions, indicating deception, in
+line with results from Sarzyńska-Wawer et al. (2023) and Papantoniou et al. (2022). For
+confessions, Vader’s negative sentiment was also significant for truth, again aligning
+with results from Sarzyńska-Wawer et al. (2023). One observation to make, however,
+is that the three sentiment analysis models differed in their predictions. For the true
+vs. false comparison, neutral sentiment was truth-indicative according to the Vader
+model, but false-indicative according to the KB’s model. Although none of them had
+p-values below 0.05, they were both close. Additionally, the sparsity for the neutral
+estimations for both models was the lowest among the three valences, which speaks
+for that none of them lacked a sufficient amount of scores to find a pattern. Another
+example where the sentiment models differed is that the BERT-based model and KB’s
+model found very few positive statements. Probably, the models behaved differently
+38
+because they were different in their structure, and they were trained on different data.
+Especially Vader’s model is different from the other two since it is rule-based.
+Speaking of the implementation of external models, analysis of NER objects in the
+statements was indicative of truth on one occasion, for true denials. According to our
+analysis, references to persons were more prevalent for true denials. This, however,
+has a potential explanation in the design of the study. Comparing the four conditions
+that were randomized through the questionnaire, there was one difference between
+the guilty and the innocent scenarios. For the innocent scenarios, one extra person
+was named, apart from the victim of the theft, namely the neighbour Mats. This means
+that participants giving a false confession or a true denial had reason to refer to one
+more person than did respondents for the guilty scenarios, which could be the reason
+for the higher frequencies in true denials.
+Apart from not yielding many significant differences in distributions, NER objects
+had high sparsity in the data. This could mean that references to time, locations,
+persons, measurements, and organisations were uncommon in the data. If this is true,
+it could indicate a challenge in implementing NER for verbal lie detection. After all,
+if the cue is almost non-existent in both classes, it is not very informative. However,
+without knowing the sensitivity and performance of the model on our data, we cannot
+draw any conclusions on that.
+Considering our attempt at estimating the clarity of a statement, the readability
+index LIX was indicative only for true denials. The connection between the clarity
+criterion and readability could be questioned, and we do not claim that this measure
+has any strong relevance for the clarity of a statement. However, this result tells us
+something about how true denials differ from false ones. Considering how LIX is
+calculated, it could be indicative that the number of tokens was higher, while the
+number of sentences was not. This aligns with the indication that true denials had
+higher token quantity.
+The multiple logistic regression models gave us an indication of how informative the
+most significant cues were to fit a regression hyperplane and measured the discriminat-
+ing strength of the most significant and least correlated cues in relation to each other.
+It should be stated that the results from these models have limited generalizability to
+new data. Even if we used cross-validation, there is a risk of overfitting, which has not
+been thoroughly examined in our analysis. The performance scores should therefore
+not be interpreted as classification scores of how correctly they would predict truth or
+deception in general, but only regarding this particular data set.
+Having stated this, the present analysis suggests that the ability of our scheme to
+successfully separate true statements from false ones seems to be roughly comparable
+to that of previous studies, reaching a 60-70% F1 score. This suggests that our implemen-
+tation of cues is about as strong and as weak as in other studies (e.g. Sarzyńska-Wawer
+et al., 2023; Vrij, 2005; Wawer and Sarzyńska-Wawer, 2022; Wojciechowski et al., 2018).
+We do not have evidence that any cues would have stronger discriminative potential
+than this, which aligns with previous conclusions that criteria-based statement analy-
+sis does not fill the requirements to be considered scientific evidence (Brennen and
+Magnussen, 2023; Wojciechowski et al., 2018). This was also visualized in the UMAP
+projections, of which none indicated clear distinguishable clusters corresponding to
+the evaluated subcategories.
+Our results establish that linguistic cues may have some discriminative potential for
+separating truth from deception, but that the effect is small and inconclusive. Although
+there were occurrences of cues that only appeared in one category (locations and
+KB’s positive sentiment appeared only in confessions, measurements appeared only in
+denials, see Table 4.5), these were differences based on one or two statements, which
+does not suffice to draw any conclusions. No other cues were present in only one
+39
+category. This highlights the complexity of the task, and that there may be no linguistic
+patterns that conclusively characterize truth or deception.
+For our comparison of true vs. false with believed vs. not believed, the most in-
+teresting part of this result was that the sentiment scores were so different between
+true and believed. Positive sentiment, which was significant for truth, was not near
+discriminative for believed vs. not believed (p=0.905). Also, negative sentiment was
+more prevalent among statements that were believed to be true. We could also ob-
+serve smaller differences in the importance of length, from the token and sentence
+quantity, and lexical variation cues. Overall, these results are neither generalizable,
+but indicate that there may be some bias towards negative sentiment and length in
+which statements are believed to be true vs. false.
+5.2. Limitations
+As mentioned previously, in the section for the data collection (see 3.1.4), some limita-
+tions with our study concern the data set. To recite some of them, there are aspects of
+the level of motivation and the mode of production that prevent us from being able to
+draw strong conclusions about the real-life use of credibility criteria for credibility
+assessment.
+Concerning our methodology for analysis, which intended to evaluate the diagnos-
+ticity of the cues on our data using significance tests and correlation analysis before
+applying logistic regression, we could have opted for other alternatives. Our strategy
+for reducing collinearity by omitting cues that are non- or almost significant could
+be considered letting go of potentially interesting information. An alternative would
+have been to combine correlated cues instead of excluding the least significant ones.
+Also, the analysis could be extended by controlling the impact of outliers.
+There is also a layer of uncertainty regarding the diagnosticity of our cues depending
+on the models we have used for part-of-speech tagging, sentiment analysis, and named
+entity recognition. We do not know the exact performance of these models on our
+data, which affects the strength of our results.
+One limitation of our study, and perhaps the field in general, is that our coverage of
+the criteria and their mapping to specific cues that are implemented is only approximate.
+Some are clear, like the analogy between token quantity and statement length, but other
+connections are looser. This affects the validity of our scheme to evaluate the reliability
+of criteria-based statement analysis effectively. We cannot draw strong conclusions
+about using specific criteria, since we might not have a conclusive representation
+of their usage. For example, we cannot claim to have evaluated the clarity criterion
+from the Swedish Supreme Court correctly. However, for other cues like length and
+sentiment, our scheme was more successful.
+40
+6. Conclusion
+6.1. Main Conclusions
+6.1.1. Research Questions Revisited
+The main purpose of this study was to build on existing research on computational
+verbal lie detection with a new scheme for evaluating linguistic cues in Swedish.
+Through this, we aimed to provide a first glance at how computational methods in
+Swedish could be used to assess the diagnosticity and thus, the reliability, of cues used
+in criteria-based statement analysis. We posed four research questions, which will be
+answered in light of the findings in the following paragraphs.
+Regarding the first research question on how informative the cues are as indica-
+tors for truth or deception, our findings indicate that some of the cues indeed seem
+informative, but not to any high degree. In particular, false statements seem to be
+more positive, have less recycled vocabulary, and use more present tense verbs. True
+statements, on the other hand, use more past tense verbs.
+Our second research question was whether the type of statement, confession or
+denial, mattered for what cues are discriminative. In response to this question, our
+results strongly indicate that the type of statement matters. The cues explored show
+larger differences between confessions and denials than between true and false state-
+ments. According to our results, confessions contain more sentiment, and denials are
+more neutral, making sentiment cues uninformative for denials but informative for
+confessions.
+The third research question concerned the characteristics of the human judgment
+of true and false, and whether some cues are over- or under-estimated as indicators of
+truth and deception. Based on our findings, it appears that human judgment exhibits
+bias, suggesting that true statements are expected to be lengthy and negative, to a
+higher degree than they are.
+Lastly, our fourth research question treated the performance of our proposed scheme
+and the implications that we can draw from this concerning the reliability of the cues as
+indicators of truth and deception, and what this says about the Supreme Court’s criteria
+and other approaches. Overall, our implementation of linguistic cues yielded results
+that were comparable to previous research, both in which cues were discriminative
+and not, and the degree of correctly separated statements. Our results seem to confirm
+previous notions that the criteria hold limited information regarding the veracity of a
+statement and that they should be considered carefully. However, some limitations to
+our study hinder us from drawing strong implications about the reliability of cues and
+the criteria in reality. For example, our data may differ substantially from real criminal
+case statements, and the analogy between how the criteria are used in reality vs. how
+they are scored in our study could differ.
+6.1.2. Preliminary Implications for Theory and Practice
+From what our findings entail, the most prominent implication for the field of compu-
+tational verbal lie detection is that the type of statement, whether it is a confession or a
+denial, should not be overlooked. Mainly, this follows from that we found more dissim-
+ilarities between confessions and denials than between true and false statements. This
+41
+also confirms the pattern found in previous research, where cues often have different
+directions of effect in different studies (Gancedo et al., 2021; Hauch et al., 2015).
+Considering the relevance of criteria-based credibility assessment, and specifically
+through the Swedish Supreme Court’s stated credibility criteria, our results do not
+confirm yet deny that these criteria could hold relevance in reality. However, our
+results do constitute an experimental example of how differences in true and false
+statements could be estimated and evaluated. Following from the difference between
+confessions and denials, our study suggests that what characterizes a true or false
+statement might be different depending on what it is trying to achieve. Thus, the same
+criteria or characteristics may not be equally as indicative of truth (or deception) in
+every case. This could be an important implication for practice.
+6.2. Contributions
+This study has made a significant contribution to verbal lie detection research, es-
+pecially in the Swedish context. We have presented a new data set with in total 251
+statements in Swedish, which was constructed using a mock-crime scenario. The data
+set is balanced concerning the type of statement (confession or denial) and valence
+(true or false). In addition to providing a new data set, we have conducted a preliminary
+evaluation of linguistic cues for verbal lie detection, adapted to Swedish, on this dataset.
+To the best of our knowledge, this is the first study to implement computational verbal
+lie detection on a Swedish data set.
+This project has meanwhile contributed to the source evaluation subproject of EB-
+CRIME with a new curated data set and a first take at implementing natural language
+processing for automatized content analysis of oral statements in Swedish. This lays
+the foundation for further analysis on the topic.
+The code for the analysis is available on GitHub1. Please contact the author for
+information about data availability.
+6.3. Future Work
+While this study provides valuable insights, there are several areas where further
+research could expand upon our findings and address certain limitations.
+One clear challenge for verbal lie detection, in general, is the need for larger and
+more diverse data sets. Our relatively simple experiment resulted in a well-balanced
+data set that gave us new insights, especially into the differences between confessions
+and denials. Future research could expand on the outline that was used in this study and
+make similar experiments but change certain variables. For example, the experiment
+could be adapted to instead collect witness testimonies, statements in other languages,
+or involve another type of crime. Larger and more diverse data sets would enable more
+careful analysis as well as more opportunities to use other NLP and machine learning
+methods for verbal lie detection.
+However, the need for the exploration of data from real criminal cases should not
+be forgotten. Using computational methods makes this more efficient than ever, which
+we have exemplified in this study. Incorporating data from real criminal cases, for
+example, the transcriptions used in Wojciechowski et al. (2018) could potentially serve
+as an already existing data set in Swedish, that also could enable comparative analysis
+between the computational method and the law student’s assessments using intuition
+or MASAM.
+1https://github.com/claraagu/ma_thesis_VLD
+42
+This leads us to another important issue that future work should continue to examine:
+human judgments. In our analysis, we identified a challenge in using computational
+methods for examining the reliability of cues and criteria-based statement analysis,
+that stemmed from the difficulty of representing the real notion of the criteria. Without
+knowing what a legal practitioner regards as containing or not containing a criterion,
+or how they actually use it, we cannot make clear recommendations for practice
+about specific criteria. And ultimately, this is one important objective for verbal
+lie detection. More could be done to enhance the analogy between a criterion and
+certain computational text analysis measurements. Future work should aim to deeply
+examine the connections between criteria and implemented cues. More experiments
+on practitioners’ ideas and interpretations of criteria, and how they stand against the
+computer’s idea of what is a “significantly higher prevalence” of a criterion, should
+be compared. Future studies examining this are crucial for the future of verbal lie
+detection research that seeks real-life implications. Perhaps, this is also an important
+subject of study from the perspective of criminal procedure law, since clear descriptions
+of the criteria seem to be missing, especially for the Swedish Supreme Court’s criteria.
+Regarding both the question of available data sets, as well as the accuracy of criteria
+prevalence estimation, there is also the challenge of accuracy when using external
+pre-trained models. As mentioned in the limitations section (see 5.2), using models for
+sentiment analysis and NER (for example) introduces uncertainty in the evaluation
+of cues, since we do not know their performance on a given data set. Future work
+could mitigate this by extending existing data sets and creating a gold standard for
+sentiment analysis and NER. One way of doing this could be to manually correct the
+output given by the models.
+Another subject in connection to the use of pre-trained models is the need to develop
+more ways of analysing deceptive language with NLP. Apart from extending the use
+of sentiment analysis and NER for this purpose, this is a potential application for other
+models. For example, more fine-grained emotion detection models, like guilt detection,
+would be interesting to evaluate for verbal lie detection. Perhaps large language models
+could be used in some way to estimate a statement’s level of clarity, consistency, or
+logical structure. Large language models probably hold the potential for doing more
+careful and sensitive analyses, and this is a large field that should also be considered
+for verbal lie detection research.
+In summary, future work should focus on evaluating the relationship between
+practically applied criteria and the way they are quantified in computational verbal lie
+detection, especially the Swedish Supreme Court’s criteria. Furthermore, collecting
+more data sets, extending this data set to more accurately assess sentiment analysis
+and NER, and reproducing this study on more and larger data sets would be crucial
+for extending the knowledge of linguistic cues in a Swedish context. Lastly, various
+ways of estimating criteria prevalence and conducting statement analysis should be
+explored, especially concerning large language models.
+43
+Bibliography
+Amado, Bárbara G., Ramón Arce Fernández, and Francisca Fariña Rivera (2015). “Un-
+deutsch hypothesis and Criteria Based Content Analysis: A meta-analytic review”.
+European Journal of Psychology Applied to Legal Context 7.1, pp. 3–12. doi: 10.1016/j.
+ejpal.2014.11.002.
+Arntzen, Friedrich (1970). Psychologie der Zeugenaussage: Einführung in die forensis-
+che Aussagepsychologie [Psychology of eyewitness testimony. Introduction to forensic
+psychology of statement analysis]. Göttingen, Germany: Hogrefe.
+Bird, Steven, Edward Loper, and Ewan Klein (2009). Natural Language Processing with
+Python. O’Reilly Media Inc.
+Björnsson, Carl-Hugo (1968). Läsbarhet. Stockholm: Liber.
+Bogaard, Glynis, Ewout H. Meijer, Aldert Vrij, and Harald Merckelbach (2016). “Strong,
+but Wrong: Lay People’s and Police Officers’ Beliefs about Verbal and Nonverbal
+Cues to Deception”. PLOS ONE 11.6. doi: 10.1371/journal.pone.0156615.
+Bond, Charles F. and Bella M. DePaulo (2006). “Accuracy of Deception Judgments”.
+Personality and Social Psychology Review 10.3, pp. 214–234. doi: 10.1207/s15327957
+pspr1003_2.
+Brennen, Tim and Svein Magnussen (2022). “The Science of Lie Detection by Verbal
+Cues: What Are the Prospects for Its Practical Applicability?” Frontiers in Psychology
+13. doi: 10.3389/fpsyg.2022.835285.
+Brennen, Tim and Svein Magnussen (2023). “Lie Detection: What Works?” Current
+Directions in Psychological Science 32.5, pp. 395–401. doi: 10.1177/09637214231173095.
+Brunato, Dominique, Andrea Cimino, Felice Dell’Orletta, Giulia Venturi, and Simon-
+etta Montemagni (2020). “Profiling-UD: a Tool for Linguistic Profiling of Texts”.
+English. In: Proceedings of the Twelfth Language Resources and Evaluation Confer-
+ence. Ed. by Nicoletta Calzolari, Frédéric Béchet, Philippe Blache, Khalid Choukri,
+Christopher Cieri, Thierry Declerck, Sara Goggi, Hitoshi Isahara, Bente Maegaard,
+Joseph Mariani, Hélène Mazo, Asuncion Moreno, Jan Odijk, and Stelios Piperidis.
+Marseille, France: European Language Resources Association, pp. 7145–7151. isbn:
+979-10-95546-34-4. url: https://aclanthology.org/2020.lrec-1.883.
+DePaulo, Bella M., James J. Lindsay, Brian E. Malone, Laura Muhlenbruck, Kelly
+Charlton, and Harris Cooper (2003). “Cues to deception”. Psychological Bulletin
+129.1. doi: 10.1037/0033-2909.129.1.74.
+Gancedo, Yurena, Francisca Fariña, Dolores Seijo, Manuel Vilariño, and Ramon Arce
+(2021). “Reality Monitoring: A Meta-analytical Review for Forensic Practice”. The
+European Journal of Psychology Applied to Legal Context 13, pp. 99–110. doi: 10.5093/
+ejpalc2021a10.
+Granhag, Pär Anders, Leif A. Strömwall, Karl Ask, and Sara Landström (2021). Handbok
+i rättspsykologi. Andra upplagan. Stockholm: Liber. isbn: 9789147113064.
+Hägglöf, Hillevi (2023). The KBLab Blog: A robust, multi-label sentiment classifier for
+Swedish. KBLab. url: https://kb-labb.github.io/posts/2023-06-16-a-robust-multi-
+label-sentiment-classifier-for-swedish/ (visited on 2024-08-02).
+Hauch, Valerie, Iris Blandón-Gitlin, Jaume Masip, and Siegfried L. Sporer (2015). “Are
+Computers Effective Lie Detectors? A Meta-Analysis of Linguistic Cues to Decep-
+tion”. Personality and Social Psychology Review 19.4, pp. 307–342. doi: 10.1177/
+1088868314556539.
+44
+Hauch, Valerie, Siegfried L. Sporer, Stephen W. Michael, and Christian A. Meissner
+(2016). “Does Training Improve the Detection of Deception? A Meta-Analysis”.
+Communication Research 43.3, pp. 283–343. doi: 10.1177/0093650214534974.
+Hwang, Hyisung C., David Matsumoto, and Vincent A. Sandoval (2016). “Linguistic
+Cues of Deception Across Multiple Language Groups in a Mock Crime Context”.
+Journal of Investigative Psychology and Offender Profiling 13.1, pp. 56–69. doi: 10.
+1002/jip.1442.
+Johansson, Anders and Samir Sabri (2017). Fallet Samir. Stockholm: Ordfront. isbn:
+9789170379321.
+Johnson, Marcia K. and Carol L. Raye (1981). “Reality Monitoring”. Psychological Review
+88.1, pp. 67–85. doi: 10.1037/0033-295x.88.1.67.
+Kleinberg, Bennett, Maximilian Mozes, Arnoud Arntz, and Bruno Versuchere (2018).
+“Using Named Entities for Computer-Automated Verbal Deception Detection”. Jour-
+nal of Forensic Sciences 63.3, pp. 714–723. doi: 10.1111/1556-4029.13645.
+Kwast, Christer van der (2015). Bortom rimligt tvivel: Thomas Quick och rättvisan.
+Stockholm: Bladh by Bladh. isbn: 9789187371516.
+Leach, Amy-May, Nawal Ammar, D Nicole England, Laura M Remigio, Bennett Klein-
+berg, and Bruno J Verschuere (2016). “Less is more? Detecting lies in veiled wit-
+nesses.” Law and human behavior 40.4, p. 401.
+Leins, Drew A., Ronald P. Fisher, and Stephen J. Ross (2013). “Exploring Liars’ Strategies
+for Creating Deceptive Reports”. Legal and Criminological Psychology 18.1, pp. 141–
+151. doi: 10.1111/j.2044-8333.2011.02041.x.
+Levitan, Sarah Ita, Angel Maredia, and Julia Hirschberg (2018). “Linguistic cues to
+deception and perceived deception in interview dialogues”. In: Proceedings of the
+2018 conference of the north American chapter of the association for computational
+linguistics: Human language technologies, volume 1 (long papers). Ed. by Marilyn
+Walker, Heng Ji, and Amanda Stent. New Orleans, Louisiana: Association for Com-
+putational Linguistics, pp. 1941–1950. doi: 10.18653/v1/N18- 1176. url: https:
+//aclanthology.org/N18-1176.
+Loconte, Riccardo, Roberto Russo, Pasquale Capuozzo, Pietro Pietrini, and Giuseppe
+Sartori (2023). “Verbal Lie Detection using Large Language Models”. Scientific Reports
+13, 22849. issn: 2045-2322. doi: 10.21203/rs.3.rs-3126100/v1.
+Masip, Jaume, Eugenio Garrido, and Carmen Herrero (2003). “Facial appearance and
+judgments of credibility: the effects of facial babyishness and age on statement
+credibility.” Genetic Social and General Psychology Monographs 129.3, pp. 269–311.
+Masip, Jaume, Siegfried L. Sporer, Eugenio Garrido, and Carmen Herrero (2005).
+“The detection of deception with the reality monitoring approach: a review of
+the empirical evidence”. Psychology, Crime & Law 11.1, pp. 99–122. doi: 10.1080/
+10683160410001726356. eprint: https://doi.org/10.1080/10683160410001726356. url:
+https://doi.org/10.1080/10683160410001726356.
+McInnes, Leland, John Healy, and James Melville (2018). “Umap: Uniform manifold ap-
+proximation and projection for dimension reduction”. arXiv preprint arXiv:1802.03426.
+Nahari, Galit (2023). “Meta-Research Perspectives on Verbal Lie Detection”. Brain
+Sciences 13.3, pp. 392–392. doi: 10.3390/brainsci13030392.
+Newman, Matthew L., James W. Pennebaker, Diane S. Berry, and Jane M. Richards
+(2003). “Lying Words: Predicting Deception from Linguistic Styles”. Personality and
+Social Psychology Bulletin 29.5, pp. 665–675. doi: 10.1177/0146167203029005010.
+Oberlader, Verena, Laura Quinten, Rainer Banse, Renate Volbert, Alexander F. Schmidt,
+and Felix D. Schönbrodt (2020). “Validity of Content-Based Techniques for Credibility
+Assessment -How Telling is an Extended Meta-Analysis Taking Research Bias into
+Account?” Applied Cognitive Psychology 35.2, pp. 393–410. doi: 10.1002/acp.3776.
+45
+Papantoniou, Katerina, Panagiotis Papadakos, Theodore Patkos, George Flouris, Ion
+Androutsopoulos, and Dimitris Plexousakis (2022). “Deception detection in text
+and its relation to the cultural dimension of individualism/collectivism”. Natural
+Language Engineering 28.5, pp. 545–606. doi: 10.1017/S1351324921000152.
+Pedregosa, Fabian, Gaël Varoquaux, Alexandre Gramfort, Vincent Michel, Bertrand
+Thirion, Olivier Grisel, Mathieu Blondel, Peter Prettenhofer, Ron Weiss, Vincent
+Dubourg, et al. (2011). “Scikit-learn: Machine learning in Python”. Journal of machine
+learning research 12.Oct, pp. 2825–2830.
+Pennebaker, James W, Martha E Francis, and Roger J Booth (2001). “Linguistic inquiry
+and word count: LIWC 2001”. Mahway: Lawrence Erlbaum Associates 71.2001, p. 2001.
+Sarzyńska-Wawer, Justyna, Aleksandra Pawlak, Julia Szymanowska, Krzysztof Hanusz,
+and Aleksander Wawer (2023). “Truth or lie: Exploring the language of deception”.
+PLOS ONE 18.2, e0281179. doi: 10.1371/journal.pone.0281179.
+Schelin, Lena (2006). “Bevisvärdering av utsagor i brottmål”. PhD thesis. Juridiska
+institutionen, Stockholms Universitet.
+Slätt, Andreas (2020). Berättelsen om Kevinfallet: familjens egna ord om den stora
+rättsskandalen. Stockholm: Forum. isbn: 9789137153285.
+Solà-Sales, Sara, Chiara Alzetta, Carmen Moret-Tatay, and Felice Dell’Orletta (2023).
+“Analysing Deception in Witness Memory through Linguistic Styles in Spontaneous
+Language”. Brain Sciences 13.2, pp. 317–317. doi: 10.3390/brainsci13020317.
+Sporer, Siegfried L. and Jaume Masip (2023). “Millennia of legal content criteria of
+lies and truths: wisdom or common-sense folly?” Frontiers in Psychology 14. doi:
+10.3389/fpsyg.2023.1219995.
+Språkbanken Text (2024). SUCX 3.0. sv. doi: 10 . 23695 / 9C9F - 6132. url: https : / /
+spraakbanken.gu.se/resurser/sucx3.
+Steller, Max and Guenter Koehnken (1989). “Criteria-based statement analysis.” In:
+Psychological methods in criminal investigation and evidence. Ed. by D. C. Raskin.
+Springer Publishing Company, pp. 217–245.
+Thompson, Andrew D. and Maria Hartwig (2022). “The language of high-stakes truths
+and lies: Linguistic analysis of true and deceptive statements made during sexual
+homicide interrogations”. Legal and Criminological Psychology. doi: 10.1111/lcrp.
+12214.
+Trankell, Arne (1982). Reconstructing the past: the role of psychologists in criminal trials.
+Norstedts Juridik AB. isbn: 9789118276613.
+Undeutsch, Udo (1967). “Beurteilung der Glaubhaftigkeit von Aussagen”. Handbuch
+der Psychologie 11.S 126.
+Vrij, Aldert (2005). “Criteria-Based Content Analysis: A Qualitative Review of the First
+37 Studies.” Psychology, Public Policy and Law 11.1, pp. 3–41. doi: 10.1037/1076-
+8971.11.1.3.
+Vrij, Aldert, Ronald P. Fisher, Samantha Mann, and Sharon Leal (2010). “Lie detection:
+Pitfalls and opportunities.” In: Police interrogations and false confessions: Current re-
+search, practice, and policy recommendations. Ed. by G. D. Lassiter and C. A. Meissner.
+American Psychological Association, pp. 97–110. doi: 10.1037/12085-006.
+Vrij, Aldert, Pär Anders Granhag, Tzachi Ashkenazi, Giorgio Ganis, Sharon Leal, and
+Ronald P. Fisher (2022). “Verbal Lie Detection: Its Past, Present and Future”. Brain
+Sciences 12.12, 1644. issn: 2076-3425. doi: 10.3390/brainsci12121644.
+Wawer, Aleksander and Justyna Sarzyńska-Wawer (2022). “Detecting Deceptive Utter-
+ances Using Deep Pre-Trained Neural Networks”. Applied sciences 12.12, pp. 5878–
+5878. doi: 10.3390/app12125878.
+Willén, Rebecca (2016). “Counting on the Details: Inquiring Into Past Events of Coop-
+erative Interviewees”. PhD thesis. University of Gothenburg.
+46
+Willén, Rebecca M. and Leif A. Strömwall (2012a). “Offenders’ lies and truths: an
+evaluation of the Supreme Court of Sweden’s criteria for credibility assessment”.
+Psychology Crime & Law 18.8, pp. 745–758. doi: 10.1080/1068316x.2010.548815.
+Willén, Rebecca M. and Leif A. Strömwall (2012b). “Offenders’ uncoerced false confes-
+sions: A new application of statement analysis?” Legal and Criminological Psychology
+17.2, pp. 346–359. doi: https://doi.org/10.1111/j.2044-8333.2011.02018.x.
+Wojciechowski, Bartosz Wojciech, Minna Gräns, and Moa Lidén (2018). “A true denial
+or a false confession? Assessing veracity of suspects’ statements using MASAM
+and SVA”. PLOS ONE 13.6, e0198211. doi: 10.1371/journal.pone.0198211. url:
+https://doi.org/10.1371/journal.pone.0198211.
+47
+A. Criteria Overview
+Table A.1.: Overview of the categories included in our analysis, with their corresponding cues.
+Pred. DOE = predicted direction of effect, according to previous study(ies). T =
+observed as truth-indicative in previous research. F = observed as false-indicative in
+previous research. T/F = ambiguous, observed to be both truth and false indicative.
+- = no found indication. (X) = predicted as X, but no significance found according
+to Hauch et al. (2015). Papers that cover each cue (or comparable) are listed. Note
+however that references in this table are not exhaustive.
+Criterion/Category Cue/Feature Pred. DOE Reference
+Length Token quantity T/F Hauch et al. (2015),
+Sarzynska-Wawer et al.
+(2023), Levitan et al. (2018)
+Avg. token length - Hauch et al. (2015)
+Sent. quantity Hauch et al. (2015)
+Avg. sent. length T/F Hauch et al. (2015), Levitan et
+al. (2018)
+Clarity LIX - -
+PoS Adjectives F Solá-Sales (2023), Sarzynska-
+Wawer et al. (2023), Levitan
+et al. (2018)
+Adverbs - Solá-Sales (2023), Sarzynska-
+Wawer et al. (2023)
+Nouns - Solá-Sales (2023), Sarzynska-
+Wawer et al. (2023)
+Verbs - Solá-Sales (2023), Sarzynska-
+Wawer et al. (2023)
+Pronouns T Solá-Sales (2023), Sarzynska-
+Wawer et al. (2023)
+Numerals - Solá-Sales (2023), Sarzynska-
+Wawer et al. (2023)
+Lexical variation TTR T/F Hauch et al. (2015)
+OVIX - -
+CWD T/F Hauch et al. (2015)
+NER Time T Kleinberg et al. (2018), Lo-
+conte et al. (2023)
+Location T Kleinberg et al. (2018), Lo-
+conte et al. (2023)
+Person T/F Kleinberg et al. (2018), Lo-
+conte et al. (2023)
+MSR T Kleinberg et al. (2018), Lo-
+conte et al. (2023)
+48
+Table A.1 continued from previous page
+Criterion/Category Cue/Feature Pred. DOE Reference
+Organisation T Kleinberg et al. (2018), Lo-
+conte et al. (2023)
+Sentiment Negative (V) T/F Sarzynska-Wawer et al.
+(2023), Papantoniou et al.
+(2021), Newman et al. (2003)
+Neutral (V) - Sarzynska-Wawer et al.
+(2023), Papantoniou et al.
+(2021), Newman et al. (2003)
+Positive (V) F Sarzynska-Wawer et al.
+(2023), Papantoniou et al.
+(2021), Newman et al. (2003)
+Negative (KB) T/F Sarzynska-Wawer et al.
+(2023), Papantoniou et al.
+(2021), Newman et al. (2003)
+Positive (KB) F Sarzynska-Wawer et al.
+(2023), Papantoniou et al.
+(2021), Newman et al. (2003)
+Neutral (KB) - Sarzynska-Wawer et al.
+(2023), Papantoniou et al.
+(2021), Newman et al. (2003)
+Negative (B) T/F Sarzynska-Wawer et al.
+(2023), Papantoniou et al.
+(2021), Newman et al. (2003)
+Positive (B) F Sarzynska-Wawer et al.
+(2023), Papantoniou et al.
+(2021), Newman et al. (2003)
+Self-distancing 1st person T Hauch et al. (2015), Newman
+et al. (2003)
+2nd person (F) Hauch et al. (2015)
+3rd person F/T Hauch et al. (2015), Newman
+et al. (2003)
+Present tense (T) Hauch et al. (2015)
+Past tense (F) Hauch et al. (2015)
+49
+Table A.2.: A rough overview of the criteria from the Swedish Supreme Court, CBCA, RM, general approaches discussed connected to
+criteria-based verbal lie detection. Colors indicate some matching characteristic about the criteria. This table was adapted
+from the overview of CBCA and RM presented by R. Willén (2016).
+Supreme Court CBCA RM General Approaches Category
+50
+Length Logical structure Visual details Cognitive load Length
+Clarity Unstructured production Audio details Emotional approach Clarity
+Richness of detail Quantity of details Smell Self-distancing PoS
+Contextual embeddings Taste Lexical variation
+Interactions Physical sensations NER
+Conversations Affective details Sentiment
+Unexpected complications Spatial details Self-distancing
+Unusual details Temporal details
+Superfluous details Cognitive operations
+Details misunderstood Clarity
+External associations Reconstruction
+Subjective mental state Realism
+Others’ mental states
+Spontaneous corrections
+Lack of memory
+Doubts about own testimony
+Self-deprecations
+Pardoning the other
+Crime-specific details

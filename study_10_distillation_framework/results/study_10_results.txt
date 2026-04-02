@@ -1,0 +1,79 @@
+================================================================================
+STUDY 10: CONSENSUS, DISTILLATION, AND TRUST
+Mathematical Framework — Validation and Visualization
+================================================================================
+
+================================================================================
+STEP 1: THEOREM TABLE VALIDATION
+================================================================================
+Theorem table: 15 entries
+
+By type:
+  Corollary: 1
+  Definition: 7
+  Proposition: 2
+  Remark: 1
+  Theorem: 4
+
+By rigor level:
+  Acknowledged limitation: 1
+  Conditional: 2
+  Framework: 1
+  Heuristic: 1
+  Rigorous: 10
+
+Validation: PASSED
+
+================================================================================
+FRAMEWORK SUMMARY: Three Modes of Distributed Consensus
+================================================================================
+
+Part I — COMPUTATIONAL CONSENSUS (Bitcoin)
+  Rigorous. Poisson process model, exponential inter-block times.
+  Key result: Double-spend probability P(z) = I_{4pq}(z, 1/2)
+  Decays exponentially with confirmations z.
+  Honest mining is optimal (martingale proof).
+
+Part II — DISTILLATION AS LEARNED BEHAVIOUR
+  Structural analogy. Knowledge distillation (Hinton 2015) maps to
+  social learning (Bandura 1977). Student learns from teacher's
+  behavioural outputs, not explicit rules.
+  Key insight: "dark knowledge" = implicit emotional/behavioural cues.
+  Implications for criminology: behaviour is distilled from environment,
+  not rationally chosen. Rehabilitation = fine-tuning.
+
+Part III — SOCIAL CONSENSUS (Web-of-Trust)
+  Conditional. Graph-based Sybil resistance. Vouch cost creates
+  linear attack cost: C(n) >= n * k * c_vouch.
+  Honest about limitations: c_vouch is hard to measure empirically.
+  Bitcoin anchoring provides immutability for committed records.
+
+SYNTHESIS:
+  All three achieve agreement through COSTLY SIGNALLING:
+  - Bitcoin: proof-of-work (energy cost)
+  - Distillation: behavioural consistency (social cost of deviation)
+  - Web-of-trust: vouching (reputation cost)
+
+
+================================================================================
+THEOREM 3.2 VERIFICATION: Double-Spend Probabilities
+P(z) via Nakamoto/Grunspan-Pérez-Marco summation
+================================================================================
+   z       q=0.1       q=0.2       q=0.3       q=0.4
+--------------------------------------------------
+   1      0.2046      0.4159      0.6277      0.8289
+   2      0.0510      0.2039      0.4457      0.7364
+   3      0.0132      0.1032      0.3246      0.6642
+   4      0.0035      0.0530      0.2391      0.6034
+   5      0.0009      0.0274      0.1774      0.5506
+   6      0.0002      0.0143      0.1321      0.5040
+
+Verification (Nakamoto formula):
+  z=1, q=0.10: Nakamoto = 0.2046 (paper Table 1: 0.2045)
+  z=6, q=0.10: Nakamoto = 0.0002 (paper Table 1: 0.0003)
+  Note: Paper Table 1 uses Grunspan-PM beta function formulation;
+  Nakamoto Poisson summation gives slightly different values for high q.
+
+Table saved to /Users/tiaastor/.openclaw/workspace/BUILDING_THE_SYSTEM/content/publish/analysis/study_10_distillation_framework/src/../results/tables/study_10_double_spend.csv
+
+Figure saved to /Users/tiaastor/.openclaw/workspace/BUILDING_THE_SYSTEM/content/publish/analysis/study_10_distillation_framework/src/../results/figures/study_10_consensus_mechanisms.png

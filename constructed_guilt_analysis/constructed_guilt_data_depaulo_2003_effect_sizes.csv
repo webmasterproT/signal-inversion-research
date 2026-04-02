@@ -1,0 +1,36 @@
+cue_id,cue_name,category,d_value,ci_lower,ci_upper,k_studies,n_total,p_value,significant,direction_description
+gaze_aversion,Gaze aversion,nonverbal,0.05,-0.05,0.15,23,1845,0.42,no,No reliable link to deception
+eye_contact,Decreased eye contact,nonverbal,0.01,-0.12,0.14,14,892,0.88,no,No reliable link to deception
+blinking,Eye blinks,nonverbal,-0.07,-0.22,0.08,12,756,0.36,no,No reliable link to deception
+pupil_dilation,Pupil dilation,nonverbal,0.39,0.12,0.66,6,318,0.005,yes,Liars show more pupil dilation
+fidgeting,Fidgeting/nervous movements,nonverbal,-0.01,-0.14,0.12,15,1124,0.91,no,No reliable link to deception
+self_touch,Self-touching/adaptors,nonverbal,0.04,-0.08,0.16,18,1356,0.51,no,No reliable link to deception
+gestures,Illustrating gestures,nonverbal,-0.09,-0.21,0.03,14,1067,0.14,no,Slight trend: liars gesture less
+postural_shifts,Postural shifts,nonverbal,-0.06,-0.19,0.07,11,845,0.37,no,No reliable link to deception
+head_movements,Head movements,nonverbal,0.00,-0.15,0.15,9,612,0.99,no,No reliable link to deception
+foot_leg_movements,Foot/leg movements,nonverbal,0.09,-0.06,0.24,8,534,0.24,no,No reliable link to deception
+facial_pleasantness,Facial pleasantness,nonverbal,-0.12,-0.26,0.02,11,789,0.09,no,Slight trend: liars less pleasant
+smiling,Smiling,nonverbal,-0.01,-0.13,0.11,15,1156,0.87,no,No reliable link to deception
+nervous_appearance,Appearing nervous,nonverbal,0.27,0.12,0.42,12,867,0.001,yes,Liars appear more nervous
+vocal_tension,Vocal tension/pitch,paralinguistic,0.02,-0.11,0.15,14,978,0.76,no,No reliable link to deception
+speech_rate,Speech rate,paralinguistic,-0.07,-0.19,0.05,18,1423,0.25,no,Slight trend: liars speak slower
+speech_hesitations,Speech hesitations/disfluencies,paralinguistic,0.05,-0.08,0.18,16,1234,0.45,no,No reliable link to deception
+pauses,Pauses/response latency,paralinguistic,0.02,-0.12,0.16,12,845,0.78,no,No reliable link to deception
+response_length,Response length (words),verbal,-0.13,-0.25,-0.01,21,1678,0.03,yes,Liars give shorter responses
+details,Amount of details,verbal,-0.30,-0.44,-0.16,17,1245,0.001,yes,Liars provide fewer details
+plausibility,Plausibility of account,verbal,-0.23,-0.38,-0.08,14,1023,0.003,yes,Liars' accounts less plausible
+logical_structure,Logical structure/coherence,verbal,-0.25,-0.41,-0.09,12,867,0.002,yes,Liars' accounts less coherent
+self_references,Self-references (I/me/my),verbal,-0.10,-0.23,0.03,19,1456,0.13,no,Slight trend: liars use fewer I
+other_references,Other-references (he/she/they),verbal,0.02,-0.12,0.16,11,823,0.78,no,No reliable link to deception
+negative_statements,Negative statements/complaints,verbal,0.21,0.07,0.35,14,1067,0.004,yes,Liars use more negative words
+immediacy,Verbal immediacy,verbal,-0.10,-0.24,0.04,9,645,0.16,no,Slight trend: liars less immediate
+spontaneous_corrections,Spontaneous corrections,verbal,-0.12,-0.28,0.04,8,567,0.14,no,Truth-tellers correct more
+admitted_forgetting,Admitted lack of memory,verbal,-0.09,-0.25,0.07,7,489,0.27,no,Truth-tellers admit forgetting more
+contextual_embedding,Contextual embedding,verbal,-0.22,-0.38,-0.06,9,623,0.007,yes,Liars embed less context
+sensory_details,Sensory details,verbal,-0.18,-0.34,-0.02,8,534,0.03,yes,Liars provide fewer sensory details
+temporal_details,Temporal details,verbal,-0.14,-0.30,0.02,7,478,0.09,no,Slight trend: liars give fewer
+spatial_details,Spatial details,verbal,-0.11,-0.27,0.05,6,412,0.18,no,Slight trend: liars give fewer
+certainty_expressions,Certainty expressions,verbal,0.03,-0.13,0.19,8,567,0.71,no,No reliable link to deception
+hedging,Hedging/qualifications,verbal,-0.08,-0.24,0.08,7,489,0.33,no,Slight trend: truth-tellers hedge more
+chin_raise,Chin raise,nonverbal,0.12,-0.06,0.30,5,312,0.19,no,No reliable link to deception
+pressed_lips,Pressed lips,nonverbal,0.08,-0.10,0.26,5,289,0.38,no,No reliable link to deception

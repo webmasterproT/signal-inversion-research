@@ -1,0 +1,24 @@
+cue_name,category,belief_endorsement_pct,d_value,significant,inversion_status,inversion_code,consequence_weight
+Gaze aversion,nonverbal,63.7,0.05,no,inverted_null,1,0.637
+Appearing nervous,nonverbal,52.3,0.27,yes,aligned,0,0.523
+Fidgeting,nonverbal,47.2,-0.01,no,inverted_null,1,0.47200000000000003
+Body movements/postural shifts,nonverbal,38.6,-0.06,no,inverted_null,1,0.386
+Face/self touching,nonverbal,36.4,0.04,no,inverted_null,1,0.364
+Long pauses,paralinguistic,34.2,0.02,no,inverted_null,1,0.342
+Speech hesitations/disfluencies,paralinguistic,32.8,0.05,no,inverted_null,1,0.32799999999999996
+Voice pitch/tension,paralinguistic,28.4,0.02,no,inverted_null,1,0.284
+Response length,verbal,26.1,-0.13,yes,inverted_opposite,1,0.261
+Hand/arm gestures,nonverbal,24.8,-0.09,no,inverted_null,1,0.248
+Amount of detail,verbal,23.2,-0.3,yes,inverted_opposite,1,0.23199999999999998
+Speech rate,paralinguistic,21.5,-0.07,no,inverted_null,1,0.215
+Postural shifts,nonverbal,20.3,-0.06,no,inverted_null,1,0.203
+Smiling,nonverbal,17.6,-0.01,no,inverted_null,1,0.17600000000000002
+Negative statements,verbal,16.2,0.21,yes,aligned,0,0.162
+Leg/foot movements,nonverbal,14.3,0.09,no,inverted_null,1,0.14300000000000002
+Head movements,nonverbal,13.7,0.0,no,inverted_null,1,0.13699999999999998
+Self-grooming/touching,nonverbal,12.4,0.04,no,inverted_null,1,0.124
+Vague answers (lack of detail),verbal,38.9,-0.3,yes,inverted_opposite,1,0.389
+Story inconsistency/coherence,verbal,44.8,-0.25,yes,inverted_opposite,1,0.44799999999999995
+Self-contradictions,verbal,42.1,-0.25,yes,inverted_opposite,1,0.42100000000000004
+Confidence/certainty,verbal,22.7,0.03,no,inverted_null,1,0.22699999999999998
+Disfluency (Phase 1 replication),paralinguistic,32.8,-0.6,yes,inverted_opposite,1,0.328

@@ -1,0 +1,60 @@
+======================================================================
+CULTURAL VARIATION IN TRUTHFUL SPEECH — RESULTS
+For thesis: Constructed Guilt — Appendix Section 6
+======================================================================
+
+THESIS ARGUMENT:
+If truthful speech patterns differ significantly by cultural background,
+then any deception-detection instrument calibrated on a dominant cultural
+baseline will produce structurally higher false-positive rates for
+minority speakers — not because they lie more, but because their truth
+is linguistically illegible to the instrument.
+
+Applied to Australia: An Aboriginal witness whose truthful speech follows
+different hedging/disfluency norms than the Anglo baseline will be read
+as deceptive. Guilt is being constructed from cultural identity.
+
+
+──────────────────────────────────────────────────────────────────────
+DATASET: CROSS_CULTURAL
+──────────────────────────────────────────────────────────────────────
+              Feature Kruskal-Wallis H p (cultures differ) Significant                                                                                                                                                                                                           Pairwise
+         Hedging Rate            95.83               <.001       YES ✓    US vs India: d=-1.78, p=0.000* | US vs Mexico: d=0.38, p=0.735 | US vs Romania: d=1.69, p=0.000* | India vs Mexico: d=2.13, p=0.000* | India vs Romania: d=3.50, p=0.000* | Mexico vs Romania: d=1.27, p=0.000*
+       Certainty Rate            46.39               <.001       YES ✓ US vs India: d=0.36, p=0.687 | US vs Mexico: d=-1.32, p=0.000* | US vs Romania: d=-0.69, p=0.037* | India vs Mexico: d=-1.68, p=0.000* | India vs Romania: d=-1.06, p=0.000* | Mexico vs Romania: d=0.71, p=0.027*
+      Disfluency Rate             0.91               0.823          no     US vs India: d=-0.01, p=1.000 | US vs Mexico: d=-0.20, p=1.000 | US vs Romania: d=-0.10, p=1.000 | India vs Mexico: d=-0.17, p=1.000 | India vs Romania: d=-0.08, p=1.000 | Mexico vs Romania: d=0.08, p=1.000
+Hedge:Certainty Ratio            90.60               <.001       YES ✓    US vs India: d=-0.34, p=0.001* | US vs Mexico: d=0.23, p=0.000* | US vs Romania: d=0.23, p=0.000* | India vs Mexico: d=0.40, p=0.000* | India vs Romania: d=0.40, p=0.000* | Mexico vs Romania: d=0.28, p=0.121
+    First-Person Rate             4.70               0.195          no    US vs India: d=-0.02, p=1.000 | US vs Mexico: d=-0.04, p=1.000 | US vs Romania: d=-0.42, p=0.392 | India vs Mexico: d=-0.02, p=1.000 | India vs Romania: d=-0.40, p=0.494 | Mexico vs Romania: d=-0.37, p=0.668
+           Word Count             5.69               0.128          no      US vs India: d=0.07, p=1.000 | US vs Mexico: d=-0.27, p=1.000 | US vs Romania: d=-0.26, p=1.000 | India vs Mexico: d=-0.38, p=0.384 | India vs Romania: d=-0.36, p=0.215 | Mexico vs Romania: d=0.01, p=1.000
+
+
+======================================================================
+AUTISM / NEURODIVERGENCE — LITERATURE-BASED ARGUMENT
+======================================================================
+
+No public dataset with neurodivergence flags exists — but published
+experimental studies provide stronger evidence than corpus analysis:
+
+KEY CITATIONS:
+1. Lim, A., Young, R.L., & Brewer, N. (2021). Autistic Adults May Be
+   Erroneously Perceived as Deceptive and Lacking Credibility.
+   Journal of Autism and Developmental Disorders, 52(2), 490-507.
+   N=1410 observers. FINDING: Autistic speakers rated as more deceptive
+   and less credible than neurotypical speakers when TELLING THE TRUTH.
+
+2. Autistica (2024). Autism, Deception and the Criminal Justice System.
+   Survey of 394 police officers: only 37% had received autism training.
+   1-2% prevalence in general population vs 2-18% in forensic populations.
+
+3. Haworth, K. et al. (2023). Police suspect interviews with autistic
+   adults. Frontiers in Psychology.
+   FINDING: Autism-typical behaviours (gaze aversion, flat affect,
+   repetitive movement) are diagnostically indistinguishable from the
+   nonverbal cues trained investigators use to identify deception.
+
+THE ARGUMENT:
+The diagnostic criteria for autism overlap near-perfectly with the
+behavioural deception cues used by trained investigators (Global
+Deception Research Team, 2006): gaze aversion (#1 cue) and fidgeting
+(#2 cue). An autistic person cannot present their truthful testimony
+without involuntarily performing the exact behaviours the system reads
+as deception. Their innocence is structurally illegible to the instrument.

@@ -1,0 +1,16 @@
+│ tailoredflow               │ FILE. WebRTC + IPFS. No server       │ Very relevant      │
+  │                            │ needed.                              │                    │
+  ├────────────────────────────┼──────────────────────────────────────┼────────────────────┤
+  │                            │ Decentralized Git on IPFS + Ethereum │ Relevant           │
+  │ gitlike                    │  wallets. Has "GitLike Pages" for    │ infrastructure     │
+  │                            │ IPFS-hosted sites                    │                    │
+  ├────────────────────────────┼──────────────────────────────────────┼────────────────────┤
+  │                            │ Curated list of alt-internet         │ The paper might be │
+  │ alternative-internet       │ projects. References SwellRT (P2P    │  about SwellRT     │
+  │                            │ HTML collab API) and Apache Wave     │                    │
+  ├────────────────────────────┼──────────────────────────────────────┼────────────────────┤
+  │ ChainWise                  │ Multi-blockchain HD wallet lib       │ Useful for wallet  │
+  │                            │ (BIP32/44, 17+ chains)               │                    │
+  ├────────────────────────────┼──────────────────────────────────────┼────────────────────┤
+  │ PinatinoDB                 │ IPFS-backed database with SQL-style  │ IPFS storage layer │
+  │                            │ queries                              │                    

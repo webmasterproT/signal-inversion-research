@@ -1,0 +1,18 @@
+Study 3: Belief-Reality Inversion Matrix — Results Summary
+======================================================================
+N cues matched: 23
+Inverted: 17/23 = 73.9%
+Binomial p = 0.017345 (one-tailed, H0: 50%)
+95% CI: [54.9%, 100.0%]
+Weighted Inversion Index: 0.495
+Spearman rho = -0.220, p = 0.314
+
+Category Breakdown:
+  nonverbal      : 9/11 = 82%
+  paralinguistic : 4/5 = 80%
+  verbal         : 4/7 = 57%
+
+Key Finding:
+  74% of publicly believed deception cues are empirically wrong or unrelated.
+  The strongest beliefs (gaze aversion 63.7%) have the smallest actual effects (d=0.05).
+  The public's deception model is not merely inaccurate -- it is systematically inverted.

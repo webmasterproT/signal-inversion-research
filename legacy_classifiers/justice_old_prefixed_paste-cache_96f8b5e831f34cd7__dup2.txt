@@ -1,0 +1,23 @@
+                                                                                          
+  The contracts are fine. HER has bootstrapVerify(), vouch() (auto-verifies at 3), trust
+  scoring with ripple responsibility. OMXUS has claimBasicShare(), revenue sharing. VoteAussie 
+  has EIP-712 batch voting. All the on-chain pieces exist.
+                                                                                               
+  The wallet is the bottleneck. Every problem traces back to app.js/identity.js:             
+
+  1. Your token problem — the wallet only offers "type your passphrase" or "paste a hex private
+   key." If you have a HER token on an address but forgot the exact words, or if the address
+  came from MetaMask, there's no path. The fix is a 3-path login: passphrase,
+  MetaMask/WalletConnect, or read-only (paste address to at least see your status).
+  2. The vouch ceremony is fake — confirmVouch() is literally a toast message. The contract's
+  vouch() function works perfectly, the wallet just never calls it. BLE discovers people but
+  clicking "vouch" does nothing on-chain.
+  3. Key storage is dangerous — private key stored as raw hex in localStorage. The fix: don't
+  persist the key at all. Store only the address for read-only state. Re-derive from words when
+   the user wants to sign something.
+  4. Login doesn't verify — wrong words = different identity, silently. Need to show the
+  derived address and check it against on-chain state before proceeding.
+
+  The full review with user flow maps and implementation plan is at
+  apps/vexwallet/REVIEW-2026-03-14.md. Want me to start on Phase 1 (fix the broken stuff)?
+

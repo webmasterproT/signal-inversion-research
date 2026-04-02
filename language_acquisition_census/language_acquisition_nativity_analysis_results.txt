@@ -1,0 +1,19 @@
+NATIVITY (ENVIRONMENTAL) EFFECT ON EDUCATIONAL ATTAINMENT
+US Census ACS PUMS 2022 - California
+======================================================================
+
+Sample size: N = 209,607
+
+By Ancestry Group:
+  Hispanic_Latino: US-born 25.4% vs Foreign-born 10.7% (diff = +14.7pp, p=0.0000)
+  Asian: US-born 52.4% vs Foreign-born 44.9% (diff = +7.6pp, p=0.0673)
+  European: US-born 54.6% vs Foreign-born 63.7% (diff = -9.1pp, p=0.0000)
+  African: US-born 67.4% vs Foreign-born 57.5% (diff = +9.9pp, p=0.0000)
+  Middle_Eastern: US-born 34.0% vs Foreign-born 61.7% (diff = -27.7pp, p=0.0000)
+  Pacific_Islander: US-born 68.3% vs Foreign-born 57.0% (diff = +11.3pp, p=0.0000)
+
+Weighted average effect: +4.7 percentage points
+Cohen's d: 0.114 (small effect)
+
+Regression R² (ancestry + nativity): 0.1319
+Nativity coefficient: 0.0732 (p < 0.001)

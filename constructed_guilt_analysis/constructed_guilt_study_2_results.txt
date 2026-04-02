@@ -1,0 +1,91 @@
+================================================================================
+STUDY 2: LINGUISTIC DISTANCING IN TRUE VS FALSE CONFESSIONS
+Rizzelli, Kassin & Gales (2021) — Reanalysis of Appendix A
+N = 135 confessions (37 proven false, 98 presumed true)
+Run: 2026-03-24 03:40:28
+================================================================================
+
+Loaded 30 words from rizzelli_appendix_a.csv
+Categories: impersonal_pronoun, personal_pronoun, conjunction
+
+-----------------------------------------------------------------------------------------------
+Word         Category                 CPT/conf   CPF/conf    Ratio       chi2            p Direction
+-----------------------------------------------------------------------------------------------
+  it         impersonal_pronoun          16.76      71.73    4.28x     2550.9      <1e-300 false > true
+  that       impersonal_pronoun          16.41      80.22    4.89x     3226.2      <1e-300 false > true
+  what       impersonal_pronoun           4.53      26.73    5.90x     1247.0      <1e-300 false > true
+  this       impersonal_pronoun           4.39      19.05    4.34x      687.2      <1e-300 false > true
+  that's     impersonal_pronoun           1.65      19.30   11.67x     1288.6      <1e-300 false > true
+  it's       impersonal_pronoun           1.20      14.65   12.17x      993.1      <1e-300 false > true
+  anything   impersonal_pronoun           1.01       6.78    6.72x      345.3      <1e-300 false > true
+  thing      impersonal_pronoun           0.77       4.51    5.90x      210.5      <1e-300 false > true
+  who        impersonal_pronoun           0.78       4.76    6.13x      228.1      <1e-300 false > true
+  something  impersonal_pronoun           1.50       5.86    3.91x      189.8      <1e-300 false > true
+         ---
+  IMPERSONAL PRONOUN TOTAL               49.0      253.6    5.18x    10701.9      <1e-300
+
+  I          personal_pronoun            74.89     241.46    3.22x     6182.5      <1e-300 false > true
+  he         personal_pronoun            17.78      47.32    2.66x      906.4      <1e-300 false > true
+  me         personal_pronoun            13.41      29.65    2.21x      396.7      <1e-300 false > true
+  my         personal_pronoun            12.89      33.05    2.56x      593.2      <1e-300 false > true
+  she        personal_pronoun            10.64      25.24    2.37x      391.0      <1e-300 false > true
+  her        personal_pronoun            11.77      28.43    2.42x      456.8      <1e-300 false > true
+  you        personal_pronoun             9.39      71.27    7.59x     3903.7      <1e-300 false > true
+  we         personal_pronoun             8.70      17.73    2.04x      195.7      <1e-300 false > true
+  him        personal_pronoun             7.53      14.73    1.96x      146.5      <1e-300 false > true
+  his        personal_pronoun             4.52      11.08    2.45x      183.0      <1e-300 false > true
+         ---
+  PERSONAL PRONOUN TOTAL                171.5      520.0    3.03x    12214.4      <1e-300
+
+  and        conjunction                 47.61     103.68    2.18x     1340.5      <1e-300 false > true
+  then       conjunction                  5.71      11.57    2.02x      125.7      <1e-300 false > true
+  but        conjunction                  5.18      19.59    3.78x      610.7      <1e-300 false > true
+  when       conjunction                  5.05      13.41    2.65x      255.4      <1e-300 false > true
+  so         conjunction                  4.57      16.38    3.58x      479.6      <1e-300 false > true
+  or         conjunction                  4.33      15.84    3.66x      475.7      <1e-300 false > true
+  because    conjunction                  2.92       6.73    2.31x       98.5      <1e-300 false > true
+  if         conjunction                  2.87      11.19    3.90x      361.3      <1e-300 false > true
+  as         conjunction                  2.05       6.73    3.28x      176.4      <1e-300 false > true
+  while      conjunction                  1.39       2.05    1.48x        7.6     5.86e-03 false > true
+         ---
+  CONJUNCTION TOTAL                      81.7      207.2    2.54x     3643.3      <1e-300
+
+
+================================================================================
+KEY FINDINGS — Signal Inversion Markers
+================================================================================
+
+  'you': 7.59x higher in false confessions
+    True confessions:  9.39 per confession (total 920 across 98)
+    False confessions: 71.27 per confession (total 2637 across 37)
+    chi2 = 3903.7, p < .001
+
+  'that's': 11.67x higher in false confessions
+    True confessions:  1.65 per confession (total 162 across 98)
+    False confessions: 19.3 per confession (total 714 across 37)
+    chi2 = 1288.6, p < .001
+
+  'it's': 12.17x higher in false confessions
+    True confessions:  1.2 per confession (total 118 across 98)
+    False confessions: 14.65 per confession (total 542 across 37)
+    chi2 = 993.1, p < .001
+
+  Impersonal pronoun category total: 5.18x higher in false confessions
+    True: 49.0/confession, False: 253.6/confession
+    chi2 = 10701.9, p < .001
+
+--------------------------------------------------------------------------------
+INTERPRETATION
+--------------------------------------------------------------------------------
+
+False confessors use dramatically more impersonal and interrogator-referencing
+language because the narrative was FED to them, not self-generated.
+
+  - 'you' (7.59x): "you said", "you told me" — echoing the interrogator's script
+  - 'that's' (11.67x): "that's what happened" — parroting back a fed narrative
+  - 'it's' (12.17x): "it's like you said" — deferring to external authority
+
+These are not signs of deception. They are signs of compliance under coercion.
+The confession detection system is inverted: the linguistic markers used to
+assess 'reliability' actually discriminate between self-generated and
+externally-imposed narratives.

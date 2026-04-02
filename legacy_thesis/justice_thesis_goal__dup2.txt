@@ -1,0 +1,145 @@
+
+THE SIGNAL INVERSION EFFECT
+Phase 2 — Analysis Design
+Building on Phase 1 Findings from the Michigan Trial Corpus
+March 2026
+
+PHASE 1 KEY FINDING
+Disfluency/Filler Rate: d = 0.60 (medium effect, p = .004)
+Truthful speakers show significantly MORE disfluency than deceptive speakers.
+Point-biserial r = .290 (p = .001) with truthfulness.
+This is 6× larger than the median deception cue effect in the DePaulo et al. (2003) meta-analysis.
+ 
+Phase 1 Results Summary
+Analysis of 121 trial transcripts (60 truthful, 61 deceptive) from the Pérez-Rosas et al. (2015) Real-Life Trial Dataset produced the following results:
+Significant Finding
+Variable	Truth M	Truth SD	Decep M	U	p	d
+Disfluency/Filler Rate	5.14	4.21	3.03	2380.5	.004**	0.60
+
+Supporting Trends (Non-Significant)
+Variable	Truth M	Truth SD	Decep M	U	p	d
+Experiencer Framing	0.60	1.51	0.34	1934.0	.448	0.21
+Certainty Markers	0.35	1.25	0.76	1687.5	.265	-0.17
+Negative Emotion Rate	0.02	0.17	0.13	1711.0	.102	-0.27
+First-Person Pronouns	6.13	4.38	7.15	1561.5	.164	-0.24
+
+Interpretation
+The disfluency finding directly supports the Signal Inversion thesis. Truthful speakers produce more fillers ("um," "uh," "you know") because genuine memory retrieval is cognitively effortful. Deceptive speakers produce fewer fillers because rehearsed narratives flow more smoothly. Yet disfluency is precisely the cue that interrogators, jurors, and the general public interpret as nervousness or evasion.
+The non-significant trends are directionally consistent with the thesis. Experiencer framing is higher in truthful speech (d = 0.21), certainty markers trend higher in deceptive speech (d = -0.17), and negative emotion trends higher in deceptive speech (d = -0.27). These may reach significance with larger samples.
+The first-person pronoun finding (higher in deceptive speech, d = -0.24) is notable because it contradicts the Rizzelli (2021) confession finding, where first-person pronouns were higher in true confessions. This may reflect different contexts: confessions (where guilty people "own" their narrative with "I") versus trial testimony (where deceptive witnesses may use "I" performatively to project sincerity). This context-dependency is itself a finding worth pursuing.
+ 
+Phase 2A: Confession Corpus Analysis
+Dataset
+Source: Rizzelli, Kassin & Gales (2021). The Language of Criminal Confessions. Wrongful Conviction Law Review, 2(3), 205–225.
+Access: CUNY Academic Works (open access). The thesis and appendices are available at academicworks.cuny.edu/jj_etds/117/. Contact the authors for the raw LIWC output files if not included in the appendices.
+Sample: 37 proven false confessions (Innocence Project, DNA Exoneration Database) and 98 confessions presumed true (FBI case files from John Jay College of Criminal Justice).
+Research Questions
+1.	Replication: Can we replicate Rizzelli’s three-predictor model (personal pronouns, impersonal pronouns, conjunctions) achieving 74–83% classification accuracy?
+2.	Extension with disfluency: Does adding a disfluency/filler variable (our Phase 1 key finding) improve classification accuracy beyond Rizzelli’s model?
+3.	"I don’t remember" analysis: Do variations of memory-gap phrases differ syntactically between true and false confessions, as Rizzelli noted but did not fully quantify?
+4.	Cross-context pronoun comparison: Our Phase 1 data shows first-person pronouns trending HIGHER in deceptive trial testimony, while Rizzelli found them HIGHER in true confessions. Can we formally test whether the pronoun effect reverses across contexts?
+Variables to Code
+If working from raw confession transcripts (rather than pre-coded LIWC output), code the following. If Rizzelli’s LIWC data is available, add the starred variables to extend the analysis:
+Variable	Operationalisation	Status
+Personal pronoun rate	LIWC category: I, me, my, mine, we, us, our / total words	Rizzelli replicated
+Impersonal pronoun rate	LIWC category: it, that, this, those, anything, thing / total words	Rizzelli replicated
+Conjunction rate	LIWC category: but, and, because, although, so / total words	Rizzelli replicated
+*Disfluency rate	Fillers: um, uh, er, ah, you know, like (discourse marker) / total words	NEW — from Phase 1
+*Hedging rate	I think, maybe, sort of, kind of, I guess, perhaps, probably / total words	NEW — from Phase 1
+*"I don’t remember" variants	Frequency + syntactic context: standalone vs. embedded, followed by elaboration vs. terminal	NEW — deep dive
+*Certainty marker rate	Definitely, absolutely, clearly, certainly, I’m sure, without a doubt / total words	NEW — from Phase 1
+
+SPSS Analysis Steps
+Step 1: Replication of Rizzelli Model
+Binary logistic regression with confession type (0 = true, 1 = false) as DV and Rizzelli’s three predictors as IVs. Compare classification accuracy to their reported 74–83%.
+LOGISTIC REGRESSION VARIABLES confession_type   /METHOD=ENTER personal_pron impersonal_pron conjunctions   /CLASSPLOT /PRINT=GOODFIT CI(95) ITER(1).
+Step 2: Extended Model with Phase 1 Variables
+Hierarchical logistic regression. Block 1: Rizzelli’s three predictors. Block 2: add disfluency rate, hedging rate, certainty markers. Test whether Block 2 significantly improves model fit (likelihood ratio test).
+LOGISTIC REGRESSION VARIABLES confession_type   /METHOD=ENTER personal_pron impersonal_pron conjunctions   /METHOD=ENTER disfluency hedging certainty   /PRINT=GOODFIT CI(95) ITER(1)   /CRITERIA=PIN(.05) POUT(.10).
+Step 3: "I Don’t Remember" Deep Dive
+This requires manual coding beyond LIWC. For each instance of "I don’t remember" (and variants: "I can’t recall," "I’m not sure," "I don’t know"), code:
+•	Position: Beginning, middle, or end of utterance
+•	Function: Genuine boundary (memory limit) vs. narrative placeholder (filling a gap in the story)
+•	Follow-up: Followed by elaboration ("I don’t remember exactly, but it was around 8") vs. terminal ("I don’t remember.")
+•	Prompt: Spontaneous vs. in response to a direct question
+Chi-square tests on the frequency distributions across true vs. false confessions. Our prediction: true confessors use memory-gap phrases as genuine boundaries with elaboration; false confessors use them as terminal placeholders when the coerced narrative has gaps they can’t fill.
+Step 4: Cross-Context Pronoun Test
+This is the critical test of whether the Signal Inversion Effect is context-dependent. We need to formally compare the direction of the first-person pronoun effect across two contexts:
+•	Context A (Confessions): First-person pronouns higher in TRUE confessions (Rizzelli, 2021)
+•	Context B (Trial Testimony): First-person pronouns trending higher in DECEPTIVE testimony (our Phase 1, d = -0.24, p = .164)
+If this reversal is confirmed, it reveals something crucial: deceptive speakers adapt their linguistic strategy to context. In a confession (where you’re supposed to take ownership), guilty people say "I" because they’re narrating something they actually did. In trial testimony (where you’re supposed to be a credible witness), deceptive speakers say "I" performatively to project sincerity. The inversion itself inverts depending on the pragmatic demands of the speech situation.
+ 
+Phase 2B: Belief–Reality Inversion Matrix
+Concept
+This analysis pairs two existing datasets to create a single statistical test of whether human beliefs about deception cues are systematically inverted relative to empirical reality.
+Data Sources
+•	Belief data: Global Deception Research Team (2006). "A World of Lies." 75 countries, 43 languages, 11,000+ participants. Published data tables list the percentage of respondents endorsing each cue as a deception indicator.
+•	Reality data: DePaulo et al. (2003). "Cues to Deception." 158 cues meta-analysed across 120 samples. Published effect sizes (d) for each cue’s actual relationship to deception.
+•	Expert beliefs: Luke et al. (2023). "What have we learned about cues to deception? A survey of expert opinions." Surveys deception researchers themselves on which cues they believe are valid.
+Variable Construction
+For each cue that appears in both the GDRT belief data and the DePaulo meta-analysis, create the following row:
+Cue	Belief %	Belief Direction	Actual d	Actual Direction	Inverted?
+Gaze aversion	63.7%	↑ in liars	d = .05 (ns)	No reliable link	YES
+Fidgeting	High endorsement	↑ in liars	d ≈ .00	No reliable link	YES
+Disfluency	Moderate	↑ in liars	d = 0.60*	↑ in truth-tellers	YES
+Story detail	Moderate	↓ in liars	d = .30	↓ in liars	No
+[etc. for all matched cues]	...	...	...	...	...
+* Phase 1 finding from current study (Michigan trial data); DePaulo reports smaller effects for disfluency from lab studies.
+SPSS Analysis
+Test 1: Binomial Sign Test
+Code each matched cue as: 0 = belief and reality align, 1 = belief and reality are inverted. Run a one-sample binomial test against chance (50%).
+NPAR TESTS /BINOMIAL (.50) = inversion_coded.
+Prediction: Significantly more than 50% of cues will show inversion, driven by the nonverbal/paralinguistic categories (gaze, fidgeting, vocal nervousness, disfluency).
+Test 2: Weighted Inversion Index
+Not all inversions are equally consequential. Weight each cue by its belief endorsement rate (from GDRT). A cue that 64% of the world believes indicates lying but actually indicates truth is more damaging than a cue endorsed by 10%.
+Compute: Weighted Inversion Index = Σ(belief_endorsement_% × inversion_direction) where inversion_direction = +1 for inverted cues and -1 for aligned cues. A positive sum means the world’s strongest beliefs about lying are the most wrong.
+Test 3: Expert vs. Lay Beliefs
+Using Luke et al. (2023) expert survey data alongside the GDRT lay data, test whether deception researchers hold more accurate beliefs than the general public. Our prediction: experts will be better on verbal cues (detail, coherence) but still show inversion on nonverbal cues (gaze, fidgeting, disfluency).
+ 
+Phase 2C: Cross-Domain Convergence
+The Critical Test
+This is where the study becomes more than a collection of findings. We need to demonstrate that the Signal Inversion Effect is not domain-specific but reflects a general cognitive bias. The test:
+Convert all inversion effects to a common metric (Cohen’s d) and test whether the magnitude and direction of the effect is consistent across domains.
+Effect Size Comparison Table
+Domain	Specific Finding	Effect Size (d)	Source
+Criminal Justice — Trial	Disfluency ↑ in truthful speech	d = 0.60	Phase 1 (current)
+Criminal Justice — Confession	Pronoun pattern distinguishes true/false	74–83% accuracy	Rizzelli (2021)
+Belief Systems	Gaze aversion endorsed as #1 cue but has no link to deception	[To be computed]	GDRT + DePaulo
+Detection Accuracy	Overall human accuracy barely above chance	54% (d ≈ 0.40)	Bond & DePaulo (2006)
+Education	Confusion ↑ in deeper learning; confidence = fluency illusion	[Various]	Bjork & Bjork (2011)
+
+Heterogeneity Test
+Use Cochran’s Q statistic to test whether the inversion effect sizes are significantly heterogeneous across domains. Our prediction: non-significant Q (p > .05), indicating a consistent effect across criminal justice, belief systems, and education. This would support a domain-general rather than domain-specific mechanism.
+What Would Kill the Thesis?
+Good research designs specify disconfirmation criteria. The Signal Inversion Effect thesis would be weakened or killed if:
+•	The belief–reality inversion rate is not significantly above 50% (the inversions are random, not systematic)
+•	The disfluency effect does not replicate in the confession corpus (it’s specific to trial testimony, not general)
+•	The cross-domain effect sizes are significantly heterogeneous (the effect is domain-specific, not domain-general)
+•	Deception researchers show fully corrected beliefs relative to laypeople (the inversion is a naive error, not a deep cognitive bias)
+Any of these outcomes would require substantial revision of the thesis. None would eliminate the Phase 1 disfluency finding, which stands on its own regardless of the broader framework.
+ 
+Action Items and Priority Order
+Immediate 
+1.	Download Rizzelli thesis from CUNY Academic Works (academicworks.cuny.edu/jj_etds/117/). Check whether raw LIWC data is in the appendices. If not, email the authors.
+2.	Extract DePaulo (2003) effect sizes from Table 2 of their paper. You need the d values and cue names for every cue studied 5+ times. This is published data, no access request needed.
+3.	Extract GDRT (2006) belief percentages from Table 1 of their paper. You need the endorsement rate for each cue. Also published, open access on Academia.edu.
+Short-Term (Next 2 Weeks)
+1.	Build the Belief–Reality matrix in SPSS. This is the fastest win — it’s all published data, no new coding needed. Match cues across datasets, run the binomial test. This could be done in a single afternoon.
+2.	If Rizzelli data is available: replicate their logistic regression. Then add disfluency as a predictor. This is the second fastest win.
+3.	If Rizzelli data requires coding from scratch: begin LIWC processing of the 37 false confession transcripts. The 98 true confessions from FBI files may require a separate access request.
+Medium
+5.	Complete the "I don’t remember" deep dive with manual syntactic coding
+6.	Run the cross-context pronoun comparison (Phase 1 trial data vs. confession data)
+7.	Compute cross-domain convergence table and heterogeneity test
+The Deliverable
+The final output is a single correlation matrix or forest plot showing the Signal Inversion Effect across domains: a consistent pattern where the cues humans use to assess credibility are negatively correlated with actual credibility across criminal justice, education, and cross-cultural belief data. One visualisation. One devastating finding. Implausible to dismiss.
+
+— End of Phase 2 Design —
+
+
+Notes on first study
+The pronoun reversal is genuinely interesting. Your Phase 1 shows first-person pronouns trending higher in deceptive trial testimony (d = -0.24), but Rizzelli found them higher in true confessions. That's not a contradiction — it's potentially a deeper finding. In confessions, guilty people own their story ("I did it"). In trial testimony, deceptive witnesses perform sincerity with "I." The inversion itself inverts depending on what the speech situation demands. If you can formally test that cross-context flip, it's a paper on its own.
+The fastest win is the Belief–Reality matrix. It's all published data — DePaulo's effect sizes in one column, GDRT endorsement percentages in another. You could build it in an afternoon and run the binomial test. If 65%+ of matched cues show inversion, that's your headline stat.
+Your disfluency finding (d = 0.60) is genuinely strong. For context, it's larger than most personality psychology effects and sits in the territory of well-established cognitive biases. When you drop that number next to DePaulo's median cue effect of d = 0.10, the contrast is striking.
+The document lays out exactly what to grab, in what order, and what SPSS syntax to run. The Rizzelli thesis from CUNY Academic Works is your next download.
+

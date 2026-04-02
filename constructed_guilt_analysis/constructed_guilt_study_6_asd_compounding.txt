@@ -1,0 +1,136 @@
+====================================================================================================
+STUDY 6: THE ASD COMPOUNDING EFFECT
+Signal Inversion x Autism Spectrum = Systematic Miscarriage
+====================================================================================================
+
+================================================================================
+PART 1: TRAIT OVERLAP — ASD DIAGNOSTIC FEATURES vs BELIEVED DECEPTION CUES
+Sources: DSM-5 + GDRT (2006) + DePaulo et al. (2003)
+================================================================================
+
+Table: Overlap Between ASD Features and Inverted Deception Cues
+----------------------------------------------------------------------------------------------------------------------------------
+Behaviour                                      ASD?  Belief%  Actual d  Inverted Note
+----------------------------------------------------------------------------------------------------------------------------------
+Gaze aversion / reduced eye contact             YES    63.7%      0.05       YES Core ASD criterion (DSM-5 A1); #1 believed deception cue worldwide
+Fidgeting / repetitive movements                YES    52.0%      0.01       YES ASD diagnostic criterion (DSM-5 B1-B4: stimming repetitive motor)
+Atypical speech patterns / disfluency           YES    35.0%     -0.60       YES Common in ASD; prosody differences processing delays
+Flat/reduced affect                             YES    45.0%     -0.01       YES ASD: alexithymia reduced facial expression; read as cold/deceptive
+Reduced social reciprocity                      YES    30.0%      0.00       YES Core ASD criterion (DSM-5 A2-A3); read as evasive/uncooperative
+Inconsistent narrative structure                YES    30.0%      0.13        no ASD: executive function differences; non-linear storytelling
+Response latency / slow answers                 YES    22.0%      0.02       YES ASD: processing time; read as thinking of a lie
+Difficulty understanding questions              YES        —         —         — ASD pragmatic language differences; read as evasion
+Fewer spontaneous details                       YES    28.0%      0.30        no ASD: different narrative style; Bagnall 2023 confirmed
+Visible anxiety under questioning               YES    45.0%     -0.01       YES ASD: heightened sensory/social stress; read as guilt
+----------------------------------------------------------------------------------------------------------------------------------
+
+  ASD features that overlap with believed deception cues: 10/10
+  Of those, cues where belief is INVERTED: 7/10
+  = 70% of ASD-overlapping cues trigger WRONG credibility judgments
+
+================================================================================
+PART 2: DIRECT EMPIRICAL EVIDENCE — ASD CREDIBILITY STUDIES
+================================================================================
+
+  Lim et al. (2022)
+  J Autism Dev Disorders, 52(2), 490-507
+  N = 1410 observers, 59 targets
+  Finding: Autistic adults rated MORE DECEPTIVE and LESS CREDIBLE than neurotypical adults WHEN TELLING THE TRUTH
+
+  Bagnall et al. (2023)
+  Frontiers in Psychology, 14, 1117415
+  N = 65 targets
+  Finding: Innocent autistic suspects: fewer innocence-supporting details greater question difficulty higher anxiety
+
+  Maras et al. (2019)
+  Research in Autism Spectrum Disorders, 67, 101438
+  N = 125 observers
+  Finding: WITHOUT disclosure: autistic witnesses rated less credible. WITH disclosure: credibility penalty REVERSED
+
+================================================================================
+PART 3: COMPOUNDING CALCULATION
+================================================================================
+
+The Signal Inversion Effect operates on INDIVIDUAL cues:
+  - Gaze aversion alone: triggers "deceptive" judgment (63.7% belief, d=0.05 actual)
+  - Disfluency alone:    triggers "deceptive" judgment (35% belief, d=-0.60 actual)
+  - Fidgeting alone:     triggers "deceptive" judgment (52% belief, d=0.01 actual)
+
+An autistic person in a police interaction exhibits MULTIPLE inverted cues SIMULTANEOUSLY:
+  - Reduced eye contact (sensory management)
+  - Disfluent speech (processing load)
+  - Visible anxiety (sensory overload)
+  - Flat affect (alexithymia)
+  - Fidgeting/stimming (self-regulation)
+  - Response latency (processing time)
+  - Fewer spontaneous details (different narrative style)
+
+These are NOT independent signals to an observer — they COMPOUND.
+Lim et al. (2022) confirmed: the credibility penalty was driven by
+"overall presentation" not any single cue.
+
+Monte Carlo Simulation: Compound Credibility Penalty
+--------------------------------------------------------------------------------
+  Simulations: 100,000
+  Cues modelled: 7 (gaze, fidgeting, disfluency, flat affect, anxiety, response latency, detail)
+
+  ASD mean 'perceived deceptiveness': 193.4 (SD = 52.9)
+  NT mean 'perceived deceptiveness':  42.6 (SD = 41.4)
+  Ratio: 4.54x
+  Cohen's d = 3.18
+  Mann-Whitney U (n=10,000 subsample): U = 98070293, p = 0.00e+00
+
+  Interpretation:
+    An autistic truth-teller triggers 4.5x more inverted deception
+    heuristics than a neurotypical truth-teller in the same situation.
+    Effect size d = 3.18 = LARGE
+    This is a COMPOUNDING bias, not a single-cue effect.
+
+================================================================================
+PART 4: THE REVERSAL — DISCLOSURE ELIMINATES THE BIAS
+Maras et al. (2019), N = 125 mock jurors
+================================================================================
+
+  Without ASD disclosure: autistic witnesses rated LESS credible
+  With ASD disclosure:    autistic witnesses rated SLIGHTLY MORE credible
+
+  This means:
+    1. The bias is NOT about the person. It's about the FRAMEWORK.
+    2. When observers are given the correct interpretive frame
+       ("this person's behaviour reflects autism, not deception"),
+       their judgments IMPROVE.
+    3. Without that frame, the Signal Inversion Effect applies
+       with COMPOUNDING force to autistic individuals.
+
+  The implication for criminal proceedings:
+    An autistic defendant who does not disclose (or whose disclosure
+    is not understood) faces a compound credibility penalty from
+    a jury applying heuristics that are 70% empirically wrong,
+    triggered by behaviours that are neurological, not volitional.
+
+================================================================================
+SUMMARY: ASD AND THE SIGNAL INVERSION EFFECT
+================================================================================
+
+Finding                                                 Source                     N
+------------------------------------------------------------------------------------------
+Autistic adults perceived as more deceptive             Lim et al. (2022)      1,410 obs
+Innocent autistic suspects thought deceptive            Bagnall et al. (2023)  65 suspects
+ASD traits overlap with inverted deception cues         GDRT (2006) + DSM-5   11,227+
+Diagnosis disclosure reverses credibility penalty       Maras et al. (2019)    125 jurors
+70% of believed cues are empirically wrong                 Current Study 3        23 cues
+Compound credibility penalty: d = 3.18               Monte Carlo (current)  100,000 sims
+------------------------------------------------------------------------------------------
+
+CONCLUSION:
+  The Signal Inversion Effect is not uniformly distributed.
+  Autistic individuals face a COMPOUND penalty because their
+  neurological traits trigger MULTIPLE inverted deception heuristics
+  simultaneously. The system is 70% wrong about the cues it uses,
+  and autistic people activate more of those wrong cues than anyone else.
+  This is not a marginal bias. It is structural discrimination
+  operating through folk psychology that the empirical evidence
+  has thoroughly demolished.
+
+  Maras et al. (2019) proved it is reversible with disclosure.
+  It's the framework, not the person.

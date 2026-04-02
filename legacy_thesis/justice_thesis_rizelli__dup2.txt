@@ -1,0 +1,906 @@
+(2021) 2:3 LANGUAGE OF CRIMINAL CONFESSIONS 205
+The Language of Criminal Confessions:
+A Corpus Analysis of Confessions Presumed True vs. Proven False
+Lucrezia Rizzelli
+DPhil Candidate, University of Oxford, Centre for Criminology
+Oxford, U.K.
+Saul M. Kassin
+Distinguished Professor, Department of Psychology
+John Jay College of Criminal Justice
+New York, U.S.A.
+Tammy Gales
+Associate Professor of Forensic Linguistics
+Hofstra University
+Hempstead, New York, U.S.A.
+Confession evidence is powerfully persuasive, and yet many wrongful convictions involving false
+confessions have surfaced in recent years (Innocence Project, 2021; National Registry of
+Exonerations, 2021). Although police are trained to corroborate admissions of guilt, research
+shows that most false confessions contain accurate details and other content cues suggesting
+credibility as well as extrinsic evidence of guilt. Hence, a method is needed to help distinguish true
+and false confessions. In this study, we utilized a corpus-based approach to outline the linguistic
+features of two sets of confessions: those that are presumed true (n = 98) and those that have been
+proven false (n = 37). After analyzing the two corpora in LIWC (Linguistic Inquiry and Word
+Count) to identify significant categories, we created a logistic regression model that distinguished
+the two corpora based on three identified predictors: personal pronouns, impersonal pronouns,
+and conjunctions. In a first sample comprised of 25 statements per set, the model correctly
+categorized 37 out of 50 confessions (74%); in a second out-of-model sample, the predictors
+accurately classified 20 of 24 confessions (83.3%). A high frequency of impersonal pronouns was
+associated with confessions proven false, while a high frequency of conjunctions and personal
+pronouns were associated with confessions presumed to be true. Several patterns were observed
+in the corpora. In the latter set of confessions, for example, “I” was often followed by a lexical
+verb, a pattern less frequent in false confessions. Although these data are preliminary and not to
+be used for practical diagnostic purposes, the findings suggest that additional research is
+warranted.
+I. Introduction and Literature Review
+II. Method
+A. Data
+B. Procedure
+III. Results
+206 WRONGFUL CONVICTION LAW REVIEW (2021) 2:3
+A. Baseline Characteristics of the Corpora
+B. Differences Between the Corpora
+C. Predictors: Linguistic Function and Context
+IV. Discussion
+A. Limitations and Future Research
+I Introduction
+For decades, false confessions have been concealed by the mistaken “common sense”
+assumption that innocent people do not confess to crimes they did not commit (Kassin, 2017). Yet,
+the National Registry of Exonerations has reported that out of the approximate 2,400 exonerees in
+their database, 291 had falsely confessed, amounting to 15% of all cases (National Registry of
+Exoneration, 2019). Even more glaring are the figures reported by the Innocence Project, which
+has helped exonerate 375 individuals incarcerated exclusively for murders and rapes through
+postconviction DNA testing. In their sample, 28% of cases contained a false confession as a
+contributing factor (Innocence Project, 2021).
+Consisting of an admission of guilt and a narrative chronological statement of who, what,
+when, how, and why, confessions are powerfully persuasive in court (Bruton v United States, 1968;
+Wigmore, 1985). Records show when false confessors reject a guilty plea and opt for trial, the
+odds of conviction range from 73% to 81% (Leo & Ofshe, 1998; Drizin & Leo, 2004). Over the
+years, mock jury research has shown that confession evidence increases the conviction rate more
+than eyewitness identifications and other forms of evidence (Kassin & Neumann, 1997). In fact,
+this research has shown that confession evidence is potent even when the interrogation was
+coercive (e.g., Kassin & Sukel, 1997), even when the participants were trial judges (Wallace &
+Kassin, 2012), even when the confessor was a juvenile (e.g., Redlich et al., 2008), even when the
+confession was contradicted by DNA or other evidence (e.g., Appleby & Kassin, 2016), and even
+when the confession was reported secondhand by a motivated informant (e.g., Neuschatz et al.,
+2008).
+As suggested by numerous wrongful convictions that have hinged on false confessions,
+research also shows that people are unable to distinguish between true and false confessions. In a
+two-part study, Kassin, Meissner, and Norwick (2005) recruited male prison inmates for a pair of
+videotaped interviews. In one, each inmate was instructed to give a full confession to the crime for
+which he was incarcerated; in the other, they were asked to come up with a false confession to a
+specific crime they did not commit. In Part 2, observers watched ten of these confessions. Results
+showed that neither college students nor police investigators exhibited significant levels of
+accuracy, though police were more confident in their judgments. This anemic level of
+discrimination accuracy was later replicated in studies involving true and false confessions made
+by juvenile detainees (Honts et al., 2014; Honts et al., 2019).
+Although it is not possible to assert a prevalence rate to the problem of false confessions,
+it is clear that modern police interrogation techniques are psychologically potent, that false
+confessions are elicited with some regularity, and that the risk is increased by certain factors
+inherent in the suspect as well as the processes of interrogation. It is also clear that there are
+(2021) 2:3 LANGUAGE OF CRIMINAL CONFESSIONS 207
+different types of false confessions (Kassin, 1997; Kassin & Wrightsman, 1985; Wrightsman &
+Kassin, 1993): Voluntary (when innocent people offer confessions without pressure from police),
+compliant (when innocent suspects acquiesce to the demand for a confession to escape a stressful
+situation, avoid a perceived threat, or gain a perceived reward), and internalized (when innocent
+suspects, exposed to highly suggestive interrogation tactics, come not only to capitulate but also
+to believe they committed the crime in question).
+Inspired by the 1992 founding of the Innocence Project, and later the National Registry of
+Exonerations, both of which uncovered surprising numbers of false confessions within the
+database of wrongful convictions, researchers have identified both dispositional and situational
+risk factors that can lead innocent people to confess. This research has produced a useful body of
+knowledge. In 2010, Division 41 of the American Psychological Association (APA), also known
+as the American Psychology–Law Society (AP-LS), published a scientific review or “white paper”
+titled “Police-Induced Confessions: Risk Factors and Recommendations” (Kassin et al., 2010).
+The APA has also cited the science reviewed in the white paper in several amicus curiae briefs it
+has submitted on the topic.
+1 The essential points in these briefs were reiterated in APA’s (2014)
+Resolution on Interrogations of Criminal Suspects. In addition, a recent survey of confession
+researchers worldwide revealed a strong consensus within the scientific community that several
+findings in this literature are sufficiently reliable to present in court (Kassin et al., 2018).
+In addition to examining the circumstances surrounding a confession, studies have also
+examined the contents of false confessions, mainly through qualitative analyses focusing on
+specific elements of the narrative. Garrett (2010) examined 38 confessions taken from DNA
+exonerees in the Innocence Project database and found that 36 contained facts about the crime that
+were accurate and yet not in the public domain, the kinds of facts that “only the perpetrator could
+have known.” In a follow-up analysis, Garrett (2015) found that 62 out of 66 false confessions
+(94%) were similarly contaminated with inside information communicated, purposefully or
+inadvertently, through suggestive questions, photographs, and other aspects of interrogation.2
+False confession narratives contain other cues that signal credibility as well. Appleby,
+Hasel, and Kassin (2013) content-analyzed 20 known false confessions and found that they all
+contained visual and auditory details about the crime, the crime scene, time, and location. Many
+of these confessions recounted what the victim allegedly said; described the victim’s alleged
+mental or emotional state (“She was scared, she could hear me coming”); asserted the voluntariness
+of their statement; described their motivation; and expressed sorrow, remorse, and apologies for
+the crime they did not commit. “This was my first rape,” said Korey Wise of the Central Park Five,
+who was innocent, “and it’s going to be my last.”
+Given the weighty nature of confessions, one wonders if there are patterns of features that
+can be used to differentiate between true and false confessions. In a comparative follow up of the
+aforementioned content analysis, for example, Appleby and Perillo (2015) examined 20
+confessions from police files that were not in dispute and observed a marked similarity between
+1 For a list of APA amicus curiae briefs see American Psychological Association, 2009.
+2 For a discussion, see Nirider, Tepfer, & Drizin, 2012; for a first-hand law enforcement account of how
+this can occur, see Trainum, 2008; for an experimental demonstration, see Alceste, Jones, & Kassin, 2020.
+208 WRONGFUL CONVICTION LAW REVIEW (2021) 2:3
+the two samples in regard to the amount of detail and the presence of such credibility cues as
+assertions of voluntariness, statements of motivation, apologies, and expressions of remorse.
+Verbal content notwithstanding, perhaps confessors betray first-hand guilty knowledge in
+their physiological responses to a description of the crime. In a first test of this hypothesis, Geven
+et al. (2020) recruited 83 pairs of participants for a laboratory experiment on problem-solving.
+Within each pair, one team-member was a confederate who tempted some participants but not the
+others to break the experimenter’s rule that they work alone. Afterward, participants were
+separated, accused of cheating, and interrogated. All guilty participants confessed in this situation
+compared to 61% of those who were innocent. Afterward, they were physiologically monitored
+(heart rate, respiration, skin conductance) as they were read multiple-choice questions in which
+only one alternative answer matched the instance in which cheating was alleged. Results showed
+that true confessors, but not false confessors exhibited “recognition” as measured by larger
+physiological responses to the correct answer relative to plausible but incorrect answers. This
+result offers a promising possibility. In light of the fact that most false confessors obtain guilty
+knowledge of crime facts through police contamination, more research is needed to determine if
+these “informed” innocent confessors can be distinguished from those whose guilty knowledge is
+acquired by their firsthand involvement.
+Most closely related to the current study is a call for research on the linguistic style of
+confession statements (Shuy, 1998). One of the rare studies in this area is one in which false and
+true confession statements of past social transgressions were elicited from 85 participants; the
+study showed that false confessions possessed fewer adjectives than confessions defined as true,
+but no differences were found for verbs as indicators of deception (Villar et al., 2013).
+Therefore, as content cues lack diagnostic value, as physiological data are typically not
+available, and as studies focusing on the linguistic aspects of confessions are very limited, the
+present study was designed to explore the language of confessions more explicitly. First, we
+created a baseline of linguistic features that appear in confessions presumed to be true by analyzing
+98 law enforcement case files from a national sample. This was followed by creating a baseline of
+features in 37 confessions proven to be false that were drawn from the Innocence Project and other
+sources. Finally, we compared two sub-corpora composed of 25 randomly selected confessions for
+each condition in order to reveal any patterns that may differentiate between the two data sets;
+additionally, we tested the resulting model on a separate out-of-model sample consisting of 12
+false confessions and 12 presumed true confessions.
+II Method
+The present study analyzed the language of confessions from a corpus-based perspective,
+which allows for the discovery of systematic patterns of features across a large number of texts
+(Biber, 2010). Corpus analysis also allows for both quantitative and qualitative analyses, the first
+of which reduces potential bias associated with more subjective forms of coding; the second of
+which highlights the need to interpret meaning in context (Baker 2006).
+(2021) 2:3 LANGUAGE OF CRIMINAL CONFESSIONS 209
+As described in the following sections, two corpora were created: Confessions Presumed
+True (CPT) and Confessions Proven False (CPF). The first task was to analyze each corpus for
+features shared by the confessions within that corpus. The second task was to compare those
+features to determine if any differentiated the two corpora. The third task was to examine
+significant features in a qualitative manner to reveal additional patterns of use in each corpus.
+A. Data
+The texts for the Confessions Proven False (CPF) corpus were compiled from several
+resources, the first of which was the Innocence Project. The confessors from the Innocence Project
+had all confessed to rape and/or murder and had spent an average of 14 years in prison before
+being DNA exonerated. Additional texts for the CPF were gathered from Dr. Brandon Garrett’s
+online database (DNA Exoneration Database, 2019), from the second author’s research and
+consulting files, and from the third author’s previous studies in the field. In all cases, the confessor
+was exonerated. All texts that were not electronic were retyped into individual TXT files. All typos
+and non-standard grammatical usages were kept intact, but glosses with corrections and standard
+usages were included so that the analytic software would more easily recognize the errors and non-
+standard forms. Finally, because many confessions were embedded within police interviews or
+interrogations, the language of the police was separated from the language of the suspect in order
+to capture only the suspect’s language.3 In total, the CPF corpus consisted of 27 Question and
+Answer (Q&A) and 10 first-person confessions for a total of 37 false inculpatory statements.
+4
+The texts for the Confessions Presumed True (CPT) corpus were compiled from FBI files
+housed at John Jay College of Criminal Justice. The data for this research were taken from closed,
+fully adjudicated state and local cases that were contributed by law enforcement agencies from
+around the country for the purpose of research. Since the files for the CPT corpus were all typed
+or handwritten paper copies, we manually retyped the shorter texts and scanned the longer ones
+using Adobe Reader’s optical character recognition (OCR) program to transform them into
+machine readable texts. We hand-checked all OCR texts for accuracy and used the same protocol
+noted above regarding typos and non-standard language use. Finally, all identifiers, including the
+names of victims, suspects, offenders, officers, departments, and correctional agencies were
+removed.
+3 The data being mostly in Q&A format provides an interesting avenue of further research using
+Conversation Analysis to examine the exchanges between the police and the suspects in cases that led to
+CPT vs. CPF.
+4 The majority of our data consisted of written transcriptions of spoken confessions. However, given the
+archival nature of some of these data, some caveats are in order. Of the ten first-person statements in the
+CPF corpus, there was one handwritten confession and nine statements that had been read into the record
+in court and/or typed up by law enforcement officers. In the CPT corpus, the first-person statements were
+composed of 37 confessions typed or handwritten by officers; six confessions handwritten or typed by
+suspects; two handwritten confessions the authorship of which was not clear; and one confession that was
+prepared from memory and typed by an officer after the interview. While both corpora are based on the
+written transcripts in each case, most confessions were originally spoken in nature. At this point, more work
+is needed to determine if there are differences between spoken and written confessions, especially when the
+register of origin is unclear.
+210 WRONGFUL CONVICTION LAW REVIEW (2021) 2:3
+In order to avoid the influence of features based on content (e.g., related to crime type), a
+strong homogeneity between the corpora was a prerequisite (Granger & Leech, 2014). Thus, since
+the Innocence Project data consisted of rape and murder cases, we gathered only confessions of
+such crimes for the CPT corpus. Confessions from this national sample included the following
+criminal categories: single victim homicide, serial homicide, multiple homicide, single rape, serial
+rape, domestic homicide, and serial sexual homicide. This total sample consisted of 98 confessions
+divided into the two subgroups: Q&A (n = 31) and first-person statements (n = 65).5 A summary
+of the two corpora is presented in Table 1.
+Table 1. Summary of the Corpora
+Q&A 1st Person Total Texts Total Words
+CPT 31 65 96 113,187
+CPF 27 10 37 162,284
+B. Procedure
+The first software we used is a psychological language analysis program called Linguistic
+Inquiry and Word Count (LIWC) (Pennebaker, Booth, et al., 2015). LIWC was created to identify
+spoken and written features present within a variety of psychological, social, and linguistic
+categories (Pennebaker, Boyd, et al., 2015). LIWC operates by comparing the words in a corpus
+(called target words) to a list of words that are part of its internal dictionary of approximately 6,400
+words.
+6 Every target word present in the dictionary is sorted into one or more of the 95 specific
+dimensions representing different psychological constructs (e.g., positive and negative emotions,
+cognitive processes such as causation words), social concepts (e.g., family, health, occupation),
+and linguistic categories (e.g., adverbs, pronouns, articles) (Pennebaker et al., 2003). The final
+output summarizes the percentage of the overall corpus that falls under a specific category. After
+running both corpora through LIWC, we converted the percentages into raw counts and conducted
+bivariate correlational analysis to examine which of the 95 categories had a higher likelihood of
+being predictive of either the CPT or CPF corpus. Categories were considered as significantly
+correlated only if they met threshold values of p < 0.05 and r > 0.2.
+To compare the types of confessions, we then created a random sample of 25 CPT and 25
+CPF, controlling for format by including the same proportion of Q&A and first-person statements
+in both sub-samples. As with the full data sets, we analyzed each sample through LIWC, converted
+the percentages of each category into raw counts, and screened the 95 variables by selecting those
+that presented a significant correlation. As some of the resulting categories contained many
+overlapping items and were umbrella categories (e.g., affect also included the separate categories
+of positive emotion and negative emotion), we conducted an additional screening process by
+analyzing collinearity and eliminating the broader variables (e.g., negative emotion) that highly
+correlated with more specific ones (e.g., anxiety, anger, sadness). In the end, three linguistic
+5 Due to time constraints, we included in the CPT corpus only interview transcripts or statements that were
+less than 40 pages long. Also excluded were third-person statements, secondhand summaries of confessions
+within police reports, and confessions given in a language other than English.
+6 This estimated word count is from the third LIWC dictionary released in 2015.
+(2021) 2:3 LANGUAGE OF CRIMINAL CONFESSIONS 211
+categories were identified as predictors: personal pronouns (e.g., “I”, “he”), impersonal pronouns
+(e.g., “it”, “that”), and conjunctions (e.g., “and”, “otherwise”). We then ran a logistic regression
+to analyze whether a model could be delineated that would distinguish the corpora (CPT or CPF)
+using the three identified predictors which explained the greatest amount of variance without
+overfitting the model. In order to cross-validate our results, we created a second random sample
+of 12 CPT and 12 CPF with the same format proportions, and the predictors identified in the first
+sample were tested on this out-of-model sample.
+7 In order to reveal which specific words provided
+the most weight within each multi-word predictor category, a word list was run on the confessions
+as a whole and the ten most frequent terms within each predictor category were identified for
+further research. Figures 1-3 in the analysis provide frequency and distribution information for
+each set of terms. Log-likelihood tests were run to determine which terms differed significantly
+between the two corpora, the results of which are included in the Figures.
+The next part of the analysis investigated the linguistic contexts in which the top ten terms
+were found, as corpus analyses have long demonstrated that “[y]ou shall know a word by the
+company it keeps” (Firth, 1957, p. 11). For this stage of the analysis, we used the freeware corpus
+analysis program AntConc (Anthony, 2014), which is a concordancing software that allows for in-
+depth qualitative analysis of the context and function of the words identified by the quantitative
+results described above.
+For terms that were significant and the most frequent in each of the predictive categories,
+key word in context (KWIC) searches were run using the concordance feature. This allows the
+analyst to reveal frequent linguistic patterns surrounding the term of interest (i.e., the node word)
+by sorting words alphabetically to the right and/or left of the node word. For example, when
+examining the collocates of “I,” frequent terms immediately to the right were verbs such as “went,”
+“know,” and “will.” Subsequent searches were then performed to identify clusters that contained
+the node and its frequent collocates (e.g., negative forms such as “I didn’t kill” and “I didn’t
+know”), as well as related lemma forms, which include all forms in which a word can appear, as
+in different verb tenses (e.g., present tense “kill” and past tense “killed”) and in agreement with
+different pronoun use (e.g., first person “know” and third person “knows”). In order to ensure the
+patterns were represented across the set of texts within each corpus (and thus were not just the
+product of a single or a few speakers), we also used the concordance plot tool, which reports in
+how many texts within the corpus such a pattern is present. Finally, collocated terms for each node
+word were grouped into grammatical and functional categories such as modal verbs, lexical verbs,
+cognitive verbs, etc. (Biber et al., 1999). Since the total number of words differed between the two
+corpora, the raw counts were normed prior to performing the comparative analyses (Biber et al.,
+1998).
+III Results
+A. Baseline Characteristics of the Corpora
+We conducted a bivariate correlation analysis on the output generated by LIWC after
+converting the percentages into raw counts. Table 2 below reports the categories that showed a
+7 Thanks goes to Professor Sean Murphy for guidance on the statistical analyses.
+212 WRONGFUL CONVICTION LAW REVIEW (2021) 2:3
+significant degree of correlation (p < 0.05, r > 0.2) with either CPT (if they had a positive r
+coefficient, as we coded CPT as “1”), or CPT (if they had a negative r coefficient, as we coded
+CPF as “0”).
+Table 2. Correlations between LIWC categories and the CPT/CPF corpora
+LIWC Category r p CPT CPF
+Analytic - .336 < .001 x
+Clout -.219 .011 x
+Words of six letters or more .203 .019 x
+Function words .365 < .001 x
+Impersonal pronouns -.307 < .001 x
+Personal pronouns .207 .016 x
+I .278 .001 x
+They -.377 < .001 x
+Conjunctions .220 .011 x
+Adjectives .323 .007 x
+Auxiliary verbs .241 .005 x
+Words of assent -.208 .016 x
+Non-fluency -.266 .002 x
+Words representing drives .210 .015 x
+The CPF corpus was correlated with the analytic category8 (r = -
+.366, p < .001), suggesting
+that the speech is more formal, logical, and hierarchical, as opposed to informal and narrative. It
+was also correlated with the clout category (r = -
+.219, p = .011), pointing toward a confident
+speaker who perceives a high level of expertise regarding the topic being discussed, possibly
+indicating higher social status, confidence, and leadership (Kacewicz et al., 2013). Other categories
+that defined the CPF corpus were they (r = -.377, p < .001) which is characterized by words related
+to the third person plural such as “them” or “their”, ipron (r = -.307, p < .001), consisting of
+impersonal pronouns like “it” and demonstrative pronouns like “this” or “those”, assent (r = -208,
+p = .016), which includes terms of agreement such as “okay” or “yeah”, and nonflu (r = -266, p =
+.002), which is characterized by discourse markers such as “hm”
+“oh”
+,
+, and “ahh”
+. In summary,
+the speech in false confessions seems to be characterized by the use of impersonal pronouns, terms
+of agreement, discourse markers, a high level of confidence, and formal, logical language.
+The CPT corpus was instead correlated with the category named Sixltr (r = .203, p = .019)
+consisting of words longer than six letters and used as a proxy for word complexity. The strongest
+correlation was found with the category function (r = .365, p <.001), which is comprised of many
+subdimensions, including personal pronouns, articles, and auxiliary verbs. As personal pronouns
+(ppron) and auxiliary verbs (auxverb) also stood out as single categories (respectively r = .207, p
+8 New to the 2015 version of LIWC were four summary variables: analytic thinking, clout, authenticity,
+and emotional tone. These variables were derived from previous studies that examined correlations between
+existing variables and their general functions. It should be noted that “the summary variables are the only
+non-transparent dimensions in the LIWC2015 output” (Pennebaker, Boyd et al., 2015, p. 6), so our
+discussions here are based on the functional understanding of each relevant summary category.
+(2021) 2:3 LANGUAGE OF CRIMINAL CONFESSIONS 213
+= .016; r = .241, p = .005), the significance of function was in turn influenced by these two
+categories. The category I was also found relevant (r = .278, p = .001) and since it is contained
+within ppron and therefore function, it suggests that in CPT speakers have a higher use of the first-
+person pronoun, along with its possessive forms and declinations (e.g., mine, me). CPT also
+correlated with the categories conj (r = .220, p = .011) representing conjunctions such as “and”,
+“but”, and “because”, adj (r = .232, p = .007) consisting of adjectives, and drives (r = .210, p =
+.015), which is a general category including words associated with subcategories: affiliation,
+achievement, power, risk, and reward. It is important to note that none of these subcategories
+turned out to be significant, although risk reached a p-value of .055, and could partly explain the
+significance of the broader drives. Considering this, it is not surprising to find risk words associated
+with confession statements in general, as its vocabular includes words conveying loss and danger
+that would be expected in such high stakes situations. Yet, its correlation with CPT as opposed to
+CPF suggests further research should explore this pattern. Finally, while also non-significant, the
+LIWC category labeled tone, which corresponds to the emotional state of the speaker, varied
+between conditions. With lower scores indicating more negative emotions, speakers of the CPT
+scored 10 percentage points lower (20.70) than CPF speakers (30.88), possibly indicating the
+turmoil caused by the knowledge of having indeed committed the crime of the former.
+B. Differences Between the Corpora
+To test whether any variables or combination of variables would discriminate between the
+two types of confessions, we conducted logistic regression on a random sample of CPT (n = 25)
+and CPF (n = 25) containing the same proportion of first-person statements and Q&A to control
+for discourse format. As LIWC’s output offers 95 variables, we ran a bivariate correlation analysis
+to identify variables which showed a significant degree of correlation with CPF and/or CPT (p <
+0.05 and r > 0.2), and obtained the following predictors: analytic, clout, function, pronoun, ppron,
+I, they, ipron, conj, female, comma. As noted above, since some of LIWC’s categories contain
+overlapping words, we generated a correlation table of these predictors to assess collinearity. If
+two or more categories showed a high degree of collinearity, we chose the variable with the highest
+level of specificity over the broader one.
+Through this process, we eliminated the variables analytic, clout, function and pronoun, as
+they are umbrella variables containing the others. We then tested the remaining seven categories
+in different combinations to find out which ones would explain the most variance without
+overfitting the model. We found that comma and female did not add predictive power to the model,
+and hence we eliminated them. Lastly, as I and they belong to the ipron and ppron categories, and
+we found the latter categories to be more predictive than the individual two pronouns, we chose to
+keep the categories ipron and ppron over I and they. In summary, the three variables presented in
+Table 3 which account for the most variance without overfitting the model were: impersonal
+pronouns, personal pronouns, and conjunctions.
+Table 3. Logistic regression of impersonal pronouns, personal pronouns, and conjunctions on
+CPT and CPF
+Variables Model 1 (n = 50) Model 2 (n = 24)
+B Odds Ratio B Odds Ratio
+Impersonal pronouns -44.974 .000 -.529 0.589
+214 WRONGFUL CONVICTION LAW REVIEW (2021) 2:3
+Personal pronouns .448 1.566 1.383 3.9787
+Conjunctions 8.508 4958.482 1.006 2.734
+Nagelkerke pseudo r-square .482 .807
+Chi-square 22.439, df = 3, p < .001 22.309, df = 3, p < .001
+Notes: CPF was assigned a value of 0, while CPT was assigned a value of 1.
+The overall model was predictive of the dependent variables of CPT or CPF (χ2 = 22.439,
+df = 3, p <. 001), and the three variables were able to correctly classify 37 of the 50 confessions
+(Table 4). Impersonal pronouns had a significant association with CPF (B = -44.974, eB < .001),
+coded as 0, while CPT were coded as 1, therefore explaining the negative coefficient
+accompanying this variable. CPT, instead, presented an association with personal pronouns (B =
+.448, eB = 1.566) and conjunctions (B = 8.508, eB = 4958.482). These results suggest that CPF are
+characterized by a higher degree of impersonal pronouns while CPT contain more conjunctions
+and personal pronouns. In short, this model was able to discriminate between the confessions that
+were proven false vs. those presumed to be true with an overall accuracy rate of 74% (Table 4).
+Table 4. Classification table for Model 1 (n = 50)
+Observed Predicted
+CPF CPT % correct
+CPF 19 06 76%
+CPT 07 18 72%
+Overall percentage 74%
+We further tested our predictors on an out-of-model sample composed of 12 CPT and 12
+CPF containing the same proportion of Q&A and first-person statements as Model 1. Model 2 was
+also predictive (χ2 = 22.309, df = 3, p < .001) and the direction of the variables replicated our
+previous results, associating impersonal pronouns with CPF, and personal pronouns and
+conjunctions with CPT (Table 5). Importantly, this model correctly classified 20 out of 24
+confessions (83.3%; see Table 5). In summary, it appears that false confessions contain more
+impersonal pronouns, such as “it”
+“that”
+,
+,
+“what”, etc., and fewer personal pronouns, such as “I”
+,
+“he,
+” and “me;” the latter are more likely to be more found in confessions presumed to be true.
+Conjunctions such as “and”
+“then”
+,
+,
+“but”, etc., were also more frequently used in CPT.
+Table 5. Classification table for Model 2 (n = 24)
+Observed Predicted
+CPF CPT % correct
+CPF 10 02 83.3%
+CPT 02 10 83.3%
+Overall percentage 83.3%
+C. Predictors: Linguistic Function and Context
+Impersonal pronouns, personal pronouns, and conjunctions represent three linguistic
+categories containing a multitude of lemmas that, during the development of LIWC, were
+(2021) 2:3 LANGUAGE OF CRIMINAL CONFESSIONS 215
+associated with each category by independent raters. In order to understand which words within
+the three categories influenced our results, we ran a word list of both corpora together in order to
+identify the top 10 words from each predictive category. Results were subsequently organized by
+their frequencies in the CPT vs. CPF (Figures 1-3 below), and log-likelihood tests were then run
+to determine if any of the features significantly distinguished between the two corpora (Rayson,
+2021). Because counts for most common grammatical features “are relatively stable across 1000-
+word samples” (Biber et al., 1998, p. 249), frequencies are reported at a norming rate of X per
+1000 words. Raw counts of each item are reported in Appendix A.
+Starting with the impersonal pronoun category, “it” and “that” were the most frequent
+impersonal pronouns used in the CPF corpus (Figure 1). Because of the infrequent use of some of
+the weightier terms, this category was not explored further.
+Figure 1. Frequency distribution of impersonal pronouns (per 1000 words)
+70
+60
+50
+40
+30
+20
+10
+0
+****
+*** ****
+**
+**** * **** **** **** ***
+CPT CPF
+* p < .05, ** p < .01, *** p < .001, **** p < .0001
+Figure 2. Frequency distribution of conjunctions (per 1000 words)
+80
+70
+60
+50
+40
+30
+20
+10
+0
+****
+****
+**** **** **** ****
+and then but when so or because if as while tot
+CPT CPF
+* p < .05, ** p < .01, *** p < .001, **** p < .0001
+216 WRONGFUL CONVICTION LAW REVIEW (2021) 2:3
+As displayed in Figure 2, the word “and” was responsible for the majority of the hits within
+the conjunctions category, Occurring more frequently in the CPT corpus, at a little over 4.1% while
+only 2.4% within CPF. Chafe (1993) analyzed the frequency of the most commonly occurring
+conjunctions in English and found that the word “and” comprises approximately 4.4% of all
+spoken English, while being only 1% of written language. Comparing these descriptive statistics
+to the ones that emerged from our sample, the frequency of “and” within CPT appears to fall within
+what is expected for spoken language, while its rate in CPF, the majority of which were also
+transcriptions of spoken first-person narratives and Q&A interrogations, suggests a closer
+proximity to written language.
+Figure 3. Frequency distribution of personal pronouns (per 1000 words)
+160
+****
+140
+120
+*x
+100
+80
+****
+60
+*
+40
+20
+****
+****
+****
+****
+****
+****
+****
+****
+****
+0
+*
+*
+*x
+*x
+*x
+I he me my she her you we him his tot
+*x
+*x
+*x
+*x
+CPT CPF
+* p < .05, ** p < .01, *** p < .001, **** p < .0001
+Finally, we conducted a more in-depth qualitative analysis in AntConc to understand the
+functions and context of “I,” as it was the most commonly occurring pronoun in both corpora. The
+KWIC analysis revealed that the pronoun “I” in CPT collocated more often with lexical verbs,
+which express action and state (e.g., “go”, “walk”, “pick”, “push”, “find”), and include all verbs
+but auxiliary ones (Biber et al., 1999).
+Given the topical nature of the confessions (i.e., violent crimes of murder and assault), a
+subset of lexical verbs concerning physical violence was further analyzed. Words like “hit”
+,
+“cut”
+,
+“killed”
+,
+“raped”
+,
+“shot”, etc. were found to be on average 4.6 times more prominent in CPT than
+in CPF.
+Another collocation category we identified with “I” were mental verbs, which express
+cognition (e.g., “know”, “guess”, “believe”) (Biber et al., 1999). The lemmas “know” and “think”
+were the most frequently used in both CPT and CPF, but when comparing their usage between
+corpora, results showed that CPT contained slightly more “think” lemmas than CPF, and the latter
+contained more “know” lemmas than CPT. Interestingly, while the elevated frequency of the
+(2021) 2:3 LANGUAGE OF CRIMINAL CONFESSIONS 217
+lemma “know” in CPF initially suggested a higher level of knowledge of the facts of the crime,
+when we expanded our search to examine larger clusters using our collocates, a the proportion of
+negative instances (e.g., “I don’t know”, “I didn’t know”) represented 68% in CPF as compared
+to 56% in CPT. Thus, CPF speakers used the verb “to know” more often to express their lack of
+knowledge than CPT speakers.
+Lastly, as a difference was observed in the frequency with which CPT and CPF used the
+sentence “I do not/don’t remember/recall,” the context surrounding it was examined. The sentence
+appeared 57 times in CPF across 13 confessions (35% of total CPF confessions), while in the CPT
+corpus it was uttered 86 times across 36 confessions (37.5% of total CPT confessions). When the
+words preceding and following it were inspected, a pattern emerged: in CPF, 49% of the total
+utterances ended the sentence and the speaker did not expand on what was not remembered, while
+in CPT, only 19% of the time the words terminated the sentence, and in the remaining 81% the
+speaker explained what was not remembered (e.g. “I don’t remember what he was saying”, “I don’t
+remember if I had blood on them”).
+IV Discussion
+This study compared the linguistic differences between presumed true and proven false
+confessions taking into account the contexts in which the grammatical and lexical patterns were
+found. First, we delineated the linguistic characteristics of both types of statements, with the
+language of CPF in our sample being characterized by impersonal pronouns, formality, and logical
+language suggesting a confident speaker, as well as a higher number of discourse markers and
+terms of agreement.
+9 In contrast, CPT were characterized by more words longer than six letters,
+suggesting greater language complexity; more personal pronouns, especially “I”, and auxiliary
+verbs, as well as conjunctions, adjectives, and possibly words regarding risk.10
+Three linguistic predictors (impersonal pronouns, personal pronouns, and conjunctions)
+discriminated between CPT and CPF with an accuracy rate of 74% to 83.3%: Frequent use of
+impersonal pronouns was associated with proven false confessions, while personal pronouns and
+conjunctions were associated more with confessions presumed to be true. The lesser usage of first
+person singular by false confessors is consistent with research on language that has been linked to
+deception. For example, a 2008 study by Hancock et al. found that both participants who lied and
+were lied to use fewer first-person singular pronouns. It has been suggested that this reduced use
+of first-person singular pronouns may be an attempt to distance oneself from a negative event or
+context (Newman et al., 2003).
+9 These last two categories (non-fluency and terms of assent) were not considered significant, as the
+transcriptions of the confessions did not always include discourse markers (e.g., “ahh,” “mmh,” or ellipses),
+and the high frequency of terms of agreement depended on the preponderance of the Q&A format in the
+CPF.
+10 The prevalence of words longer than six letters in CPT, and therefore the corresponding lack thereof in
+CPF, could be linked to demographics and cognitive variables. In fact, we know that juveniles and
+individuals affected by a mental illness are more susceptible to producing a false confession (Drizin & Leo,
+2004; Redlich et al., 2004; Redlich et al., 2008) and this could explain the lower lexical variety.
+218 WRONGFUL CONVICTION LAW REVIEW (2021) 2:3
+A qualitative analysis of collocations with “I” also revealed a pattern of association with
+lexical verbs (e.g.,
+“put”
+“took”
+“killed”
+,
+,
+,
+“hit”, etc.) in CPT (e.g., “… and then eventually I put
+everything in the closet;” “I hit her in the side of the neck with my right forearm and she fell off
+the bed;” “I raped her, it was all a drug induced cloud”), and a lack thereof in CPF.
+Moreover, the most frequent mental verb following “I” in CPF was found to be “I
+know/knew”, while for CPT it was “I think/I thought”, further raising the question of authorship,
+as it also ties to the higher level of confidence found in CPF by LIWC. However, both “I guess”
+and “I mean” were more frequently used in CPF (e.g. “I guess I was, yeah, I was kind of drunk by
+then, drinking pretty much;” “And I mean so I... that’s why I got that gun for that purpose. But I
+don’t... I mean I don’t need no gun you know what I mean;” “So, I guess (name) her in the
+bedroom, in his bedroom, and started, I don’t know, he beat her up, I guess. He knocked her out
+of something like that; he said in order to make love to her; she started yelling against and started
+fighting him, I guess he beat her up real bad and (name) got pissed about it.”), adding a tentative
+aspect to the narrative and contrasting the previous finding, perhaps suggesting partial authorship.
+Lastly, a close examination of the variations of the sentence “I don’t remember” revealed
+that in CPF, the phrase tended to complete the sentence in approximately half of the cases (e.g., “I
+don’t remember, I don’t think, I don’t know nothing;” “Not that I remember, I don’t remember
+nothing, I don’t remember nothing;” “I was – don’t – don’t remember. I was drinking that
+night;” “I don’t remember exactly.”) In contrast, in CPT, the sentence was followed in the
+majority of the cases by an explanation of what was not remembered (e.g. “I don’t remember
+how many times I stabbed him; “I guess, I don’t remember if it was on the bed or the floor;” “I
+don’t remember the exact words I used, but I told him what happened and where it was;” “I don’t
+remember if she was in or out of the car when she asked.”).
+This discrepancy could be due to the actual lack of knowledge of CPF in regard to the facts
+of the crime, therefore their “I don’t remember” would symbolize a more general absence of
+memory caused by absence of the facts, while for CPT the context shifts toward a forgetfulness of
+specific details of the crime. This difference could also be tied to the cognitive processes involved
+in the production of images rather than false memories when it comes to CPF. These cognitive
+processes are in turn tightly connected to the concept of suggestibility, which has been found to be
+a crucial factor in the production of false confessions (Otgaar, 2021). False memories involve the
+actual belief of having experienced the remembered event, while images are conceptualized as
+associated with the suggested event but not experienced as memories of the event (Lindsay et al.,
+2004; Desjardins & Scoboria, 2007; Hessen-Kayfitz & Scoboria, 2012). Another study further
+distinguished the two by stating that people generating false memories “claimed to remember the
+event and reported at least two specific details about it,” while individuals who experience images
+only “speculated about at least three different aspects of the event” (Strange et al., 2008, p. 479).
+Thus, false confessors may be generating images rather than false memories in the majority of the
+cases, and that could be the reason behind the lack of detail following the unremembered events.
+Knowing how pronouns are used in different types of confessions is an important factor in
+the determination of the nature of a confession, and this model could be used in the future to help
+assess the possible veracity of a confession, within some probabilistic level of certainty (Adams,
+1996). However, it is yet unknown why the speech of CPF turned out to be different from that of
+(2021) 2:3 LANGUAGE OF CRIMINAL CONFESSIONS 219
+CPT. A possible explanation could consist of different speech patterns between innocent
+confessors and guilty confessors, or it could be due to the different types of pressure these two
+populations find themselves under.
+Another plausible explanation instead involves differences in the authorship of the
+confession. History presents all too many instances in which police appeared to write an innocent
+person’s confession. In 1963, New York City detectives questioned George Whitmore, a 19-year-
+old African American man for 26 hours, which produced a detailed 61-page confession to two
+high-profile murders. Whitmore was ultimately exonerated. His false confession, however, plainly
+authored by the police, was so troubling that in Miranda v. Arizona (1966), the U.S. Supreme
+Court cited Whitmore as a “conspicuous” example of police coercion in the interrogation room
+(Kassin, 2017; English, 2011; Shapiro, 1969).
+With 95% of false confessions containing accurate crime facts known to police that the
+innocent suspect could not have known, it is possible that in the case of CPF there may have been
+a heavier contamination of police speech into the suspect’s speech, or even more directly, some of
+the confessions may have been authored by the officers. Yet, it is to be noted that also among the
+sample of CPT some confessions were transcribed by police officers upon request of the suspect,
+or because of departmental regulations on confession evidence, therefore a base level of
+contamination was to be expected in both samples. However, the different degree in which such
+contamination happened in CPT vs. CPF may be responsible for the observed linguistic differences
+between them.
+A. Limitations and Future Research
+Although current software programs can quantify and categorize psychological, social, and
+linguistic features in a text or corpus of texts, they are not without limitations. LIWC, for instance,
+does not consider context when categorizing language into its pre-determined dictionary
+categories, which means that some of the categories may have included terms whose contextual
+meanings had been misinterpreted (e.g., the sentence “I am crying of laughter” would increase the
+percentages under both the positive and negative emotions categories). While we aimed to partially
+obviate this shortcoming by examining the context of the top words in each predictor category
+using AntConc, more qualitative analysis can be done to further flesh out functional patterns
+produced by language in context.
+Another limitation of this study lies in the archival nature of the data, which results in our
+inability to know the circumstances under which each confession was taken and the level of
+accuracy of the transcriptions where video or audio recordings were not present in the files.
+Interrogations and the process leading to a confession are currently largely a black box, unknown
+to both the public and the judicial system. Historically, the final confession has oftentimes been
+the only evidence revealed during legal proceedings, with little or no record of what preceded it.
+Because of the incredible weight that confession evidence holds, it is of paramount importance for
+the interrogation process to be video and audio recorded—from start to finish. Fortunately, with
+more states requiring recordings of interrogations, especially of more serious crimes that result in
+lengthier sentences (Bang et al., 2018) more research can be performed in the future on these
+previously under-documented processes.
+220 WRONGFUL CONVICTION LAW REVIEW (2021) 2:3
+In addition to further exploration of the patterns with “I” discussed above, future research
+should also follow up on the context and functions of “it”, as we found this word to be the most
+frequent within the impersonal pronouns category. Similarly, further investigation of variations in
+the contexts in which “and” occurs, as it was the most common conjunction in our corpora, may
+also provide fruitful results.
+Finally, future research should also investigate the language in confessions that have been
+contaminated during the interrogation process, including the effect of interjected law enforcement
+speech on the suspect’s narrative, and of possible police authorship on the final statement. This
+would also help isolate whether there is a stylistic difference inherent to innocent and guilty speech
+beyond the contamination.
+In conclusion, this study outlined the linguistic baselines of confessions proven false and
+confessions presumed true and demonstrated which classes of features and individual terms and
+their collocates provided avenues of further research to help distinguish between the two. While
+the results of this research do not presume to suggest a clear-cut way of distinguishing between
+true and false confession statements, they highlight the potential of corpus linguistics as an
+analytical tool for future research in the field and raise interesting questions on the possible causes
+of the stylistic differences.
+References
+American Psychological Association. (2009). APA Amicus Briefs by Issue, online:
+http://www.apa.org/about/offices/ogc/amicus/index-issues.aspx
+Adams, Susan H. (1996). Statement analysis: What do suspects' words really reveal. FBI Law
+Enforcement Bulletin, 65, 12.
+Alceste, Fabiana, Jones, Kristyn A., & Kassin, Saul M. (2020). Facts only the perpetrator could
+have known? A study of contamination in mock crime interrogations. Law and Human
+Behavior, 44(2), 128–142, online:
+https://web.williams.edu/Psychology/Faculty/Kassin/files/Alceste%20Jones%20Kassin%
+20(2020)%20-%20Contamination.pdf
+Anthony, Laurence. (2014) AntConc (Version 3.4.3) [Computer Software]. Tokyo, Japan: Waseda
+University.
+Appleby, Sara C., & Perillo, Jennifer T. (2015). Confessions as Hollywood Productions: A
+Content Analysis Comparison of Corroborated and False Confessions. Paper presented at
+the Meeting of the American Psychology-Law Society, San Diego.
+Appleby, Sara C., Hasel, Lisa E., & Kassin, Saul M. (2013). Police-induced confessions: An
+empirical analysis of their content and impact. Psychology, Crime & Law, 19(2), 111-128,
+https://doi.org/10.1080/1068316X.2011.613389
+online: Appleby, Sara C., & Kassin, Saul M. (2016). When self-report trumps science: Effects of
+confessions, DNA, and prosecutorial theories on perceptions of guilt. Psychology,
+Public Policy, and Law, 22(2), 127–140.
+(2021) 2:3 LANGUAGE OF CRIMINAL CONFESSIONS 221
+Baker, Paul (2006). Using corpora in discourse analysis. A&C Black.
+Bang, Brandon L., Stanton, Duane, Hemmens, Craig, & Stohr, Mary K. (2018). Police recording
+of custodial interrogations: A state-by-state legal inquiry. International Journal of Police
+Science & Management, 20(1), 3-18, online:
+https://journals.sagepub.com/doi/pdf/10.1177/1461355717750172
+Biber, Douglas (2010). Corpus-based and corpus-driven analyses of language variation and use.
+In The Oxford Handbook of Linguistic Analysis. Oxford: Oxford University Press.
+Biber, Douglas, Conrad, Susan, and Reppen, Randi (1998). Corpus linguistics: Investigating
+language structure and use. Cambridge: Cambridge University Press.
+Biber, Douglas, Johansson, Stieg, Leech, Geoffrey, Conrad, Susan, & Finegan, Edward
+(1999). Longman grammar of spoken and written English (Vol. 2). London: Longman.
+Chafe, Wallace (1993). Integration and involvement in speaking, writing, and oral literature. In:
+Deborah Tannen (ed.), Spoken and Written Language: Exploring Orality and Literacy, 35-
+53. Norwood, N.J.: Ablex.
+Desjardins, Tracy, & Scoboria, Alan (2007). “You and your best friend Suzy put Slime in Ms.
+Smollett’s desk”: Producing false memories with self-relevant details. Psychonomic
+Bulletin & Review, 14(6), 1090-1095, online:
+https://link.springer.com/content/pdf/10.3758/BF03193096.pdf
+Drizin, Steven A., & Leo, Richard A. (2004). The problem of false confessions in the post-DNA
+world. North Carolina Law Review, 82, 891-1007.
+DNA Exoneration Database (2021). Accessed 10 June 2021, online:
+https://www.convictingtheinnocent.com
+English, Thomas J. (2011). The Savage City: Race, Murder, and a Generation on the Edge. New
+York: Morrow.
+Firth, John R. (1957). Papers in Linguistics, 1934-1951. London: Oxford University Press.
+Garrett, Brendon. L. (2010). The substance of false confessions. Stanford Law Review, 62, 1051-
+1118.
+Garrett, Brendon L. (2015). Contaminated confessions revisited. Virginia Law Review, 101, 395.
+Geven, Linda M., Ben-Shakhar, Gershon, Kassin, Saul M., & Verschuere, Bruno (2020).
+Distinguishing true from false confessions using physiological patterns of concealed
+information recognition: A proof of concept study. Biological Psychology, 154, 107902,
+online:https://www.sciencedirect.com/science/article/pii/S0301051120300624
+Granger, Sylviane, & Leech, Geoffrey (2014). Learner English on computer. Routledge.
+Hancock, Jeffrey T., Curry, Lauren E., Goorha, Saurabh, & Woodworth, Michael (2008). On lying
+and being lied to: A linguistic analysis of deception in computer-mediated communication.
+Discourse Processes, 45(1), 1-23, online:
+https://www.tandfonline.com/doi/pdf/10.1080/01638530701739181
+Hessen‐Kayfitz, Joanna K., & Scoboria, Alan (2012). False memory is in the details: Photographic
+details differentially predict memory formation. Applied Cognitive Psychology, 26(3), 333-
+341, online:
+222 WRONGFUL CONVICTION LAW REVIEW (2021) 2:3
+https://onlinelibrary.wiley.com/doi/pdf/10.1002/acp.1839
+Honts, Charles R., Kassin, Saul M., & Craig, Ronald A. (2014). ‘I'd know a false confession if I
+saw one’: a constructive replication with juveniles. Psychology, Crime & Law, 20(7), 695-
+704, online:
+https://www.tandfonline.com/doi/pdf/10.1080/1068316X.2013.854792
+Honts, Charles R., Forrest, Krista, & Stepanescu, Adela (2019). Polygraph examiners unable to
+discriminate true and false juvenile confessions. Polygraph and Forensic Credibility
+Assessment: Journal of Science and Field Practice, 48(1), 1-9.
+www.innocencerecord.org
+Innocence Records. Retrieved on 14 May 2018, online: Kacewicz, Ewa, Pennebaker, James W., Davis, Matthew, Jeon, Moongee, & Graesser, Arthur C.
+(2014). Pronoun use reflects standings in social hierarchies. Journal of Language and
+Social Psychology, 33(2), 125-143, online:
+https://journals.sagepub.com/doi/pdf/10.1177/0261927X13502654
+Kassin, Saul M. (1997). The psychology of confession evidence. American Psychologist, 52(3),
+221, online:
+https://web.williams.edu/Psychology/Faculty/Kassin/files/Kassin1997.pdf
+Kassin, Saul M. (2012). Why confessions trump innocence. American Psychologist, 67, 431-445,
+https://doi.org/10.1037/a0028212
+online: Kassin, Saul M. (2017). False confessions: How can psychology so basic be so counterintuitive?
+American Psychologist, 72, 951-964.
+Kassin, Saul M., Drizin, Steven A., Grisso, Thomas, Gudjonsson, Gisli H., Leo, Richard A., &
+Redlich, Allison D. (2010). Police-induced confessions: Risk factors and
+recommendations. Law and human behavior, 34(1), 3-38, online:
+https://idp.springer.com/authorize/casa?redirect_uri=https://link.springer.com/article/10.1
+007/s10979-009-9188-6
+Kassin, Saul M., Meissner, Christian A., & Norwick, Rebecca J. (2005). “I’d know a false
+confession if I saw one”: A comparative study of college students and police
+investigators. Law and Human Behavior, 29(2), 211-227, online:
+https://link.springer.com/content/pdf/10.1007/s10979-005-2416-9.pdf
+Kassin, Saul M., & Neumann, Katherine (1997). On the power of confession evidence: An
+experimental test of the “fundamental difference” hypothesis. Law and Human Behavior,
+21, 469-484.
+Kassin, Saul M., Redlich, Allison D., Alceste, Fabiana, & Luke, Timothy J. (2018). On the general
+acceptance of confessions research: Opinions of the scientific community. American
+Psychologist, 73, 63-80, online:
+https://web.williams.edu/Psychology/Faculty/Kassin/files/Kassin%20et%20al.%20(2018)
+%20-%20AP%20Frye.pdf
+Kassin, Saul M., & Sukel, Holly (1997). Coerced confessions and the jury: An experimental test
+of the "harmless error" rule. Law and Human Behavior, 21, 27-46, online:
+https://link.springer.com/content/pdf/10.1023/A:1024814009769.pdf
+(2021) 2:3 LANGUAGE OF CRIMINAL CONFESSIONS 223
+Kassin, Saul M., & Wrightsman, Lawrence S. (1985). Confession evidence. In S. Kassin & L.
+Wrightsman (Eds.). The psychology of evidence and trial procedure, (pp. 67-94). Beverly
+Hills, CA: Sage Books.
+Leo, Richard, & Drizin, Steven A. (2010). The three errors: Pathways to false confession and
+wrongful conviction. Washington: American Psychological Association, 2010.
+Leo, Richard A., & Ofshe, Richard J. (1998). The consequences of false confessions: Deprivations
+of liberty and miscarriages of justice in the age of psychological interrogation. Journal of
+Criminal Law and Criminology, 88, 429-496, online: https://doi.org/10.2307/1144288
+Lindsay, Stephen D., Hagen, Lisa, Read, Don J., Wade, Kimberley, & Garry, Maryanne. (2004).
+True photographs and false memories. Psychological Science, 15, 149–154, online:
+https://journals.sagepub.com/doi/pdf/10.1111/j.0956-7976.2004.01503002.x
+National Institute of Justice, Office of Justice Programs, Crime Scene Investigation: A Guide for
+Law Enforcement 42 (Department of Justice 2000), online:
+https://www.ojp.gov/pdffiles1/nij/178280.pdf
+National Registry of Exonerations. The National Registry of Exonerations. Retrieved on 10 April
+2019, online:
+www.law.umich.edu/special/exoneration/Pages/False-Confessions.aspx
+Neuschatz, Jeffrey S., Lawson, Deah S., Swanner, Jessica K., Meissner, Christian A., &
+Neuschatz, Joseph S. (2008). The effects of accomplice witnesses and jailhouse informants
+on jury decision making. Law and Human Behavior, 32, 137–149, online:
+https://link.springer.com/article/10.1007/s10979-007-9100-1
+Newman, Matthew L., Pennebaker, James W., Berry, Diane S., & Richards, Jane M. (2003). Lying
+words: Predicting deception from linguistic styles. Personality and Social Psychology
+Bulletin, 29(5), 665-675, online:
+https://journals.sagepub.com/doi/pdf/10.1177/0146167203029005010
+Nirider, Laura H., Tepfer, Jonshua A., & Drizin, Steven A. (2012). Combating Contamination in
+Confession Cases (reviewing Convicting the Innocent: Where Criminal Prosecutions Go
+Wrong by Brandon L. Garrett). University of Chicago Law Review, 79(2), 7.
+Otgaar, Henry, Schell‐Leugers, Jennifer M., Howe, Mark L., Vilar, Alejandra De La Fuente,
+Houben, Sanne T., & Merckelbach, Harald (2021). The link between suggestibility,
+compliance, and false confessions: A review using experimental and field studies. Applied
+Cognitive Psychology, 35(2), 445-455, online:
+https://onlinelibrary.wiley.com/doi/pdf/10.1002/acp.3788
+Pennebaker, James W., Booth, Roger J., & Francis, Martha E. (2015). Linguistic inquiry and word
+count: LIWC [Computer software]. Austin, TX: liwc.net, 135.
+Pennebaker, James W., Boyd, Ryan L., Jordan, Kayla, & Blackburn, Kate. (2015). The
+development and psychometric properties of LIWC2015, online:
+https://repositories.lib.utexas.edu/bitstream/handle/2152/31333/LIWC2015_LanguageMa
+nual.pdf
+224 WRONGFUL CONVICTION LAW REVIEW (2021) 2:3
+Pennebaker, J. W., Mehl, Matthias R., & Niederhoffer, Kate G. (2003). Psychological Aspects of
+Natural Language Use: Our Words, Our Selves. Annual Review of Psychology, 54, 547-
+577, online:
+https://www.annualreviews.org/doi/full/10.1146/annurev.psych.54.101601.145041
+Rayson, Paul. Log-likelihood and effect size calculator. (2021, August 10), online:
+http://ucrel.lancs.ac.uk/llwizard.html
+Redlich, Allison D., Quas, Jodi A., & Ghetti, Simona (2008). Perceptions of children during a
+police interrogation: Guilt, confessions, and interview fairness. Psychology, Crime & Law,
+14, 201–223, online:
+https://www.tandfonline.com/doi/pdf/10.1080/10683160701652542
+Redlich, Allison D., Silverman, Melissa, Chen, Julie, & Steiner, Hans (2004). The police
+interrogation of children and adolescents. In Interrogations, confessions, and
+entrapment (pp. 107-125). Springer, Boston, MA, online:
+https://www.researchgate.net/profile/Allison-Redlich/publication/290469506
+Shapiro, Fred C. (1969). Whitmore. New York: Bobbs-Merrill.
+Shuy, Robert W. (1998). The language of confession, interrogation, and deception. Thousand
+Oaks, CA: Sage.
+Strange, Deryn, Wade, Kimberley, & Hayne, Harlene (2008). Creating false memories for events
+that occurred before versus after the offset of childhood amnesia. Memory, 16, 475–484,
+https://doi.org/10.1080/09658210802059049
+online: Trainum, James L. (2008, October 24). The case for videotaping interrogations: A suspect's false
+confession to a murder opened an officer's eyes. The Los Angeles Times.
+Villar, Gina, Arciuli, Joanne, & Paterson, Helen (2013). Linguistic indicators of a false
+confession. Psychiatry, Psychology and Law, 20(4), 504-518, online:
+https://www.tandfonline.com/doi/pdf/10.1080/13218719.2012.712834
+Wallace, Brian D., & Kassin, Saul M. (2012). Harmless error analysis: How do judges respond to
+confession errors? Law and Human Behavior, 36(2), 151.
+Wigmore, John H. (1985). Wigmore on evidence (4th ed.). Boston, MA: Little, Brown. (Original
+work published 1904)
+Wrightsman, Lawrence S., & Kassin, Saul M. (1993). Confessions in the courtroom. Newbury
+Park, CA: Sage.
+Appendix A
+Raw counts of top ten impersonal pronouns
+CPT CPF
+it 1642 2654
+that 1608 2968
+what 444 989
+this 430 705
+(2021) 2:3 LANGUAGE OF CRIMINAL CONFESSIONS 225
+that's 162 714
+it's 118 542
+anything 99 251
+thing 75 167
+who 76 176
+something 147 217
+tot 4801 9383
+Raw counts of top ten conjunctions
+CPT CPF
+and 4666 3836
+then 560 428
+but 508 725
+when 495 496
+so 448 606
+or 424 586
+because 286 249
+if 281 414
+as 201 249
+while 136 76
+tot 8005 7665
+Raw counts of top ten personal pronouns
+CPT CPF
+I 7339 8934
+he 1742 1751
+me 1314 1097
+my 1263 1223
+she 1043 934
+her 1153 1052
+you 920 2637
+we 853 656
+him 738 545
+his 443 410
+tot 16808 19239

@@ -1,0 +1,33 @@
+\section{Introduction}
+
+Deception is pervasive in conversational dialogues. Individuals motivated by self-interest often feel compelled to embellish the truth to promote their interests at the expense of others. Misleading communication, such as false testimony \cite{tetterton2005using}, fake news \cite{shu2017fake}, identity fraud in dating sites \cite{lazarus2022exploring}, sock puppetry \cite{kumar2017army}, and propaganda campaigns \cite{allcott2017social}, abundant daily, impacts political, social, and economic outcomes. This exchange of information leading to the decision of who and what to believe necessitates the tacit development of truth detection capability during conversations \citep{Bond2006AccuracyOD}.
+
+% \begin{figure}[t!]
+% \centering
+% \includegraphics[trim= 175 165 380 295,clip,width=\linewidth]{LaTeX/figures/bar_plots_aaai.pdf}
+% \caption{\textbf{(a)} Histogram of the number of judges who were deceived in session where our model predicted correctly. The distribution is skewed; skewness = $-0.501$, indicating our model predicts correctly, significantly ($p=0.1$) more in sessions where more judges were deceived. \textbf{(b)} e-ViL scores \cite{} for explanations from our top-5 accurate models, showing our best model generates more satisfactory explanations.}
+% \label{fig:barplots}
+% \vspace{-1em}
+% \end{figure}
+
+\begin{figure*}[t!]
+\centering
+\includegraphics[trim= 110 365 110 275,clip,width=0.95\linewidth]{figures/dataset_aaai.pdf}
+\caption{Examples of language cues for detecting deception: ambiguity, overconfidence, and half-truths from our dataset (\textsc{T4Text}). When used features, they can significantly enhance detection ability for both models and humans.}
+\label{fig:dataset}
+\vspace{-0.5em}
+\end{figure*}
+
+In what follows, we explore if textual cues may increase the likelihood of fraud detection even in the presence of more overt visual or aural indicators. Consider the CEO scam, when fraudsters act as company executives to trick a victim into sending unauthorized wire transfers or divulging private information through email.
+% The victim having opposite objectives and devoid of sensory signals, tries to detect the deception.
+In addition, textual cues may be crucial for an impartial observer to identify duplicity in social media conversations when audio and visual cues are often manipulated with little to no chance of face-to-face conversations \cite{Rapoza_2021}.
+
+This paper examines linguistic cues in a conversational exchange between contestants and judges participating in the TV game show, To Tell The Truth. In the game, the three contestants, under pretenses, mislead the four judges who attempt to infer the real central contestant (CC) via back-and-forth questioning. First, the game show offers a high-stake situation where contestants have a financial incentive to lie and deceive, and the judges are under pressure to perform in front of a crowd to detect the deception. Second, this data provides factual information to aid in assessing the contestant---a vital and distinguishing aspect of deception detection from the text than other datasets.
+
+% Individuals motivated by self-interest may often feel compelled to embellish the truth to advance their interests at the expense of others \citep{Thaler2000FromHE}. Social relationships build on trust \citep{Brinke2016CanOP,shneiderman2000designing} and conversations \citep{Bond2006AccuracyOD}, making it essential to identify the deception to prevent social cohesion and accomplish collective goals. Regarding deception, videos are shared 1200 percent times more than text. \cite{Rapoza_2021}. Society has generally realized that what we see in a photograph is not always true. Additionally, our increasing exposure to conversational social media, where discussions happen in natural language with little to no chance that parties engage in a face-to-face conversation.
+
+
+The study of deception detection using computational methods has traditionally focused on detecting `what' is the truth using multimodal cues \cite{soldner2019box}. The definition of truth is often convoluted and depends on context; hence computationally detecting `what is the truth' is challenging unless defined otherwise \cite{peskov2020takes}. Works that focused on exploring language cues \cite{fornaciari2013automatic,ott2013negative} mainly restricted their analysis to psycholinguistic and hand-engineered linguistic features, which may not extend to scenarios where such cues are missing. Even though psycholinguistic features indicate the interlocutor's intention on a syntactic or token level, they may not demonstrate a deeper semantic understanding of the text in the discourse context. Recent progress in language models' ability to understand text prompted us to benchmark large language models' (LLMs) performance for the first time in detecting deception.
+
+Armed with two main questions: 1. Do enough language cues exist to discern truth from deceptive conversations without other multimodal cues; and 2. Can a class of algorithmic detectors identify these cues, compose them in a valid chain of reasoning, and identify the truth?---in this paper,
+\textbf{we demonstrate a bottleneck framework} that progressively scans a deceptive conversation, analyzes each snippet by verifying utterances against objective truth, semantically understanding complex indicators of deception such as ambiguous responses, half-truths, and overconfidence, can satisfactorily reason its prediction for detecting deception. \textbf{We release a new conversational dataset}, To Tell The Truth from Text (\textsc{T4Text})\footnote{Code \& data: \url{https://github.com/sanchaitahazra/T4Text}}, unique to the previous datasets, that contains a verifiable objective truth, forming the basis of lie detection. Our model can detect deception in cases where all judges failed to detect lies correctly, indicating its ability to uncover new reasoning chains that might be insightful to humans to learn better predictors for deception. Our model sometimes fails, where judges could correctly identify deception, leaving room for researchers to advance the frontier of the model performance in deception detection.

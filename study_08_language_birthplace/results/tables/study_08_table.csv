@@ -1,0 +1,9 @@
+country,language,population,pct_dominant,chi_square,p_value,cohens_h,effect_size,source
+Australia,English,25422788,72.0%,"4,921,852",< .001***,0.46,Small,ABS Census 2021
+Canada,English/French,36991981,96.9%,"32,547,173",< .001***,1.22,Large,Statistics Canada 2021
+China,Mandarin,1411778724,92.0%,"996,151,068",< .001***,1.00,Large,National Bureau of Statistics 2020
+France,French,67390000,91.2%,"45,756,193",< .001***,0.97,Large,INSEE 2021
+Germany,German,82700000,81.0%,"31,789,880",< .001***,0.67,Medium,Destatis 2021
+Mexico,Spanish,126014024,93.8%,"96,700,138",< .001***,1.07,Large,INEGI Census 2020
+New Zealand,English,4699755,95.4%,"3,874,779",< .001***,1.14,Large,Stats NZ Census 2018
+United Kingdom,English,56490048,91.1%,"38,169,422",< .001***,0.96,Large,ONS Census 2021

@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+*.egg-info/
+
+# Large data files (too big for GitHub — download separately)
+language_acquisition_census/language_acquisition_psam_p06.csv
+deception_detection_2016_data/Clips/
+*.mp4

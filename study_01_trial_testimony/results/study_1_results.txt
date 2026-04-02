@@ -1,0 +1,46 @@
+================================================================================
+STUDY 1: LINGUISTIC MARKERS OF VERACITY IN TRIAL TESTIMONY
+Dataset: Perez-Rosas et al. (2015) Real-Life Trial Corpus
+N = 121 (60 truthful, 61 deceptive)
+================================================================================
+
+Sample: 60 truthful, 61 deceptive clips
+
+Table 1: Group Comparisons (Mann-Whitney U Test)
+------------------------------------------------------------------------------------------------------------------------
+Variable                              Truth M  Truth SD   Decep M  Decep SD          U        p       d    r_pb   Sig
+------------------------------------------------------------------------------------------------------------------------
+Hedging Rate                             0.86      1.31      1.05      1.41     1675.5   0.3764   -0.14  -0.070    ns
+Certainty Markers                        0.35      1.25      0.76      3.15     1687.5   0.2647   -0.17  -0.085    ns
+Disfluency/Filler Rate                   5.14      4.21      3.03      2.68     2380.5   0.0043    0.60   0.290    **
+Experiencer Framing                      0.60      1.51      0.34      0.94     1934.0   0.4482    0.21   0.104    ns
+Passive Constructions                    3.93      2.64      4.04      2.89     1820.5   0.9627   -0.04  -0.021    ns
+Negative Emotion                         0.02      0.17      0.13      0.52     1711.0   0.1025   -0.27  -0.136    ns
+First-Person Pronouns                    6.13      4.38      7.15      4.16     1561.5   0.1644   -0.24  -0.120    ns
+Word Count                              80.57     41.99     75.84     46.49     2048.5   0.2584    0.11   0.054    ns
+------------------------------------------------------------------------------------------------------------------------
+* p < .05, ** p < .01, † p < .10
+
+Effect Size Context:
+  DePaulo et al. (2003) median cue effect size: d = 0.10
+  Current disfluency finding: d = 0.60
+  Ratio: 6.0x larger than typical deception cue
+
+Binary Classification Analysis:
+  (Logistic regression via maximum likelihood estimation)
+  Disfluency-only model: B0=-0.740, B1=0.183
+  Classification accuracy: 60.3%
+  (Chance = 50%, Human deception detection = 54%)
+
+  Multi-variable model (10-fold cross-validation):
+  Variables: filler_rate, hedging_rate, certainty_rate, experiencer_rate, neg_emotion_rate, first_person_rate
+  Mean accuracy: 63.5% (SD=11.5%)
+  Range: 41.7% - 84.6%
+
+  Full model coefficients (standardised):
+    filler_rate              : β = +0.546  ↑ Truth
+    hedging_rate             : β = -0.080  ↑ Decep
+    certainty_rate           : β = -0.097  ↑ Decep
+    experiencer_rate         : β = +0.364  ↑ Truth
+    neg_emotion_rate         : β = -0.366  ↑ Decep
+    first_person_rate        : β = -0.194  ↑ Decep

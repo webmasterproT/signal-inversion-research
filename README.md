@@ -160,5 +160,21 @@ This isn't opinion. Run the numbers yourself.
 
 ---
 
+## Related Work
+
+**[The Prior Problem](https://github.com/webmasterproT/the-prior-problem)** — 5 reproducible studies proving you can't know someone's prior. Bayesian models in computational psychiatry pathologize what they can't predict. The only honest response is safety.
+
+| This repo | The Prior Problem |
+|-----------|-----------------|
+| Study 6 (ASD compounding) | Study 3 (diagnosis depends on the prior) |
+| Study 9 (environmental outcomes) | Study 5 (safety as the only honest prior) |
+| Study 10 (distillation framework) | Study 5 (synthesis) |
+
+- **GitHub**: https://github.com/webmasterproT/the-prior-problem
+- **GitLab**: https://gitlab.com/tiationist/the-prior-problem
+- **Pages**: https://webmasterprot.github.io/the-prior-problem/
+
+---
+
 *By Alex Applebee & L. N. Combe | OMXUS Research*
 *Licensed under CC BY 4.0 — use it, share it, build on it.*
